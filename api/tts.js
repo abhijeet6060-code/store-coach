@@ -6,7 +6,9 @@ module.exports = async (req, res) => {
   // Trim: a pasted key often carries a trailing space or line break, which makes the request header invalid.
   const key = (process.env.ELEVENLABS_API_KEY || "").trim(), voice = (process.env.ELEVENLABS_VOICE_ID || "").trim();
   // A key must be a single token. If a whole .env block was pasted as the value, refuse rather than send it anywhere.
-  if (/[\s=]/.test(key) || /[\s=]/.test(voice)) return res.status(503).json({ error: "Voice not configured correctly" });
+  // Report only WHICH variable is malformed (its name), never any part of its value.
+  const bad = [["ELEVENLABS_API_KEY", key], ["ELEVENLABS_VOICE_ID", voice]].filter(([, v]) => /[\s=]/.test(v)).map(([n]) => n);
+  if (bad.length) return res.status(503).json({ error: "Voice not configured correctly", fix: bad });
   if (!key || !voice) return res.status(503).json({ error: "Voice not configured" });
 
   let body = req.body;
