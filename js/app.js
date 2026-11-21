@@ -2,6 +2,7 @@
 // Follow-ups, remarks, photos and visit notes are demo updates saved in this browser.
 import * as T from "./tasks.js";
 import { icon } from "./icons.js";
+import { fixesFor } from "./fixes.js";
 
 const $ = (s, el = document) => el.querySelector(s);
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -45,6 +46,16 @@ const GLOSSARY = `<details class="more glossary"><summary>What do these words me
   <dt>Follow-up</dt><dd>A task the area manager gives a store manager, with a deadline. The store manager updates it; the area manager approves it.</dd>
   <dt>Store health</dt><dd>Green = no problems found. Amber = needs attention. Red = critical (big money at stake or tasks overdue).</dd>
 </dl></details>`;
+// Best metric vs store peers, so every card opens with something the person does well.
+function strength(c) {
+  const ms = Object.entries(c.metrics || {}).map(([k, m]) => {
+    const better = m.higher_is_better ? m.me - m.peer_median : m.peer_median - m.me;
+    return { k, m, rel: better / (Math.abs(m.peer_median) || 0.01) };
+  }).filter((x) => x.rel > 0.02).sort((a, b) => b.rel - a.rel);
+  if (!ms.length) return c.bills_90d ? `You served ${c.bills_90d} bills in the last 90 days. Thank you.` : "";
+  const { k, m } = ms[0], f = (v) => (k === "ipb" ? v.toFixed(2) : (v * 100).toFixed(1) + "%");
+  return `You're strong at ${m.label.toLowerCase()}: ${f(m.me)} vs ${f(m.peer_median)} for your store.`;
+}
 const actionText = (a) => { const t = String(a).replace(/^Today:\s*/, ""); return t.charAt(0).toUpperCase() + t.slice(1); };
 const dShort = (iso) => new Date(String(iso).slice(0, 10) + "T00:00:00").toLocaleDateString("en-IN", { day: "numeric", month: "short" });
 const dTime = (iso) => new Date(iso).toLocaleString("en-IN", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
@@ -149,7 +160,7 @@ const kpi = (icon, value, label, sub = "", cls = "") => `<div class="card kpi ${
 const flash = () => { if (!S.flash) return ""; const f = S.flash; S.flash = null; return `<div class="flash ${f.k}">${esc(f.msg)}</div>`; };
 const head = (title, sub, right = "") => `<div class="head"><div><h1>${title}</h1><p class="sub">${sub}</p></div>${right}</div>${flash()}`;
 const issueKey = (sid, a) => `${sid}|${a.title}`;
-const openTaskFor = (sid, a) => T.all().find((t) => T.isOpen(t) && t.issue_key === issueKey(sid, a));
+const openTaskFor = (sid, a) => T.all().find((t) => T.isOpen(t) && String(t.issue_key || "").startsWith(issueKey(sid, a)));
 const stClass = (s) => ({ Pending: "pending", "In Progress": "progress", Submitted: "submitted", "Under Review": "review", Completed: "done", Overdue: "overdue" }[s]);
 const stPill = (t) => { const s = T.displayStatus(t); return `<span class="st ${stClass(s)}">${s}</span>`; };
 
@@ -166,7 +177,7 @@ function alertRow(a, i, sid, withFU = true) {
       <details class="more"><summary>Why? Evidence &amp; details</summary>
         <p>${esc(a.cause)}</p>
         <div class="meta-row"><span>Owner: Store Manager, ${esc(store)}</span><span>Confidence: ${confidence(a)}</span></div></details>
-      ${fu ? `<div class="fu-btn">${fu}</div>` : ""}</div>
+      ${fu ? `<div class="fu-btn">${fu}</div>` : ""}${fixBlock(a, store, true)}</div>
     <div class="stake"><b>${inrShort(a.rupees_week)}</b><span>at stake / week</span></div>
   </div>`;
 }
@@ -197,7 +208,8 @@ function coachDetail(c, showGot = true) {
     </div>
     <div class="dcoach"><div class="t">${icon("bulb")} Your coaching for today</div>
       <blockquote>“${esc(actionText(c.action))}”</blockquote>
-      <p class="why">${esc(c.behaviour)} ${esc(c.peer)}</p>
+      ${strength(c) ? `<p class="strength">${icon("followups", 15)} ${esc(strength(c))}</p>` : ""}
+      <p class="why"><b>One thing to improve:</b> ${esc(c.behaviour)} ${esc(c.peer)}</p>
       ${showGot ? `<button class="btn ${got ? "done" : ""}" data-got="${esc(c.salesperson_id)}">${got ? "✓ Done for today" : "Got it!"}</button>` : ""}
       <div class="wc">Card: ${c.words} words (limit 60)</div></div>
   </div>`;
@@ -584,7 +596,8 @@ function vSpToday(greet) {
       <span class="eyebrow">${icon("bulb", 16)} One thing to do today</span>
       <label class="bigtick"><input type="checkbox" data-got="${esc(c.salesperson_id)}" ${got ? "checked" : ""}><span class="box"></span>
         <span class="act">${esc(actionText(c.action))}</span></label>
-      <p class="why">${esc(c.behaviour)} ${esc(c.peer)}</p>
+      ${strength(c) ? `<p class="strength">${icon("followups", 15)} ${esc(strength(c))}</p>` : ""}
+      <p class="why"><b>One thing to improve:</b> ${esc(c.behaviour)} ${esc(c.peer)}</p>
       <p class="small muted">${got ? "Done for today. Nice work." : "Tick it when you've done it."} · ${c.words} words</p>
     </div>
     <details class="card panel more"><summary>How you compare with your store's peers</summary><div class="bars">${rows || '<p class="muted">Not enough bills to compare yet.</p>'}<div class="key">Orange bar = you · line = median of your store's peers · last 90 days</div></div></details>
@@ -641,6 +654,124 @@ function vWelcome() {
   </div>`;
 }
 
+// ---------------- How to fix it (3 options, Recommended first) ----------------
+const nnKey = (sid, a, lvl) => `nn|${R.as_of}|${issueKey(sid, a)}|${lvl}`;
+function fixBlock(a, sid, compact = false) {
+  const opts = fixesFor(a).filter((o) => !ls.get(nnKey(sid, a, o.level), false));
+  if (!opts.length) return `<div class="fix"><p class="small muted">All options set aside for today. <button class="linkbtn" data-unhide="${esc(sid)}" data-title="${esc(a.title)}">Show them again</button></p></div>`;
+  const row = (o) => {
+    const t = T.all().find((x) => x.issue_key === `${issueKey(sid, a)}|${o.level}`);
+    const btns = S.role === "Store Manager" || S.role === "Area Manager"
+      ? (t ? `<a class="chip" href="#task/${t.id}">${t.id} · ${T.displayStatus(t)}</a>`
+           : `<button class="btn sm" data-doit="${esc(sid)}" data-title="${esc(a.title)}" data-level="${o.level}">Do it</button><button class="chip" data-notnow="${esc(sid)}" data-title="${esc(a.title)}" data-level="${o.level}">Not now</button>`) : "";
+    return `<div class="opt ${o.recommended ? "rec" : ""}">
+      <div class="opt-top">${o.recommended ? `<span class="recpill">Recommended</span>` : ""}<span class="lvl">${o.level}</span><span class="eff">${esc(o.effort)}</span></div>
+      <p class="opt-text">${esc(o.text)}</p>
+      <p class="opt-meta"><b>Who:</b> ${esc(o.who)} · <b>Why this should work:</b> ${esc(o.why)}</p>
+      ${o.say ? `<p class="say"><span>Say this</span>“${esc(o.say)}”</p>` : ""}
+      <div class="opt-foot"><span class="small muted">Could win back ${esc(o.win)}</span><span class="row-gap">${btns}</span></div></div>`;
+  };
+  const [first, ...rest] = opts;
+  return `<div class="fix"><div class="fix-h">${icon("bulb", 15)} How to fix it</div>${row(first)}${rest.length ? (compact ? `<details class="more"><summary>${rest.length} more option${rest.length > 1 ? "s" : ""}</summary>${rest.map(row).join("")}</details>` : rest.map(row).join("")) : ""}</div>`;
+}
+function doIt(sid, title, level) {
+  const a = (R.store_alerts[sid] || []).find((x) => x.title === title);
+  if (!a) return { error: "Issue not found." };
+  const o = fixesFor(a).find((x) => x.level === level);
+  const days = level === "This week" ? 6 : level === "Today" ? 1 : 0;
+  return T.create({ store_id: sid, title: `${a.title.replace(sid + ": ", "")} · ${level}`, category: a.lever, problem: `${a.cause}`,
+    action: `${o.text} Who: ${o.who}.${o.say ? ` Say this: “${o.say}”` : ""}`, deadline: addDays(T.todayISO(), days), priority: prio(a.rupees_week),
+    issue_key: `${issueKey(sid, a)}|${level}`, metric: ["conv", "ipb", "disc", "sp_disc", "repeat"].includes(a.metric) ? { name: a.metric === "ipb" ? "ipb" : "rate", label: { conv: "Conversion", ipb: "Items per bill", disc: "Discount", sp_disc: "Discount", repeat: "Return rate" }[a.metric], before: a.now } : null },
+    S.role === "Area Manager" ? amObj().name : `Store Manager, ${sid}`);
+}
+// Stores ordered by how much needs fixing: critical first, then by rupees at stake.
+function storesByPriority(ids) {
+  return ids.map((s) => { const al = R.store_alerts[s] || []; return { s, al, h: health(s), stake: al.reduce((x, a) => x + a.rupees_week, 0) }; })
+    .sort((a, b) => "rag".indexOf(a.h.k[0]) - "rag".indexOf(b.h.k[0]) || b.stake - a.stake);
+}
+
+// ---------------- STORE VISIT BRIEF (phone-first, can be read aloud) ----------------
+function briefStore() {
+  if (S.role === "Store Manager") return S.sm;
+  const ids = storesOf(amObj());
+  if (!ids.includes(S.briefStore)) S.briefStore = storesByPriority(ids)[0].s;
+  return S.briefStore;
+}
+function briefData(sid) {
+  const info = R.stores[sid], h = health(sid), k = R.kpis[sid], cur = agg([k.cur]), prev = agg([k.prev]);
+  const al = (R.store_alerts[sid] || []).slice(0, 3), top = al[0], opts = top ? fixesFor(top) : [];
+  const open = tasksFor(sid).filter(T.isOpen).length, g = prev.rev ? cur.rev / prev.rev - 1 : NaN;
+  const rm = R.area_managers.flatMap((a) => a.role_models || []).find((m) => m.store_id === sid);
+  const names = new Set();
+  al.forEach((a) => { const m = a.title.match(/: (.+?) discounting|: (.+?)'s customers|shadows (.+?) on/) || a.action.match(/shadows (.+?) on/); const n = m && (m[1] || m[2] || m[3]); if (n) names.add(n); });
+  const coach = [...names].slice(0, 2).map((n) => R.cards.find((c) => c.store_id === sid && c.name === n)).filter(Boolean);
+  const sayOpt = al.flatMap((a) => fixesFor(a)).find((o) => o.say);
+  const agenda = top ? [
+    ["On arrival", "5 min", opts[0].text],
+    ["Opening huddle", "10 min", sayOpt ? `Tell the team: “${sayOpt.say}”` : "Share one goal for the day with the team."],
+    ["Mid-day", "5 min", top.metric === "ipb" ? `Check items per bill so far; aim for ${top.expected.toFixed(2)}.` : top.metric === "conv" ? `Count walk-ins and bills so far; aim for ${pct(top.expected)} buying.` : `Check in with ${coach[0]?.name || "the team"} on how it's going.`],
+    ["Closing", "10 min", al.some((a) => a.metric === "sp_disc") ? "Review today's discounted bills at the till." : open ? "Update and close today's follow-up with a remark." : opts[2]?.text || "Note what worked today."],
+  ] : [["Opening huddle", "10 min", "Thank the team: no problems found this week. Keep it up."]];
+  const season = seasonText([sid]), di = R.data_issues.filter((d) => d.store_id === sid);
+  return { sid, info, h, cur, prev, g, al, top, opts, open, rm, coach, agenda, season, di };
+}
+function briefScript(d) {
+  const parts = [`Store brief for ${d.sid}, ${d.info.city}. Status: ${d.h.label}. ${d.al.length ? `${d.al.length} thing${d.al.length > 1 ? "s" : ""} to fix today.` : "Nothing urgent today."}`];
+  parts.push(`${(d.cur.conv * 100).toFixed(0)} out of every 100 people who walked in bought something in the last 28 days.`);
+  if (isFinite(d.g)) parts.push(`Sales are ${d.g >= 0 ? "up" : "down"} ${Math.abs(d.g * 100).toFixed(0)} percent on the 28 days before${d.season ? ", mostly because of the festival season" : ""}.`);
+  if (d.top) parts.push(`Fix first: ${d.top.title.replace(d.sid + ": ", "")}. ${KIND[kind(d.top)].simple} Recommended: ${d.opts[0].text}`);
+  d.agenda.forEach(([w, t, x]) => parts.push(`${w}: ${x.replace(/[“”]/g, "")}`));
+  if (d.rm) parts.push(`Thank ${d.rm.name}: ${(d.rm.rate * 100).toFixed(1)} percent of their customers come back.`);
+  if (d.di.length) parts.push(`Watch out: ${d.di[0].issue}.`);
+  return parts.join(" ");
+}
+function vBrief() {
+  const sid = briefStore(), d = briefData(sid), today = T.todayISO();
+  const pick = S.role === "Area Manager" ? `<select class="pill big-sel" id="brief-store" aria-label="Store">${storesByPriority(storesOf(amObj())).map((x, i) => `<option value="${x.s}" ${x.s === sid ? "selected" : ""}>${i + 1}. ${x.s} · ${esc(R.stores[x.s].city)} · ${x.h.label}</option>`).join("")}</select>` : "";
+  const agKey = (i) => `ag|${today}|${sid}|${i}`;
+  const convWords = !isFinite(d.cur.conv) || !isFinite(d.prev.conv) ? "" : d.cur.conv < d.prev.conv ? "Fewer people who walk in are buying" : "More people who walk in are buying";
+  return `<div class="brief">${pick}
+    <header class="b-head"><h1>${sid} · ${esc(d.info.city)}</h1><p class="b-date">${new Date().toLocaleDateString("en-IN", { weekday: "long", day: "numeric", month: "long" })}</p>
+      <p class="b-status">${dot(d.h.k)} ${d.h.label} · ${d.al.length ? `${d.al.length} thing${d.al.length > 1 ? "s" : ""} to fix today` : "nothing urgent today"}</p></header>
+    ${flash()}
+    <section class="b-card b-listen"><h2>Before you arrive</h2>
+      <div class="b-play"><button class="bbtn primary" data-speak="play">${icon("ai", 20)} Play brief</button><button class="bbtn" data-speak="pause">Pause</button><button class="bbtn" data-speak="stop">Stop</button></div>
+      <p class="b-note">Listen, don't read, while driving. About a minute.</p></section>
+    <section class="b-card"><h2>Today at a glance</h2>
+      <div class="b-num"><b>${pct(d.cur.conv, 0)}</b><span>bought something, out of everyone who walked in. ${convWords}.</span></div>
+      <div class="b-num"><b>${isFinite(d.g) ? (d.g >= 0 ? "+" : "") + (d.g * 100).toFixed(0) + "%" : "–"}</b><span>sales vs the 28 days before${d.season ? ` <span class="stag sm">festival season</span>` : ""}.</span></div>
+      <div class="b-num"><b>${d.open}</b><span>open follow-up${d.open === 1 ? "" : "s"} for this store.</span></div></section>
+    <section class="b-card"><h2>Your agenda for today</h2><ul class="b-agenda">${d.agenda.map(([w, t, x], i) => `<li class="${ls.get(agKey(i), false) ? "is-done" : ""}">
+      <label class="bigtick"><input type="checkbox" data-agenda="${agKey(i)}" ${ls.get(agKey(i), false) ? "checked" : ""}><span class="box"></span><span><b>${w}</b> <em>${t}</em><br>${esc(x)}</span></label></li>`).join("")}</ul></section>
+    ${d.top ? `<section class="b-card"><h2>Fix first</h2><p class="b-issue">${tag(d.top)}${esc(d.top.title.replace(sid + ": ", ""))}</p><p class="b-plain">${KIND[kind(d.top)].simple}</p>${fixBlock(d.top, sid, false)}
+      ${d.al.length > 1 ? `<details class="more"><summary>See all ${d.al.length} things to fix</summary>${d.al.slice(1).map((a) => `<p class="b-issue">${tag(a)}${esc(a.title.replace(sid + ": ", ""))}</p>${fixBlock(a, sid, true)}`).join("")}</details>` : ""}</section>` : ""}
+    <section class="b-card"><h2>People</h2>
+      ${d.rm ? `<p class="b-person"><b>Thank ${esc(d.rm.name)}</b>: ${pct(d.rm.rate)} of their first-time customers came back, against ${pct(d.rm.store_rate)} for the store.</p>` : ""}
+      ${d.coach.map((c) => `<p class="b-person"><b>Coach ${esc(c.name)}</b>: ${esc(actionText(c.action))}</p>`).join("") || (d.rm ? "" : `<p class="b-person">No one-to-one coaching needed today.</p>`)}
+      <p class="b-note">Private to you. Not a ranking.</p></section>
+    <section class="b-card"><h2>Watch out</h2>
+      ${d.season ? `<p class="b-watch">${esc(d.season)}.</p>` : ""}
+      ${d.di.map((x) => `<p class="b-watch">${esc(x.issue)}: ${esc(x.detail)}</p>`).join("")}
+      ${!d.season && !d.di.length ? `<p class="b-watch">Nothing unusual this week.</p>` : ""}</section>
+    <p class="b-note"><a href="#${S.role === "Store Manager" ? "home" : "store/" + sid}">See the full store page →</a></p>
+    ${S.briefTodo ? `<form class="b-card" id="todo-form"><h2>Add to-do</h2><input class="b-input" name="text" placeholder="e.g. Check the trial room add-ons" required maxlength="200"><input type="hidden" name="due" value="${today}"><button class="bbtn primary" type="submit">Add</button></form>` : ""}
+    <div class="b-bar"><button class="bbtn primary" data-speak="play">Play brief</button><button class="bbtn" data-brief-todo>Add to-do</button></div>
+  </div>`;
+}
+function speak(cmd) {
+  const sy = window.speechSynthesis;
+  if (!sy) { S.flash = { k: "bad", msg: "This browser can't read aloud. Try Chrome." }; render(); return; }
+  if (cmd === "stop") { sy.cancel(); return; }
+  if (cmd === "pause") { sy.speaking && !sy.paused ? sy.pause() : sy.resume(); return; }
+  if (sy.paused) { sy.resume(); return; }
+  sy.cancel();
+  const u = new SpeechSynthesisUtterance(briefScript(briefData(briefStore())));
+  u.lang = "en-IN"; u.rate = 1;
+  const v = sy.getVoices().find((x) => x.lang === "en-IN") || sy.getVoices().find((x) => x.lang.startsWith("en"));
+  if (v) u.voice = v;
+  sy.speak(u);
+}
+
 // ================= Area Manager: four screens =================
 const prio = (r) => (r >= 20000 ? "High" : r >= 5000 ? "Medium" : "Low");
 const prioPill = (r) => `<span class="pri ${prio(r) === "High" ? "hi" : prio(r) === "Medium" ? "md" : "lo"}">${prio(r)}</span>`;
@@ -658,7 +789,7 @@ function runAnalysis() {
   if (location.hash !== "#overview") location.hash = "#overview"; else render();
   setTimeout(() => {
     const issues = allIssues(ids), tasks = T.all().filter((t) => ids.includes(t.store_id));
-    const drafts = issues.filter((a) => !T.all().some((t) => t.issue_key === issueKey(a.store, a))).map((a) => ({
+    const drafts = issues.filter((a) => !T.all().some((t) => String(t.issue_key || "").startsWith(issueKey(a.store, a)))).map((a) => ({
       key: issueKey(a.store, a), store: a.store, title: a.title, lever: a.lever, cause: a.cause, action: a.action, rupees: a.rupees_week, raw: a,
       priority: prio(a.rupees_week), deadline: addDays(T.todayISO(), a.rupees_week >= 20000 ? 2 : 4), on: a.rupees_week >= 5000,
       metric: ["conv", "ipb", "disc", "sp_disc", "repeat"].includes(a.metric) ? { name: a.metric === "ipb" ? "ipb" : "rate", label: { conv: "Conversion", ipb: "Items per bill", disc: "Discount", sp_disc: "Discount", repeat: "Return rate" }[a.metric], before: a.now } : null,
@@ -718,8 +849,13 @@ function vAmOverview() {
     <div class="ai-cta"><button class="btn big" data-run-ai>${icon("ai", 20)} Run AI Analysis</button>
       <span class="small muted">Checks every store, finds what needs attention and drafts follow-ups for you to approve.</span></div>
     ${aiPanel()}
-    <div class="card panel"><div class="chart-title"><h2>Top 3 issues</h2><a class="small" href="#insights">All insights →</a></div>
-      <ul class="tl">${top.map((a) => issueRow(a, a.store)).join("") || `<li class="ti"><span class="muted small">No issues found this week.</span></li>`}</ul></div>
+    <div class="prio-h"><h2>Stores to fix, most urgent first</h2><span class="small muted">Visit in this order</span></div>
+    ${storesByPriority(ids).map((x, i) => x.al.length ? `<div class="card panel store-prio ${x.h.k}">
+      <div class="sp-head"><span class="rank">${i + 1}</span><div><a class="sp-name" href="#store/${x.s}">${x.s}</a> <span class="muted">· ${esc(R.stores[x.s].city)} · tier ${esc(R.stores[x.s].tier)}</span>
+        <div class="sp-sub">${dot(x.h.k)} ${x.h.label} · ${x.al.length} problem${x.al.length > 1 ? "s" : ""} · ${inrShort(x.stake)}/week at stake (estimate)${i === 0 ? ` · <b class="visit">Visit first</b>` : ""}</div></div></div>
+      ${x.al.map((a) => `<div class="issue"><div class="txt">${tag(a)}${esc(a.title.replace(x.s + ": ", ""))}</div>${simple(a)}
+        <details class="more"><summary>Why? Evidence</summary><p>${esc(a.cause)}</p></details>${fixBlock(a, x.s, true)}</div>`).join("")}
+    </div>` : `<div class="card panel store-prio ok"><div class="sp-head"><span class="rank">${i + 1}</span><div><a class="sp-name" href="#store/${x.s}">${x.s}</a> <span class="muted">· ${esc(R.stores[x.s].city)}</span><div class="sp-sub">${dot(x.h.k)} ${x.h.label} · nothing to fix this week</div></div></div></div>`).join("")}
     ${GLOSSARY}
   </div>`;
 }
@@ -770,7 +906,7 @@ function vAmInsights() {
           ${simple(a)}
           <span class="meta"><b class="lbl3">Evidence</b> ${esc(a.cause)}</span>
           <span class="meta"><b class="lbl3">What to do</b> ${esc(actionText(a.action))}</span>
-          <span class="meta">Owner: Store Manager, ${esc(a.store)} · Confidence: ${confidence(a)}</span></div>
+          <span class="meta">Owner: Store Manager, ${esc(a.store)} · Confidence: ${confidence(a)}</span>${fixBlock(a, a.store, true)}</div>
         <div class="ti-right"><span class="amt">${inrShort(a.rupees_week)}<small>/wk</small></span>${ft ? `<a class="chip" href="#task/${ft.id}">${ft.id} · ${T.displayStatus(ft)}</a>` : `<button class="chip accent" data-newfu="${esc(a.store)}" data-title="${esc(a.title)}">Assign</button>`}</div></li>`;
     }).join("") || `<li class="ti muted">No issues found this week.</li>`}</ul></div>
     ${am.role_models?.length ? `<div class="card panel"><h2>Role models</h2><ul class="tl">${am.role_models.map((m) => `<li class="ti"><span class="tick static">${dot("green")}</span><div class="tt"><span class="txt">${esc(m.name)} · ${esc(m.store_id)}</span><span class="meta">${pct(m.rate)} of first-time customers came back vs ${pct(m.store_rate)} for the store. Ask them to show the team how.</span></div></li>`).join("")}</ul></div>` : ""}
@@ -782,12 +918,12 @@ function vAmInsights() {
 
 // ---------------- routing / navigation ----------------
 const NAV = {
-  "Area Manager": [["overview", "overview", "Overview"], ["stores", "stores", "Stores"], ["followups", "followups", "Follow-ups"], ["insights", "ai", "AI Insights"]],
-  "Store Manager": [["today", "todo", "Today"], ["home", "home", "My store"], ["followups", "followups", "Tasks"], ["team", "team", "Team"]],
+  "Area Manager": [["overview", "overview", "Overview"], ["brief", "card", "Brief"], ["stores", "stores", "Stores"], ["followups", "followups", "Follow-ups"], ["insights", "ai", "AI Insights"]],
+  "Store Manager": [["brief", "card", "Brief"], ["today", "todo", "Today"], ["home", "home", "My store"], ["followups", "followups", "Tasks"], ["team", "team", "Team"]],
   Salesperson: [["today", "todo", "Today"]],
 };
 const VIEWS = {
-  overview: vAmOverview, stores: vAmStores, insights: vAmInsights, followups: vAmFollowups, coach: () => vCoach(null), visits: vVisits, reports: vReports, data: vData,
+  brief: vBrief, overview: vAmOverview, stores: vAmStores, insights: vAmInsights, followups: vAmFollowups, coach: () => vCoach(null), visits: vVisits, reports: vReports, data: vData,
   home: () => vStoreProfile(S.sm), team: () => vCoach(S.sm), card: vSpCard, todo: vTodo, today: vToday,
 };
 function route() {
@@ -804,12 +940,17 @@ function route() {
   if (v === "task" && arg && S.role !== "Salesperson") return { v: "followups", html: () => vTask(arg) };
   return { v: allowed.includes(v) ? v : allowed[0], html: null };
 }
+function resetPanel() {
+  return S.confirmReset ? `<div class="card panel confirm-panel" role="alertdialog" aria-label="Reset demo updates">
+    <h2>Clear demo updates?</h2><p>This removes every follow-up, remark, photo, to-do, tick and visit note saved in this browser. The analysis numbers are not affected.</p>
+    <div class="row-gap"><button class="btn" data-reset-yes>Yes, clear them</button><button class="btn ghost" data-reset-no>Cancel</button></div></div>` : "";
+}
 function render() {
   const welcome = (location.hash || "#welcome") === "#welcome";
   document.querySelector(".app").classList.toggle("welcome-mode", welcome);
   if (welcome) { $("#view").innerHTML = vWelcome(); closeMenu(); return; }
   const r = route(), view = r.v;
-  $("#view").innerHTML = r.html ? r.html() : VIEWS[view]();
+  $("#view").innerHTML = resetPanel() + (r.html ? r.html() : VIEWS[view]());
   const nav = NAV[S.role];
   const badge = (k) => {
     if (k === "followups") {
@@ -864,9 +1005,11 @@ function closeMenu() { $("#sidebar").classList.remove("open"); $("#scrim").class
 $("#menu").addEventListener("click", () => { $("#sidebar").classList.add("open"); $("#scrim").classList.add("open"); });
 $("#scrim").addEventListener("click", closeMenu);
 $("#ai-top").addEventListener("click", () => { if (S.role === "Area Manager") runAnalysis(); });
-addEventListener("hashchange", () => { render(); scrollTo(0, 0); });
+addEventListener("hashchange", () => { window.speechSynthesis?.cancel(); render(); scrollTo(0, 0); });
 $("#view").addEventListener("input", (e) => { if (e.target.id === "store-q") { S.q = e.target.value; const pos = e.target.selectionStart; render(); const el = $("#store-q"); el.focus(); el.setSelectionRange(pos, pos); } });
 $("#view").addEventListener("change", (e) => {
+  if (e.target.id === "brief-store") { S.briefStore = e.target.value; window.speechSynthesis?.cancel(); render(); return; }
+  if (e.target.dataset.agenda) { ls.set(e.target.dataset.agenda, e.target.checked); render(); return; }
   if (e.target.dataset.draft) { S.ai.drafts[+e.target.dataset.draft].on = e.target.checked; render(); return; }
   if (e.target.dataset.draftDate) { if (e.target.value >= T.todayISO()) S.ai.drafts[+e.target.dataset.draftDate].deadline = e.target.value; return; }
   if (e.target.dataset.ack) { const k = ackKey(e.target.dataset.ack); ls.set(k, !ls.get(k, false)); render(); return; }
@@ -896,7 +1039,22 @@ $("#view").addEventListener("click", (e) => {
     persist(); renderWho(); location.hash = "#" + NAV[S.role][0][0];
     return;
   }
+  if (el("[data-reset-yes]")) {
+    T.resetAll();
+    try { Object.keys(localStorage).filter((k) => /^(sc_|got\||ack\||nn\||ag\|)/.test(k)).forEach((k) => localStorage.removeItem(k)); } catch { /* ignore */ }
+    S.confirmReset = false; S.ai = null; S.flash = { k: "ok", msg: "Demo updates cleared." }; render(); return;
+  }
+  if (el("[data-reset-no]")) { S.confirmReset = false; render(); return; }
+  if ((x = el("[data-speak]"))) { speak(x.dataset.speak); return; }
+  if (el("[data-brief-todo]")) { S.briefTodo = !S.briefTodo; render(); setTimeout(() => $("#todo-form input[name=text]")?.focus(), 0); return; }
   if (el("[data-run-ai]")) { runAnalysis(); return; }
+  if ((x = el("[data-doit]"))) {
+    const res = doIt(x.dataset.doit, x.dataset.title, x.dataset.level);
+    S.flash = res.error ? { k: "bad", msg: res.error } : { k: "ok", msg: `${res.task.id} created for Store Manager, ${res.task.store_id}: ${x.dataset.level}, due ${dShort(res.task.deadline)}. It's on their Today list.` };
+    render(); return;
+  }
+  if ((x = el("[data-notnow]"))) { const a = (R.store_alerts[x.dataset.notnow] || []).find((y) => y.title === x.dataset.title); if (a) ls.set(nnKey(x.dataset.notnow, a, x.dataset.level), true); render(); return; }
+  if ((x = el("[data-unhide]"))) { const a = (R.store_alerts[x.dataset.unhide] || []).find((y) => y.title === x.dataset.title); if (a) fixesFor(a).forEach((o) => ls.set(nnKey(x.dataset.unhide, a, o.level), false)); render(); return; }
   if (el("[data-ai-close]")) { S.ai = null; render(); return; }
   if (el("[data-ai-approve]")) {
     const by = amObj().name; let made = 0, dup = 0;
@@ -981,7 +1139,7 @@ async function main() {
   S.role = NAV[w.role] && (w.role === "Area Manager" || (w.role === "Store Manager" && S.sm) || (w.role === "Salesperson" && S.sp)) ? w.role : "Area Manager";
   const total = R.area_managers.reduce((s, a) => s + a.alerts.length, 0);
   $("#runbox").innerHTML = `Data to <b>${dShort(R.as_of)}</b> · analysis runs every morning<br>Last run <b>${esc(R.generated_at)}</b><br>${total} alerts · ${R.cards.length} coaching cards<br><button class="linkbtn" id="reset-demo">Reset demo updates</button>`;
-  $("#reset-demo").addEventListener("click", () => { if (confirm("Clear all follow-ups, remarks, photos, to-dos and visit notes saved in this browser?")) { T.resetAll(); try { localStorage.removeItem("sc_visits_v1"); localStorage.removeItem("sc_todo_v1"); } catch {} S.flash = { k: "ok", msg: "Demo updates cleared." }; render(); } });
+  $("#reset-demo").addEventListener("click", () => { S.confirmReset = true; render(); scrollTo(0, 0); });
   renderWho();
   render();
 }
