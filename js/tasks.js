@@ -72,6 +72,20 @@ export function update(id, { status, note, photo }, by, role) {
 
 export function resetAll() { save([]); }
 
+// Area manager changes a deadline; the change is recorded in the task history.
+export function setDeadline(id, deadline, by, role, note) {
+  if (role !== "Area Manager") return { error: "Only the area manager can change a deadline." };
+  if (!deadline || deadline < todayISO()) return { error: "Pick a deadline from today onwards." };
+  const list = load(), t = list.find((x) => x.id === id);
+  if (!t) return { error: "Follow-up not found." };
+  if (t.deadline === deadline) return { error: "That's already the deadline." };
+  const old = t.deadline;
+  t.deadline = deadline;
+  t.history.push({ at: nowStamp(), by, status: t.status, note: `Deadline moved from ${old} to ${deadline}.${note ? " " + note : ""}` });
+  save(list);
+  return { task: t };
+}
+
 // Delete a follow-up created by mistake (Area Manager only; the UI asks for confirmation first).
 export function remove(id, role) {
   if (role !== "Area Manager") return { error: "Only the area manager can delete a follow-up." };
