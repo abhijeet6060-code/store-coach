@@ -20,6 +20,7 @@ const ls = {
   set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* private mode */ } },
 };
 const LEVER = { "More bills": "bills", "Bigger baskets": "baskets", "More repeat": "repeat" };
+const actionText = (a) => { const t = String(a).replace(/^Today:\s*/, ""); return t.charAt(0).toUpperCase() + t.slice(1); };
 const dShort = (iso) => new Date(String(iso).slice(0, 10) + "T00:00:00").toLocaleDateString("en-IN", { day: "numeric", month: "short" });
 const dTime = (iso) => new Date(iso).toLocaleString("en-IN", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
 const addDays = (iso, n) => { const d = new Date(iso + "T00:00:00"); d.setDate(d.getDate() + n); return d.toLocaleDateString("en-CA"); };
@@ -155,7 +156,7 @@ function coachDetail(c, showGot = true) {
       <div class="card bars"><h2>You vs your store's peers</h2>${rows || '<p class="muted">Not enough bills to compare yet.</p>'}<div class="key">Orange bar = you · dark line = median of your store's peers · last 90 days</div></div>
     </div>
     <div class="dcoach"><div class="t">${icon("bulb")} Your coaching for today</div>
-      <blockquote>“${esc(c.action.replace(/^Today:\s*/, ""))}”</blockquote>
+      <blockquote>“${esc(actionText(c.action))}”</blockquote>
       <p class="why">${esc(c.behaviour)} ${esc(c.peer)}</p>
       ${showGot ? `<button class="btn ${got ? "done" : ""}" data-got="${esc(c.salesperson_id)}">${got ? "✓ Done for today" : "Got it!"}</button>` : ""}
       <div class="wc">Card: ${c.words} words (limit 60)</div></div>
@@ -352,7 +353,7 @@ function vCoach(storeLocked) {
     <p class="small muted">Green dot = the salesperson tapped “Got it” on their card today. Cards are private coaching, not a public ranking.</p></div>`;
 }
 
-function vVisits() {
+function vVisits(embedded) {
   const am = amObj(), ids = storesOf(am), V = T.visits();
   const rows = ids.map((s) => {
     const al = R.store_alerts[s] || [], tasks = tasksFor(s), reasons = [];
@@ -369,7 +370,7 @@ function vVisits() {
     if (silent) { score += 2; reasons.push(`${silent} task${silent > 1 ? "s" : ""} with no response for 2+ days`); }
     return { s, score, reasons, al };
   }).filter((r) => r.score > 0).sort((a, b) => b.score - a.score);
-  return head("Visit Planner", `Where a physical visit is worth it this week · ${esc(am.city)}`) + `
+  return (embedded ? "" : head("Visit Planner", `Where a physical visit is worth it this week · ${esc(am.city)}`)) + `
   <div class="stack">${rows.map((r, i) => {
     const v = V[r.s];
     return `<div class="card visit"><div class="chart-title"><h2>${i + 1}. ${r.s} <span class="pri ${r.score >= 6 ? "hi" : r.score >= 3 ? "md" : "lo"}">${r.score >= 6 ? "High" : r.score >= 3 ? "Medium" : "Low"} priority</span></h2><span class="small muted">Previous visit: ${v?.date ? dShort(v.date) + " (recorded here)" : "none recorded"}</span></div>
@@ -382,12 +383,22 @@ function vVisits() {
 }
 
 function vReports() {
+  const tabs = [["impact", "Impact"], ["visits", "Visit planner"], ["data", `Data issues (${R.data_issues.filter((d) => storesOf(amObj()).includes(d.store_id)).length})`], ["downloads", "Downloads"]];
+  if (!tabs.some(([t]) => t === S.repTab)) S.repTab = "impact";
+  const seg = `<div class="seg">${tabs.map(([t, l]) => `<button data-rtab="${t}" class="${S.repTab === t ? "on" : ""}">${l}</button>`).join("")}</div>`;
+  if (S.repTab === "visits") return head("Reports", "Where a visit is worth it this week") + `<div class="stack">${seg}${vVisits(true)}</div>`;
+  if (S.repTab === "data") return head("Reports", "Data quality") + `<div class="stack">${seg}${vData(true)}</div>`;
+  if (S.repTab === "downloads") return head("Reports", "Download as CSV, or print any page to PDF", `<button class="btn ghost" data-print>${icon("print", 16)} Print / PDF</button>`) + `<div class="stack">${seg}<div class="card panel"><ul class="tl">
+    ${[["stores", "Store performance", "Sales, conversion, items per bill, repeat, status"], ["alerts", "Alerts & opportunities", "Every issue with evidence, action and rupees at stake"], ["followups", "Follow-ups", "Status, deadline, remarks (demo updates on this device)"], ["cards", "Salesperson coaching", "Every coaching card"], ["weekly", "Weekly area performance", "12 weeks of bills, revenue, conversion"]].map(([k, l, d]) => `<li class="ti"><span class="tick static">${icon("download", 16)}</span><div class="tt"><span class="txt">${l}</span><span class="meta">${d}</span></div><div class="ti-right"><button class="chip" data-csv="${k}">CSV</button></div></li>`).join("")}</ul></div></div>`;
+  return reportsImpact(seg);
+}
+function reportsImpact(seg) {
   const am = amObj(), ids = storesOf(am), cur = period(ids, "cur"), prev = period(ids, "prev"), wk = weekly(ids);
   const fu = am.follow_up, imp = fu.filter((f) => f.verdict === "improved").length;
   const tasks = T.all().filter((t) => ids.includes(t.store_id)), closed = tasks.filter((t) => t.status === "Completed").length;
   const signed = (v, u = "%") => (isFinite(v) ? (v > 0 ? "+" : "") + v.toFixed(1) + u : "–");
-  return head("Impact &amp; Reports", `${esc(am.city)} · last 28 days vs the 28 days before`, `<button class="btn ghost" data-print>${icon("print", 16)} Print / PDF</button>`) + `
-  <div class="stack">
+  return head("Reports", `${esc(am.city)} · last 28 days vs the 28 days before`, `<button class="btn ghost" data-print>${icon("print", 16)} Print / PDF</button>`) + `
+  <div class="stack">${seg}
     <h2 class="sec">Measured (from the data)</h2>
     <div class="grid g4">
       ${kpi("", signed((cur.rev / prev.rev - 1) * 100), "Revenue", `<div class="delta flat">${inrShort(cur.rev)} vs ${inrShort(prev.rev)}</div>`)}
@@ -406,14 +417,11 @@ function vReports() {
       ${kpi("", `${closed} / ${tasks.length}`, "Follow-ups completed", `<div class="delta flat">demo updates on this device</div>`)}
       ${kpi("", R.cards.filter((c) => ids.includes(c.store_id)).length, "Coaching cards today")}
     </div>
-    <div class="card"><h2>Download reports (CSV)</h2><div class="row-gap">
-      <button class="btn ghost" data-csv="stores">Store performance</button><button class="btn ghost" data-csv="alerts">Alerts &amp; opportunities</button>
-      <button class="btn ghost" data-csv="followups">Follow-ups</button><button class="btn ghost" data-csv="cards">Salesperson coaching</button><button class="btn ghost" data-csv="weekly">Weekly area performance</button></div></div>
   </div>`;
 }
 
-function vData() {
-  return head("Data Issues", "Numbers that can't be right. Left out of the analysis and never sent as alerts.") +
+function vData(embedded) {
+  return (embedded ? `<p class="small muted">Numbers that can't be right. Left out of the analysis and never sent as alerts.</p>` : head("Data Issues", "Numbers that can't be right. Left out of the analysis and never sent as alerts.")) +
     `<div class="stack">${R.data_issues.map((d) => `<div class="card"><h2>${esc(d.store_id)}: ${esc(d.issue)}</h2><p class="muted">${esc(d.detail)}</p></div>`).join("") || `<div class="card"><p>No data issues found.</p></div>`}</div>`;
 }
 
@@ -429,6 +437,111 @@ function vSpCard() {
   const c = R.cards.find((x) => x.salesperson_id === S.sp);
   if (!c) return head("No card yet", "Not enough recent bills to build a card.");
   return head(`Hi ${esc(c.name.split(" ")[0])}`, `Your coaching card for today · ${esc(c.store_id)}`) + coachDetail(c, true);
+}
+
+// ---------------- TODAY (one list per role) ----------------
+const ackKey = (title) => `ack|${R.as_of}|${owner()}|${title}`;
+const dot = (k) => `<span class="sdot ${k}" aria-hidden="true"></span>`;
+function todoRows(withDone = true) {
+  const today = T.todayISO(), list = T.todos(owner());
+  const rows = list.filter((t) => withDone || !t.done).map((t) => `<li class="ti ${t.done ? "is-done" : ""}">
+      <label class="tick"><input type="checkbox" data-todo-toggle="${t.id}" ${t.done ? "checked" : ""} aria-label="Done"><span class="box"></span></label>
+      <div class="tt"><span class="txt">${esc(t.text)}</span>
+        <span class="meta">To-do · ${t.done ? "done " + dTime(t.done_at) : t.due ? (t.due < today ? `<span class="neg">overdue, was due ${dShort(t.due)}</span>` : t.due === today ? "due today" : "due " + dShort(t.due)) : "added " + dTime(t.created_at)}</span></div>
+      <button class="iconbtn" data-todo-del="${t.id}" aria-label="Delete to-do">${icon("trash", 16)}</button></li>`);
+  return rows.join("");
+}
+const addRow = (ph) => `<li class="ti add"><form id="todo-form" class="addform">
+    <span class="plus">${icon("plus", 16)}</span><input name="text" maxlength="200" placeholder="${esc(ph)}" autocomplete="off" required>
+    <input type="date" name="due" min="${T.todayISO()}" aria-label="Due date (optional)"><button class="btn sm" type="submit">Add</button></form></li>`;
+function issueRow(a, store) {
+  const done = ls.get(ackKey(a.title), false), ft = S.role === "Area Manager" ? openTaskFor(store, a) : null;
+  const act = S.role !== "Area Manager" ? "" : ft ? `<a class="chip" href="#task/${ft.id}">${ft.id} · ${T.displayStatus(ft)}</a>` : `<button class="chip accent" data-newfu="${esc(store)}" data-title="${esc(a.title)}">Assign</button>`;
+  return `<li class="ti ${done ? "is-done" : ""}">
+      <label class="tick"><input type="checkbox" data-ack="${esc(a.title)}" ${done ? "checked" : ""} aria-label="Handled"><span class="box"></span></label>
+      <div class="tt"><span class="txt"><span class="lever ${LEVER[a.lever] || ""}">${esc(a.lever)}</span>${esc(a.title)}</span>
+        <span class="meta">${esc(a.action)}</span>
+        <details class="more"><summary>Why?</summary><p>${esc(a.cause)}</p><p class="small muted">Owner: Store Manager, ${esc(store)} · Confidence: ${confidence(a)} · ${inrShort(a.rupees_week)}/week at stake (estimate)</p></details></div>
+      <div class="ti-right"><span class="amt">${inrShort(a.rupees_week)}<small>/wk</small></span>${act}</div></li>`;
+}
+function taskRow(t, verb) {
+  const st = T.displayStatus(t);
+  return `<li class="ti"><span class="tick static">${dot(st === "Overdue" ? "red" : st === "Submitted" || st === "Under Review" ? "amber" : "blue")}</span>
+      <div class="tt"><span class="txt">${esc(t.store_id)}: ${esc(t.title)}</span><span class="meta">Follow-up ${esc(t.id)} · ${st} · due ${dShort(t.deadline)}</span></div>
+      <div class="ti-right"><a class="chip accent" href="#task/${t.id}">${verb}</a></div></li>`;
+}
+function vToday() {
+  const hr = new Date().getHours(), greet = hr < 12 ? "Good morning" : hr < 17 ? "Good afternoon" : "Good evening";
+  const today = T.todayISO(), todos = T.todos(owner());
+  if (S.role === "Salesperson") return vSpToday(greet);
+  if (S.role === "Store Manager") {
+    const sid = S.sm, tasks = tasksFor(sid).filter((t) => T.isOpen(t) && t.status !== "Submitted" && t.status !== "Under Review");
+    const al = R.store_alerts[sid] || [];
+    const due = tasks.filter((t) => t.deadline <= today).length + todos.filter((t) => !t.done && t.due && t.due <= today).length;
+    return `<div class="head"><div><h1>${greet}</h1><p class="sub">Store Manager, ${sid} · ${tasks.length} task${tasks.length === 1 ? "" : "s"} from your area manager · ${due} due today</p></div></div>${flash()}
+    <div class="stack"><div class="card panel"><h2>Today</h2><ul class="tl">
+      ${tasks.map((t) => taskRow(t, "Update")).join("")}
+      ${al.map((a) => issueRow(a, sid)).join("")}
+      ${todoRows()}
+      ${addRow("Add a to-do for today")}
+    </ul>${!tasks.length && !al.length && !todos.length ? `<p class="muted small">Nothing urgent for ${sid} today.</p>` : ""}</div>
+    <p class="small muted">Open <a href="#home">My store</a> for numbers and charts, or <a href="#team">Team</a> for coaching cards.</p></div>`;
+  }
+  const am = amObj(), ids = storesOf(am), H = ids.map((s) => ({ s, h: health(s) }));
+  const need = H.filter((x) => x.h.k === "amber" || x.h.k === "red").length;
+  const tasks = T.all().filter((t) => ids.includes(t.store_id));
+  const review = tasks.filter((t) => t.status === "Submitted" || t.status === "Under Review");
+  const overdue = tasks.filter((t) => T.displayStatus(t) === "Overdue");
+  const due = tasks.filter((t) => T.isOpen(t) && t.deadline === today).length + todos.filter((t) => !t.done && t.due === today).length;
+  const cur = period(ids, "cur"), prev = period(ids, "prev"), g = prev.rev ? (cur.rev / prev.rev - 1) * 100 : NaN;
+  const filt = S.health === "attention" ? "attention" : "all";
+  const strip = H.filter((x) => filt === "all" || x.h.k === "amber" || x.h.k === "red").sort((a, b) => "rag".indexOf(a.h.k[0]) - "rag".indexOf(b.h.k[0]));
+  return `<div class="head"><div><h1>${greet}, ${esc(am.name.split(" ")[0])}</h1>
+      <p class="sub">${need} of ${ids.length} stores need attention · ${due} due today${review.length ? ` · ${review.length} to review` : ""}</p></div></div>${flash()}
+  <div class="stack">
+    <div class="card panel"><div class="chart-title"><h2>Today</h2><span class="small muted">Tick when handled</span></div><ul class="tl">
+      ${review.map((t) => taskRow(t, "Review")).join("")}
+      ${overdue.filter((t) => !review.includes(t)).map((t) => taskRow(t, "Chase")).join("")}
+      ${am.alerts.slice(0, 3).map((a) => issueRow(a, a.store_id.split(",")[0].trim())).join("")}
+      ${todoRows()}
+      ${addRow("Add a to-do, e.g. Call LKO-02 about weekend cover")}
+    </ul>${am.alerts.length > 3 ? `<p class="small muted more-link">${am.alerts.length - 3} more issue${am.alerts.length - 3 === 1 ? "" : "s"} on the <a href="#stores">store pages</a>.</p>` : ""}</div>
+    <div class="card panel"><div class="chart-title"><h2>Stores</h2>
+      <div class="seg"><button data-health="all" class="${filt === "all" ? "on" : ""}">All</button><button data-health="attention" class="${filt === "attention" ? "on" : ""}">Needs attention</button></div></div>
+      <ul class="tl">${strip.map(({ s, h }) => `<li class="ti click" data-href="#store/${s}"><span class="tick static">${dot(h.k)}</span>
+        <div class="tt"><span class="txt">${s} <span class="muted">· ${esc(R.stores[s].city)} · tier ${esc(R.stores[s].tier)}</span></span><span class="meta">${h.label} · ${esc(h.why)}</span></div>
+        <div class="ti-right"><span class="go-arrow">›</span></div></li>`).join("") || `<li class="ti"><span class="muted small">All stores are healthy.</span></li>`}</ul></div>
+    <div class="statline">
+      <div><span>Sales, 28 days</span><b>${inrShort(cur.rev)}</b><em class="${g >= 0 ? "pos" : "neg"}">${isFinite(g) ? (g > 0 ? "+" : "") + g.toFixed(1) + "%" : ""}</em></div>
+      <div><span>Conversion</span><b>${pct(cur.conv)}</b></div>
+      <div><span>Open follow-ups</span><b>${tasks.filter(T.isOpen).length}</b></div>
+      <div><span>Overdue</span><b class="${overdue.length ? "neg" : ""}">${overdue.length}</b></div>
+    </div>
+  </div>`;
+}
+function vSpToday(greet) {
+  const c = R.cards.find((x) => x.salesperson_id === S.sp);
+  if (!c) return head("No card yet", "Not enough recent bills to build a card.");
+  const k = `got|${R.as_of}|${c.salesperson_id}`, got = ls.get(k, false);
+  const fmt = (key, v) => (key === "ipb" ? v.toFixed(2) : pct(v, 1));
+  const rows = Object.entries(c.metrics || {}).map(([key, m]) => {
+    const max = Math.max(m.me, m.peer_median) * 1.3 || 1;
+    return `<div class="row"><span>${esc(m.label)}${m.higher_is_better ? "" : ' <span class="muted small">(lower is better)</span>'}</span>
+      <div class="track" data-tip="${esc(`You ${fmt(key, m.me)} · store peers' median ${fmt(key, m.peer_median)}`)}"><div class="fill" style="width:${(m.me / max) * 100}%"></div><div class="peerline" style="left:${(m.peer_median / max) * 100}%"></div></div>
+      <span class="v">${fmt(key, m.me)}</span></div>`;
+  }).join("");
+  return `<div class="head"><div><h1>${greet}, ${esc(c.name.split(" ")[0])}</h1><p class="sub">${esc(c.store_id)} · your coaching for today</p></div></div>${flash()}
+  <div class="stack">
+    <div class="card panel onething ${got ? "is-done" : ""}">
+      <span class="eyebrow">${icon("bulb", 16)} One thing to do today</span>
+      <label class="bigtick"><input type="checkbox" data-got="${esc(c.salesperson_id)}" ${got ? "checked" : ""}><span class="box"></span>
+        <span class="act">${esc(actionText(c.action))}</span></label>
+      <p class="why">${esc(c.behaviour)} ${esc(c.peer)}</p>
+      <p class="small muted">${got ? "Done for today. Nice work." : "Tick it when you've done it."} · ${c.words} words</p>
+    </div>
+    <details class="card panel more"><summary>How you compare with your store's peers</summary><div class="bars">${rows || '<p class="muted">Not enough bills to compare yet.</p>'}<div class="key">Orange bar = you · line = median of your store's peers · last 90 days</div></div></details>
+    <div class="card panel"><h2>My to-dos</h2><ul class="tl">${todoRows()}${addRow("Add a to-do")}</ul></div>
+  </div>`;
 }
 
 // ---------------- to-do ----------------
@@ -482,16 +595,19 @@ function vWelcome() {
 
 // ---------------- routing / navigation ----------------
 const NAV = {
-  "Area Manager": [["overview", "overview", "Overview"], ["insights", "alerts", "Alerts"], ["followups", "followups", "Follow-ups"], ["todo", "todo", "To-do"], ["stores", "stores", "Stores"], ["coach", "coach", "Coaching"], ["visits", "visits", "Visits"], ["reports", "reports", "Reports"], ["data", "data", "Data issues"]],
-  "Store Manager": [["home", "home", "My Store"], ["followups", "followups", "My Tasks"], ["todo", "todo", "To-do"], ["team", "team", "Team Coaching"]],
-  Salesperson: [["card", "card", "My Coaching Card"], ["todo", "todo", "To-do"]],
+  "Area Manager": [["today", "todo", "Today"], ["stores", "stores", "Stores"], ["followups", "followups", "Follow-ups"], ["coach", "coach", "Coaching"], ["reports", "reports", "Reports"]],
+  "Store Manager": [["today", "todo", "Today"], ["home", "home", "My store"], ["followups", "followups", "Tasks"], ["team", "team", "Team"]],
+  Salesperson: [["today", "todo", "Today"]],
 };
 const VIEWS = {
   overview: vOverview, stores: vStores, insights: vInsights, followups: vFollowups, coach: () => vCoach(null), visits: vVisits, reports: vReports, data: vData,
-  home: vSmHome, team: () => vCoach(S.sm), card: vSpCard, todo: vTodo,
+  home: () => vStoreProfile(S.sm), team: () => vCoach(S.sm), card: vSpCard, todo: vTodo, today: vToday,
 };
 function route() {
-  const h = (location.hash || "").slice(1), [v, arg] = h.split("/");
+  const h = (location.hash || "").slice(1);
+  let [v, arg] = h.split("/");
+  if (["overview", "insights", "todo", "card"].includes(v)) v = "today"; // old links still work
+  if ((v === "visits" || v === "data") && S.role === "Area Manager") { S.repTab = v; v = "reports"; history.replaceState(null, "", "#reports"); }
   const allowed = NAV[S.role].map((n) => n[0]);
   if (v === "store" && arg && (S.role === "Area Manager" ? storesOf(amObj()).includes(arg) : S.role === "Store Manager" && arg === S.sm)) return { v, html: () => vStoreProfile(arg) };
   if (v === "task" && arg && S.role !== "Salesperson") return { v: "followups", html: () => vTask(arg) };
@@ -511,6 +627,7 @@ function render() {
       const n = S.role === "Area Manager" ? list.filter((t) => t.status === "Submitted" || T.displayStatus(t) === "Overdue").length : list.filter((t) => T.isOpen(t) && t.status !== "Submitted" && t.status !== "Under Review").length;
       return n ? `<span class="count">${n}</span>` : "";
     }
+    if (k === "today") { const n = T.todos(owner()).filter((t) => !t.done).length; return n ? `<span class="count soft">${n}</span>` : ""; }
     if (k === "todo") { const n = T.todos(owner()).filter((t) => !t.done).length; return n ? `<span class="count soft">${n}</span>` : ""; }
     if (k === "insights") return amObj().alerts.length ? `<span class="count">${amObj().alerts.length}</span>` : "";
     return "";
@@ -558,6 +675,8 @@ $("#scrim").addEventListener("click", closeMenu);
 addEventListener("hashchange", () => { render(); scrollTo(0, 0); });
 $("#view").addEventListener("input", (e) => { if (e.target.id === "store-q") { S.q = e.target.value; const pos = e.target.selectionStart; render(); const el = $("#store-q"); el.focus(); el.setSelectionRange(pos, pos); } });
 $("#view").addEventListener("change", (e) => {
+  if (e.target.dataset.ack) { const k = ackKey(e.target.dataset.ack); ls.set(k, !ls.get(k, false)); render(); return; }
+  if (e.target.dataset.got && e.target.type === "checkbox") { const k = `got|${R.as_of}|${e.target.dataset.got}`; ls.set(k, !ls.get(k, false)); render(); return; }
   if (e.target.dataset.todoToggle) { T.todoToggle(owner(), e.target.dataset.todoToggle); render(); return; }
   if (e.target.id === "coach-store") { S.coachStore = e.target.value; S.coachSp = null; render(); }
   if (e.target.id === "store-sort") { S.sort = e.target.value; render(); }
@@ -582,6 +701,7 @@ $("#view").addEventListener("click", (e) => {
     persist(); renderWho(); location.hash = "#" + NAV[S.role][0][0];
     return;
   }
+  if ((x = el("[data-rtab]"))) { S.repTab = x.dataset.rtab; render(); return; }
   if ((x = el("[data-todo-del]"))) { T.todoRemove(owner(), x.dataset.todoDel); render(); return; }
   if (el("[data-todo-clear]")) { T.todoClearDone(owner()); render(); return; }
   if ((x = el("[data-del]"))) {
