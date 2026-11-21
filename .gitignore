@@ -33,5 +33,3 @@ Thumbs.db
 .idea/
 .claude/settings.local.json
 
-# Organiser dataset (kept local until we confirm it may be published)
-data/
