@@ -100,6 +100,32 @@ export function readPhoto(file, maxSide = 900) {
   });
 }
 
+// Personal to-do list, one per person (owner = "role|id"). Saved in this browser.
+const TKEY = "sc_todo_v1";
+function todoAll() { try { return JSON.parse(localStorage.getItem(TKEY) || "{}"); } catch { return {}; } }
+function todoSave(all) { try { localStorage.setItem(TKEY, JSON.stringify(all)); } catch { /* ignore */ } }
+export function todos(owner) { return todoAll()[owner] || []; }
+export function todoAdd(owner, text, due) {
+  text = String(text || "").trim();
+  if (!text) return { error: "Type what needs doing first." };
+  const all = todoAll(), list = all[owner] || [];
+  if (list.some((t) => !t.done && t.text.toLowerCase() === text.toLowerCase())) return { error: "That item is already on your list." };
+  const item = { id: Date.now().toString(36) + Math.random().toString(36).slice(2, 6), text: text.slice(0, 200), due: due || null, done: false, created_at: nowStamp(), done_at: null };
+  list.unshift(item); all[owner] = list; todoSave(all);
+  return { item };
+}
+export function todoToggle(owner, id) {
+  const all = todoAll(), t = (all[owner] || []).find((x) => x.id === id);
+  if (!t) return;
+  t.done = !t.done; t.done_at = t.done ? nowStamp() : null; todoSave(all);
+}
+export function todoRemove(owner, id) {
+  const all = todoAll(); all[owner] = (all[owner] || []).filter((x) => x.id !== id); todoSave(all);
+}
+export function todoClearDone(owner) {
+  const all = todoAll(); all[owner] = (all[owner] || []).filter((x) => !x.done); todoSave(all);
+}
+
 // Visit records (decision support; only what the manager records here)
 const VKEY = "sc_visits_v1";
 export function visits() { try { return JSON.parse(localStorage.getItem(VKEY) || "{}"); } catch { return {}; } }
