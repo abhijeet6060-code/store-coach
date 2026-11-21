@@ -1,0 +1,99 @@
+/* Professional dark theme (default) + to-do list. Loaded after style.css. */
+:root[data-theme="dark"] {
+  --bg: #0d0f12; --bg2: #111418; --card: #15181e; --tint: #1b1f27; --tint2: #222733;
+  --ink: #e7e9ec; --ink2: #b9c0cb; --muted: #8a93a1; --line: #262c36;
+  --accent: #f07a35; --accent2: #ff9658; --accent-ink: #120b06; --bar: #f07a35; --bar-peer: #2b323d;
+  --good: #46c084; --good-bg: rgba(70, 192, 132, .12); --bad: #f2705e; --bad-bg: rgba(242, 112, 94, .12);
+  --flat: #8a93a1; --flat-bg: #1f242d; --amber: #e8b24c; --amber-bg: rgba(232, 178, 76, .12);
+  --grey: #8a93a1; --grey-bg: #1f242d; --blue: #6fa8f2; --blue-bg: rgba(111, 168, 242, .12);
+  --bills: #f07a35; --baskets: #3cc0b5; --repeat: #b592f2;
+  --shadow: none;
+  --serif: Inter, system-ui, -apple-system, "Segoe UI", sans-serif;
+  color-scheme: dark;
+}
+:root[data-theme="dark"] body { background: var(--bg); color: var(--ink); font-size: 14.5px; -webkit-font-smoothing: antialiased; }
+:root[data-theme="dark"] h1 { font: 600 1.55rem/1.25 var(--sans); letter-spacing: -.02em; }
+:root[data-theme="dark"] h2 { font-weight: 600; letter-spacing: -.01em; }
+:root[data-theme="dark"] .card { border-radius: 12px; background: var(--card); }
+:root[data-theme="dark"] .sidebar { background: var(--bg2); border-right-color: var(--line); }
+:root[data-theme="dark"] .mark { background: var(--accent); color: var(--accent-ink); border-radius: 9px; font: 700 14px var(--sans); width: 34px; height: 34px; }
+:root[data-theme="dark"] .mark.big { width: 52px; height: 52px; font-size: 20px; border-radius: 14px; }
+:root[data-theme="dark"] .brand-name { font: 600 1.05rem var(--sans); color: var(--ink); letter-spacing: -.01em; }
+:root[data-theme="dark"] .profile { background: var(--card); border: 1px solid var(--line); border-radius: 10px; }
+:root[data-theme="dark"] .avatar { background: var(--tint2); color: var(--accent2); }
+:root[data-theme="dark"] .nav a { border-radius: 8px; padding: 8px 10px; color: var(--ink2); font-weight: 500; }
+:root[data-theme="dark"] .nav a:hover { background: var(--tint); }
+:root[data-theme="dark"] .nav a.on { background: var(--tint2); color: var(--ink); box-shadow: inset 2px 0 0 var(--accent); }
+.ic { display: inline-flex; color: var(--muted); }
+.nav a.on .ic { color: var(--accent); }
+.ico { flex: none; vertical-align: -3px; }
+.count.soft { background: var(--tint2); color: var(--ink2); }
+.kic { display: none !important; }
+:root[data-theme="dark"] .kpi .val { font-weight: 600; letter-spacing: -.02em; }
+:root[data-theme="dark"] .banner, :root[data-theme="dark"] .dcoach, :root[data-theme="dark"] .hero { background: var(--card); border: 1px solid var(--line); }
+:root[data-theme="dark"] .banner { border-left: 3px solid var(--accent); border-radius: 10px; }
+:root[data-theme="dark"] .banner .spark { color: var(--accent); display: inline-flex; }
+:root[data-theme="dark"] .dcoach { border-radius: 12px; text-align: left; }
+:root[data-theme="dark"] .dcoach .t { color: var(--accent2); display: flex; gap: 6px; align-items: center; font-size: .8rem; text-transform: uppercase; letter-spacing: .06em; }
+:root[data-theme="dark"] .dcoach blockquote { font: 600 1.15rem/1.45 var(--sans); color: var(--ink); }
+:root[data-theme="dark"] .btn { border-radius: 8px; padding: 9px 16px; font-weight: 600; display: inline-flex; gap: 6px; align-items: center; justify-content: center; }
+:root[data-theme="dark"] .btn.ghost { border: 1px solid var(--line); color: var(--ink); background: var(--tint); }
+:root[data-theme="dark"] .btn.ghost:hover { border-color: var(--accent); }
+:root[data-theme="dark"] .btn.danger { color: var(--bad); border: 1px solid rgba(242, 112, 94, .4); background: transparent; }
+:root[data-theme="dark"] .btn.danger:hover { background: var(--bad-bg); }
+:root[data-theme="dark"] .pill, :root[data-theme="dark"] select.pill { background: var(--card); border-color: var(--line); color: var(--ink2); border-radius: 8px; }
+:root[data-theme="dark"] .seg { background: var(--card); border: 1px solid var(--line); border-radius: 8px; }
+:root[data-theme="dark"] .seg button { border-radius: 6px; padding: 5px 12px; font-size: .85rem; }
+:root[data-theme="dark"] .seg button.on { background: var(--tint2); color: var(--ink); box-shadow: none; }
+:root[data-theme="dark"] .lever { color: #0d0f12; border-radius: 4px; }
+:root[data-theme="dark"] .num { background: var(--tint2); color: var(--ink2); font-size: .8rem; width: 26px; height: 26px; }
+:root[data-theme="dark"] .stake { background: var(--tint); border: 1px solid var(--line); border-radius: 8px; }
+:root[data-theme="dark"] .stake b { color: var(--ink); }
+:root[data-theme="dark"] .hcell { border-radius: 10px; background: var(--card); border-left-width: 3px; }
+:root[data-theme="dark"] .hcell.amber, :root[data-theme="dark"] .hcell.red, :root[data-theme="dark"] .hcell.grey { background: var(--card); }
+:root[data-theme="dark"] .hint { background: var(--card); border: 1px solid var(--line); display: flex; gap: 8px; align-items: center; }
+:root[data-theme="dark"] .form input, :root[data-theme="dark"] .form select, :root[data-theme="dark"] .form textarea,
+:root[data-theme="dark"] .vform input, :root[data-theme="dark"] .role-card select, :root[data-theme="dark"] .search { background: var(--bg); border-color: var(--line); color: var(--ink); border-radius: 8px; }
+:root[data-theme="dark"] input:focus, :root[data-theme="dark"] select:focus, :root[data-theme="dark"] textarea:focus { outline: 2px solid rgba(240, 122, 53, .5); outline-offset: 1px; }
+:root[data-theme="dark"] .person { background: var(--card); border-color: var(--line); color: var(--ink2); border-radius: 8px; }
+:root[data-theme="dark"] .person.on { background: var(--tint2); color: var(--ink); border-color: var(--accent); }
+:root[data-theme="dark"] .person.on .flag { background: var(--accent); }
+:root[data-theme="dark"] .status { border-radius: 6px; background: var(--amber-bg); color: var(--amber); }
+:root[data-theme="dark"] .status.ok { background: var(--good-bg); color: var(--good); }
+:root[data-theme="dark"] .topbar { background: var(--bg2); }
+:root[data-theme="dark"] .top-title { font: 600 1rem var(--sans); color: var(--ink); }
+:root[data-theme="dark"] .menu, :root[data-theme="dark"] .bell { color: var(--ink); display: inline-flex; }
+:root[data-theme="dark"] .bottomnav { background: var(--bg2); }
+:root[data-theme="dark"] .bottomnav a span { display: inline-flex; }
+:root[data-theme="dark"] .tip { background: #e7e9ec; color: #0d0f12; }
+:root[data-theme="dark"] .role-card { background: var(--card); border-radius: 12px; }
+:root[data-theme="dark"] .role-card .ri { background: var(--tint2); color: var(--accent2); }
+:root[data-theme="dark"] .welcome h1 { color: var(--ink); font-size: 2.2rem; }
+:root[data-theme="dark"] .welcome .tag { font: 500 .95rem var(--sans); color: var(--accent2); }
+:root[data-theme="dark"] .chart .area { fill: rgba(240, 122, 53, .15); opacity: 1; }
+:root[data-theme="dark"] .chart .pt { fill: var(--card); }
+:root[data-theme="dark"] .flash.ok { border: 1px solid rgba(70, 192, 132, .35); }
+:root[data-theme="dark"] .flash.bad { border: 1px solid rgba(242, 112, 94, .35); }
+:root[data-theme="dark"] .warnbox { background: var(--amber-bg); border-color: rgba(232, 178, 76, .4); }
+:root[data-theme="dark"] tr.click:hover td { background: var(--tint); }
+:root[data-theme="dark"] .scrim.open { background: rgba(0, 0, 0, .6); }
+:root[data-theme="dark"] .switch { display: inline-flex; gap: 4px; align-items: center; }
+
+/* to-do */
+.todo-add { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; padding: 12px; }
+.todo-add input[name="text"] { flex: 1; min-width: 220px; }
+.todo-add input { font: inherit; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 9px 12px; }
+.todos { list-style: none; margin: 0; padding: 0; }
+.todo { display: flex; align-items: center; gap: 12px; padding: 10px 4px; border-top: 1px solid var(--line); }
+.todo:first-child { border-top: 0; }
+.tick { position: relative; display: inline-flex; cursor: pointer; }
+.tick input { position: absolute; opacity: 0; width: 20px; height: 20px; margin: 0; cursor: pointer; }
+.tick .box { width: 20px; height: 20px; border-radius: 6px; border: 1.5px solid var(--muted); display: grid; place-items: center; transition: background .12s, border-color .12s; }
+.tick input:checked + .box { background: var(--good); border-color: var(--good); }
+.tick input:checked + .box::after { content: ""; width: 5px; height: 10px; border: solid #0d0f12; border-width: 0 2px 2px 0; transform: rotate(45deg) translate(-1px, -1px); }
+.tick input:focus-visible + .box { outline: 2px solid var(--accent); outline-offset: 2px; }
+.tt { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+.txt { overflow-wrap: anywhere; }
+.todo.is-done .txt { text-decoration: line-through; color: var(--muted); }
+.iconbtn { background: none; border: 0; color: var(--muted); cursor: pointer; padding: 6px; border-radius: 6px; display: inline-flex; }
+.iconbtn:hover { color: var(--bad); background: var(--bad-bg); }

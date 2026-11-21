@@ -1,6 +1,7 @@
 // Store Coach: front end. Analysis numbers come only from report.json (pipeline/coach.py).
 // Follow-ups, remarks, photos and visit notes are demo updates saved in this browser.
 import * as T from "./tasks.js";
+import { icon } from "./icons.js";
 
 const $ = (s, el = document) => el.querySelector(s);
 const esc = (s) => String(s ?? "").replace(/[&<>"]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
@@ -153,7 +154,7 @@ function coachDetail(c, showGot = true) {
         <span class="status ${c.lever === "strong" ? "ok" : ""}">${c.lever === "strong" ? "On track: coach others" : "One thing to work on"}</span></div></div>
       <div class="card bars"><h2>You vs your store's peers</h2>${rows || '<p class="muted">Not enough bills to compare yet.</p>'}<div class="key">Orange bar = you · dark line = median of your store's peers · last 90 days</div></div>
     </div>
-    <div class="dcoach"><div class="t">💡 Your daily coach</div>
+    <div class="dcoach"><div class="t">${icon("bulb")} Your coaching for today</div>
       <blockquote>“${esc(c.action.replace(/^Today:\s*/, ""))}”</blockquote>
       <p class="why">${esc(c.behaviour)} ${esc(c.peer)}</p>
       ${showGot ? `<button class="btn ${got ? "done" : ""}" data-got="${esc(c.salesperson_id)}">${got ? "✓ Done for today" : "Got it!"}</button>` : ""}
@@ -176,12 +177,12 @@ function vOverview() {
   return head(`${greet}, ${esc(am.name.split(" ")[0])}`, `${esc(am.city)} · ${ids.length} stores · data to ${dShort(R.as_of)}`) + `
   <div class="stack">
     <div class="grid g4 kpis-compact">
-      ${kpi("🏬", `${cnt("amber") + cnt("red")} <small>of ${ids.length}</small>`, "Stores need attention", `<div class="delta ${cnt("red") ? "down" : "flat"}">${cnt("red")} critical · ${cnt("green")} healthy</div>`)}
-      ${kpi("₹", inrShort(cur.rev), "Sales, last 28 days", delta(cur.rev, prev.rev))}
-      ${kpi("📋", pending, "Open follow-ups", `<div class="delta flat">${review} to review</div>`)}
-      ${kpi("⏰", overdue, "Overdue tasks", "", overdue ? "alarm" : "")}
+      ${kpi("", `${cnt("amber") + cnt("red")} <small>of ${ids.length}</small>`, "Stores need attention", `<div class="delta ${cnt("red") ? "down" : "flat"}">${cnt("red")} critical · ${cnt("green")} healthy</div>`)}
+      ${kpi("", inrShort(cur.rev), "Sales, last 28 days", delta(cur.rev, prev.rev))}
+      ${kpi("", pending, "Open follow-ups", `<div class="delta flat">${review} to review</div>`)}
+      ${kpi("", overdue, "Overdue tasks", "", overdue ? "alarm" : "")}
     </div>
-    ${review ? `<a class="banner" href="#followups"><span class="spark">📥</span><div><b>${review} follow-up${review === 1 ? "" : "s"} submitted by store managers</b><span class="small muted">Review the remarks and evidence, then approve or send back.</span></div><span class="go">Review →</span></a>` : ""}
+    ${review ? `<a class="banner" href="#followups"><span class="spark">${icon("inbox", 22)}</span><div><b>${review} follow-up${review === 1 ? "" : "s"} submitted by store managers</b><span class="small muted">Review the remarks and evidence, then approve or send back.</span></div><span class="go">Review →</span></a>` : ""}
     <div class="card">
       <div class="chart-title"><h2>Store health</h2>
         <div class="seg">${[["all", "All"], ["healthy", "Healthy"], ["attention", "Attention"], ["critical", "Critical"], ["fu", "Follow-up pending"]].map(([k, l]) => `<button data-health="${k}" class="${filt === k ? "on" : ""}">${l}</button>`).join("")}</div></div>
@@ -205,7 +206,7 @@ function vStores() {
   return head("My Stores", `${esc(am.city)} · ${ids.length} stores · last 28 days to ${dShort(R.as_of)}`) + `
   <div class="toolbar"><input class="pill search" id="store-q" placeholder="Search store, city, tier" value="${esc(S.q)}">
     <select class="pill" id="store-sort">${[["status", "Status (worst first)"], ["stake", "Highest opportunity (₹ at stake)"], ["growth", "Lowest sales growth"], ["conv", "Lowest conversion"], ["pend", "Most pending follow-ups"]].map(([k, l]) => `<option value="${k}" ${S.sort === k ? "selected" : ""}>${l}</option>`).join("")}</select>
-    <button class="btn ghost" data-csv="stores">⬇ CSV</button></div>
+    <button class="btn ghost" data-csv="stores">${icon("download", 16)} CSV</button></div>
   <div class="card tablewrap"><table><thead><tr><th>Store</th><th>City</th><th>Manager</th><th class="n">Sales (28d)</th><th class="n">Growth</th><th class="n">Conversion</th><th class="n">Items/bill</th><th class="n">Repeat</th><th class="n">Issues</th><th class="n">Open FUs</th><th>Status</th></tr></thead><tbody>
   ${rows.map((r) => `<tr class="click" data-href="#store/${r.s}"><td><b>${r.s}</b><div class="small muted">Tier ${esc(r.info.tier)}${r.info.new ? " · new" : ""}</div></td><td>${esc(r.info.city)}</td><td class="small">Store Manager, ${r.s}</td><td class="n">${inrShort(r.rev)}</td><td class="n">${sg(r.g)}</td><td class="n">${pct(r.conv)}</td><td class="n">${isFinite(r.ipb) ? r.ipb.toFixed(2) : "–"}</td><td class="n">${pct(r.rep)}</td><td class="n">${r.issues}</td><td class="n">${r.pend}</td><td><span class="hs ${r.h.k}">${r.h.label}</span></td></tr>`).join("")}
   </tbody></table></div>
@@ -222,10 +223,10 @@ function vStoreProfile(sid) {
   let body = "";
   if (S.storeTab === "overview") {
     body = `<div class="grid g4">
-        ${kpi("₹", inrShort(cur.rev), "Sales", delta(cur.rev, prev.rev))}
-        ${kpi("🚪", pct(cur.conv), "Conversion", delta(cur.conv, prev.conv, "pts"))}
-        ${kpi("🧺", isFinite(cur.ipb) ? cur.ipb.toFixed(2) : "–", "Items per bill", delta(cur.ipb, prev.ipb))}
-        ${kpi("↻", pct(k.repeat_count ? k.repeat_sum / k.repeat_count : NaN), "Repeat customers", `<div class="delta flat">first-time buyers, last 12 months</div>`)}
+        ${kpi("", inrShort(cur.rev), "Sales", delta(cur.rev, prev.rev))}
+        ${kpi("", pct(cur.conv), "Conversion", delta(cur.conv, prev.conv, "pts"))}
+        ${kpi("", isFinite(cur.ipb) ? cur.ipb.toFixed(2) : "–", "Items per bill", delta(cur.ipb, prev.ipb))}
+        ${kpi("", pct(k.repeat_count ? k.repeat_sum / k.repeat_count : NaN), "Repeat customers", `<div class="delta flat">first-time buyers, last 12 months</div>`)}
       </div>
       <div class="grid g2">
         <div class="card"><h2>Bills per week</h2>${barChart(wk, (p) => p.bills, (v) => Math.round(v) + " bills", (v) => Math.round(v))}</div>
@@ -249,9 +250,9 @@ function vStoreProfile(sid) {
 
 function vInsights() {
   const am = amObj(), total = am.alerts.reduce((s, a) => s + a.rupees_week, 0);
-  return head("Alerts", `${am.alerts.length} this week · ${inrShort(total)} a week at stake (estimate)`, `<button class="btn ghost" data-csv="alerts">⬇ CSV</button>`) + `
+  return head("Alerts", `${am.alerts.length} this week · ${inrShort(total)} a week at stake (estimate)`, `<button class="btn ghost" data-csv="alerts">${icon("download", 16)} CSV</button>`) + `
   <div class="stack">
-    <p class="hint">💡 Click <b>+ Create follow-up</b> on an alert to assign it to the store manager and track it.</p>
+    <p class="hint">${icon("info", 16)} Click <b>+ Create follow-up</b> on an alert to assign it to the store manager and track it.</p>
     <div class="card">${am.alerts.map((a, i) => alertRow(a, i)).join("") || `<p class="muted">No store needs attention this week.</p>`}</div>
     ${roleModels(am)}
     <details class="more"><summary>How are these found?</summary><p class="small muted">Numbers are calculated from the data, never generated. Each store is compared with its own same weeks last year (so festival and wedding swings don't trigger alerts) and with stores in the same city. A whole city slowing down is reported as a market issue. Numbers that can't be right go to Data Issues.</p></details>
@@ -297,7 +298,7 @@ function vFollowups() {
   const shown = list.filter(F[S.fuFilter][1]);
   const title = S.role === "Area Manager" ? "Follow-up Manager" : "My Tasks";
   const sub = S.role === "Area Manager" ? "Assign, track, review and close actions across your stores" : `Follow-ups assigned to Store Manager, ${S.sm}`;
-  return head(title, sub, S.role === "Area Manager" ? `<div class="row-gap"><button class="btn ghost" data-csv="followups">⬇ CSV</button><button class="btn" data-newfu="">+ New follow-up</button></div>` : "") + `
+  return head(title, sub, S.role === "Area Manager" ? `<div class="row-gap"><button class="btn ghost" data-csv="followups">${icon("download", 16)} CSV</button><button class="btn" data-newfu="">+ New follow-up</button></div>` : "") + `
   <div class="stack">
     ${S.draft && S.role === "Area Manager" ? fuForm() : ""}
     <div class="seg wrap">${Object.entries(F).map(([k, [l, fn]]) => `<button data-fuf="${k}" class="${S.fuFilter === k ? "on" : ""}">${l} (${list.filter(fn).length})</button>`).join("")}</div>
@@ -315,7 +316,7 @@ function vTask(id) {
   const after = t.completed_at ? addDays(t.completed_at.slice(0, 10), 7) : null;
   const m = t.metric;
   const fmtM = (v) => (m && v != null ? (m.name === "ipb" ? Number(v).toFixed(2) : pct(v)) : "–");
-  return head(`${esc(t.id)} · ${esc(t.title)}`, `${esc(t.store_id)} · ${esc(t.category)} · priority ${esc(t.priority)} · due ${dShort(t.deadline)} · ${esc(t.assignee)}`, `<div class="row-gap"><a class="pill" href="#followups">← Back</a>${stPill(t)}${role === "Area Manager" ? `<button class="btn danger" data-del="${t.id}">🗑 Delete</button>` : ""}</div>`) + `
+  return head(`${esc(t.id)} · ${esc(t.title)}`, `${esc(t.store_id)} · ${esc(t.category)} · priority ${esc(t.priority)} · due ${dShort(t.deadline)} · ${esc(t.assignee)}`, `<div class="row-gap"><a class="pill" href="#followups">← Back</a>${stPill(t)}${role === "Area Manager" ? `<button class="btn danger" data-del="${t.id}">${icon("trash", 16)} Delete</button>` : ""}</div>`) + `
   <div class="stack">
     <div class="grid g2">
       <div class="card"><h2>Problem</h2><p>${esc(t.problem)}</p><h2>Required action</h2><p class="do">${esc(t.action)}</p></div>
@@ -385,25 +386,25 @@ function vReports() {
   const fu = am.follow_up, imp = fu.filter((f) => f.verdict === "improved").length;
   const tasks = T.all().filter((t) => ids.includes(t.store_id)), closed = tasks.filter((t) => t.status === "Completed").length;
   const signed = (v, u = "%") => (isFinite(v) ? (v > 0 ? "+" : "") + v.toFixed(1) + u : "–");
-  return head("Impact &amp; Reports", `${esc(am.city)} · last 28 days vs the 28 days before`, `<button class="btn ghost" data-print>🖨 Print / PDF</button>`) + `
+  return head("Impact &amp; Reports", `${esc(am.city)} · last 28 days vs the 28 days before`, `<button class="btn ghost" data-print>${icon("print", 16)} Print / PDF</button>`) + `
   <div class="stack">
     <h2 class="sec">Measured (from the data)</h2>
     <div class="grid g4">
-      ${kpi("₹", signed((cur.rev / prev.rev - 1) * 100), "Revenue", `<div class="delta flat">${inrShort(cur.rev)} vs ${inrShort(prev.rev)}</div>`)}
-      ${kpi("🧾", signed((cur.bills / prev.bills - 1) * 100), "More bills")}
-      ${kpi("🧺", signed((cur.ipb / prev.ipb - 1) * 100), "Items per bill")}
-      ${kpi("🚪", signed((cur.conv - prev.conv) * 100, " pts"), "Conversion")}
+      ${kpi("", signed((cur.rev / prev.rev - 1) * 100), "Revenue", `<div class="delta flat">${inrShort(cur.rev)} vs ${inrShort(prev.rev)}</div>`)}
+      ${kpi("", signed((cur.bills / prev.bills - 1) * 100), "More bills")}
+      ${kpi("", signed((cur.ipb / prev.ipb - 1) * 100), "Items per bill")}
+      ${kpi("", signed((cur.conv - prev.conv) * 100, " pts"), "Conversion")}
     </div>
     <div class="grid g2">
-      <div class="card"><h2>Last week's alerts, one week later</h2>${fu.map((f) => `<div class="fu"><span class="num">↻</span><div><b>${esc(f.title)}</b><div class="small muted">Before ${f.metric === "ipb" ? f.before.toFixed(2) : pct(f.before)} → after ${f.metric === "ipb" ? f.now.toFixed(2) : pct(f.now)}</div></div><span class="st ${f.verdict === "improved" ? "done" : f.verdict === "got worse" ? "overdue" : "pending"}">${esc(f.verdict)}</span></div>`).join("") || `<p class="muted">Nothing to follow up.</p>`}
+      <div class="card"><h2>Last week's alerts, one week later</h2>${fu.map((f) => `<div class="fu"><span class="num">${icon("switch", 14)}</span><div><b>${esc(f.title)}</b><div class="small muted">Before ${f.metric === "ipb" ? f.before.toFixed(2) : pct(f.before)} → after ${f.metric === "ipb" ? f.now.toFixed(2) : pct(f.now)}</div></div><span class="st ${f.verdict === "improved" ? "done" : f.verdict === "got worse" ? "overdue" : "pending"}">${esc(f.verdict)}</span></div>`).join("") || `<p class="muted">Nothing to follow up.</p>`}
         <p class="small muted">${imp} of ${fu.length} improved. Measured change, not proof the action caused it.</p></div>
       <div class="card"><h2>Revenue per week</h2>${lineChart(wk, (p) => p.rev, inrShort, inrShort, true)}</div>
     </div>
     <h2 class="sec">Estimates and workflow</h2>
     <div class="grid g3">
-      ${kpi("🎯", inrShort(am.alerts.reduce((s, a) => s + a.rupees_week, 0)), "Estimated weekly opportunity", `<div class="delta flat">sum of this week's alerts (estimate)</div>`)}
-      ${kpi("📋", `${closed} / ${tasks.length}`, "Follow-ups completed", `<div class="delta flat">demo updates on this device</div>`)}
-      ${kpi("🧑‍🏫", R.cards.filter((c) => ids.includes(c.store_id)).length, "Coaching cards today")}
+      ${kpi("", inrShort(am.alerts.reduce((s, a) => s + a.rupees_week, 0)), "Estimated weekly opportunity", `<div class="delta flat">sum of this week's alerts (estimate)</div>`)}
+      ${kpi("", `${closed} / ${tasks.length}`, "Follow-ups completed", `<div class="delta flat">demo updates on this device</div>`)}
+      ${kpi("", R.cards.filter((c) => ids.includes(c.store_id)).length, "Coaching cards today")}
     </div>
     <div class="card"><h2>Download reports (CSV)</h2><div class="row-gap">
       <button class="btn ghost" data-csv="stores">Store performance</button><button class="btn ghost" data-csv="alerts">Alerts &amp; opportunities</button>
@@ -421,13 +422,36 @@ function vSmHome() {
   const sid = S.sm, tasks = tasksFor(sid), open = tasks.filter(T.isOpen);
   const hr = new Date().getHours(), greet = hr < 12 ? "Good morning" : hr < 17 ? "Good afternoon" : "Good evening";
   return `<div class="smhello"><h1>${greet}, Store Manager</h1><p class="sub">${sid} · ${esc(R.stores[sid].city)} · ${open.length} open task${open.length === 1 ? "" : "s"} from your area manager</p></div>` +
-    (open.length ? `<a class="banner" href="#followups"><span class="spark">📋</span><div><b>${open.length} task${open.length === 1 ? "" : "s"} to act on</b><span class="small muted">Update progress, add remarks and photos, then submit.</span></div><span class="go">Open →</span></a>` : "") +
+    (open.length ? `<a class="banner" href="#followups"><span class="spark">${icon("followups", 22)}</span><div><b>${open.length} task${open.length === 1 ? "" : "s"} to act on</b><span class="small muted">Update progress, add remarks and photos, then submit.</span></div><span class="go">Open →</span></a>` : "") +
     vStoreProfile(sid);
 }
 function vSpCard() {
   const c = R.cards.find((x) => x.salesperson_id === S.sp);
   if (!c) return head("No card yet", "Not enough recent bills to build a card.");
   return head(`Hi ${esc(c.name.split(" ")[0])}`, `Your coaching card for today · ${esc(c.store_id)}`) + coachDetail(c, true);
+}
+
+// ---------------- to-do ----------------
+const owner = () => S.role === "Area Manager" ? `AM|${S.am}` : S.role === "Store Manager" ? `SM|${S.sm}` : `SP|${S.sp}`;
+function vTodo() {
+  const list = T.todos(owner()), open = list.filter((t) => !t.done), done = list.filter((t) => t.done);
+  const today = T.todayISO();
+  const row = (t) => `<li class="todo ${t.done ? "is-done" : ""}">
+      <label class="tick"><input type="checkbox" data-todo-toggle="${t.id}" ${t.done ? "checked" : ""}><span class="box"></span></label>
+      <div class="tt"><span class="txt">${esc(t.text)}</span>
+        <span class="small muted">${t.done ? "Done " + dTime(t.done_at) : t.due ? (t.due < today ? `<span class="neg">Overdue · was due ${dShort(t.due)}</span>` : "Due " + dShort(t.due)) : "Added " + dTime(t.created_at)}</span></div>
+      <button class="iconbtn" data-todo-del="${t.id}" aria-label="Delete">${icon("trash", 16)}</button></li>`;
+  return head("To-do", `Your own checklist · ${open.length} open, ${done.length} done`) + `
+  <div class="stack">
+    <form class="card todo-add" id="todo-form">
+      <input name="text" maxlength="200" placeholder="Add a to-do, e.g. Call LKO-02 store manager about weekend cover" autocomplete="off" required>
+      <input type="date" name="due" min="${today}" aria-label="Due date (optional)">
+      <button class="btn" type="submit">${icon("plus", 16)} Add</button>
+    </form>
+    <div class="card"><h2>Open</h2><ul class="todos">${open.map(row).join("") || `<li class="muted small">Nothing open. Add your first to-do above.</li>`}</ul></div>
+    ${done.length ? `<div class="card"><div class="chart-title"><h2>Done</h2><button class="btn ghost" data-todo-clear>Clear done</button></div><ul class="todos">${done.map(row).join("")}</ul></div>` : ""}
+    <p class="small muted">Saved in this browser for ${esc($("#who-name").textContent)}.</p>
+  </div>`;
 }
 
 // ---------------- welcome ----------------
@@ -442,13 +466,13 @@ function vWelcome() {
     <p class="sub">Every morning it tells area managers which stores need attention and why, and gives every salesperson one thing to do better today.</p>
     <h2>Look around as…</h2>
     <div class="roles">
-      <div class="role-card"><div class="ri">🧭</div><b>Area Manager</b><span>See all your stores, alerts and follow-ups</span>
+      <div class="role-card"><div class="ri">${icon("compass", 28)}</div><b>Area Manager</b><span>See all your stores, alerts and follow-ups</span>
         <select id="w-am" aria-label="Area manager">${R.area_managers.map((a) => `<option value="${a.id}" ${a.id === S.am ? "selected" : ""}>${esc(a.name)} · ${esc(a.city)}</option>`).join("")}</select>
         <button class="btn" data-enter="Area Manager">Enter</button></div>
-      <div class="role-card"><div class="ri">🏬</div><b>Store Manager</b><span>Your store, your tasks, your team</span>
+      <div class="role-card"><div class="ri">${icon("stores", 28)}</div><b>Store Manager</b><span>Your store, your tasks, your team</span>
         <select id="w-sm" aria-label="Store">${stores.map((s) => `<option ${s === S.sm ? "selected" : ""}>${s} · ${esc(R.stores[s].city)}</option>`).join("")}</select>
         <button class="btn" data-enter="Store Manager">Enter</button></div>
-      <div class="role-card"><div class="ri">🧑</div><b>Salesperson</b><span>Your coaching card for today</span>
+      <div class="role-card"><div class="ri">${icon("user", 28)}</div><b>Salesperson</b><span>Your coaching card for today</span>
         <select id="w-sp" aria-label="Salesperson">${Object.keys(byStore).sort().map((s) => `<optgroup label="${s}">${byStore[s].map((c) => `<option value="${c.salesperson_id}" ${c.salesperson_id === S.sp ? "selected" : ""}>${esc(c.name)}</option>`).join("")}</optgroup>`).join("")}</select>
         <button class="btn" data-enter="Salesperson">Enter</button></div>
     </div>
@@ -458,13 +482,13 @@ function vWelcome() {
 
 // ---------------- routing / navigation ----------------
 const NAV = {
-  "Area Manager": [["overview", "⌂", "Overview"], ["insights", "✦", "Alerts"], ["followups", "✓", "Follow-ups"], ["stores", "▥", "Stores"], ["coach", "☺", "Coaching"], ["visits", "⌖", "Visits"], ["reports", "★", "Reports"], ["data", "!", "Data issues"]],
-  "Store Manager": [["home", "⌂", "My Store"], ["followups", "✓", "My Tasks"], ["team", "☺", "Team Coaching"]],
-  Salesperson: [["card", "☺", "My Coaching Card"]],
+  "Area Manager": [["overview", "overview", "Overview"], ["insights", "alerts", "Alerts"], ["followups", "followups", "Follow-ups"], ["todo", "todo", "To-do"], ["stores", "stores", "Stores"], ["coach", "coach", "Coaching"], ["visits", "visits", "Visits"], ["reports", "reports", "Reports"], ["data", "data", "Data issues"]],
+  "Store Manager": [["home", "home", "My Store"], ["followups", "followups", "My Tasks"], ["todo", "todo", "To-do"], ["team", "team", "Team Coaching"]],
+  Salesperson: [["card", "card", "My Coaching Card"], ["todo", "todo", "To-do"]],
 };
 const VIEWS = {
   overview: vOverview, stores: vStores, insights: vInsights, followups: vFollowups, coach: () => vCoach(null), visits: vVisits, reports: vReports, data: vData,
-  home: vSmHome, team: () => vCoach(S.sm), card: vSpCard,
+  home: vSmHome, team: () => vCoach(S.sm), card: vSpCard, todo: vTodo,
 };
 function route() {
   const h = (location.hash || "").slice(1), [v, arg] = h.split("/");
@@ -487,11 +511,12 @@ function render() {
       const n = S.role === "Area Manager" ? list.filter((t) => t.status === "Submitted" || T.displayStatus(t) === "Overdue").length : list.filter((t) => T.isOpen(t) && t.status !== "Submitted" && t.status !== "Under Review").length;
       return n ? `<span class="count">${n}</span>` : "";
     }
+    if (k === "todo") { const n = T.todos(owner()).filter((t) => !t.done).length; return n ? `<span class="count soft">${n}</span>` : ""; }
     if (k === "insights") return amObj().alerts.length ? `<span class="count">${amObj().alerts.length}</span>` : "";
     return "";
   };
-  $("#nav").innerHTML = nav.map(([k, ic, l]) => `<a href="#${k}" class="${k === view || (view === "store" && k === "stores") ? "on" : ""}"><span class="ic">${ic}</span>${esc(l)}${badge(k)}</a>`).join("");
-  $("#bottomnav").innerHTML = nav.slice(0, 5).map(([k, ic, l]) => `<a href="#${k}" class="${k === view ? "on" : ""}"><span>${ic}</span>${esc(l.replace("My ", "").split(" ")[0])}</a>`).join("");
+  $("#nav").innerHTML = nav.map(([k, ic, l]) => `<a href="#${k}" class="${k === view || (view === "store" && k === "stores") ? "on" : ""}"><span class="ic">${icon(ic)}</span>${esc(l)}${badge(k)}</a>`).join("");
+  $("#bottomnav").innerHTML = nav.slice(0, 5).map(([k, ic, l]) => `<a href="#${k}" class="${k === view ? "on" : ""}"><span>${icon(ic, 20)}</span>${esc(l.replace("My ", "").split(" ")[0])}</a>`).join("");
   $("#bottomnav").style.gridTemplateColumns = `repeat(${Math.min(nav.length, 5)}, 1fr)`;
   $("#top-title").textContent = (nav.find((n) => n[0] === view) || [0, 0, "Store Coach"])[2];
   const who = S.role === "Area Manager" ? amObj().name : S.role === "Store Manager" ? "Store Manager " + S.sm : (R.cards.find((c) => c.salesperson_id === S.sp)?.name || "");
@@ -533,6 +558,7 @@ $("#scrim").addEventListener("click", closeMenu);
 addEventListener("hashchange", () => { render(); scrollTo(0, 0); });
 $("#view").addEventListener("input", (e) => { if (e.target.id === "store-q") { S.q = e.target.value; const pos = e.target.selectionStart; render(); const el = $("#store-q"); el.focus(); el.setSelectionRange(pos, pos); } });
 $("#view").addEventListener("change", (e) => {
+  if (e.target.dataset.todoToggle) { T.todoToggle(owner(), e.target.dataset.todoToggle); render(); return; }
   if (e.target.id === "coach-store") { S.coachStore = e.target.value; S.coachSp = null; render(); }
   if (e.target.id === "store-sort") { S.sort = e.target.value; render(); }
 });
@@ -556,6 +582,8 @@ $("#view").addEventListener("click", (e) => {
     persist(); renderWho(); location.hash = "#" + NAV[S.role][0][0];
     return;
   }
+  if ((x = el("[data-todo-del]"))) { T.todoRemove(owner(), x.dataset.todoDel); render(); return; }
+  if (el("[data-todo-clear]")) { T.todoClearDone(owner()); render(); return; }
   if ((x = el("[data-del]"))) {
     const t = T.get(x.dataset.del);
     if (!t || !confirm(`Delete ${t.id} (${t.title})?\n\nThis removes the follow-up and all its remarks and photos. It can't be undone.`)) return;
@@ -591,6 +619,11 @@ $("#view").addEventListener("submit", async (e) => {
     S.draft = null; S.flash = { k: "ok", msg: `${res.task.id} assigned to ${res.task.assignee}, due ${dShort(res.task.deadline)}.` };
     location.hash = "#task/" + res.task.id; return; // hashchange renders (and shows the message once)
   }
+  if (f.id === "todo-form") {
+    const res = T.todoAdd(owner(), f.text.value, f.due.value);
+    if (res.error) S.flash = { k: "bad", msg: res.error };
+    render(); setTimeout(() => $("#todo-form input[name=text]")?.focus(), 0); return;
+  }
   if (f.id === "task-form") {
     const status = e.submitter?.value || "", note = f.note.value.trim();
     let photo = null;
@@ -616,7 +649,7 @@ async function main() {
   S.role = NAV[w.role] && (w.role === "Area Manager" || (w.role === "Store Manager" && S.sm) || (w.role === "Salesperson" && S.sp)) ? w.role : "Area Manager";
   const total = R.area_managers.reduce((s, a) => s + a.alerts.length, 0);
   $("#runbox").innerHTML = `Data to <b>${dShort(R.as_of)}</b> · analysis runs every morning<br>Last run <b>${esc(R.generated_at)}</b><br>${total} alerts · ${R.cards.length} coaching cards<br><button class="linkbtn" id="reset-demo">Reset demo updates</button>`;
-  $("#reset-demo").addEventListener("click", () => { if (confirm("Clear all follow-ups, remarks, photos and visit notes saved in this browser?")) { T.resetAll(); try { localStorage.removeItem("sc_visits_v1"); } catch {} S.flash = { k: "ok", msg: "Demo updates cleared." }; render(); } });
+  $("#reset-demo").addEventListener("click", () => { if (confirm("Clear all follow-ups, remarks, photos, to-dos and visit notes saved in this browser?")) { T.resetAll(); try { localStorage.removeItem("sc_visits_v1"); localStorage.removeItem("sc_todo_v1"); } catch {} S.flash = { k: "ok", msg: "Demo updates cleared." }; render(); } });
   renderWho();
   render();
 }
