@@ -33,3 +33,7 @@ Thumbs.db
 .idea/
 .claude/settings.local.json
 
+
+# Private notes for the demo video (kept local, not on GitHub)
+docs/demo-script.md
+docs/video-guide.md
