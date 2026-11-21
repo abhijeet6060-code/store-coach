@@ -1,6 +1,6 @@
 {
  "as_of": "2026-10-31",
- "generated_at": "2026-11-21 12:51 IST",
+ "generated_at": "2026-11-21 14:15 IST",
  "window_days": 28,
  "area_managers": [
   {
@@ -8172,6 +8172,46 @@
    "repeat_count": 501
   }
  },
+ "season": {
+  "Bihar": {
+   "cur_festivals": [
+    "Dussehra / Dasara"
+   ],
+   "prev_festivals": [],
+   "cur_wedding_days": 0,
+   "prev_wedding_days": 0,
+   "next_festival": {
+    "name": "Diwali",
+    "date": "2026-11-08"
+   }
+  },
+  "Karnataka": {
+   "cur_festivals": [
+    "Dussehra / Dasara"
+   ],
+   "prev_festivals": [
+    "Ganesh Chaturthi"
+   ],
+   "cur_wedding_days": 0,
+   "prev_wedding_days": 0,
+   "next_festival": {
+    "name": "Diwali",
+    "date": "2026-11-08"
+   }
+  },
+  "Uttar Pradesh": {
+   "cur_festivals": [
+    "Dussehra / Dasara"
+   ],
+   "prev_festivals": [],
+   "cur_wedding_days": 0,
+   "prev_wedding_days": 0,
+   "next_festival": {
+    "name": "Diwali",
+    "date": "2026-11-08"
+   }
+  }
+ },
  "store_alerts": {
   "LKO-01": [],
   "LKO-02": [
@@ -8451,6 +8491,7 @@
  "stores": {
   "LKO-01": {
    "city": "Lucknow",
+   "state": "Uttar Pradesh",
    "tier": "S++",
    "am": "AM-01",
    "conv": 0.1237,
@@ -8461,6 +8502,7 @@
   },
   "LKO-02": {
    "city": "Lucknow",
+   "state": "Uttar Pradesh",
    "tier": "S+",
    "am": "AM-01",
    "conv": 0.1054,
@@ -8471,6 +8513,7 @@
   },
   "LKO-03": {
    "city": "Lucknow",
+   "state": "Uttar Pradesh",
    "tier": "A",
    "am": "AM-01",
    "conv": 0.1046,
@@ -8481,6 +8524,7 @@
   },
   "LKO-04": {
    "city": "Lucknow",
+   "state": "Uttar Pradesh",
    "tier": "S+",
    "am": "AM-01",
    "conv": 0.1364,
@@ -8491,6 +8535,7 @@
   },
   "KNP-01": {
    "city": "Kanpur",
+   "state": "Uttar Pradesh",
    "tier": "S+",
    "am": "AM-02",
    "conv": 0.1327,
@@ -8501,6 +8546,7 @@
   },
   "KNP-02": {
    "city": "Kanpur",
+   "state": "Uttar Pradesh",
    "tier": "A",
    "am": "AM-02",
    "conv": 0.1153,
@@ -8511,6 +8557,7 @@
   },
   "KNP-03": {
    "city": "Kanpur",
+   "state": "Uttar Pradesh",
    "tier": "B",
    "am": "AM-02",
    "conv": 0.0867,
@@ -8521,6 +8568,7 @@
   },
   "PAT-01": {
    "city": "Patna",
+   "state": "Bihar",
    "tier": "S++",
    "am": "AM-03",
    "conv": 0.1385,
@@ -8531,6 +8579,7 @@
   },
   "PAT-02": {
    "city": "Patna",
+   "state": "Bihar",
    "tier": "S+",
    "am": "AM-03",
    "conv": 0.1249,
@@ -8541,6 +8590,7 @@
   },
   "PAT-03": {
    "city": "Patna",
+   "state": "Bihar",
    "tier": "A",
    "am": "AM-03",
    "conv": 0.0836,
@@ -8551,6 +8601,7 @@
   },
   "PAT-04": {
    "city": "Patna",
+   "state": "Bihar",
    "tier": "B",
    "am": "AM-03",
    "conv": 0.0912,
@@ -8561,6 +8612,7 @@
   },
   "MZF-01": {
    "city": "Muzaffarpur",
+   "state": "Bihar",
    "tier": "A",
    "am": "AM-04",
    "conv": 0.0832,
@@ -8571,6 +8623,7 @@
   },
   "MZF-02": {
    "city": "Muzaffarpur",
+   "state": "Bihar",
    "tier": "B",
    "am": "AM-04",
    "conv": 0.0993,
@@ -8581,6 +8634,7 @@
   },
   "BLR-01": {
    "city": "Bengaluru",
+   "state": "Karnataka",
    "tier": "S++",
    "am": "AM-05",
    "conv": 0.1247,
@@ -8591,6 +8645,7 @@
   },
   "BLR-02": {
    "city": "Bengaluru",
+   "state": "Karnataka",
    "tier": "S++",
    "am": "AM-05",
    "conv": 0.1329,
@@ -8601,6 +8656,7 @@
   },
   "BLR-03": {
    "city": "Bengaluru",
+   "state": "Karnataka",
    "tier": "S+",
    "am": "AM-05",
    "conv": 0.1071,
@@ -8611,6 +8667,7 @@
   },
   "BLR-04": {
    "city": "Bengaluru",
+   "state": "Karnataka",
    "tier": "S+",
    "am": "AM-05",
    "conv": 0.1293,
@@ -8621,6 +8678,7 @@
   },
   "BLR-05": {
    "city": "Bengaluru",
+   "state": "Karnataka",
    "tier": "B",
    "am": "AM-05",
    "conv": 0.1084,
@@ -8631,6 +8689,7 @@
   },
   "MYS-01": {
    "city": "Mysuru",
+   "state": "Karnataka",
    "tier": "A",
    "am": "AM-06",
    "conv": 0.0843,
@@ -8641,6 +8700,7 @@
   },
   "MYS-02": {
    "city": "Mysuru",
+   "state": "Karnataka",
    "tier": "B",
    "am": "AM-06",
    "conv": 0.0662,

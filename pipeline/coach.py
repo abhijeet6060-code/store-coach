@@ -676,6 +676,19 @@ def store_kpis(D, e, bad_days, coh):
     return out
 
 
+def season_context(C, e):
+    """Festivals and wedding dates in the last 28 days vs the 28 before, per state, so growth figures can say why."""
+    out = {}
+    for state, g in C.groupby("state"):
+        cur = g[(g.d > e - pd.Timedelta(days=28)) & (g.d <= e)]
+        prev = g[(g.d > e - pd.Timedelta(days=56)) & (g.d <= e - pd.Timedelta(days=28))]
+        nxt = g[(g.d > e) & (g.d <= e + pd.Timedelta(days=30)) & g.festival.notna()].sort_values("d")
+        out[state] = {"cur_festivals": sorted(set(cur.festival.dropna())), "prev_festivals": sorted(set(prev.festival.dropna())),
+                      "cur_wedding_days": int((cur.is_wedding_date == "1").sum()), "prev_wedding_days": int((prev.is_wedding_date == "1").sum()),
+                      "next_festival": {"name": nxt.festival.iloc[0], "date": f"{nxt.d.iloc[0]:%Y-%m-%d}"} if len(nxt) else None}
+    return out
+
+
 def run(data_dir, as_of=None):
     D = load(Path(data_dir))
     end = D["B"].d.max() if as_of is None else pd.Timestamp(as_of)
@@ -698,11 +711,12 @@ def run(data_dir, as_of=None):
         "cards": cards,
         "data_issues": [d for d in issues if d["store_id"] in stores.index],
         "kpis": store_kpis(D, end, bad, M.attrs.get("coh")),
+        "season": season_context(D["C"], end),
         "store_alerts": {sid: sorted([{k: a[k] for k in ("lever", "title", "cause", "action", "rupees_week", "metric", "now", "expected")}
                                       for a in M.attrs.get("all_alerts", []) if sid in [x.strip() for x in a["store_id"].split(",")]],
                                      key=lambda a: -a["rupees_week"])
                          for sid in stores.index},
-        "stores": {sid: {"city": r.city, "tier": r.tier, "am": r.area_manager_id,
+        "stores": {sid: {"city": r.city, "state": r.state, "tier": r.tier, "am": r.area_manager_id,
                          "conv": None if pd.isna(M.loc[sid, "cur_conv"]) else float(M.loc[sid, "cur_conv"]),
                          "ipb": None if pd.isna(M.loc[sid, "cur_ipb"]) else float(M.loc[sid, "cur_ipb"]),
                          "rev": float(M.loc[sid, "cur_rev"]), "bills": int(M.loc[sid, "cur_bills"]),
