@@ -257,7 +257,7 @@ function vStoreProfile(sid) {
     const m = (c, key, f) => (c.metrics?.[key] ? f(c.metrics[key].me) : "–");
     body = `<div class="card tablewrap"><table><thead><tr><th>Salesperson</th><th class="n">Bills (90d)</th><th class="n">Items/bill</th><th class="n">Jacket w/ kurta</th><th class="n">Discount</th><th class="n">Return rate</th><th>Coaching focus</th></tr></thead><tbody>
       ${cards.map((c) => `<tr><td><b>${esc(c.name)}</b><div class="small muted">${esc(c.salesperson_id)}</div></td><td class="n">${c.bills_90d}</td><td class="n">${m(c, "ipb", (v) => v.toFixed(2))}</td><td class="n">${m(c, "ku_att", (v) => pct(v, 0))}</td><td class="n">${m(c, "disc_rate", (v) => pct(v))}</td><td class="n">${m(c, "rep", (v) => pct(v))}</td><td class="small">${esc(c.behaviour)}</td></tr>`).join("") || `<tr><td colspan="7" class="muted">No active salespeople with enough bills yet.</td></tr>`}
-    </tbody></table></div><p class="small muted">Salespeople are compared only with peers in their own store.</p>`;
+    </tbody></table></div><p class="small muted">Salespeople are compared only with peers in their own store. ${S.role === "Area Manager" ? `<a href="#coach" data-coachstore="${sid}">Open coaching cards →</a>` : ""}</p>`;
   } else {
     body = `<div class="card">${taskList(tasks) || `<p class="muted">No follow-ups for this store yet.</p>`}</div>`;
   }
@@ -345,6 +345,8 @@ function vTask(id) {
         <div><span class="lbl2">Result</span><b>Waiting for data</b><span class="small muted">The data pack ends ${dShort(R.as_of)}; the next daily run fills this in.</span></div></div>
         <p class="small muted">A change after an action is shown as measured, not as proof the action caused it.</p></div>
     </div>
+    ${role === "Area Manager" && T.isOpen(t) ? `<form class="card form deadline-form" id="deadline-form" data-id="${t.id}"><h2>${icon("calendar", 16)} Deadline</h2>
+      <div class="row-gap"><input type="date" name="deadline" value="${t.deadline}" min="${T.todayISO()}" required><input name="why" placeholder="Reason (optional)" maxlength="120"><button class="btn ghost" type="submit">Change deadline</button></div></form>` : ""}
     <div class="card"><h2>Updates</h2><ol class="timeline">${t.history.slice().reverse().map((h) => `<li><div><b>${esc(h.status)}</b> · ${esc(h.by)} · <span class="muted small">${dTime(h.at)}</span></div>${h.note ? `<p>${esc(h.note)}</p>` : ""}${h.photo ? `<img class="evidence" src="${h.photo}" alt="Evidence photo from ${esc(h.by)}">` : ""}</li>`).join("")}</ol></div>
     ${moves.length || role === "Store Manager" ? `<form class="card form" id="task-form" data-id="${t.id}">
       <h2>${role === "Store Manager" ? "Update this task" : "Your review"}</h2>
@@ -612,21 +614,161 @@ function vWelcome() {
   </div>`;
 }
 
+// ================= Area Manager: four screens =================
+const prio = (r) => (r >= 20000 ? "High" : r >= 5000 ? "Medium" : "Low");
+const prioPill = (r) => `<span class="pri ${prio(r) === "High" ? "hi" : prio(r) === "Medium" ? "md" : "lo"}">${prio(r)}</span>`;
+const allIssues = (ids) => ids.flatMap((s) => (R.store_alerts[s] || []).map((a) => ({ ...a, store: s }))).sort((a, b) => b.rupees_week - a.rupees_week);
+function spark(sid) {
+  const v = R.kpis[sid].weeks.map((w) => w.rev), max = Math.max(...v, 1), W = 90, H = 24;
+  const pts = v.map((x, i) => `${(i * W / (v.length - 1)).toFixed(1)},${(H - 2 - (x / max) * (H - 4)).toFixed(1)}`).join(" ");
+  return `<svg class="spark" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" aria-hidden="true"><polyline points="${pts}" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg>`;
+}
+
+// ---- AI analysis: reads this morning's calculated results, drafts follow-ups for approval ----
+function runAnalysis() {
+  const am = amObj(), ids = storesOf(am);
+  S.ai = { running: true, at: new Date().toISOString() };
+  if (location.hash !== "#overview") location.hash = "#overview"; else render();
+  setTimeout(() => {
+    const issues = allIssues(ids), tasks = T.all().filter((t) => ids.includes(t.store_id));
+    const drafts = issues.filter((a) => !T.all().some((t) => t.issue_key === issueKey(a.store, a))).map((a) => ({
+      key: issueKey(a.store, a), store: a.store, title: a.title, lever: a.lever, cause: a.cause, action: a.action, rupees: a.rupees_week,
+      priority: prio(a.rupees_week), deadline: addDays(T.todayISO(), a.rupees_week >= 20000 ? 2 : 4), on: a.rupees_week >= 5000,
+      metric: ["conv", "ipb", "disc", "sp_disc", "repeat"].includes(a.metric) ? { name: a.metric === "ipb" ? "ipb" : "rate", label: { conv: "Conversion", ipb: "Items per bill", disc: "Discount", sp_disc: "Discount", repeat: "Return rate" }[a.metric], before: a.now } : null,
+    }));
+    const by = (l) => issues.filter((a) => a.lever === l).length;
+    S.ai = {
+      running: false, at: S.ai.at, stores: ids.length, issues: issues.length, stake: issues.reduce((x, a) => x + a.rupees_week, 0),
+      bills: by("More bills"), baskets: by("Bigger baskets"), repeat: by("More repeat"),
+      pending: tasks.filter(T.isOpen).length, overdue: tasks.filter((t) => T.displayStatus(t) === "Overdue").length,
+      review: tasks.filter((t) => t.status === "Submitted" || t.status === "Under Review").length,
+      data: R.data_issues.filter((d) => ids.includes(d.store_id)).length, drafts,
+    };
+    render();
+  }, 650);
+}
+function aiPanel() {
+  const a = S.ai;
+  if (!a) return "";
+  if (a.running) return `<div class="card panel ai-panel"><div class="ai-run">${icon("ai", 18)} Analysing ${storesOf(amObj()).length} stores…</div></div>`;
+  const chosen = a.drafts.filter((d) => d.on).length;
+  return `<div class="card panel ai-panel">
+    <div class="chart-title"><h2>${icon("ai", 18)} Analysis results</h2><button class="iconbtn" data-ai-close aria-label="Close results">✕</button></div>
+    <ul class="ai-sum">
+      <li><b>${a.stores}</b> stores analysed</li>
+      <li><b>${a.issues}</b> issues found · ${a.bills} more bills · ${a.baskets} bigger baskets · ${a.repeat} more repeat</li>
+      <li><b>${inrShort(a.stake)}</b> a week at stake (estimate)</li>
+      <li><b>${a.pending}</b> follow-ups open${a.overdue ? ` · <span class="neg">${a.overdue} overdue</span>` : ""}${a.review ? ` · ${a.review} waiting for your review` : ""}</li>
+      ${a.data ? `<li><b>${a.data}</b> data issue${a.data > 1 ? "s" : ""} kept out of the numbers</li>` : ""}
+    </ul>
+    ${a.drafts.length ? `<h3 class="sub-h">Follow-up drafts: review and approve</h3>
+    <ul class="tl">${a.drafts.map((d, i) => `<li class="ti">
+        <label class="tick"><input type="checkbox" data-draft="${i}" ${d.on ? "checked" : ""} aria-label="Include"><span class="box"></span></label>
+        <div class="tt"><span class="txt">${prioPill(d.rupees)} ${esc(d.title)}</span><span class="meta">${esc(d.action)}</span>
+          <details class="more"><summary>Evidence</summary><p>${esc(d.cause)}</p></details></div>
+        <div class="ti-right draft-ctl"><span class="amt">${inrShort(d.rupees)}<small>/wk</small></span>
+          <input type="date" data-draft-date="${i}" value="${d.deadline}" min="${T.todayISO()}" aria-label="Deadline"></div></li>`).join("")}</ul>
+    <div class="row-gap ai-actions"><button class="btn" data-ai-approve ${chosen ? "" : "disabled"}>Approve ${chosen} follow-up${chosen === 1 ? "" : "s"}</button><span class="small muted">Each goes to that store's manager with the evidence and action filled in.</span></div>`
+    : `<p class="muted small">Every issue already has a follow-up. Nothing new to approve.</p>`}
+    <p class="small muted">Run at ${dTime(a.at)} on the morning analysis (data to ${dShort(R.as_of)}). Numbers are calculated from the data, not generated.</p>
+  </div>`;
+}
+
+function vAmOverview() {
+  const am = amObj(), ids = storesOf(am), H = ids.map((s) => health(s));
+  const hr = new Date().getHours(), greet = hr < 12 ? "Good morning" : hr < 17 ? "Good afternoon" : "Good evening";
+  const tasks = T.all().filter((t) => ids.includes(t.store_id));
+  const pending = tasks.filter(T.isOpen).length, top = allIssues(ids).slice(0, 3);
+  return `<div class="head"><div><h1>${greet}, ${esc(am.name.split(" ")[0])}</h1><p class="sub">Area Manager · ${esc(am.city)} area</p></div></div>${flash()}
+  <div class="stack">
+    <div class="statline">
+      <div><span>Total stores</span><b>${ids.length}</b></div>
+      <div><span>Healthy</span><b class="pos">${H.filter((h) => h.k === "green").length}</b></div>
+      <div><span>Need attention</span><b class="${H.some((h) => h.k === "red" || h.k === "amber") ? "neg" : ""}">${H.filter((h) => h.k === "red" || h.k === "amber").length}</b></div>
+      <div><span>Pending follow-ups</span><b>${pending}</b></div>
+    </div>
+    <div class="ai-cta"><button class="btn big" data-run-ai>${icon("ai", 20)} Run AI Analysis</button>
+      <span class="small muted">Checks every store, finds what needs attention and drafts follow-ups for you to approve.</span></div>
+    ${aiPanel()}
+    <div class="card panel"><div class="chart-title"><h2>Top 3 issues</h2><a class="small" href="#insights">All insights →</a></div>
+      <ul class="tl">${top.map((a) => issueRow(a, a.store)).join("") || `<li class="ti"><span class="muted small">No issues found this week.</span></li>`}</ul></div>
+  </div>`;
+}
+
+function vAmStores() {
+  const am = amObj(), ids = storesOf(am), q = S.q.toLowerCase();
+  const rows = ids.map((s) => ({ s, info: R.stores[s], h: health(s), g: growth(s), conv: agg([R.kpis[s].cur]).conv, open: tasksFor(s).filter(T.isOpen).length }))
+    .filter((r) => !q || `${r.s} ${r.info.city} ${r.info.tier} ${r.h.label}`.toLowerCase().includes(q))
+    .sort((a, b) => "rag".indexOf(a.h.k[0]) - "rag".indexOf(b.h.k[0]));
+  return head("Stores", `${ids.length} stores in ${esc(am.city)} · last 28 days`) + `
+  <div class="toolbar"><input class="pill search" id="store-q" placeholder="Search stores" value="${esc(S.q)}"><button class="btn ghost" data-csv="stores">${icon("download", 16)} CSV</button></div>
+  <div class="card tablewrap"><table class="clean"><thead><tr><th>Store</th><th>Sales trend (12 weeks)</th><th class="n">Conversion</th><th class="n">Open follow-ups</th><th>Status</th></tr></thead><tbody>
+  ${rows.map((r) => `<tr class="click" data-href="#store/${r.s}"><td><b>${r.s}</b><div class="small muted">${esc(r.info.city)} · tier ${esc(r.info.tier)}</div></td>
+    <td><span class="trend">${spark(r.s)}<span class="${r.g >= 0 ? "pos" : "neg"}">${isFinite(r.g) ? (r.g > 0 ? "+" : "") + (r.g * 100).toFixed(1) + "%" : "–"}</span></span></td>
+    <td class="n">${pct(r.conv)}</td><td class="n">${r.open}</td><td>${dot(r.h.k)} ${r.h.label}</td></tr>`).join("") || `<tr><td colspan="5" class="muted">No store matches “${esc(S.q)}”.</td></tr>`}
+  </tbody></table></div>
+  ${seasonTag(ids)}`;
+}
+
+function vAmFollowups() {
+  const ids = S.role === "Area Manager" ? storesOf(amObj()) : [S.sm];
+  const list = T.all().filter((t) => ids.includes(t.store_id));
+  const F = {
+    pending: ["Pending", (t) => t.status === "Pending"],
+    progress: ["In progress", (t) => ["In Progress", "Submitted", "Under Review"].includes(t.status)],
+    done: ["Completed", (t) => t.status === "Completed"],
+    todos: ["My to-dos", null],
+  };
+  if (!F[S.fuFilter]) S.fuFilter = "pending";
+  const tabs = `<div class="seg wrap">${Object.entries(F).map(([k, [l, fn]]) => `<button data-fuf="${k}" class="${S.fuFilter === k ? "on" : ""}">${l}${fn ? ` (${list.filter(fn).length})` : ` (${T.todos(owner()).filter((t) => !t.done).length})`}</button>`).join("")}</div>`;
+  const body = S.fuFilter === "todos"
+    ? `<div class="card panel"><ul class="tl">${todoRows()}${addRow("Add a to-do")}</ul></div>`
+    : `<div class="card">${taskList(list.filter(F[S.fuFilter][1])) || `<p class="muted">${list.length ? "Nothing here." : "No follow-ups yet. Run AI Analysis on Overview, or click “New follow-up”."}</p>`}</div>`;
+  return head("Follow-ups", `${list.filter(T.isOpen).length} open · ${list.filter((t) => T.displayStatus(t) === "Overdue").length} overdue · ${list.filter((t) => t.status === "Submitted").length} waiting for review`,
+    S.role === "Area Manager" ? `<button class="btn" data-newfu="">${icon("plus", 16)} New follow-up</button>` : "") + `
+  <div class="stack">${S.draft && S.role === "Area Manager" ? fuForm() : ""}${tabs}${body}</div>`;
+}
+
+function vAmInsights() {
+  const am = amObj(), ids = storesOf(am), issues = allIssues(ids), fu = am.follow_up;
+  const di = R.data_issues.filter((d) => ids.includes(d.store_id));
+  return head("AI Insights", `${issues.length} issues across ${ids.length} stores · ${inrShort(issues.reduce((x, a) => x + a.rupees_week, 0))} a week at stake (estimate)`, `<button class="btn ghost" data-run-ai>${icon("ai", 16)} Run AI Analysis</button>`) + `
+  <div class="stack">
+    <div class="card panel"><ul class="tl">${issues.map((a) => {
+      const ft = openTaskFor(a.store, a);
+      return `<li class="ti"><span class="tick static">${dot(prio(a.rupees_week) === "High" ? "red" : prio(a.rupees_week) === "Medium" ? "amber" : "grey")}</span>
+        <div class="tt"><span class="txt">${prioPill(a.rupees_week)} <span class="lever ${LEVER[a.lever] || ""}">${esc(a.lever)}</span>${esc(a.title)}</span>
+          <span class="meta"><b class="lbl3">Evidence</b> ${esc(a.cause)}</span>
+          <span class="meta"><b class="lbl3">Action</b> ${esc(a.action)}</span>
+          <span class="meta">Owner: Store Manager, ${esc(a.store)} · Confidence: ${confidence(a)}</span></div>
+        <div class="ti-right"><span class="amt">${inrShort(a.rupees_week)}<small>/wk</small></span>${ft ? `<a class="chip" href="#task/${ft.id}">${ft.id} · ${T.displayStatus(ft)}</a>` : `<button class="chip accent" data-newfu="${esc(a.store)}" data-title="${esc(a.title)}">Assign</button>`}</div></li>`;
+    }).join("") || `<li class="ti muted">No issues found this week.</li>`}</ul></div>
+    ${am.role_models?.length ? `<div class="card panel"><h2>Role models</h2><ul class="tl">${am.role_models.map((m) => `<li class="ti"><span class="tick static">${dot("green")}</span><div class="tt"><span class="txt">${esc(m.name)} · ${esc(m.store_id)}</span><span class="meta">${pct(m.rate)} of first-time customers came back vs ${pct(m.store_rate)} for the store. Ask them to show the team how.</span></div></li>`).join("")}</ul></div>` : ""}
+    ${fu.length ? `<div class="card panel"><h2>Last week's issues, one week later</h2><ul class="tl">${fu.map((f) => `<li class="ti"><span class="tick static">${dot(f.verdict === "improved" ? "green" : f.verdict === "got worse" ? "red" : "grey")}</span><div class="tt"><span class="txt">${esc(f.title)}</span><span class="meta">${f.metric === "ipb" ? f.before.toFixed(2) : pct(f.before)} then → ${f.metric === "ipb" ? f.now.toFixed(2) : pct(f.now)} now · ${esc(f.verdict)}</span></div></li>`).join("")}</ul><p class="small muted">Measured change, not proof the action caused it.</p></div>` : ""}
+    ${di.length ? `<div class="card panel"><h2>Data issues</h2><ul class="tl">${di.map((d) => `<li class="ti"><span class="tick static">${dot("amber")}</span><div class="tt"><span class="txt">${esc(d.store_id)}: ${esc(d.issue)}</span><span class="meta">${esc(d.detail)}</span></div></li>`).join("")}</ul></div>` : ""}
+    <details class="more"><summary>How are these found?</summary><p class="small muted">Each store is compared with its own same weeks last year (so festival and wedding swings don't trigger alerts) and with stores in its city; salespeople only with peers in their own store. Priority: High = ₹20K+/week at stake, Medium = ₹5K+, Low = below. Numbers are calculated, never generated. Stock is outside this problem statement (it's the Stock Mover brief).</p></details>
+  </div>`;
+}
+
 // ---------------- routing / navigation ----------------
 const NAV = {
-  "Area Manager": [["today", "todo", "Today"], ["stores", "stores", "Stores"], ["followups", "followups", "Follow-ups"], ["coach", "coach", "Coaching"], ["reports", "reports", "Reports"]],
+  "Area Manager": [["overview", "overview", "Overview"], ["stores", "stores", "Stores"], ["followups", "followups", "Follow-ups"], ["insights", "ai", "AI Insights"]],
   "Store Manager": [["today", "todo", "Today"], ["home", "home", "My store"], ["followups", "followups", "Tasks"], ["team", "team", "Team"]],
   Salesperson: [["today", "todo", "Today"]],
 };
 const VIEWS = {
-  overview: vOverview, stores: vStores, insights: vInsights, followups: vFollowups, coach: () => vCoach(null), visits: vVisits, reports: vReports, data: vData,
+  overview: vAmOverview, stores: vAmStores, insights: vAmInsights, followups: vAmFollowups, coach: () => vCoach(null), visits: vVisits, reports: vReports, data: vData,
   home: () => vStoreProfile(S.sm), team: () => vCoach(S.sm), card: vSpCard, todo: vTodo, today: vToday,
 };
 function route() {
   const h = (location.hash || "").slice(1);
   let [v, arg] = h.split("/");
-  if (["overview", "insights", "todo", "card"].includes(v)) v = "today"; // old links still work
-  if ((v === "visits" || v === "data") && S.role === "Area Manager") { S.repTab = v; v = "reports"; history.replaceState(null, "", "#reports"); }
+  if (S.role === "Area Manager") { // old links still work
+    if (v === "today") v = "overview";
+    if (["reports", "visits", "data"].includes(v)) v = "insights";
+    if (v === "todo") { S.fuFilter = "todos"; v = "followups"; }
+  } else if (["overview", "insights", "todo", "card"].includes(v)) v = "today";
+  if (v === "coach" && S.role === "Area Manager") return { v: "stores", html: () => vCoach(null) };
   const allowed = NAV[S.role].map((n) => n[0]);
   if (v === "store" && arg && (S.role === "Area Manager" ? storesOf(amObj()).includes(arg) : S.role === "Store Manager" && arg === S.sm)) return { v, html: () => vStoreProfile(arg) };
   if (v === "task" && arg && S.role !== "Salesperson") return { v: "followups", html: () => vTask(arg) };
@@ -657,7 +799,7 @@ function render() {
   $("#top-title").textContent = (nav.find((n) => n[0] === view) || [0, 0, "Store Coach"])[2];
   const who = S.role === "Area Manager" ? amObj().name : S.role === "Store Manager" ? "Store Manager " + S.sm : (R.cards.find((c) => c.salesperson_id === S.sp)?.name || "");
   $("#am-avatar").textContent = initials(who);
-  const bell = $("#bell-dot"), b = badge("followups"); bell.style.display = b ? "" : "none";
+  $("#ai-top").style.display = S.role === "Area Manager" ? "" : "none";
   closeMenu();
 }
 function renderWho() {
@@ -691,9 +833,12 @@ function exportCsv(kind) {
 function closeMenu() { $("#sidebar").classList.remove("open"); $("#scrim").classList.remove("open"); }
 $("#menu").addEventListener("click", () => { $("#sidebar").classList.add("open"); $("#scrim").classList.add("open"); });
 $("#scrim").addEventListener("click", closeMenu);
+$("#ai-top").addEventListener("click", () => { if (S.role === "Area Manager") runAnalysis(); });
 addEventListener("hashchange", () => { render(); scrollTo(0, 0); });
 $("#view").addEventListener("input", (e) => { if (e.target.id === "store-q") { S.q = e.target.value; const pos = e.target.selectionStart; render(); const el = $("#store-q"); el.focus(); el.setSelectionRange(pos, pos); } });
 $("#view").addEventListener("change", (e) => {
+  if (e.target.dataset.draft) { S.ai.drafts[+e.target.dataset.draft].on = e.target.checked; render(); return; }
+  if (e.target.dataset.draftDate) { if (e.target.value >= T.todayISO()) S.ai.drafts[+e.target.dataset.draftDate].deadline = e.target.value; return; }
   if (e.target.dataset.ack) { const k = ackKey(e.target.dataset.ack); ls.set(k, !ls.get(k, false)); render(); return; }
   if (e.target.dataset.got && e.target.type === "checkbox") { const k = `got|${R.as_of}|${e.target.dataset.got}`; ls.set(k, !ls.get(k, false)); render(); return; }
   if (e.target.dataset.todoToggle) { T.todoToggle(owner(), e.target.dataset.todoToggle); render(); return; }
@@ -704,6 +849,7 @@ $("#view").addEventListener("click", (e) => {
   const el = (sel) => e.target.closest(sel);
   let x;
   if ((x = el("[data-href]")) && !el("a,button")) { location.hash = x.dataset.href; return; }
+  if ((x = el("[data-coachstore]"))) { S.coachStore = x.dataset.coachstore; S.coachSp = null; return; }
   if ((x = el("[data-sp]"))) { S.coachSp = x.dataset.sp; render(); return; }
   if ((x = el("[data-stab]"))) { S.storeTab = x.dataset.stab; render(); return; }
   if ((x = el("[data-health]"))) { S.health = x.dataset.health; render(); return; }
@@ -719,6 +865,18 @@ $("#view").addEventListener("click", (e) => {
     S.coachSp = null; S.coachStore = null; S.draft = null;
     persist(); renderWho(); location.hash = "#" + NAV[S.role][0][0];
     return;
+  }
+  if (el("[data-run-ai]")) { runAnalysis(); return; }
+  if (el("[data-ai-close]")) { S.ai = null; render(); return; }
+  if (el("[data-ai-approve]")) {
+    const by = amObj().name; let made = 0, dup = 0;
+    S.ai.drafts.filter((d) => d.on).forEach((d) => {
+      const res = T.create({ store_id: d.store, title: d.title, category: d.lever, problem: d.cause, action: d.action, deadline: d.deadline, priority: d.priority, issue_key: d.key, metric: d.metric }, by);
+      res.error ? dup++ : made++;
+    });
+    S.ai.drafts = S.ai.drafts.filter((d) => !d.on);
+    S.flash = { k: "ok", msg: `${made} follow-up${made === 1 ? "" : "s"} sent to store managers${dup ? ` (${dup} already existed)` : ""}.` };
+    render(); return;
   }
   if ((x = el("[data-rtab]"))) { S.repTab = x.dataset.rtab; render(); return; }
   if ((x = el("[data-todo-del]"))) { T.todoRemove(owner(), x.dataset.todoDel); render(); return; }
@@ -757,6 +915,11 @@ $("#view").addEventListener("submit", async (e) => {
     if (res.error) { S.flash = { k: "bad", msg: res.error }; render(); return; }
     S.draft = null; S.flash = { k: "ok", msg: `${res.task.id} assigned to ${res.task.assignee}, due ${dShort(res.task.deadline)}.` };
     location.hash = "#task/" + res.task.id; return; // hashchange renders (and shows the message once)
+  }
+  if (f.id === "deadline-form") {
+    const res = T.setDeadline(f.dataset.id, f.deadline.value, amObj().name, S.role, f.why.value.trim());
+    S.flash = res.error ? { k: "bad", msg: res.error } : { k: "ok", msg: `Deadline for ${res.task.id} is now ${dShort(res.task.deadline)}. The store manager sees it in their task.` };
+    render(); return;
   }
   if (f.id === "todo-form") {
     const res = T.todoAdd(owner(), f.text.value, f.due.value);
