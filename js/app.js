@@ -736,7 +736,7 @@ function vBrief() {
     ${flash()}
     <section class="b-card b-listen"><h2>Before you arrive</h2>
       <div class="b-play"><button class="bbtn primary" data-speak="play">${icon("ai", 20)} Play brief</button><button class="bbtn" data-speak="pause">Pause</button><button class="bbtn" data-speak="stop">Stop</button></div>
-      <p class="b-note">Listen, don't read, while driving. About a minute.</p></section>
+      <p class="b-note">Listen, don't read, while driving. About a minute. <span class="voice-note"></span></p></section>
     <section class="b-card"><h2>Today at a glance</h2>
       <div class="b-num"><b>${pct(d.cur.conv, 0)}</b><span>bought something, out of everyone who walked in. ${convWords}.</span></div>
       <div class="b-num"><b>${isFinite(d.g) ? (d.g >= 0 ? "+" : "") + (d.g * 100).toFixed(0) + "%" : "–"}</b><span>sales vs the 28 days before${d.season ? ` <span class="stag sm">festival season</span>` : ""}.</span></div>
@@ -758,14 +758,41 @@ function vBrief() {
     <div class="b-bar"><button class="bbtn primary" data-speak="play">Play brief</button><button class="bbtn" data-brief-todo>Add to-do</button></div>
   </div>`;
 }
-function speak(cmd) {
+// Read the brief aloud: ElevenLabs voice through our server function (/api/tts), else the browser's own voice.
+const voiceCache = new Map(); // text -> audio URL, so replaying is instant
+let audioEl = null;
+function setVoiceNote(t) { document.querySelectorAll(".voice-note").forEach((el) => (el.textContent = t)); }
+async function speak(cmd) {
   const sy = window.speechSynthesis;
-  if (!sy) { S.flash = { k: "bad", msg: "This browser can't read aloud. Try Chrome." }; render(); return; }
-  if (cmd === "stop") { sy.cancel(); return; }
-  if (cmd === "pause") { sy.speaking && !sy.paused ? sy.pause() : sy.resume(); return; }
-  if (sy.paused) { sy.resume(); return; }
-  sy.cancel();
-  const u = new SpeechSynthesisUtterance(briefScript(briefData(briefStore())));
+  if (cmd === "stop") { sy?.cancel(); if (audioEl) { audioEl.pause(); audioEl.currentTime = 0; } setVoiceNote(""); return; }
+  if (cmd === "pause") {
+    if (audioEl && !audioEl.ended && audioEl.currentTime > 0) { audioEl.paused ? audioEl.play() : audioEl.pause(); return; }
+    if (sy) sy.speaking && !sy.paused ? sy.pause() : sy.resume();
+    return;
+  }
+  if (audioEl && audioEl.paused && audioEl.currentTime > 0 && !audioEl.ended) { audioEl.play(); return; }
+  if (sy?.paused) { sy.resume(); return; }
+  sy?.cancel(); if (audioEl) audioEl.pause();
+  const text = briefScript(briefData(briefStore()));
+  setVoiceNote("Loading voice…");
+  try {
+    let url = voiceCache.get(text);
+    if (!url) {
+      const ctrl = new AbortController(), t = setTimeout(() => ctrl.abort(), 8000);
+      const r = await fetch("/api/tts", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ text }), signal: ctrl.signal });
+      clearTimeout(t);
+      if (!r.ok || !(r.headers.get("content-type") || "").includes("audio")) throw new Error("voice unavailable");
+      url = URL.createObjectURL(await r.blob());
+      voiceCache.set(text, url);
+    }
+    audioEl = new Audio(url);
+    await audioEl.play();
+    setVoiceNote("Voice: ElevenLabs");
+    return;
+  } catch { /* fall back to the browser voice below */ }
+  if (!sy) { setVoiceNote(""); S.flash = { k: "bad", msg: "This browser can't read aloud. Try Chrome." }; render(); return; }
+  setVoiceNote("Voice: built into your browser");
+  const u = new SpeechSynthesisUtterance(text);
   u.lang = "en-IN"; u.rate = 1;
   const v = sy.getVoices().find((x) => x.lang === "en-IN") || sy.getVoices().find((x) => x.lang.startsWith("en"));
   if (v) u.voice = v;
@@ -1005,10 +1032,10 @@ function closeMenu() { $("#sidebar").classList.remove("open"); $("#scrim").class
 $("#menu").addEventListener("click", () => { $("#sidebar").classList.add("open"); $("#scrim").classList.add("open"); });
 $("#scrim").addEventListener("click", closeMenu);
 $("#ai-top").addEventListener("click", () => { if (S.role === "Area Manager") runAnalysis(); });
-addEventListener("hashchange", () => { window.speechSynthesis?.cancel(); render(); scrollTo(0, 0); });
+addEventListener("hashchange", () => { speak("stop"); render(); scrollTo(0, 0); });
 $("#view").addEventListener("input", (e) => { if (e.target.id === "store-q") { S.q = e.target.value; const pos = e.target.selectionStart; render(); const el = $("#store-q"); el.focus(); el.setSelectionRange(pos, pos); } });
 $("#view").addEventListener("change", (e) => {
-  if (e.target.id === "brief-store") { S.briefStore = e.target.value; window.speechSynthesis?.cancel(); render(); return; }
+  if (e.target.id === "brief-store") { S.briefStore = e.target.value; speak("stop"); render(); return; }
   if (e.target.dataset.agenda) { ls.set(e.target.dataset.agenda, e.target.checked); render(); return; }
   if (e.target.dataset.draft) { S.ai.drafts[+e.target.dataset.draft].on = e.target.checked; render(); return; }
   if (e.target.dataset.draftDate) { if (e.target.value >= T.todayISO()) S.ai.drafts[+e.target.dataset.draftDate].deadline = e.target.value; return; }

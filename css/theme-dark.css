@@ -273,3 +273,5 @@ table.clean td { padding: 12px 8px; }
 .strength { display: flex; gap: 6px; align-items: flex-start; color: var(--good); font-weight: 600; margin: 0 0 6px; }
 .onething .strength { margin-left: 40px; }
 @media (max-width: 900px) { .onething .strength { margin-left: 0; } }
+
+.voice-note { color: var(--accent2); font-weight: 600; }
