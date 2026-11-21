@@ -422,6 +422,7 @@ def build_alerts(D, as_of, bad_days):
                            "action": f"Today, {model or 'the store manager'} and one colleague call the {lapsed} customers who bought for a wedding 9–15 months ago and have not been back.",
                            "rupees_week": float(rupees), "metric": "repeat", "now": float(r["mean"]), "expected": float(r.state_mean)})
 
+    M.attrs["all_alerts"] = alerts
     out = {}
     for am, g in pd.DataFrame(alerts).groupby("am") if alerts else []:
         g = g.sort_values("rupees_week", ascending=False)
@@ -697,6 +698,10 @@ def run(data_dir, as_of=None):
         "cards": cards,
         "data_issues": [d for d in issues if d["store_id"] in stores.index],
         "kpis": store_kpis(D, end, bad, M.attrs.get("coh")),
+        "store_alerts": {sid: sorted([{k: a[k] for k in ("lever", "title", "cause", "action", "rupees_week", "metric", "now", "expected")}
+                                      for a in M.attrs.get("all_alerts", []) if sid in [x.strip() for x in a["store_id"].split(",")]],
+                                     key=lambda a: -a["rupees_week"])
+                         for sid in stores.index},
         "stores": {sid: {"city": r.city, "tier": r.tier, "am": r.area_manager_id,
                          "conv": None if pd.isna(M.loc[sid, "cur_conv"]) else float(M.loc[sid, "cur_conv"]),
                          "ipb": None if pd.isna(M.loc[sid, "cur_ipb"]) else float(M.loc[sid, "cur_ipb"]),

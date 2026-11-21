@@ -1,6 +1,6 @@
 {
  "as_of": "2026-10-31",
- "generated_at": "2026-11-21 12:37 IST",
+ "generated_at": "2026-11-21 12:51 IST",
  "window_days": 28,
  "area_managers": [
   {
@@ -8171,6 +8171,282 @@
    "repeat_sum": 17,
    "repeat_count": 501
   }
+ },
+ "store_alerts": {
+  "LKO-01": [],
+  "LKO-02": [
+   {
+    "lever": "More bills",
+    "title": "LKO-02: top seller Imran C. has stopped billing",
+    "cause": "Imran C. (SP1018) was the #1 seller with 19% of the store's bills (₹1,12,159 a week). No bill since 13 Sep and not on the roster since 14 Sep. Store conversion now 10.5% vs expected 12.3%.",
+    "action": "Today: Sumit A. calls Imran C.'s 88 customers from the last 90 days to introduce themselves; store manager confirms with HR whether Imran C. has left and moves one weekday off to cover Saturday.",
+    "rupees_week": 112158.6667,
+    "metric": "conv",
+    "now": 0.1054,
+    "expected": 0.1227
+   },
+   {
+    "lever": "Bigger baskets",
+    "title": "LKO-02: Varun S. discounting 2.7% vs store 0.7%",
+    "cause": "In the last 28 days Varun S. (SP1021) gave 2.7% off MRP on 25 bills; the rest of the store gave 0.7%. Extra discount: ₹4,262 in 28 days.",
+    "action": "From today, any discount by Varun S. above 1% needs the store manager's OK at the till; manager reviews their bills at close on Saturday.",
+    "rupees_week": 1065.512,
+    "metric": "sp_disc",
+    "now": 0.0274,
+    "expected": 0.0066
+   }
+  ],
+  "LKO-03": [
+   {
+    "lever": "Bigger baskets",
+    "title": "LKO-03: smaller baskets (-6%)",
+    "cause": "Items per bill 1.69 vs expected 1.79. Biggest drop: Rizwan J. (1.59 items/bill, was 2.17); Sumit R. holds 1.76.",
+    "action": "Today: Sumit R. shadows Rizwan J. on the first three sherwani or kurta trials and shows the safa, mojari and jacket add-on; store manager checks Rizwan J.'s bills at 6 pm.",
+    "rupees_week": 12659.6382,
+    "metric": "ipb",
+    "now": 1.6854,
+    "expected": 1.7945
+   }
+  ],
+  "LKO-04": [
+   {
+    "lever": "More repeat",
+    "title": "LKO-04: Kunal C.'s customers don't come back",
+    "cause": "Of 235 first-time customers Kunal C. (SP1033) served in the last year, 0 came back (0.0%); the rest of the store gets 2.9%. Role model: Zaid N.",
+    "action": "Today: Zaid N. shows Kunal C. how they take the customer's number and wedding date at billing; from tomorrow Kunal C. sends a thank-you WhatsApp to every customer the day after they buy.",
+    "rupees_week": 1307.4303,
+    "metric": "repeat",
+    "now": 0.0,
+    "expected": 0.029
+   }
+  ],
+  "KNP-01": [
+   {
+    "lever": "Bigger baskets",
+    "title": "KNP-01: smaller baskets (-7%)",
+    "cause": "Items per bill 1.71 vs expected 1.85. Biggest drop: Shahid A. (1.45 items/bill, was 1.93); Nikhil S. holds 2.16.",
+    "action": "Today: Nikhil S. shadows Shahid A. on the first three sherwani or kurta trials and shows the safa, mojari and jacket add-on; store manager checks Shahid A.'s bills at 6 pm.",
+    "rupees_week": 32921.7815,
+    "metric": "ipb",
+    "now": 1.7143,
+    "expected": 1.8486
+   },
+   {
+    "lever": "More repeat",
+    "title": "KNP-01: Ravi C.'s customers don't come back",
+    "cause": "Of 313 first-time customers Ravi C. (SP1045) served in the last year, 1 came back (0.3%); the rest of the store gets 2.3%. Role model: Jitendra J.",
+    "action": "Today: Jitendra J. shows Ravi C. how they take the customer's number and wedding date at billing; from tomorrow Ravi C. sends a thank-you WhatsApp to every customer the day after they buy.",
+    "rupees_week": 1007.8923,
+    "metric": "repeat",
+    "now": 0.0032,
+    "expected": 0.0227
+   }
+  ],
+  "KNP-02": [],
+  "KNP-03": [],
+  "PAT-01": [
+   {
+    "lever": "Bigger baskets",
+    "title": "PAT-01: Manoj N. discounting 4.7% vs store 1.8%",
+    "cause": "In the last 28 days Manoj N. (SP1064) gave 4.7% off MRP on 39 bills; the rest of the store gave 1.8%. Extra discount: ₹12,647 in 28 days.",
+    "action": "From today, any discount by Manoj N. above 2% needs the store manager's OK at the till; manager reviews their bills at close on Saturday.",
+    "rupees_week": 3161.7055,
+    "metric": "sp_disc",
+    "now": 0.047,
+    "expected": 0.0183
+   },
+   {
+    "lever": "Bigger baskets",
+    "title": "PAT-01: Kamal G. discounting 4.1% vs store 1.9%",
+    "cause": "In the last 28 days Kamal G. (SP1069) gave 4.1% off MRP on 40 bills; the rest of the store gave 1.9%. Extra discount: ₹9,375 in 28 days.",
+    "action": "From today, any discount by Kamal G. above 2% needs the store manager's OK at the till; manager reviews their bills at close on Saturday.",
+    "rupees_week": 2343.7229,
+    "metric": "sp_disc",
+    "now": 0.0409,
+    "expected": 0.0191
+   },
+   {
+    "lever": "More repeat",
+    "title": "PAT-01: Faizan K.'s customers don't come back",
+    "cause": "Of 370 first-time customers Faizan K. (SP1072) served in the last year, 2 came back (0.5%); the rest of the store gets 2.2%. Role model: Sanjay K.",
+    "action": "Today: Sanjay K. shows Faizan K. how they take the customer's number and wedding date at billing; from tomorrow Faizan K. sends a thank-you WhatsApp to every customer the day after they buy.",
+    "rupees_week": 1294.178,
+    "metric": "repeat",
+    "now": 0.0054,
+    "expected": 0.0225
+   }
+  ],
+  "PAT-02": [],
+  "PAT-03": [
+   {
+    "lever": "More bills",
+    "title": "PAT-03: conversion down 28%",
+    "cause": "Walk-ins steady but fewer buying: conversion 8.4% vs expected 11.6%, while Patna peers moved -2%.",
+    "action": "Today: Amit A. greets every walk-in between 5 and 8 pm and hands over only after the first trial.",
+    "rupees_week": 43550.4277,
+    "metric": "conv",
+    "now": 0.0836,
+    "expected": 0.1158
+   },
+   {
+    "lever": "More repeat",
+    "title": "PAT-03: customers not coming back",
+    "cause": "1.1% of first-time customers came back vs 2.1% for stores in Bihar. Role model: Jitendra N. keeps the best repeat rate in the store.",
+    "action": "Today, Jitendra N. and one colleague call the 59 customers who bought for a wedding 9–15 months ago and have not been back.",
+    "rupees_week": 1267.3506,
+    "metric": "repeat",
+    "now": 0.0107,
+    "expected": 0.0213
+   }
+  ],
+  "PAT-04": [
+   {
+    "lever": "More repeat",
+    "title": "PAT-04: Zaid A.'s customers don't come back",
+    "cause": "Of 200 first-time customers Zaid A. (SP1098) served in the last year, 1 came back (0.5%); the rest of the store gets 2.4%. Role model: Prakash V.",
+    "action": "Today: Prakash V. shows Zaid A. how they take the customer's number and wedding date at billing; from tomorrow Zaid A. sends a thank-you WhatsApp to every customer the day after they buy.",
+    "rupees_week": 496.8325,
+    "metric": "repeat",
+    "now": 0.005,
+    "expected": 0.0236
+   }
+  ],
+  "MZF-01": [
+   {
+    "lever": "More bills",
+    "title": "MZF-01: conversion down 10%",
+    "cause": "Walk-ins steady but fewer buying: conversion 8.3% vs expected 9.2%, while Muzaffarpur peers moved +12%.",
+    "action": "Today: Saurabh Y. greets every walk-in between 5 and 8 pm and hands over only after the first trial.",
+    "rupees_week": 18755.8659,
+    "metric": "conv",
+    "now": 0.0832,
+    "expected": 0.0922
+   },
+   {
+    "lever": "More repeat",
+    "title": "MZF-01: Chandan S.'s customers don't come back",
+    "cause": "Of 100 first-time customers Chandan S. (SP1104) served in the last year, 0 came back (0.0%); the rest of the store gets 2.5%. Role model: Amit C.",
+    "action": "Today: Amit C. shows Chandan S. how they take the customer's number and wedding date at billing; from tomorrow Chandan S. sends a thank-you WhatsApp to every customer the day after they buy.",
+    "rupees_week": 313.5099,
+    "metric": "repeat",
+    "now": 0.0,
+    "expected": 0.0246
+   }
+  ],
+  "MZF-02": [
+   {
+    "lever": "Bigger baskets",
+    "title": "MZF-02: smaller baskets (-16%)",
+    "cause": "Items per bill 1.44 vs expected 1.72. Biggest drop: Manish C. (1.40 items/bill, was 1.58); Ankit P. holds 1.62.",
+    "action": "Today: Ankit P. shadows Manish C. on the first three sherwani or kurta trials and shows the safa, mojari and jacket add-on; store manager checks Manish C.'s bills at 6 pm.",
+    "rupees_week": 19724.4825,
+    "metric": "ipb",
+    "now": 1.4386,
+    "expected": 1.7194
+   }
+  ],
+  "BLR-01": [
+   {
+    "lever": "Bigger baskets",
+    "title": "BLR-01: Sunil T. discounting 4.1% vs store 1.2%",
+    "cause": "In the last 28 days Sunil T. (SP1122) gave 4.1% off MRP on 32 bills; the rest of the store gave 1.2%. Extra discount: ₹9,997 in 28 days.",
+    "action": "From today, any discount by Sunil T. above 1% needs the store manager's OK at the till; manager reviews their bills at close on Saturday.",
+    "rupees_week": 2499.2818,
+    "metric": "sp_disc",
+    "now": 0.0407,
+    "expected": 0.0122
+   },
+   {
+    "lever": "More repeat",
+    "title": "BLR-01: Manjunath C.'s customers don't come back",
+    "cause": "Of 382 first-time customers Manjunath C. (SP1114) served in the last year, 2 came back (0.5%); the rest of the store gets 2.6%. Role model: Karthik J.",
+    "action": "Today: Karthik J. shows Manjunath C. how they take the customer's number and wedding date at billing; from tomorrow Manjunath C. sends a thank-you WhatsApp to every customer the day after they buy.",
+    "rupees_week": 1482.5713,
+    "metric": "repeat",
+    "now": 0.0052,
+    "expected": 0.026
+   },
+   {
+    "lever": "More repeat",
+    "title": "BLR-01: Sachin R.'s customers don't come back",
+    "cause": "Of 214 first-time customers Sachin R. (SP1113) served in the last year, 1 came back (0.5%); the rest of the store gets 2.5%. Role model: Karthik J.",
+    "action": "Today: Karthik J. shows Sachin R. how they take the customer's number and wedding date at billing; from tomorrow Sachin R. sends a thank-you WhatsApp to every customer the day after they buy.",
+    "rupees_week": 818.1379,
+    "metric": "repeat",
+    "now": 0.0047,
+    "expected": 0.0251
+   },
+   {
+    "lever": "More repeat",
+    "title": "BLR-01: Srinivas B.'s customers don't come back",
+    "cause": "Of 115 first-time customers Srinivas B. (SP1123) served in the last year, 0 came back (0.0%); the rest of the store gets 2.5%. Role model: Karthik J.",
+    "action": "Today: Karthik J. shows Srinivas B. how they take the customer's number and wedding date at billing; from tomorrow Srinivas B. sends a thank-you WhatsApp to every customer the day after they buy.",
+    "rupees_week": 531.9715,
+    "metric": "repeat",
+    "now": 0.0,
+    "expected": 0.0248
+   }
+  ],
+  "BLR-02": [
+   {
+    "lever": "Bigger baskets",
+    "title": "BLR-02: Mahesh J. discounting 4.0% vs store 1.9%",
+    "cause": "In the last 28 days Mahesh J. (SP1139) gave 4.0% off MRP on 14 bills; the rest of the store gave 1.9%. Extra discount: ₹3,117 in 28 days.",
+    "action": "From today, any discount by Mahesh J. above 2% needs the store manager's OK at the till; manager reviews their bills at close on Saturday.",
+    "rupees_week": 779.2022,
+    "metric": "sp_disc",
+    "now": 0.0405,
+    "expected": 0.0188
+   }
+  ],
+  "BLR-03": [
+   {
+    "lever": "More bills",
+    "title": "BLR-03: conversion down 11%",
+    "cause": "Shifts are being missed: Vijay N. (off 46% of days, was 30%), Manjunath K. (off 43% of days, was 29%). Conversion fell to 10.7% from an expected 12.0%.",
+    "action": "Store manager: lock Vijay N.'s rota for this Saturday and Sunday, and move weekly offs to Tuesday–Wednesday so at least 7 people are on the floor at weekends.",
+    "rupees_week": 65376.7867,
+    "metric": "conv",
+    "now": 0.1071,
+    "expected": 0.1204
+   }
+  ],
+  "BLR-04": [],
+  "BLR-05": [],
+  "MYS-01": [
+   {
+    "lever": "Bigger baskets",
+    "title": "MYS-01: smaller baskets (-16%)",
+    "cause": "Items per bill 1.53 vs expected 1.83.",
+    "action": "Show a safa and mojari with every sherwani trial today, and a jacket with every kurta trial; store manager checks at 6 pm.",
+    "rupees_week": 25961.7857,
+    "metric": "ipb",
+    "now": 1.5316,
+    "expected": 1.8286
+   }
+  ],
+  "MYS-02": [
+   {
+    "lever": "More bills",
+    "title": "MYS-02: conversion down 24%",
+    "cause": "Too few people on the floor on busy days: 13 walk-ins per salesperson at weekends vs 10 on weekdays. Conversion 6.6% vs expected 8.8%.",
+    "action": "Keep 4 people on the floor this Saturday and Sunday, 4–8 pm; move weekend offs to Tuesday.",
+    "rupees_week": 27321.0226,
+    "metric": "conv",
+    "now": 0.0662,
+    "expected": 0.0876
+   },
+   {
+    "lever": "Bigger baskets",
+    "title": "MYS-02: smaller baskets (-16%)",
+    "cause": "Items per bill 1.35 vs expected 1.62.",
+    "action": "Show a safa and mojari with every sherwani trial today, and a jacket with every kurta trial; store manager checks at 6 pm.",
+    "rupees_week": 16310.3155,
+    "metric": "ipb",
+    "now": 1.3542,
+    "expected": 1.6157
+   }
+  ]
  },
  "stores": {
   "LKO-01": {
