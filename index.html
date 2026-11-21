@@ -4,28 +4,61 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Store Coach</title>
+  <meta name="description" content="Every morning: which stores need attention and why, and one thing each salesperson can do better today." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23E0621A'/%3E%3Ctext x='16' y='22' font-family='Georgia' font-size='16' font-weight='700' fill='white' text-anchor='middle'%3ESC%3C/text%3E%3C/svg%3E" />
 </head>
 <body>
-  <header>
-    <h1>Store Coach</h1>
-    <p>Every morning: which stores need attention and why, and one thing each salesperson can do better today.</p>
-    <p class="runinfo" id="runinfo">Loading today's run…</p>
-  </header>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="brand">
+        <span class="mark" aria-hidden="true">SC</span>
+        <div><div class="brand-name">Store Coach</div><div class="brand-sub">More bills · Bigger baskets · More repeat</div></div>
+      </div>
+      <div class="profile">
+        <span class="avatar" id="am-avatar">RS</span>
+        <div class="profile-txt">
+          <label class="viewing" for="am-select">Viewing as</label>
+          <select id="am-select"></select>
+          <div class="profile-sub" id="am-sub"></div>
+        </div>
+      </div>
+      <nav class="nav" id="nav">
+        <a href="#dashboard" data-view="dashboard"><span class="ic">⌂</span>Dashboard</a>
+        <a href="#insights" data-view="insights"><span class="ic">✦</span>AI Insights &amp; Alerts<span class="count" id="nav-alerts"></span></a>
+        <a href="#coach" data-view="coach"><span class="ic">☺</span>Salesperson Coach</a>
+        <a href="#stores" data-view="stores"><span class="ic">▥</span>Store Performance</a>
+        <a href="#followup" data-view="followup"><span class="ic">✓</span>Follow-Up Tracker</a>
+        <a href="#impact" data-view="impact"><span class="ic">★</span>Impact Summary</a>
+        <a href="#data" data-view="data"><span class="ic">!</span>Data Issues</a>
+      </nav>
+      <div class="runbox" id="runbox"></div>
+    </aside>
 
-  <nav class="tabs" role="tablist">
-    <button role="tab" data-tab="am" aria-selected="true">Area managers</button>
-    <button role="tab" data-tab="sp" aria-selected="false">Salesperson cards</button>
-    <button role="tab" data-tab="data" aria-selected="false">Data issues</button>
-  </nav>
+    <div class="scrim" id="scrim"></div>
 
-  <main>
-    <section id="tab-am"></section>
-    <section id="tab-sp" hidden></section>
-    <section id="tab-data" hidden></section>
-  </main>
+    <div class="main">
+      <header class="topbar">
+        <button class="menu" id="menu" aria-label="Open menu">☰</button>
+        <span class="top-title" id="top-title">Store Coach</span>
+        <a class="bell" href="#insights" aria-label="Alerts">🔔<span class="dot" id="bell-dot"></span></a>
+      </header>
+      <main id="view" tabindex="-1"><p class="loading">Loading today's run…</p></main>
+      <footer class="foot">Vibe Syndicate · Vibe Coders Hackathon, Kolkata · Hackathon prototype on the synthetic Manyavar data pack (1 Nov 2024 – 31 Oct 2026). Not an official Manyavar product.</footer>
+    </div>
 
-  <footer>Built by Vibe Syndicate at Vibe Coders Hackathon, Kolkata. Runs on the synthetic Manyavar data pack (1 Nov 2024 – 31 Oct 2026).</footer>
+    <nav class="bottomnav" aria-label="Sections">
+      <a href="#dashboard" data-view="dashboard"><span>⌂</span>Home</a>
+      <a href="#insights" data-view="insights"><span>✦</span>Insights</a>
+      <a href="#coach" data-view="coach"><span>☺</span>Coaching</a>
+      <a href="#stores" data-view="stores"><span>▥</span>Stores</a>
+      <a href="#followup" data-view="followup"><span>✓</span>Follow-up</a>
+    </nav>
+  </div>
+  <div class="tip" id="tip" role="tooltip"></div>
   <script type="module" src="js/app.js"></script>
 </body>
 </html>
