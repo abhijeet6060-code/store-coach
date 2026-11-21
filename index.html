@@ -9,31 +9,23 @@
 <body>
   <header>
     <h1>Store Coach</h1>
-    <p>Tell us about the customer. Get the right look, the add-ons, and what to say.</p>
+    <p>Every morning: which stores need attention and why, and one thing each salesperson can do better today.</p>
+    <p class="runinfo" id="runinfo">Loading today's run…</p>
   </header>
 
-  <main>
-    <form id="brief" class="card">
-      <h2>Customer brief</h2>
-      <div class="grid">
-        <label>Occasion <select name="occasion" id="occasion"></select></label>
-        <label>Their role <select name="role" id="role"></select></label>
-        <label>Budget (₹) <input name="budget" type="number" min="1000" step="500" value="25000" required /></label>
-        <label>Preferred colour <select name="colour" id="colour"></select></label>
-        <label>Size <select name="size" id="size"></select></label>
-        <label>Season <select name="season">
-          <option value="winter">Winter</option>
-          <option value="summer">Summer</option>
-          <option value="monsoon">Monsoon</option>
-        </select></label>
-      </div>
-      <button type="submit">Coach me</button>
-    </form>
+  <nav class="tabs" role="tablist">
+    <button role="tab" data-tab="am" aria-selected="true">Area managers</button>
+    <button role="tab" data-tab="sp" aria-selected="false">Salesperson cards</button>
+    <button role="tab" data-tab="data" aria-selected="false">Data issues</button>
+  </nav>
 
-    <section id="results" aria-live="polite"></section>
+  <main>
+    <section id="tab-am"></section>
+    <section id="tab-sp" hidden></section>
+    <section id="tab-data" hidden></section>
   </main>
 
-  <footer>Built by Vibe Syndicate at Vibe Coders Hackathon, Kolkata. Demo uses a sample catalog, not real store data.</footer>
+  <footer>Built by Vibe Syndicate at Vibe Coders Hackathon, Kolkata. Runs on the synthetic Manyavar data pack (1 Nov 2024 – 31 Oct 2026).</footer>
   <script type="module" src="js/app.js"></script>
 </body>
 </html>
