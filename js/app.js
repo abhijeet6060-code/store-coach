@@ -120,10 +120,12 @@ function alertRow(a, i, sid, withFU = true) {
   return `<div class="alert">
     <span class="num">${i + 1}</span>
     <div><h3><span class="lever ${LEVER[a.lever] || ""}">${esc(a.lever)}</span>${esc(a.title)}</h3>
-      <p><span class="lbl2">Evidence</span>${esc(a.cause)}</p>
-      <p class="do"><span class="lbl2">Action</span>${esc(a.action)}</p>
-      <div class="meta-row"><span>Owner: Store Manager, ${esc(store)}</span><span>Confidence: ${confidence(a)}</span>${fu}</div></div>
-    <div class="stake"><b>${inrShort(a.rupees_week)}</b><span>est. at stake / week</span></div>
+      <p class="do">${esc(a.action)}</p>
+      <details class="more"><summary>Why? Evidence &amp; details</summary>
+        <p>${esc(a.cause)}</p>
+        <div class="meta-row"><span>Owner: Store Manager, ${esc(store)}</span><span>Confidence: ${confidence(a)}</span></div></details>
+      ${fu ? `<div class="fu-btn">${fu}</div>` : ""}</div>
+    <div class="stake"><b>${inrShort(a.rupees_week)}</b><span>at stake / week</span></div>
   </div>`;
 }
 function confidence(a) {
@@ -161,7 +163,7 @@ function coachDetail(c, showGot = true) {
 
 // ---------------- AREA MANAGER ----------------
 function vOverview() {
-  const am = amObj(), ids = storesOf(am), cur = period(ids, "cur"), prev = period(ids, "prev"), wk = weekly(ids);
+  const am = amObj(), ids = storesOf(am), cur = period(ids, "cur"), prev = period(ids, "prev");
   const H = ids.map((s) => ({ s, h: health(s) }));
   const cnt = (k) => H.filter((x) => x.h.k === k).length;
   const tasks = T.all().filter((t) => ids.includes(t.store_id));
@@ -171,16 +173,12 @@ function vOverview() {
   const filt = S.health;
   const shown = H.filter((x) => filt === "all" || (filt === "attention" ? x.h.k === "amber" : filt === "critical" ? x.h.k === "red" : filt === "healthy" ? x.h.k === "green" : filt === "fu" ? tasksFor(x.s).some(T.isOpen) : true));
   const top = (am.alerts || []).slice(0, 3);
-  return head(`${greet}, ${esc(am.name.split(" ")[0])}`, `Area Manager · ${esc(am.city)} · data to ${dShort(R.as_of)} · last run ${esc(R.generated_at)}`, `<span class="pill">Last 28 days</span>`) + `
+  return head(`${greet}, ${esc(am.name.split(" ")[0])}`, `${esc(am.city)} · ${ids.length} stores · data to ${dShort(R.as_of)}`) + `
   <div class="stack">
-    <div class="grid g4">
-      ${kpi("🏬", ids.length, "Total stores")}
-      ${kpi("🟢", cnt("green"), "Healthy stores")}
-      ${kpi("⚠", cnt("amber") + cnt("red"), "Stores needing attention", `<div class="delta ${cnt("red") ? "down" : "flat"}">${cnt("red")} critical</div>`)}
-      ${kpi("₹", inrShort(cur.rev), "Total sales", `<div class="delta flat">${cur.bills.toLocaleString("en-IN")} bills</div>`)}
-      ${kpi("📈", (isFinite(cur.rev / prev.rev) ? ((cur.rev / prev.rev - 1) * 100 > 0 ? "+" : "") + ((cur.rev / prev.rev - 1) * 100).toFixed(1) + "%" : "–"), "Sales growth", `<div class="delta flat">vs previous 28 days, includes season</div>`)}
-      ${kpi("🛈", R.data_issues.filter((d) => ids.includes(d.store_id)).length, "Data issues", `<div class="delta flat">kept out of alerts</div>`)}
-      ${kpi("📋", pending, "Open follow-ups", `<div class="delta flat">${review} waiting for your review</div>`)}
+    <div class="grid g4 kpis-compact">
+      ${kpi("🏬", `${cnt("amber") + cnt("red")} <small>of ${ids.length}</small>`, "Stores need attention", `<div class="delta ${cnt("red") ? "down" : "flat"}">${cnt("red")} critical · ${cnt("green")} healthy</div>`)}
+      ${kpi("₹", inrShort(cur.rev), "Sales, last 28 days", delta(cur.rev, prev.rev))}
+      ${kpi("📋", pending, "Open follow-ups", `<div class="delta flat">${review} to review</div>`)}
       ${kpi("⏰", overdue, "Overdue tasks", "", overdue ? "alarm" : "")}
     </div>
     ${review ? `<a class="banner" href="#followups"><span class="spark">📥</span><div><b>${review} follow-up${review === 1 ? "" : "s"} submitted by store managers</b><span class="small muted">Review the remarks and evidence, then approve or send back.</span></div><span class="go">Review →</span></a>` : ""}
@@ -190,11 +188,7 @@ function vOverview() {
       <div class="hgrid">${shown.sort((a, b) => "rag".indexOf(a.h.k[0]) - "rag".indexOf(b.h.k[0])).map(({ s, h }) => `<a class="hcell ${h.k}" href="#store/${s}"><b>${s}</b><span class="hl">${h.label}</span><span class="small">${esc(h.why)}</span></a>`).join("") || `<p class="muted">No stores match this filter.</p>`}</div>
       <div class="legend"><span class="dotk green"></span>Healthy <span class="dotk amber"></span>Needs attention <span class="dotk red"></span>Critical <span class="dotk grey"></span>Insufficient data</div>
     </div>
-    <div class="card"><div class="chart-title"><h2>Most important issues</h2><a class="small" href="#insights">All ${am.alerts.length} →</a></div>${top.map((a, i) => alertRow(a, i)).join("") || `<p class="muted">No store needs attention this week.</p>`}</div>
-    <div class="grid g2">
-      <div class="card"><h2>Bills per week</h2>${barChart(wk, (p) => p.bills, (v) => Math.round(v).toLocaleString("en-IN") + " bills", (v) => Math.round(v))}</div>
-      <div class="card"><h2>Conversion per week</h2>${lineChart(wk, (p) => p.conv, (v) => pct(v), (v) => pct(v, 0))}</div>
-    </div>
+    <div class="card"><div class="chart-title"><h2>Top issues this week</h2><a class="small" href="#insights">All ${am.alerts.length} →</a></div>${top.map((a, i) => alertRow(a, i)).join("") || `<p class="muted">No store needs attention this week.</p>`}</div>
   </div>`;
 }
 
@@ -215,7 +209,7 @@ function vStores() {
   <div class="card tablewrap"><table><thead><tr><th>Store</th><th>City</th><th>Manager</th><th class="n">Sales (28d)</th><th class="n">Growth</th><th class="n">Conversion</th><th class="n">Items/bill</th><th class="n">Repeat</th><th class="n">Issues</th><th class="n">Open FUs</th><th>Status</th></tr></thead><tbody>
   ${rows.map((r) => `<tr class="click" data-href="#store/${r.s}"><td><b>${r.s}</b><div class="small muted">Tier ${esc(r.info.tier)}${r.info.new ? " · new" : ""}</div></td><td>${esc(r.info.city)}</td><td class="small">Store Manager, ${r.s}</td><td class="n">${inrShort(r.rev)}</td><td class="n">${sg(r.g)}</td><td class="n">${pct(r.conv)}</td><td class="n">${isFinite(r.ipb) ? r.ipb.toFixed(2) : "–"}</td><td class="n">${pct(r.rep)}</td><td class="n">${r.issues}</td><td class="n">${r.pend}</td><td><span class="hs ${r.h.k}">${r.h.label}</span></td></tr>`).join("")}
   </tbody></table></div>
-  <p class="small muted">Click a store to open its profile. Growth compares the last 28 days with the 28 days before, so festival and wedding weeks lift everyone; alerts use season-adjusted baselines instead.</p>`;
+  <p class="small muted">Click a store to open it. Growth = last 28 days vs the 28 before (includes festival season).</p>`;
 }
 
 function vStoreProfile(sid) {
@@ -255,12 +249,12 @@ function vStoreProfile(sid) {
 
 function vInsights() {
   const am = amObj(), total = am.alerts.reduce((s, a) => s + a.rupees_week, 0);
-  return head("AI Insights &amp; Alerts", `${esc(am.city)} · at most 5 a week, ranked by estimated rupees at stake`, `<button class="btn ghost" data-csv="alerts">⬇ CSV</button>`) + `
+  return head("Alerts", `${am.alerts.length} this week · ${inrShort(total)} a week at stake (estimate)`, `<button class="btn ghost" data-csv="alerts">⬇ CSV</button>`) + `
   <div class="stack">
-    <div class="banner"><span class="spark">✦</span><div><b>You have ${am.alerts.length} action items this week</b><span class="small muted">About ${inrShort(total)} a week at stake (estimate). Turn each into a follow-up to track it.</span></div></div>
+    <p class="hint">💡 Click <b>+ Create follow-up</b> on an alert to assign it to the store manager and track it.</p>
     <div class="card">${am.alerts.map((a, i) => alertRow(a, i)).join("") || `<p class="muted">No store needs attention this week.</p>`}</div>
     ${roleModels(am)}
-    <p class="small muted">Numbers are calculated from the data, never generated. Each store is compared with its own same weeks last year (so festival and wedding swings don't trigger alerts) and with stores in the same city. A whole city slowing down is reported as a market issue. Numbers that can't be right go to Data Issues.</p>
+    <details class="more"><summary>How are these found?</summary><p class="small muted">Numbers are calculated from the data, never generated. Each store is compared with its own same weeks last year (so festival and wedding swings don't trigger alerts) and with stores in the same city. A whole city slowing down is reported as a market issue. Numbers that can't be right go to Data Issues.</p></details>
   </div>`;
 }
 
@@ -321,7 +315,7 @@ function vTask(id) {
   const after = t.completed_at ? addDays(t.completed_at.slice(0, 10), 7) : null;
   const m = t.metric;
   const fmtM = (v) => (m && v != null ? (m.name === "ipb" ? Number(v).toFixed(2) : pct(v)) : "–");
-  return head(`${esc(t.id)} · ${esc(t.title)}`, `${esc(t.store_id)} · ${esc(t.category)} · priority ${esc(t.priority)} · due ${dShort(t.deadline)} · ${esc(t.assignee)}`, `<div class="row-gap"><a class="pill" href="#followups">← Back</a>${stPill(t)}</div>`) + `
+  return head(`${esc(t.id)} · ${esc(t.title)}`, `${esc(t.store_id)} · ${esc(t.category)} · priority ${esc(t.priority)} · due ${dShort(t.deadline)} · ${esc(t.assignee)}`, `<div class="row-gap"><a class="pill" href="#followups">← Back</a>${stPill(t)}${role === "Area Manager" ? `<button class="btn danger" data-del="${t.id}">🗑 Delete</button>` : ""}</div>`) + `
   <div class="stack">
     <div class="grid g2">
       <div class="card"><h2>Problem</h2><p>${esc(t.problem)}</p><h2>Required action</h2><p class="do">${esc(t.action)}</p></div>
@@ -436,9 +430,35 @@ function vSpCard() {
   return head(`Hi ${esc(c.name.split(" ")[0])}`, `Your coaching card for today · ${esc(c.store_id)}`) + coachDetail(c, true);
 }
 
+// ---------------- welcome ----------------
+function vWelcome() {
+  const stores = Object.keys(R.stores);
+  const byStore = {};
+  R.cards.forEach((c) => (byStore[c.store_id] = byStore[c.store_id] || []).push(c));
+  return `<div class="welcome">
+    <span class="mark big" aria-hidden="true">SC</span>
+    <h1>Store Coach</h1>
+    <p class="tag">More bills · Bigger baskets · More repeat</p>
+    <p class="sub">Every morning it tells area managers which stores need attention and why, and gives every salesperson one thing to do better today.</p>
+    <h2>Look around as…</h2>
+    <div class="roles">
+      <div class="role-card"><div class="ri">🧭</div><b>Area Manager</b><span>See all your stores, alerts and follow-ups</span>
+        <select id="w-am" aria-label="Area manager">${R.area_managers.map((a) => `<option value="${a.id}" ${a.id === S.am ? "selected" : ""}>${esc(a.name)} · ${esc(a.city)}</option>`).join("")}</select>
+        <button class="btn" data-enter="Area Manager">Enter</button></div>
+      <div class="role-card"><div class="ri">🏬</div><b>Store Manager</b><span>Your store, your tasks, your team</span>
+        <select id="w-sm" aria-label="Store">${stores.map((s) => `<option ${s === S.sm ? "selected" : ""}>${s} · ${esc(R.stores[s].city)}</option>`).join("")}</select>
+        <button class="btn" data-enter="Store Manager">Enter</button></div>
+      <div class="role-card"><div class="ri">🧑</div><b>Salesperson</b><span>Your coaching card for today</span>
+        <select id="w-sp" aria-label="Salesperson">${Object.keys(byStore).sort().map((s) => `<optgroup label="${s}">${byStore[s].map((c) => `<option value="${c.salesperson_id}" ${c.salesperson_id === S.sp ? "selected" : ""}>${esc(c.name)}</option>`).join("")}</optgroup>`).join("")}</select>
+        <button class="btn" data-enter="Salesperson">Enter</button></div>
+    </div>
+    <p class="small muted">Demo access, no password. Built on the synthetic Manyavar data pack (to ${dShort(R.as_of)}). Not an official Manyavar product.</p>
+  </div>`;
+}
+
 // ---------------- routing / navigation ----------------
 const NAV = {
-  "Area Manager": [["overview", "⌂", "Area Overview"], ["stores", "▥", "My Stores"], ["insights", "✦", "AI Insights & Alerts"], ["followups", "✓", "Follow-up Manager"], ["coach", "☺", "Salesperson Coach"], ["visits", "⌖", "Visit Planner"], ["reports", "★", "Impact & Reports"], ["data", "!", "Data Issues"]],
+  "Area Manager": [["overview", "⌂", "Overview"], ["insights", "✦", "Alerts"], ["followups", "✓", "Follow-ups"], ["stores", "▥", "Stores"], ["coach", "☺", "Coaching"], ["visits", "⌖", "Visits"], ["reports", "★", "Reports"], ["data", "!", "Data issues"]],
   "Store Manager": [["home", "⌂", "My Store"], ["followups", "✓", "My Tasks"], ["team", "☺", "Team Coaching"]],
   Salesperson: [["card", "☺", "My Coaching Card"]],
 };
@@ -454,6 +474,9 @@ function route() {
   return { v: allowed.includes(v) ? v : allowed[0], html: null };
 }
 function render() {
+  const welcome = (location.hash || "#welcome") === "#welcome";
+  document.querySelector(".app").classList.toggle("welcome-mode", welcome);
+  if (welcome) { $("#view").innerHTML = vWelcome(); closeMenu(); return; }
   const r = route(), view = r.v;
   $("#view").innerHTML = r.html ? r.html() : VIEWS[view]();
   const nav = NAV[S.role];
@@ -468,7 +491,7 @@ function render() {
     return "";
   };
   $("#nav").innerHTML = nav.map(([k, ic, l]) => `<a href="#${k}" class="${k === view || (view === "store" && k === "stores") ? "on" : ""}"><span class="ic">${ic}</span>${esc(l)}${badge(k)}</a>`).join("");
-  $("#bottomnav").innerHTML = nav.slice(0, 5).map(([k, ic, l]) => `<a href="#${k}" class="${k === view ? "on" : ""}"><span>${ic}</span>${esc(l.split(" ")[0] === "AI" ? "Insights" : l.replace("My ", "").split(" ")[0])}</a>`).join("");
+  $("#bottomnav").innerHTML = nav.slice(0, 5).map(([k, ic, l]) => `<a href="#${k}" class="${k === view ? "on" : ""}"><span>${ic}</span>${esc(l.replace("My ", "").split(" ")[0])}</a>`).join("");
   $("#bottomnav").style.gridTemplateColumns = `repeat(${Math.min(nav.length, 5)}, 1fr)`;
   $("#top-title").textContent = (nav.find((n) => n[0] === view) || [0, 0, "Store Coach"])[2];
   const who = S.role === "Area Manager" ? amObj().name : S.role === "Store Manager" ? "Store Manager " + S.sm : (R.cards.find((c) => c.salesperson_id === S.sp)?.name || "");
@@ -477,12 +500,9 @@ function render() {
   closeMenu();
 }
 function renderWho() {
-  const sel = $("#who-select");
-  if (S.role === "Area Manager") sel.innerHTML = R.area_managers.map((a) => `<option value="${a.id}" ${a.id === S.am ? "selected" : ""}>${esc(a.name)} · ${esc(a.city)}</option>`).join("");
-  else if (S.role === "Store Manager") sel.innerHTML = Object.keys(R.stores).map((s) => `<option ${s === S.sm ? "selected" : ""}>${s}</option>`).join("");
-  else sel.innerHTML = R.cards.map((c) => `<option value="${c.salesperson_id}" ${c.salesperson_id === S.sp ? "selected" : ""}>${esc(c.name)} · ${c.store_id}</option>`).join("");
-  $("#role-select").value = S.role;
-  $("#am-sub").textContent = S.role === "Area Manager" ? `Area Manager · ${amObj().city}` : S.role === "Store Manager" ? `Sees only ${S.sm}` : "Sees only their own card";
+  const who = S.role === "Area Manager" ? amObj().name : S.role === "Store Manager" ? `Store Manager, ${S.sm}` : (R.cards.find((c) => c.salesperson_id === S.sp)?.name || "");
+  $("#who-name").textContent = who;
+  $("#am-sub").textContent = S.role === "Area Manager" ? `Area Manager · ${amObj().city}` : S.role === "Store Manager" ? `${R.stores[S.sm]?.city || ""} · sees only ${S.sm}` : `Salesperson · ${R.cards.find((c) => c.salesperson_id === S.sp)?.store_id || ""}`;
 }
 function persist() { ls.set("who", { role: S.role, am: S.am, sm: S.sm, sp: S.sp }); }
 
@@ -511,16 +531,6 @@ function closeMenu() { $("#sidebar").classList.remove("open"); $("#scrim").class
 $("#menu").addEventListener("click", () => { $("#sidebar").classList.add("open"); $("#scrim").classList.add("open"); });
 $("#scrim").addEventListener("click", closeMenu);
 addEventListener("hashchange", () => { render(); scrollTo(0, 0); });
-$("#role-select").addEventListener("change", (e) => {
-  S.role = e.target.value;
-  if (S.role === "Store Manager" && !S.sm) S.sm = storesOf(amObj())[0];
-  if (S.role === "Salesperson" && !S.sp) S.sp = R.cards[0].salesperson_id;
-  S.draft = null; persist(); renderWho(); location.hash = "#" + NAV[S.role][0][0]; render();
-});
-$("#who-select").addEventListener("change", (e) => {
-  if (S.role === "Area Manager") S.am = e.target.value; else if (S.role === "Store Manager") S.sm = e.target.value; else S.sp = e.target.value;
-  S.coachSp = null; S.coachStore = null; S.draft = null; persist(); renderWho(); render();
-});
 $("#view").addEventListener("input", (e) => { if (e.target.id === "store-q") { S.q = e.target.value; const pos = e.target.selectionStart; render(); const el = $("#store-q"); el.focus(); el.setSelectionRange(pos, pos); } });
 $("#view").addEventListener("change", (e) => {
   if (e.target.id === "coach-store") { S.coachStore = e.target.value; S.coachSp = null; render(); }
@@ -537,6 +547,23 @@ $("#view").addEventListener("click", (e) => {
   if ((x = el("[data-csv]"))) { exportCsv(x.dataset.csv); return; }
   if (el("[data-print]")) { print(); return; }
   if (el("[data-cancel]")) { S.draft = null; render(); return; }
+  if ((x = el("[data-enter]"))) {
+    S.role = x.dataset.enter;
+    if (S.role === "Area Manager") S.am = $("#w-am").value;
+    if (S.role === "Store Manager") S.sm = $("#w-sm").value.split(" ")[0];
+    if (S.role === "Salesperson") S.sp = $("#w-sp").value;
+    S.coachSp = null; S.coachStore = null; S.draft = null;
+    persist(); renderWho(); location.hash = "#" + NAV[S.role][0][0];
+    return;
+  }
+  if ((x = el("[data-del]"))) {
+    const t = T.get(x.dataset.del);
+    if (!t || !confirm(`Delete ${t.id} (${t.title})?\n\nThis removes the follow-up and all its remarks and photos. It can't be undone.`)) return;
+    const res = T.remove(t.id, S.role);
+    S.flash = res.error ? { k: "bad", msg: res.error } : { k: "ok", msg: `${t.id} deleted.` };
+    if (res.error) render(); else location.hash = "#followups";
+    return;
+  }
   if ((x = el("[data-got]"))) { const k = `got|${R.as_of}|${x.dataset.got}`; ls.set(k, !ls.get(k, false)); render(); return; }
   if ((x = el("[data-newfu]"))) {
     const sid = x.dataset.newfu, title = x.dataset.title;
