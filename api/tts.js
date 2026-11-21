@@ -5,6 +5,8 @@ module.exports = async (req, res) => {
   if (req.method !== "POST") return res.status(405).json({ error: "POST only" });
   // Trim: a pasted key often carries a trailing space or line break, which makes the request header invalid.
   const key = (process.env.ELEVENLABS_API_KEY || "").trim(), voice = (process.env.ELEVENLABS_VOICE_ID || "").trim();
+  // A key must be a single token. If a whole .env block was pasted as the value, refuse rather than send it anywhere.
+  if (/[\s=]/.test(key) || /[\s=]/.test(voice)) return res.status(503).json({ error: "Voice not configured correctly" });
   if (!key || !voice) return res.status(503).json({ error: "Voice not configured" });
 
   let body = req.body;
@@ -31,8 +33,9 @@ module.exports = async (req, res) => {
     res.setHeader("Cache-Control", "no-store");
     return res.status(200).send(audio);
   } catch (e) {
+    // Never echo the error message: it can contain request headers, including the API key.
     const timedOut = e && e.name === "AbortError";
-    return res.status(504).json({ error: timedOut ? "Voice service timed out" : "Voice request failed", detail: timedOut ? "" : String((e && e.message) || "").slice(0, 120) });
+    return res.status(504).json({ error: timedOut ? "Voice service timed out" : "Voice request failed" });
   } finally {
     clearTimeout(timer);
   }
