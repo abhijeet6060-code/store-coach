@@ -1,6 +1,6 @@
 {
  "as_of": "2026-10-31",
- "generated_at": "2026-11-21 12:23 IST",
+ "generated_at": "2026-11-21 12:37 IST",
  "window_days": 28,
  "area_managers": [
   {
@@ -5285,9 +5285,9 @@
  "data_issues": [
   {
    "store_id": "PAT-03",
-   "issue": "Door camera shows 0 walk-ins on days with sales",
-   "detail": "11 days (05 Oct–16 Oct), 24 bills on those days. Conversion for these days is left out. Ask the store to check the door camera.",
-   "days": 11
+   "issue": "Door camera shows 0 walk-ins while the store was selling",
+   "detail": "12 days in a row (05 Oct–16 Oct) read 0 walk-ins, but 24 bills were made on those days. Conversion for these days is left out. Ask the store to check the door camera.",
+   "days": 12
   }
  ],
  "kpis": {

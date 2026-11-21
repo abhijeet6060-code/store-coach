@@ -74,14 +74,21 @@ def data_issues(D, start, end):
     fb = F[(F.d >= start) & (F.d <= end)].set_index(["store_id", "d"]).footfall
     bb = B[(B.d >= start) & (B.d <= end)].groupby(["store_id", "d"]).size()
     j = pd.concat([fb.rename("footfall"), bb.rename("bills")], axis=1).fillna(0)
-    broken = j[(j.footfall == 0) & (j.bills > 0)]
-    for store, g in broken.groupby(level=0):
-        days = g.index.get_level_values(1)
-        out.append({"store_id": store, "issue": "Door camera shows 0 walk-ins on days with sales",
-                    "detail": f"{len(g)} days ({days.min():%d %b}–{days.max():%d %b}), {int(g.bills.sum())} bills on those days. "
-                              f"Conversion for these days is left out. Ask the store to check the door camera.",
-                    "days": len(g)})
-        bad.update(g.index.tolist())
+    # A run of consecutive zero-walk-in days is a camera fault if the store billed on any day of the run.
+    zero = j[j.footfall == 0].reset_index().rename(columns={"level_0": "store_id", "level_1": "d"})
+    zero.columns = ["store_id", "d", "footfall", "bills"]
+    for store, g in zero.groupby("store_id"):
+        g = g.sort_values("d")
+        run_id = (g.d.diff().dt.days != 1).cumsum()
+        for _, run in g.groupby(run_id):
+            if run.bills.sum() == 0:
+                continue
+            out.append({"store_id": store, "issue": "Door camera shows 0 walk-ins while the store was selling",
+                        "detail": f"{len(run)} days in a row ({run.d.min():%d %b}–{run.d.max():%d %b}) read 0 walk-ins, "
+                                  f"but {int(run.bills.sum())} bills were made on those days. Conversion for these days is left out. "
+                                  f"Ask the store to check the door camera.",
+                        "days": len(run)})
+            bad.update(zip(run.store_id, run.d))
     over = j[(j.footfall > 0) & (j.bills > j.footfall)]
     for store, g in over.groupby(level=0):
         out.append({"store_id": store, "issue": "More bills than walk-ins",
