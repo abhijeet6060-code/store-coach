@@ -394,7 +394,7 @@ def build_alerts(D, as_of, bad_days):
                                "title": f"{sid}: {nm}'s customers don't come back",
                                "cause": (f"Of {int(x['count'])} first-time customers {nm} ({x.salesperson_id}) served in the last year, "
                                          f"{int(x['sum'])} came back ({rate:.1%}); the rest of the store gets {rest_rate:.1%}. "
-                                         f"Role model: {mn}."),
+                                         f"Role model: {mn.rstrip('.')}."),
                                "action": (f"Today: {mn} shows {nm} how they take the customer's number and wedding date at billing; "
                                           f"from tomorrow {nm} sends a thank-you WhatsApp to every customer the day after they buy."),
                                "rupees_week": float(missing * M.loc[sid, "cur_abv"] / 52), "metric": "repeat",
