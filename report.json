@@ -1,6 +1,6 @@
 {
  "as_of": "2026-10-31",
- "generated_at": "2026-11-21 12:12 IST",
+ "generated_at": "2026-11-21 12:23 IST",
  "window_days": 28,
  "area_managers": [
   {
@@ -588,7 +588,34 @@
    "peer": "Nithin J. gives 0.4% and still closes.",
    "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
    "words": 31,
-   "value": 0.0132
+   "value": 0.0132,
+   "bills_90d": 95,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.9368,
+     "peer_median": 1.9084,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.2727,
+     "peer_median": 0.2308,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0132,
+     "peer_median": 0.0109,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0647,
+     "peer_median": 0.0169,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1111",
@@ -599,7 +626,34 @@
    "peer": "Yogesh G. sells a jacket with 36% of kurtas.",
    "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
    "words": 35,
-   "value": 0.2051
+   "value": 0.2051,
+   "bills_90d": 67,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.7313,
+     "peer_median": 1.913,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.2051,
+     "peer_median": 0.2545,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0086,
+     "peer_median": 0.0132,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0332,
+     "peer_median": 0.0169,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1112",
@@ -610,7 +664,34 @@
    "peer": "Srinivas B. joined most recently and can learn from you.",
    "action": "Today: take Srinivas B. on your first sherwani trial and show how you add the safa and mojari.",
    "words": 44,
-   "value": null
+   "value": null,
+   "bills_90d": 88,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.7955,
+     "peer_median": 1.913,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.2545,
+     "peer_median": 0.2308,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.004,
+     "peer_median": 0.0132,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0255,
+     "peer_median": 0.0169,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1113",
@@ -621,7 +702,34 @@
    "peer": "Yogesh G. sells a jacket with 36% of kurtas.",
    "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
    "words": 35,
-   "value": 0.16
+   "value": 0.16,
+   "bills_90d": 52,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.75,
+     "peer_median": 1.913,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.16,
+     "peer_median": 0.2545,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0084,
+     "peer_median": 0.0132,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0047,
+     "peer_median": 0.0175,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1114",
@@ -632,7 +740,34 @@
    "peer": "Nithin J. gives 0.4% and still closes.",
    "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
    "words": 31,
-   "value": 0.0173
+   "value": 0.0173,
+   "bills_90d": 77,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 2.0779,
+     "peer_median": 1.9084,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.2105,
+     "peer_median": 0.2545,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0173,
+     "peer_median": 0.0109,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0052,
+     "peer_median": 0.0175,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1116",
@@ -643,7 +778,34 @@
    "peer": "Nithin J. gives 0.4% and still closes.",
    "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
    "words": 31,
-   "value": 0.017
+   "value": 0.017,
+   "bills_90d": 75,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.7733,
+     "peer_median": 1.913,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.1875,
+     "peer_median": 0.2545,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.017,
+     "peer_median": 0.0109,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0125,
+     "peer_median": 0.0175,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1118",
@@ -654,7 +816,34 @@
    "peer": "Srinivas B. joined most recently and can learn from you.",
    "action": "Today: take Srinivas B. on your first sherwani trial and show how you add the safa and mojari.",
    "words": 44,
-   "value": null
+   "value": null,
+   "bills_90d": 131,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.9084,
+     "peer_median": 1.913,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.3125,
+     "peer_median": 0.2308,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0101,
+     "peer_median": 0.0132,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0266,
+     "peer_median": 0.0169,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1119",
@@ -665,7 +854,34 @@
    "peer": "Nithin J. gives 0.4% and still closes.",
    "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
    "words": 31,
-   "value": 0.0165
+   "value": 0.0165,
+   "bills_90d": 69,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 2.1449,
+     "peer_median": 1.9084,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.3636,
+     "peer_median": 0.2308,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0165,
+     "peer_median": 0.0109,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0169,
+     "peer_median": 0.0175,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1120",
@@ -676,7 +892,34 @@
    "peer": "Yogesh G. sells a jacket with 36% of kurtas.",
    "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
    "words": 35,
-   "value": 0.1475
+   "value": 0.1475,
+   "bills_90d": 89,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.7191,
+     "peer_median": 1.913,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.1475,
+     "peer_median": 0.2545,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0109,
+     "peer_median": 0.0132,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0175,
+     "peer_median": 0.0169,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1122",
@@ -687,7 +930,34 @@
    "peer": "Nithin J. gives 0.4% and still closes.",
    "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
    "words": 31,
-   "value": 0.0361
+   "value": 0.0361,
+   "bills_90d": 69,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.913,
+     "peer_median": 1.9084,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.2619,
+     "peer_median": 0.2308,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0361,
+     "peer_median": 0.0109,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0383,
+     "peer_median": 0.0169,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1123",
@@ -698,7 +968,34 @@
    "peer": "Karthik J. brings back 6.5%.",
    "action": "Today: at billing, save every customer's number and family wedding date, and send a thank-you WhatsApp tomorrow.",
    "words": 30,
-   "value": 0.0
+   "value": 0.0,
+   "bills_90d": 96,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.9792,
+     "peer_median": 1.9084,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.2308,
+     "peer_median": 0.2545,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0093,
+     "peer_median": 0.0132,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0,
+     "peer_median": 0.0175,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1124",
@@ -709,7 +1006,34 @@
    "peer": "Nithin J. gives 0.4% and still closes.",
    "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
    "words": 31,
-   "value": 0.0223
+   "value": 0.0223,
+   "bills_90d": 57,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 2.0526,
+     "peer_median": 1.9084,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.3095,
+     "peer_median": 0.2308,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0223,
+     "peer_median": 0.0109,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0132,
+     "peer_median": 0.0175,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1125",
@@ -720,7 +1044,34 @@
    "peer": "Girish V. averages 2.04.",
    "action": "Today: before billing, suggest one add-on that completes the look: stole, mala or mojari.",
    "words": 23,
-   "value": 1.7879
+   "value": 1.7879,
+   "bills_90d": 99,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.7879,
+     "peer_median": 1.9639,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.1791,
+     "peer_median": 0.1944,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0139,
+     "peer_median": 0.0176,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0237,
+     "peer_median": 0.0236,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1126",
@@ -731,7 +1082,34 @@
    "peer": "Nagaraj G. sells a jacket with 36% of kurtas.",
    "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
    "words": 35,
-   "value": 0.1364
+   "value": 0.1364,
+   "bills_90d": 78,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.9103,
+     "peer_median": 1.9639,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.1364,
+     "peer_median": 0.1944,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0124,
+     "peer_median": 0.0176,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0083,
+     "peer_median": 0.0243,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1128",
@@ -742,7 +1120,34 @@
    "peer": "Deepak C. gives 0.3% and still closes.",
    "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
    "words": 31,
-   "value": 0.0176
+   "value": 0.0176,
+   "bills_90d": 108,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 2.0185,
+     "peer_median": 1.9103,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.28,
+     "peer_median": 0.1791,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0176,
+     "peer_median": 0.0139,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.032,
+     "peer_median": 0.0231,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1129",
@@ -753,7 +1158,34 @@
    "peer": "Nagaraj G. sells a jacket with 36% of kurtas.",
    "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
    "words": 35,
-   "value": 0.0545
+   "value": 0.0545,
+   "bills_90d": 83,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.9639,
+     "peer_median": 1.9103,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.0545,
+     "peer_median": 0.1944,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0189,
+     "peer_median": 0.0139,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0085,
+     "peer_median": 0.0243,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1130",
@@ -764,7 +1196,34 @@
    "peer": "Deepak C. gives 0.3% and still closes.",
    "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
    "words": 31,
-   "value": 0.0218
+   "value": 0.0218,
+   "bills_90d": 60,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.7833,
+     "peer_median": 1.9639,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.1667,
+     "peer_median": 0.1944,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0218,
+     "peer_median": 0.0139,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0248,
+     "peer_median": 0.0231,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1133",
@@ -775,7 +1234,34 @@
    "peer": "Deepak C. gives 0.3% and still closes.",
    "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
    "words": 31,
-   "value": 0.031
+   "value": 0.031,
+   "bills_90d": 76,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.8026,
+     "peer_median": 1.9639,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.3636,
+     "peer_median": 0.1791,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.031,
+     "peer_median": 0.0139,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0249,
+     "peer_median": 0.0231,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1134",
@@ -786,7 +1272,34 @@
    "peer": "Deepak V. brings back 3.3%.",
    "action": "Today: at billing, save every customer's number and family wedding date, and send a thank-you WhatsApp tomorrow.",
    "words": 30,
-   "value": 0.0165
+   "value": 0.0165,
+   "bills_90d": 85,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 2.0353,
+     "peer_median": 1.9103,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.2586,
+     "peer_median": 0.1791,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0107,
+     "peer_median": 0.0176,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0165,
+     "peer_median": 0.0243,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1135",
@@ -797,7 +1310,34 @@
    "peer": "Deepak C. gives 0.3% and still closes.",
    "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
    "words": 31,
-   "value": 0.0178
+   "value": 0.0178,
+   "bills_90d": 99,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.7576,
+     "peer_median": 1.9639,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.1639,
+     "peer_median": 0.1944,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0178,
+     "peer_median": 0.0139,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0224,
+     "peer_median": 0.0243,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1136",
@@ -808,7 +1348,34 @@
    "peer": "Girish V. averages 2.04.",
    "action": "Today: before billing, suggest one add-on that completes the look: stole, mala or mojari.",
    "words": 23,
-   "value": 1.7607
+   "value": 1.7607,
+   "bills_90d": 117,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.7607,
+     "peer_median": 1.9639,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.1944,
+     "peer_median": 0.1791,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0132,
+     "peer_median": 0.0176,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0335,
+     "peer_median": 0.0231,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1137",
@@ -819,7 +1386,28 @@
    "peer": "Nagaraj G. sells a jacket with 36% of kurtas.",
    "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
    "words": 35,
-   "value": 0.1111
+   "value": 0.1111,
+   "bills_90d": 43,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 2.0,
+     "peer_median": 1.9103,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.1111,
+     "peer_median": 0.1944,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0028,
+     "peer_median": 0.0176,
+     "higher_is_better": false
+    }
+   }
   },
   {
    "salesperson_id": "SP1139",
@@ -830,7 +1418,34 @@
    "peer": "Deepak C. gives 0.3% and still closes.",
    "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
    "words": 31,
-   "value": 0.0229
+   "value": 0.0229,
+   "bills_90d": 29,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 2.0,
+     "peer_median": 1.9103,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.2222,
+     "peer_median": 0.1791,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0229,
+     "peer_median": 0.0139,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0095,
+     "peer_median": 0.0243,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1140",
@@ -841,7 +1456,34 @@
    "peer": "Deepak C. joined most recently and can learn from you.",
    "action": "Today: take Deepak C. on your first sherwani trial and show how you add the safa and mojari.",
    "words": 44,
-   "value": null
+   "value": null,
+   "bills_90d": 75,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.9733,
+     "peer_median": 1.9103,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.2449,
+     "peer_median": 0.1791,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0124,
+     "peer_median": 0.0176,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0267,
+     "peer_median": 0.0231,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1141",
@@ -852,7 +1494,34 @@
    "peer": "Pradeep A. sells a jacket with 31% of kurtas.",
    "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
    "words": 35,
-   "value": 0.1579
+   "value": 0.1579,
+   "bills_90d": 28,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.8929,
+     "peer_median": 1.8857,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.1579,
+     "peer_median": 0.2308,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0034,
+     "peer_median": 0.0031,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0188,
+     "peer_median": 0.0268,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1142",
@@ -863,7 +1532,34 @@
    "peer": "Suresh B. gives 0.0% and still closes.",
    "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
    "words": 31,
-   "value": 0.0118
+   "value": 0.0118,
+   "bills_90d": 32,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 2.0312,
+     "peer_median": 1.8857,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.1905,
+     "peer_median": 0.2308,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0118,
+     "peer_median": 0.0031,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0323,
+     "peer_median": 0.0249,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1143",
@@ -874,7 +1570,34 @@
    "peer": "Yogesh N. brings back 4.0%.",
    "action": "Today: at billing, save every customer's number and family wedding date, and send a thank-you WhatsApp tomorrow.",
    "words": 30,
-   "value": 0.0174
+   "value": 0.0174,
+   "bills_90d": 60,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 2.1333,
+     "peer_median": 1.8857,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.2308,
+     "peer_median": 0.2182,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0031,
+     "peer_median": 0.0034,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0174,
+     "peer_median": 0.0268,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1144",
@@ -885,7 +1608,34 @@
    "peer": "Suresh B. joined most recently and can learn from you.",
    "action": "Today: take Suresh B. on your first sherwani trial and show how you add the safa and mojari.",
    "words": 44,
-   "value": null
+   "value": null,
+   "bills_90d": 82,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.939,
+     "peer_median": 1.8857,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.3061,
+     "peer_median": 0.2182,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0013,
+     "peer_median": 0.0034,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0268,
+     "peer_median": 0.0249,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1145",
@@ -896,7 +1646,34 @@
    "peer": "Suresh B. joined most recently and can learn from you.",
    "action": "Today: take Suresh B. on your first sherwani trial and show how you add the safa and mojari.",
    "words": 44,
-   "value": null
+   "value": null,
+   "bills_90d": 79,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.8354,
+     "peer_median": 1.8929,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.2182,
+     "peer_median": 0.2308,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0016,
+     "peer_median": 0.0034,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0396,
+     "peer_median": 0.0249,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1149",
@@ -907,7 +1684,28 @@
    "peer": "Mohan M. joined most recently and can learn from you.",
    "action": "Today: take Mohan M. on your first sherwani trial and show how you add the safa and mojari.",
    "words": 44,
-   "value": null
+   "value": null,
+   "bills_90d": 70,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.8857,
+     "peer_median": 1.8929,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.2979,
+     "peer_median": 0.2182,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0003,
+     "peer_median": 0.0034,
+     "higher_is_better": false
+    }
+   }
   },
   {
    "salesperson_id": "SP1150",
@@ -918,7 +1716,28 @@
    "peer": "Suresh B. gives 0.0% and still closes.",
    "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
    "words": 31,
-   "value": 0.0063
+   "value": 0.0063,
+   "bills_90d": 59,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.8305,
+     "peer_median": 1.8929,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.1944,
+     "peer_median": 0.2308,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0063,
+     "peer_median": 0.0031,
+     "higher_is_better": false
+    }
+   }
   },
   {
    "salesperson_id": "SP1151",
@@ -929,7 +1748,34 @@
    "peer": "Suresh B. gives 0.0% and still closes.",
    "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
    "words": 31,
-   "value": 0.0083
+   "value": 0.0083,
+   "bills_90d": 56,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.8214,
+     "peer_median": 1.8929,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.25,
+     "peer_median": 0.2182,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0083,
+     "peer_median": 0.0031,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0249,
+     "peer_median": 0.0268,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1153",
@@ -940,7 +1786,34 @@
    "peer": "Venkatesh T. gives 0.2% and still closes.",
    "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
    "words": 31,
-   "value": 0.0167
+   "value": 0.0167,
+   "bills_90d": 58,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 2.0172,
+     "peer_median": 1.8506,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.15,
+     "peer_median": 0.2344,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0167,
+     "peer_median": 0.0055,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0121,
+     "peer_median": 0.021,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1154",
@@ -951,7 +1824,34 @@
    "peer": "Venkatesh T. gives 0.2% and still closes.",
    "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
    "words": 31,
-   "value": 0.0093
+   "value": 0.0093,
+   "bills_90d": 87,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.8506,
+     "peer_median": 1.898,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.2353,
+     "peer_median": 0.1951,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0093,
+     "peer_median": 0.0055,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0257,
+     "peer_median": 0.0142,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1156",
@@ -962,7 +1862,34 @@
    "peer": "Venkatesh T. brings back 2.9%.",
    "action": "Today: at billing, save every customer's number and family wedding date, and send a thank-you WhatsApp tomorrow.",
    "words": 30,
-   "value": 0.0118
+   "value": 0.0118,
+   "bills_90d": 98,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.898,
+     "peer_median": 1.8506,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.2344,
+     "peer_median": 0.1951,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0047,
+     "peer_median": 0.0081,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0118,
+     "peer_median": 0.021,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1157",
@@ -973,7 +1900,34 @@
    "peer": "Ganesh P. sells a jacket with 36% of kurtas.",
    "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
    "words": 35,
-   "value": 0.1951
+   "value": 0.1951,
+   "bills_90d": 60,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.9167,
+     "peer_median": 1.8506,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.1951,
+     "peer_median": 0.2344,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0081,
+     "peer_median": 0.0055,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0262,
+     "peer_median": 0.0142,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1159",
@@ -984,7 +1938,34 @@
    "peer": "Ganesh P. sells a jacket with 36% of kurtas.",
    "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
    "words": 35,
-   "value": 0.1818
+   "value": 0.1818,
+   "bills_90d": 62,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.7258,
+     "peer_median": 1.898,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.1818,
+     "peer_median": 0.2344,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0023,
+     "peer_median": 0.0081,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0287,
+     "peer_median": 0.0142,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1160",
@@ -995,7 +1976,34 @@
    "peer": "Sunil G. averages 2.22.",
    "action": "Today: before billing, suggest one add-on that completes the look: stole, mala or mojari.",
    "words": 23,
-   "value": 1.6393
+   "value": 1.6393,
+   "bills_90d": 61,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.6393,
+     "peer_median": 1.898,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.3636,
+     "peer_median": 0.1951,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0035,
+     "peer_median": 0.0081,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0163,
+     "peer_median": 0.0189,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1161",
@@ -1006,7 +2014,28 @@
    "peer": "Ganesh P. joined most recently and can learn from you.",
    "action": "Today: take Ganesh P. on your first sherwani trial and show how you add the safa and mojari.",
    "words": 44,
-   "value": null
+   "value": null,
+   "bills_90d": 55,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 2.2182,
+     "peer_median": 1.8506,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.3243,
+     "peer_median": 0.1951,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0055,
+     "peer_median": 0.0081,
+     "higher_is_better": false
+    }
+   }
   },
   {
    "salesperson_id": "SP1162",
@@ -1017,7 +2046,34 @@
    "peer": "Ganesh P. sells a jacket with 36% of kurtas.",
    "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
    "words": 35,
-   "value": 0.1522
+   "value": 0.1522,
+   "bills_90d": 71,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.8169,
+     "peer_median": 1.898,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.1522,
+     "peer_median": 0.2344,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0091,
+     "peer_median": 0.0055,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0092,
+     "peer_median": 0.021,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1044",
@@ -1028,7 +2084,34 @@
    "peer": "Dheeraj R. sells a jacket with 28% of kurtas.",
    "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
    "words": 35,
-   "value": 0.0923
+   "value": 0.0923,
+   "bills_90d": 102,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.7451,
+     "peer_median": 1.7586,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.0923,
+     "peer_median": 0.1429,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0043,
+     "peer_median": 0.006,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0228,
+     "peer_median": 0.0246,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1045",
@@ -1039,7 +2122,34 @@
    "peer": "Jitendra J. brings back 3.6%.",
    "action": "Today: at billing, save every customer's number and family wedding date, and send a thank-you WhatsApp tomorrow.",
    "words": 30,
-   "value": 0.0032
+   "value": 0.0032,
+   "bills_90d": 51,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.6863,
+     "peer_median": 1.7586,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.2727,
+     "peer_median": 0.102,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0036,
+     "peer_median": 0.006,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0032,
+     "peer_median": 0.0246,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1047",
@@ -1050,7 +2160,34 @@
    "peer": "Dheeraj R. sells a jacket with 28% of kurtas.",
    "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
    "words": 35,
-   "value": 0.0889
+   "value": 0.0889,
+   "bills_90d": 70,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 2.0714,
+     "peer_median": 1.7451,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.0889,
+     "peer_median": 0.1429,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.003,
+     "peer_median": 0.006,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0136,
+     "peer_median": 0.0246,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1048",
@@ -1061,7 +2198,34 @@
    "peer": "Dheeraj R. sells a jacket with 28% of kurtas.",
    "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
    "words": 35,
-   "value": 0.0
+   "value": 0.0,
+   "bills_90d": 29,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.7586,
+     "peer_median": 1.7451,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.0,
+     "peer_median": 0.1429,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0,
+     "peer_median": 0.006,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0291,
+     "peer_median": 0.0228,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1050",
@@ -1072,7 +2236,34 @@
    "peer": "Vivek D. gives 0.0% and still closes.",
    "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
    "words": 31,
-   "value": 0.0105
+   "value": 0.0105,
+   "bills_90d": 67,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.7761,
+     "peer_median": 1.7451,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.2308,
+     "peer_median": 0.102,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0105,
+     "peer_median": 0.0043,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.014,
+     "peer_median": 0.0246,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1052",
@@ -1083,7 +2274,34 @@
    "peer": "Vivek D. gives 0.0% and still closes.",
    "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
    "words": 31,
-   "value": 0.018
+   "value": 0.018,
+   "bills_90d": 37,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.5676,
+     "peer_median": 1.7586,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.1429,
+     "peer_median": 0.102,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.018,
+     "peer_median": 0.0043,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0355,
+     "peer_median": 0.0228,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1053",
@@ -1094,7 +2312,34 @@
    "peer": "Vivek D. gives 0.0% and still closes.",
    "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
    "words": 31,
-   "value": 0.006
+   "value": 0.006,
+   "bills_90d": 29,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.8276,
+     "peer_median": 1.7451,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.2778,
+     "peer_median": 0.102,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.006,
+     "peer_median": 0.0043,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0263,
+     "peer_median": 0.0228,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1054",
@@ -1105,7 +2350,34 @@
    "peer": "Vivek D. gives 0.0% and still closes.",
    "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
    "words": 31,
-   "value": 0.0114
+   "value": 0.0114,
+   "bills_90d": 70,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.7,
+     "peer_median": 1.7586,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.102,
+     "peer_median": 0.1429,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0114,
+     "peer_median": 0.0043,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0246,
+     "peer_median": 0.0228,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1055",
@@ -1116,7 +2388,28 @@
    "peer": "Kamal R. sells a jacket with 29% of kurtas.",
    "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
    "words": 35,
-   "value": 0.0
+   "value": 0.0,
+   "bills_90d": 35,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.4857,
+     "peer_median": 1.7727,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.0,
+     "peer_median": 0.2857,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0,
+     "peer_median": 0.0022,
+     "higher_is_better": false
+    }
+   }
   },
   {
    "salesperson_id": "SP1056",
@@ -1127,7 +2420,28 @@
    "peer": "Manoj T. gives 0.0% and still closes.",
    "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
    "words": 31,
-   "value": 0.0031
+   "value": 0.0031,
+   "bills_90d": 25,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.8,
+     "peer_median": 1.7222,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.2941,
+     "peer_median": 0.0741,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0031,
+     "peer_median": 0.0,
+     "higher_is_better": false
+    }
+   }
   },
   {
    "salesperson_id": "SP1058",
@@ -1138,7 +2452,28 @@
    "peer": "Kamal R. sells a jacket with 29% of kurtas.",
    "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
    "words": 35,
-   "value": 0.0741
+   "value": 0.0741,
+   "bills_90d": 44,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.7727,
+     "peer_median": 1.7222,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.0741,
+     "peer_median": 0.2857,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0022,
+     "peer_median": 0.0,
+     "higher_is_better": false
+    }
+   }
   },
   {
    "salesperson_id": "SP1059",
@@ -1149,7 +2484,28 @@
    "peer": "Arjun Y. joined most recently and can learn from you.",
    "action": "Today: take Arjun Y. on your first sherwani trial and show how you add the safa and mojari.",
    "words": 44,
-   "value": null
+   "value": null,
+   "bills_90d": 36,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.7222,
+     "peer_median": 1.7727,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.2857,
+     "peer_median": 0.0741,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0,
+     "peer_median": 0.0022,
+     "higher_is_better": false
+    }
+   }
   },
   {
    "salesperson_id": "SP1060",
@@ -1160,7 +2516,28 @@
    "peer": "Om K. gives 0.0% and still closes.",
    "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
    "words": 31,
-   "value": 0.0173
+   "value": 0.0173,
+   "bills_90d": 25,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.68,
+     "peer_median": 1.681,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.25,
+     "peer_median": 0.1689,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0173,
+     "peer_median": 0.0074,
+     "higher_is_better": false
+    }
+   }
   },
   {
    "salesperson_id": "SP1061",
@@ -1171,7 +2548,28 @@
    "peer": "Om K. gives 0.0% and still closes.",
    "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
    "words": 31,
-   "value": 0.0148
+   "value": 0.0148,
+   "bills_90d": 42,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.7619,
+     "peer_median": 1.64,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.1613,
+     "peer_median": 0.2132,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0148,
+     "peer_median": 0.0087,
+     "higher_is_better": false
+    }
+   }
   },
   {
    "salesperson_id": "SP1063",
@@ -1182,7 +2580,28 @@
    "peer": "Sumit S. sells a jacket with 25% of kurtas.",
    "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
    "words": 35,
-   "value": 0.1765
+   "value": 0.1765,
+   "bills_90d": 30,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.6,
+     "peer_median": 1.721,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.1765,
+     "peer_median": 0.2056,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0,
+     "peer_median": 0.016,
+     "higher_is_better": false
+    }
+   }
   },
   {
    "salesperson_id": "SP1002",
@@ -1193,7 +2612,34 @@
    "peer": "Imran M. joined most recently and can learn from you.",
    "action": "Today: take Imran M. on your first sherwani trial and show how you add the safa and mojari.",
    "words": 44,
-   "value": null
+   "value": null,
+   "bills_90d": 64,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.8438,
+     "peer_median": 1.8783,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.275,
+     "peer_median": 0.1447,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0051,
+     "peer_median": 0.0102,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0194,
+     "peer_median": 0.0205,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1003",
@@ -1204,7 +2650,34 @@
    "peer": "Vikas J. sells a jacket with 31% of kurtas.",
    "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
    "words": 35,
-   "value": 0.0588
+   "value": 0.0588,
+   "bills_90d": 78,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.6538,
+     "peer_median": 1.8783,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.0588,
+     "peer_median": 0.1754,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0156,
+     "peer_median": 0.0092,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0202,
+     "peer_median": 0.0201,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1004",
@@ -1215,7 +2688,40 @@
    "peer": "Shahid K. gives 0.5% and still closes.",
    "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
    "words": 31,
-   "value": 0.0132
+   "value": 0.0132,
+   "bills_90d": 117,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.7692,
+     "peer_median": 1.8783,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.1818,
+     "peer_median": 0.1447,
+     "higher_is_better": true
+    },
+    "sh_att": {
+     "label": "Add-on with sherwani",
+     "me": 0.9,
+     "peer_median": 0.8095,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0132,
+     "peer_median": 0.0092,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0136,
+     "peer_median": 0.0205,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1005",
@@ -1226,7 +2732,34 @@
    "peer": "Imran M. joined most recently and can learn from you.",
    "action": "Today: take Imran M. on your first sherwani trial and show how you add the safa and mojari.",
    "words": 44,
-   "value": null
+   "value": null,
+   "bills_90d": 37,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.8378,
+     "peer_median": 1.8783,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.3077,
+     "peer_median": 0.1447,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0071,
+     "peer_median": 0.0102,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0244,
+     "peer_median": 0.0198,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1007",
@@ -1237,7 +2770,40 @@
    "peer": "Vikas J. sells a jacket with 31% of kurtas.",
    "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
    "words": 35,
-   "value": 0.1324
+   "value": 0.1324,
+   "bills_90d": 115,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.8783,
+     "peer_median": 1.8438,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.1324,
+     "peer_median": 0.1754,
+     "higher_is_better": true
+    },
+    "sh_att": {
+     "label": "Add-on with sherwani",
+     "me": 0.7857,
+     "peer_median": 0.8333,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0092,
+     "peer_median": 0.0102,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0208,
+     "peer_median": 0.0198,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1009",
@@ -1248,7 +2814,40 @@
    "peer": "Vikas J. sells a jacket with 31% of kurtas.",
    "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
    "words": 35,
-   "value": 0.14
+   "value": 0.14,
+   "bills_90d": 103,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.835,
+     "peer_median": 1.8783,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.14,
+     "peer_median": 0.1754,
+     "higher_is_better": true
+    },
+    "sh_att": {
+     "label": "Add-on with sherwani",
+     "me": 0.8333,
+     "peer_median": 0.8095,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0065,
+     "peer_median": 0.0102,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0145,
+     "peer_median": 0.0205,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1010",
@@ -1259,7 +2858,34 @@
    "peer": "Shahid K. gives 0.5% and still closes.",
    "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
    "words": 31,
-   "value": 0.0273
+   "value": 0.0273,
+   "bills_90d": 47,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.9362,
+     "peer_median": 1.8438,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.1935,
+     "peer_median": 0.1447,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0273,
+     "peer_median": 0.0092,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0265,
+     "peer_median": 0.0198,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1012",
@@ -1270,7 +2896,34 @@
    "peer": "Shahid K. gives 0.5% and still closes.",
    "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
    "words": 31,
-   "value": 0.0189
+   "value": 0.0189,
+   "bills_90d": 28,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.8929,
+     "peer_median": 1.8438,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.2,
+     "peer_median": 0.1447,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0189,
+     "peer_median": 0.0092,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.05,
+     "peer_median": 0.0198,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1013",
@@ -1281,7 +2934,40 @@
    "peer": "Manoj T. brings back 5.0%.",
    "action": "Today: at billing, save every customer's number and family wedding date, and send a thank-you WhatsApp tomorrow.",
    "words": 30,
-   "value": 0.013
+   "value": 0.013,
+   "bills_90d": 90,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.8111,
+     "peer_median": 1.8783,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.1754,
+     "peer_median": 0.1447,
+     "higher_is_better": true
+    },
+    "sh_att": {
+     "label": "Add-on with sherwani",
+     "me": 0.7143,
+     "peer_median": 0.8333,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0081,
+     "peer_median": 0.0102,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.013,
+     "peer_median": 0.0205,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1014",
@@ -1292,7 +2978,40 @@
    "peer": "Vikas J. sells a jacket with 31% of kurtas.",
    "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
    "words": 35,
-   "value": 0.0556
+   "value": 0.0556,
+   "bills_90d": 60,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.9667,
+     "peer_median": 1.8438,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.0556,
+     "peer_median": 0.1754,
+     "higher_is_better": true
+    },
+    "sh_att": {
+     "label": "Add-on with sherwani",
+     "me": 0.625,
+     "peer_median": 0.8333,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0125,
+     "peer_median": 0.0092,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0259,
+     "peer_median": 0.0198,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1015",
@@ -1303,7 +3022,40 @@
    "peer": "Manoj T. brings back 5.0%.",
    "action": "Today: at billing, save every customer's number and family wedding date, and send a thank-you WhatsApp tomorrow.",
    "words": 30,
-   "value": 0.0086
+   "value": 0.0086,
+   "bills_90d": 132,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.9697,
+     "peer_median": 1.8438,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.1447,
+     "peer_median": 0.1754,
+     "higher_is_better": true
+    },
+    "sh_att": {
+     "label": "Add-on with sherwani",
+     "me": 0.8333,
+     "peer_median": 0.8095,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0102,
+     "peer_median": 0.0092,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0086,
+     "peer_median": 0.0205,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1016",
@@ -1314,7 +3066,34 @@
    "peer": "Vikas J. sells a jacket with 31% of kurtas.",
    "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
    "words": 35,
-   "value": 0.0909
+   "value": 0.0909,
+   "bills_90d": 94,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 2.0319,
+     "peer_median": 1.8438,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.0909,
+     "peer_median": 0.1754,
+     "higher_is_better": true
+    },
+    "sh_att": {
+     "label": "Add-on with sherwani",
+     "me": 0.875,
+     "peer_median": 0.8095,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0077,
+     "peer_median": 0.0102,
+     "higher_is_better": false
+    }
+   }
   },
   {
    "salesperson_id": "SP1019",
@@ -1325,7 +3104,34 @@
    "peer": "Jitendra V. sells a jacket with 28% of kurtas.",
    "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
    "words": 35,
-   "value": 0.1724
+   "value": 0.1724,
+   "bills_90d": 43,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.5814,
+     "peer_median": 1.9118,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.1724,
+     "peer_median": 0.2213,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0008,
+     "peer_median": 0.0038,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0114,
+     "peer_median": 0.0176,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1021",
@@ -1336,7 +3142,34 @@
    "peer": "Faizan M. gives 0.1% and still closes.",
    "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
    "words": 31,
-   "value": 0.0123
+   "value": 0.0123,
+   "bills_90d": 57,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.9123,
+     "peer_median": 1.7308,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.2703,
+     "peer_median": 0.1724,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0123,
+     "peer_median": 0.0034,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0194,
+     "peer_median": 0.0152,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1023",
@@ -1347,7 +3180,34 @@
    "peer": "Ajay S. averages 1.97.",
    "action": "Today: before billing, suggest one add-on that completes the look: stole, mala or mojari.",
    "words": 23,
-   "value": 1.6585
+   "value": 1.6585,
+   "bills_90d": 41,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.6585,
+     "peer_median": 1.9118,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.28,
+     "peer_median": 0.1724,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0034,
+     "peer_median": 0.0038,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0217,
+     "peer_median": 0.0152,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1024",
@@ -1358,7 +3218,34 @@
    "peer": "Faizan M. gives 0.1% and still closes.",
    "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
    "words": 31,
-   "value": 0.011
+   "value": 0.011,
+   "bills_90d": 71,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.9155,
+     "peer_median": 1.7308,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.1489,
+     "peer_median": 0.2213,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.011,
+     "peer_median": 0.0034,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0145,
+     "peer_median": 0.0176,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1025",
@@ -1369,7 +3256,34 @@
    "peer": "Jitendra V. sells a jacket with 28% of kurtas.",
    "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
    "words": 35,
-   "value": 0.1724
+   "value": 0.1724,
+   "bills_90d": 48,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.6875,
+     "peer_median": 1.9118,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.1724,
+     "peer_median": 0.2213,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0029,
+     "peer_median": 0.0038,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0159,
+     "peer_median": 0.017,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1026",
@@ -1380,7 +3294,34 @@
    "peer": "Sumit A. brings back 2.8%.",
    "action": "Today: at billing, save every customer's number and family wedding date, and send a thank-you WhatsApp tomorrow.",
    "words": 30,
-   "value": 0.0126
+   "value": 0.0126,
+   "bills_90d": 60,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.9667,
+     "peer_median": 1.7308,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.2703,
+     "peer_median": 0.1724,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0038,
+     "peer_median": 0.0034,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0126,
+     "peer_median": 0.0176,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1027",
@@ -1391,7 +3332,34 @@
    "peer": "Jitendra V. sells a jacket with 28% of kurtas.",
    "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
    "words": 35,
-   "value": 0.0976
+   "value": 0.0976,
+   "bills_90d": 68,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.9118,
+     "peer_median": 1.7308,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.0976,
+     "peer_median": 0.2213,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0094,
+     "peer_median": 0.0034,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0285,
+     "peer_median": 0.0152,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1175",
@@ -1402,7 +3370,22 @@
    "peer": "Ajay S. averages 1.97.",
    "action": "Today: before billing, suggest one add-on that completes the look: stole, mala or mojari.",
    "words": 23,
-   "value": 1.7308
+   "value": 1.7308,
+   "bills_90d": 26,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.7308,
+     "peer_median": 1.9118,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0018,
+     "peer_median": 0.0038,
+     "higher_is_better": false
+    }
+   }
   },
   {
    "salesperson_id": "SP1028",
@@ -1413,7 +3396,34 @@
    "peer": "Shivam M. brings back 5.0%.",
    "action": "Today: at billing, save every customer's number and family wedding date, and send a thank-you WhatsApp tomorrow.",
    "words": 30,
-   "value": 0.0226
+   "value": 0.0226,
+   "bills_90d": 36,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.9167,
+     "peer_median": 1.7059,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.2609,
+     "peer_median": 0.2083,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0,
+     "peer_median": 0.0045,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0226,
+     "peer_median": 0.0438,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1029",
@@ -1424,7 +3434,34 @@
    "peer": "Rizwan J. gives 0.0% and still closes.",
    "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
    "words": 31,
-   "value": 0.0045
+   "value": 0.0045,
+   "bills_90d": 42,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.7381,
+     "peer_median": 1.7059,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.2083,
+     "peer_median": 0.2609,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0045,
+     "peer_median": 0.0005,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0391,
+     "peer_median": 0.0438,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1030",
@@ -1435,7 +3472,34 @@
    "peer": "Yash C. joined most recently and can learn from you.",
    "action": "Today: take Yash C. on your first sherwani trial and show how you add the safa and mojari.",
    "words": 44,
-   "value": null
+   "value": null,
+   "bills_90d": 48,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.6042,
+     "peer_median": 1.7381,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.2963,
+     "peer_median": 0.2083,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0005,
+     "peer_median": 0.0045,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0503,
+     "peer_median": 0.0391,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1032",
@@ -1446,7 +3510,34 @@
    "peer": "Shivam M. sells a jacket with 30% of kurtas.",
    "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
    "words": 35,
-   "value": 0.1667
+   "value": 0.1667,
+   "bills_90d": 34,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.7059,
+     "peer_median": 1.7381,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.1667,
+     "peer_median": 0.2609,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0045,
+     "peer_median": 0.0005,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0438,
+     "peer_median": 0.0391,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1033",
@@ -1457,7 +3548,34 @@
    "peer": "Naveen R. sells a jacket with 35% of kurtas.",
    "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
    "words": 35,
-   "value": 0.1081
+   "value": 0.1081,
+   "bills_90d": 64,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.9375,
+     "peer_median": 1.7692,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.1081,
+     "peer_median": 0.2222,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0054,
+     "peer_median": 0.0052,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0,
+     "peer_median": 0.0321,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1034",
@@ -1468,7 +3586,34 @@
    "peer": "Kunal C. averages 1.94.",
    "action": "Today: before billing, suggest one add-on that completes the look: stole, mala or mojari.",
    "words": 23,
-   "value": 1.5455
+   "value": 1.5455,
+   "bills_90d": 88,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.5455,
+     "peer_median": 1.8627,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.1887,
+     "peer_median": 0.2222,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0029,
+     "peer_median": 0.0054,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0219,
+     "peer_median": 0.0321,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1036",
@@ -1479,7 +3624,34 @@
    "peer": "Naveen R. sells a jacket with 35% of kurtas.",
    "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
    "words": 35,
-   "value": 0.1875
+   "value": 0.1875,
+   "bills_90d": 54,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.7037,
+     "peer_median": 1.8627,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.1875,
+     "peer_median": 0.2222,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0019,
+     "peer_median": 0.0054,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0341,
+     "peer_median": 0.0278,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1037",
@@ -1490,7 +3662,34 @@
    "peer": "Kamal A. joined most recently and can learn from you.",
    "action": "Today: take Kamal A. on your first sherwani trial and show how you add the safa and mojari.",
    "words": 44,
-   "value": null
+   "value": null,
+   "bills_90d": 33,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.9091,
+     "peer_median": 1.7692,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.2222,
+     "peer_median": 0.1887,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.001,
+     "peer_median": 0.0054,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0357,
+     "peer_median": 0.0278,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1038",
@@ -1501,7 +3700,34 @@
    "peer": "Gopal Y. gives 0.1% and still closes.",
    "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
    "words": 31,
-   "value": 0.0075
+   "value": 0.0075,
+   "bills_90d": 73,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.863,
+     "peer_median": 1.7692,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.3542,
+     "peer_median": 0.1887,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0075,
+     "peer_median": 0.0052,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0321,
+     "peer_median": 0.0278,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1041",
@@ -1512,7 +3738,34 @@
    "peer": "Naveen R. sells a jacket with 35% of kurtas.",
    "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
    "words": 35,
-   "value": 0.1515
+   "value": 0.1515,
+   "bills_90d": 51,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.8627,
+     "peer_median": 1.7692,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.1515,
+     "peer_median": 0.2222,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0091,
+     "peer_median": 0.0052,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0188,
+     "peer_median": 0.0321,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1042",
@@ -1523,7 +3776,34 @@
    "peer": "Kamal A. joined most recently and can learn from you.",
    "action": "Today: take Kamal A. on your first sherwani trial and show how you add the safa and mojari.",
    "words": 44,
-   "value": null
+   "value": null,
+   "bills_90d": 39,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.7692,
+     "peer_median": 1.8627,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.2963,
+     "peer_median": 0.1887,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0052,
+     "peer_median": 0.0054,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0278,
+     "peer_median": 0.0321,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1043",
@@ -1534,7 +3814,34 @@
    "peer": "Kunal C. averages 1.94.",
    "action": "Today: before billing, suggest one add-on that completes the look: stole, mala or mojari.",
    "words": 23,
-   "value": 1.661
+   "value": 1.661,
+   "bills_90d": 59,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.661,
+     "peer_median": 1.8627,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.2258,
+     "peer_median": 0.1887,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0068,
+     "peer_median": 0.0052,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0369,
+     "peer_median": 0.0278,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1166",
@@ -1545,7 +3852,34 @@
    "peer": "Nithin C. brings back 3.4%.",
    "action": "Today: at billing, save every customer's number and family wedding date, and send a thank-you WhatsApp tomorrow.",
    "words": 30,
-   "value": 0.0083
+   "value": 0.0083,
+   "bills_90d": 29,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.8276,
+     "peer_median": 1.623,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.1364,
+     "peer_median": 0.1678,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0,
+     "peer_median": 0.0017,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0083,
+     "peer_median": 0.0214,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1167",
@@ -1556,7 +3890,34 @@
    "peer": "Darshan G. sells a jacket with 21% of kurtas.",
    "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
    "words": 35,
-   "value": 0.125
+   "value": 0.125,
+   "bills_90d": 43,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.7209,
+     "peer_median": 1.6763,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.125,
+     "peer_median": 0.1734,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0021,
+     "peer_median": 0.0007,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0336,
+     "peer_median": 0.0088,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1169",
@@ -1567,7 +3928,34 @@
    "peer": "Nithin C. brings back 3.4%.",
    "action": "Today: at billing, save every customer's number and family wedding date, and send a thank-you WhatsApp tomorrow.",
    "words": 30,
-   "value": 0.0092
+   "value": 0.0092,
+   "bills_90d": 80,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.525,
+     "peer_median": 1.7743,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.2105,
+     "peer_median": 0.1307,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0013,
+     "peer_median": 0.0011,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0092,
+     "peer_median": 0.0209,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1172",
@@ -1578,7 +3966,28 @@
    "peer": "Mohan Y. sells a jacket with 16% of kurtas.",
    "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
    "words": 35,
-   "value": 0.0741
+   "value": 0.0741,
+   "bills_90d": 43,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.3488,
+     "peer_median": 1.6159,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.0741,
+     "peer_median": 0.1345,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0039,
+     "peer_median": 0.0003,
+     "higher_is_better": false
+    }
+   }
   },
   {
    "salesperson_id": "SP1173",
@@ -1589,7 +3998,28 @@
    "peer": "Madhu G. averages 1.89.",
    "action": "Today: before billing, suggest one add-on that completes the look: stole, mala or mojari.",
    "words": 23,
-   "value": 1.3462
+   "value": 1.3462,
+   "bills_90d": 26,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.3462,
+     "peer_median": 1.6173,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.1579,
+     "peer_median": 0.0926,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0,
+     "peer_median": 0.0023,
+     "higher_is_better": false
+    }
+   }
   },
   {
    "salesperson_id": "SP1174",
@@ -1600,7 +4030,28 @@
    "peer": "Mohan Y. joined most recently and can learn from you.",
    "action": "Today: take Mohan Y. on your first sherwani trial and show how you add the safa and mojari.",
    "words": 44,
-   "value": null
+   "value": null,
+   "bills_90d": 35,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.8857,
+     "peer_median": 1.3475,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.1111,
+     "peer_median": 0.116,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0007,
+     "peer_median": 0.002,
+     "higher_is_better": false
+    }
+   }
   },
   {
    "salesperson_id": "SP1101",
@@ -1611,7 +4062,34 @@
    "peer": "Raju S. sells a jacket with 21% of kurtas.",
    "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
    "words": 35,
-   "value": 0.1346
+   "value": 0.1346,
+   "bills_90d": 88,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.7159,
+     "peer_median": 1.5574,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.1346,
+     "peer_median": 0.1786,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0021,
+     "peer_median": 0.0025,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0192,
+     "peer_median": 0.0242,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1102",
@@ -1622,7 +4100,34 @@
    "peer": "Raju S. sells a jacket with 21% of kurtas.",
    "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
    "words": 35,
-   "value": 0.1
+   "value": 0.1,
+   "bills_90d": 61,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.5574,
+     "peer_median": 1.7083,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.1,
+     "peer_median": 0.1786,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0025,
+     "peer_median": 0.0021,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0249,
+     "peer_median": 0.0192,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1103",
@@ -1633,7 +4138,34 @@
    "peer": "Saurabh Y. averages 1.72.",
    "action": "Today: before billing, suggest one add-on that completes the look: stole, mala or mojari.",
    "words": 23,
-   "value": 1.4667
+   "value": 1.4667,
+   "bills_90d": 45,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.4667,
+     "peer_median": 1.7083,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.2121,
+     "peer_median": 0.1346,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.001,
+     "peer_median": 0.0025,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0242,
+     "peer_median": 0.0192,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1104",
@@ -1644,7 +4176,34 @@
    "peer": "Amit C. brings back 2.5%.",
    "action": "Today: at billing, save every customer's number and family wedding date, and send a thank-you WhatsApp tomorrow.",
    "words": 30,
-   "value": 0.0
+   "value": 0.0,
+   "bills_90d": 48,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.7083,
+     "peer_median": 1.5574,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.1786,
+     "peer_median": 0.1346,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0026,
+     "peer_median": 0.0021,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0,
+     "peer_median": 0.0242,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1105",
@@ -1655,7 +4214,28 @@
    "peer": "Ankit P. gives 0.0% and still closes.",
    "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
    "words": 31,
-   "value": 0.0073
+   "value": 0.0073,
+   "bills_90d": 38,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.4474,
+     "peer_median": 1.622,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.2273,
+     "peer_median": 0.1214,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0073,
+     "peer_median": 0.0041,
+     "higher_is_better": false
+    }
+   }
   },
   {
    "salesperson_id": "SP1106",
@@ -1666,7 +4246,28 @@
    "peer": "Rahul Y. sells a jacket with 23% of kurtas.",
    "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
    "words": 35,
-   "value": 0.1
+   "value": 0.1,
+   "bills_90d": 36,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.7222,
+     "peer_median": 1.4846,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.1,
+     "peer_median": 0.1851,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0,
+     "peer_median": 0.0077,
+     "higher_is_better": false
+    }
+   }
   },
   {
    "salesperson_id": "SP1108",
@@ -1677,7 +4278,28 @@
    "peer": "Ankit P. gives 0.0% and still closes.",
    "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
    "words": 31,
-   "value": 0.0082
+   "value": 0.0082,
+   "bills_90d": 46,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.5217,
+     "peer_median": 1.5848,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.1429,
+     "peer_median": 0.1636,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0082,
+     "peer_median": 0.0036,
+     "higher_is_better": false
+    }
+   }
   },
   {
    "salesperson_id": "SP1064",
@@ -1688,7 +4310,40 @@
    "peer": "Mukesh D. gives 0.1% and still closes.",
    "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
    "words": 31,
-   "value": 0.0711
+   "value": 0.0711,
+   "bills_90d": 85,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 2.1059,
+     "peer_median": 2.0708,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.3265,
+     "peer_median": 0.2346,
+     "higher_is_better": true
+    },
+    "sh_att": {
+     "label": "Add-on with sherwani",
+     "me": 0.75,
+     "peer_median": 0.875,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0711,
+     "peer_median": 0.0112,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0201,
+     "peer_median": 0.0162,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1065",
@@ -1699,7 +4354,40 @@
    "peer": "Mukesh D. gives 0.1% and still closes.",
    "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
    "words": 31,
-   "value": 0.0604
+   "value": 0.0604,
+   "bills_90d": 72,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 2.3611,
+     "peer_median": 2.0708,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.1667,
+     "peer_median": 0.2453,
+     "higher_is_better": true
+    },
+    "sh_att": {
+     "label": "Add-on with sherwani",
+     "me": 1.0,
+     "peer_median": 0.8333,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0604,
+     "peer_median": 0.0112,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0558,
+     "peer_median": 0.0162,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1067",
@@ -1710,7 +4398,40 @@
    "peer": "Rizwan N. sells a jacket with 39% of kurtas.",
    "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
    "words": 35,
-   "value": 0.1875
+   "value": 0.1875,
+   "bills_90d": 84,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.8214,
+     "peer_median": 2.0714,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.1875,
+     "peer_median": 0.2453,
+     "higher_is_better": true
+    },
+    "sh_att": {
+     "label": "Add-on with sherwani",
+     "me": 0.875,
+     "peer_median": 0.8333,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0157,
+     "peer_median": 0.0112,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0088,
+     "peer_median": 0.0179,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1069",
@@ -1721,7 +4442,40 @@
    "peer": "Mukesh D. gives 0.1% and still closes.",
    "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
    "words": 31,
-   "value": 0.0239
+   "value": 0.0239,
+   "bills_90d": 79,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.9367,
+     "peer_median": 2.0714,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.2745,
+     "peer_median": 0.2346,
+     "higher_is_better": true
+    },
+    "sh_att": {
+     "label": "Add-on with sherwani",
+     "me": 0.5714,
+     "peer_median": 0.875,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0239,
+     "peer_median": 0.0112,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0155,
+     "peer_median": 0.0179,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1070",
@@ -1732,7 +4486,34 @@
    "peer": "Rizwan N. sells a jacket with 39% of kurtas.",
    "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
    "words": 35,
-   "value": 0.15
+   "value": 0.15,
+   "bills_90d": 30,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 2.4,
+     "peer_median": 2.0708,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.15,
+     "peer_median": 0.2453,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0015,
+     "peer_median": 0.0114,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0117,
+     "peer_median": 0.0179,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1072",
@@ -1743,7 +4524,40 @@
    "peer": "Sanjay K. adds one 100% of the time.",
    "action": "Today: bring a safa and mojari to the trial room with every sherwani, before the customer asks.",
    "words": 37,
-   "value": 0.5556
+   "value": 0.5556,
+   "bills_90d": 110,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 2.0364,
+     "peer_median": 2.0714,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.2346,
+     "peer_median": 0.2453,
+     "higher_is_better": true
+    },
+    "sh_att": {
+     "label": "Add-on with sherwani",
+     "me": 0.5556,
+     "peer_median": 0.875,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0112,
+     "peer_median": 0.0114,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0054,
+     "peer_median": 0.0179,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1073",
@@ -1754,7 +4568,34 @@
    "peer": "Tarun B. joined most recently and can learn from you.",
    "action": "Today: take Tarun B. on your first sherwani trial and show how you add the safa and mojari.",
    "words": 44,
-   "value": null
+   "value": null,
+   "bills_90d": 25,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 2.08,
+     "peer_median": 2.0708,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.3889,
+     "peer_median": 0.2346,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0016,
+     "peer_median": 0.0114,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0398,
+     "peer_median": 0.0162,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1075",
@@ -1765,7 +4606,40 @@
    "peer": "Mukesh D. gives 0.1% and still closes.",
    "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
    "words": 31,
-   "value": 0.0336
+   "value": 0.0336,
+   "bills_90d": 81,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 2.0247,
+     "peer_median": 2.0714,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.2453,
+     "peer_median": 0.2346,
+     "higher_is_better": true
+    },
+    "sh_att": {
+     "label": "Add-on with sherwani",
+     "me": 1.0,
+     "peer_median": 0.8333,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0336,
+     "peer_median": 0.0112,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0162,
+     "peer_median": 0.0179,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1076",
@@ -1776,7 +4650,34 @@
    "peer": "Tarun B. joined most recently and can learn from you.",
    "action": "Today: take Tarun B. on your first sherwani trial and show how you add the safa and mojari.",
    "words": 44,
-   "value": null
+   "value": null,
+   "bills_90d": 42,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 2.0714,
+     "peer_median": 2.0708,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.2593,
+     "peer_median": 0.2346,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0101,
+     "peer_median": 0.0114,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0246,
+     "peer_median": 0.0162,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1077",
@@ -1787,7 +4688,40 @@
    "peer": "Rizwan N. sells a jacket with 39% of kurtas.",
    "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
    "words": 35,
-   "value": 0.2115
+   "value": 0.2115,
+   "bills_90d": 88,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.9318,
+     "peer_median": 2.0714,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.2115,
+     "peer_median": 0.2453,
+     "higher_is_better": true
+    },
+    "sh_att": {
+     "label": "Add-on with sherwani",
+     "me": 1.0,
+     "peer_median": 0.8333,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0071,
+     "peer_median": 0.0114,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0128,
+     "peer_median": 0.0179,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1078",
@@ -1798,7 +4732,40 @@
    "peer": "Tarun B. joined most recently and can learn from you.",
    "action": "Today: take Tarun B. on your first sherwani trial and show how you add the safa and mojari.",
    "words": 44,
-   "value": null
+   "value": null,
+   "bills_90d": 113,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 2.0708,
+     "peer_median": 2.0714,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.25,
+     "peer_median": 0.2346,
+     "higher_is_better": true
+    },
+    "sh_att": {
+     "label": "Add-on with sherwani",
+     "me": 0.8333,
+     "peer_median": 0.875,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0114,
+     "peer_median": 0.0112,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0263,
+     "peer_median": 0.0162,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1079",
@@ -1809,7 +4776,34 @@
    "peer": "Rizwan N. sells a jacket with 39% of kurtas.",
    "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
    "words": 35,
-   "value": 0.2
+   "value": 0.2,
+   "bills_90d": 36,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 2.3333,
+     "peer_median": 2.0708,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.2,
+     "peer_median": 0.2453,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0076,
+     "peer_median": 0.0114,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0179,
+     "peer_median": 0.0162,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1081",
@@ -1820,7 +4814,34 @@
    "peer": "Jitendra K. sells a jacket with 28% of kurtas.",
    "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
    "words": 35,
-   "value": 0.0769
+   "value": 0.0769,
+   "bills_90d": 34,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.8529,
+     "peer_median": 1.7778,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.0769,
+     "peer_median": 0.1395,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0029,
+     "peer_median": 0.0031,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0246,
+     "peer_median": 0.0202,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1083",
@@ -1831,7 +4852,34 @@
    "peer": "Jitendra K. sells a jacket with 28% of kurtas.",
    "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
    "words": 35,
-   "value": 0.0351
+   "value": 0.0351,
+   "bills_90d": 91,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.7473,
+     "peer_median": 1.85,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.0351,
+     "peer_median": 0.1395,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0073,
+     "peer_median": 0.0029,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0226,
+     "peer_median": 0.0202,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1084",
@@ -1842,7 +4890,34 @@
    "peer": "Jitendra K. sells a jacket with 28% of kurtas.",
    "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
    "words": 35,
-   "value": 0.12
+   "value": 0.12,
+   "bills_90d": 49,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.6531,
+     "peer_median": 1.85,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.12,
+     "peer_median": 0.1395,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0005,
+     "peer_median": 0.0031,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0172,
+     "peer_median": 0.0226,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1085",
@@ -1853,7 +4928,34 @@
    "peer": "Vinod S. gives 0.1% and still closes.",
    "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
    "words": 31,
-   "value": 0.019
+   "value": 0.019,
+   "bills_90d": 84,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 2.0119,
+     "peer_median": 1.7778,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.2308,
+     "peer_median": 0.1333,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.019,
+     "peer_median": 0.0029,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0202,
+     "peer_median": 0.0226,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1087",
@@ -1864,7 +4966,34 @@
    "peer": "Saurabh P. joined most recently and can learn from you.",
    "action": "Today: take Saurabh P. on your first sherwani trial and show how you add the safa and mojari.",
    "words": 44,
-   "value": null
+   "value": null,
+   "bills_90d": 72,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.7778,
+     "peer_median": 1.85,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.2174,
+     "peer_median": 0.1333,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0018,
+     "peer_median": 0.0031,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0403,
+     "peer_median": 0.0202,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1088",
@@ -1875,7 +5004,34 @@
    "peer": "Hemant M. brings back 4.0%.",
    "action": "Today: at billing, save every customer's number and family wedding date, and send a thank-you WhatsApp tomorrow.",
    "words": 30,
-   "value": 0.0161
+   "value": 0.0161,
+   "bills_90d": 72,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.875,
+     "peer_median": 1.7778,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.1395,
+     "peer_median": 0.1333,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0031,
+     "peer_median": 0.0029,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0161,
+     "peer_median": 0.0226,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1089",
@@ -1886,7 +5042,34 @@
    "peer": "Vinod S. gives 0.1% and still closes.",
    "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
    "words": 31,
-   "value": 0.0128
+   "value": 0.0128,
+   "bills_90d": 40,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.65,
+     "peer_median": 1.85,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.1333,
+     "peer_median": 0.1395,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0128,
+     "peer_median": 0.0029,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0405,
+     "peer_median": 0.0202,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1090",
@@ -1897,7 +5080,34 @@
    "peer": "Hemant M. brings back 4.0%.",
    "action": "Today: at billing, save every customer's number and family wedding date, and send a thank-you WhatsApp tomorrow.",
    "words": 30,
-   "value": 0.0164
+   "value": 0.0164,
+   "bills_90d": 60,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.85,
+     "peer_median": 1.7778,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.2821,
+     "peer_median": 0.1333,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0028,
+     "peer_median": 0.0031,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0164,
+     "peer_median": 0.0226,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1092",
@@ -1908,7 +5118,34 @@
    "peer": "Aman Y. gives 0.0% and still closes.",
    "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
    "words": 31,
-   "value": 0.005
+   "value": 0.005,
+   "bills_90d": 59,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.7458,
+     "peer_median": 1.7,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.2143,
+     "peer_median": 0.0476,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.005,
+     "peer_median": 0.0,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0088,
+     "peer_median": 0.0105,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1093",
@@ -1919,7 +5156,34 @@
    "peer": "Aman Y. gives 0.0% and still closes.",
    "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
    "words": 31,
-   "value": 0.0077
+   "value": 0.0077,
+   "bills_90d": 30,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.7,
+     "peer_median": 1.7458,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.2222,
+     "peer_median": 0.0476,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0077,
+     "peer_median": 0.0,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0144,
+     "peer_median": 0.0077,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1094",
@@ -1930,7 +5194,34 @@
    "peer": "Jitendra N. sells a jacket with 22% of kurtas.",
    "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
    "words": 35,
-   "value": 0.0455
+   "value": 0.0455,
+   "bills_90d": 41,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.5122,
+     "peer_median": 1.7458,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.0455,
+     "peer_median": 0.2143,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0,
+     "peer_median": 0.005,
+     "higher_is_better": false
+    },
+    "rep": {
+     "label": "Customers who return",
+     "me": 0.0067,
+     "peer_median": 0.0116,
+     "higher_is_better": true
+    }
+   }
   },
   {
    "salesperson_id": "SP1095",
@@ -1941,7 +5232,28 @@
    "peer": "Jitendra N. sells a jacket with 22% of kurtas.",
    "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
    "words": 35,
-   "value": 0.0476
+   "value": 0.0476,
+   "bills_90d": 29,
+   "metrics": {
+    "ipb": {
+     "label": "Items per bill",
+     "me": 1.7931,
+     "peer_median": 1.7,
+     "higher_is_better": true
+    },
+    "ku_att": {
+     "label": "Jacket with kurta",
+     "me": 0.0476,
+     "peer_median": 0.2143,
+     "higher_is_better": true
+    },
+    "disc_rate": {
+     "label": "Discount on MRP",
+     "me": 0.0,
+     "peer_median": 0.005,
+     "higher_is_better": false
+    }
+   }
   },
   {
    "salesperson_id": "SP1098",
@@ -1952,7 +5264,9 @@
    "peer": "Imran C. joined most recently and can learn from you.",
    "action": "Today: take Imran C. on your first sherwani trial and show how you add the safa and mojari.",
    "words": 44,
-   "value": null
+   "value": null,
+   "bills_90d": 51,
+   "metrics": {}
   },
   {
    "salesperson_id": "SP1099",
@@ -1963,7 +5277,9 @@
    "peer": "Zaid A. joined most recently and can learn from you.",
    "action": "Today: take Zaid A. on your first sherwani trial and show how you add the safa and mojari.",
    "words": 44,
-   "value": null
+   "value": null,
+   "bills_90d": 33,
+   "metrics": {}
   }
  ],
  "data_issues": [
@@ -1974,6 +5290,2888 @@
    "days": 11
   }
  ],
+ "kpis": {
+  "LKO-01": {
+   "cur": {
+    "bills": 436,
+    "rev": 4208036.0,
+    "items": 808,
+    "disc": 35031.0,
+    "mrpv": 4243067.0,
+    "conv_bills": 436,
+    "footfall": 3524
+   },
+   "prev": {
+    "bills": 239,
+    "rev": 1997778.0,
+    "items": 429,
+    "disc": 33693.0,
+    "mrpv": 2031471.0,
+    "conv_bills": 239,
+    "footfall": 1728
+   },
+   "weeks": [
+    {
+     "bills": 74,
+     "rev": 597230.0,
+     "items": 132,
+     "disc": 6263.0,
+     "mrpv": 603493.0,
+     "conv_bills": 74,
+     "footfall": 441,
+     "week_ending": "2026-08-15"
+    },
+    {
+     "bills": 56,
+     "rev": 503696.0,
+     "items": 107,
+     "disc": 4347.0,
+     "mrpv": 508043.0,
+     "conv_bills": 56,
+     "footfall": 471,
+     "week_ending": "2026-08-22"
+    },
+    {
+     "bills": 64,
+     "rev": 638432.0,
+     "items": 128,
+     "disc": 2765.0,
+     "mrpv": 641197.0,
+     "conv_bills": 64,
+     "footfall": 471,
+     "week_ending": "2026-08-29"
+    },
+    {
+     "bills": 48,
+     "rev": 504538.0,
+     "items": 101,
+     "disc": 1636.0,
+     "mrpv": 506174.0,
+     "conv_bills": 48,
+     "footfall": 400,
+     "week_ending": "2026-09-05"
+    },
+    {
+     "bills": 66,
+     "rev": 581515.0,
+     "items": 122,
+     "disc": 8888.0,
+     "mrpv": 590403.0,
+     "conv_bills": 66,
+     "footfall": 426,
+     "week_ending": "2026-09-12"
+    },
+    {
+     "bills": 64,
+     "rev": 466455.0,
+     "items": 110,
+     "disc": 10860.0,
+     "mrpv": 477315.0,
+     "conv_bills": 64,
+     "footfall": 389,
+     "week_ending": "2026-09-19"
+    },
+    {
+     "bills": 51,
+     "rev": 525057.0,
+     "items": 101,
+     "disc": 9767.0,
+     "mrpv": 534824.0,
+     "conv_bills": 51,
+     "footfall": 377,
+     "week_ending": "2026-09-26"
+    },
+    {
+     "bills": 58,
+     "rev": 424751.0,
+     "items": 96,
+     "disc": 4178.0,
+     "mrpv": 428929.0,
+     "conv_bills": 58,
+     "footfall": 536,
+     "week_ending": "2026-10-03"
+    },
+    {
+     "bills": 101,
+     "rev": 847081.0,
+     "items": 167,
+     "disc": 11952.0,
+     "mrpv": 859033.0,
+     "conv_bills": 101,
+     "footfall": 728,
+     "week_ending": "2026-10-10"
+    },
+    {
+     "bills": 92,
+     "rev": 957272.0,
+     "items": 194,
+     "disc": 4109.0,
+     "mrpv": 961381.0,
+     "conv_bills": 92,
+     "footfall": 732,
+     "week_ending": "2026-10-17"
+    },
+    {
+     "bills": 82,
+     "rev": 809478.0,
+     "items": 152,
+     "disc": 8445.0,
+     "mrpv": 817923.0,
+     "conv_bills": 82,
+     "footfall": 705,
+     "week_ending": "2026-10-24"
+    },
+    {
+     "bills": 161,
+     "rev": 1594205.0,
+     "items": 295,
+     "disc": 10525.0,
+     "mrpv": 1604730.0,
+     "conv_bills": 161,
+     "footfall": 1359,
+     "week_ending": "2026-10-31"
+    }
+   ],
+   "repeat_sum": 73,
+   "repeat_count": 3829
+  },
+  "LKO-02": {
+   "cur": {
+    "bills": 204,
+    "rev": 1999369.0,
+    "items": 373,
+    "disc": 17558.0,
+    "mrpv": 2016927.0,
+    "conv_bills": 204,
+    "footfall": 1935
+   },
+   "prev": {
+    "bills": 107,
+    "rev": 985002.0,
+    "items": 196,
+    "disc": 4977.0,
+    "mrpv": 989979.0,
+    "conv_bills": 107,
+    "footfall": 969
+   },
+   "weeks": [
+    {
+     "bills": 27,
+     "rev": 314627.0,
+     "items": 55,
+     "disc": 1518.0,
+     "mrpv": 316145.0,
+     "conv_bills": 27,
+     "footfall": 224,
+     "week_ending": "2026-08-15"
+    },
+    {
+     "bills": 36,
+     "rev": 332744.0,
+     "items": 72,
+     "disc": 884.0,
+     "mrpv": 333628.0,
+     "conv_bills": 36,
+     "footfall": 235,
+     "week_ending": "2026-08-22"
+    },
+    {
+     "bills": 21,
+     "rev": 243193.0,
+     "items": 39,
+     "disc": 593.0,
+     "mrpv": 243786.0,
+     "conv_bills": 21,
+     "footfall": 255,
+     "week_ending": "2026-08-29"
+    },
+    {
+     "bills": 32,
+     "rev": 279877.0,
+     "items": 50,
+     "disc": 523.0,
+     "mrpv": 280400.0,
+     "conv_bills": 32,
+     "footfall": 251,
+     "week_ending": "2026-09-05"
+    },
+    {
+     "bills": 28,
+     "rev": 332548.0,
+     "items": 64,
+     "disc": 938.0,
+     "mrpv": 333486.0,
+     "conv_bills": 28,
+     "footfall": 230,
+     "week_ending": "2026-09-12"
+    },
+    {
+     "bills": 31,
+     "rev": 269723.0,
+     "items": 52,
+     "disc": 0.0,
+     "mrpv": 269723.0,
+     "conv_bills": 31,
+     "footfall": 226,
+     "week_ending": "2026-09-19"
+    },
+    {
+     "bills": 22,
+     "rev": 138402.0,
+     "items": 34,
+     "disc": 4039.0,
+     "mrpv": 142441.0,
+     "conv_bills": 22,
+     "footfall": 228,
+     "week_ending": "2026-09-26"
+    },
+    {
+     "bills": 26,
+     "rev": 244329.0,
+     "items": 46,
+     "disc": 0.0,
+     "mrpv": 244329.0,
+     "conv_bills": 26,
+     "footfall": 285,
+     "week_ending": "2026-10-03"
+    },
+    {
+     "bills": 36,
+     "rev": 326518.0,
+     "items": 64,
+     "disc": 4743.0,
+     "mrpv": 331261.0,
+     "conv_bills": 36,
+     "footfall": 384,
+     "week_ending": "2026-10-10"
+    },
+    {
+     "bills": 42,
+     "rev": 419691.0,
+     "items": 76,
+     "disc": 6433.0,
+     "mrpv": 426124.0,
+     "conv_bills": 42,
+     "footfall": 369,
+     "week_ending": "2026-10-17"
+    },
+    {
+     "bills": 34,
+     "rev": 361498.0,
+     "items": 69,
+     "disc": 1633.0,
+     "mrpv": 363131.0,
+     "conv_bills": 34,
+     "footfall": 377,
+     "week_ending": "2026-10-24"
+    },
+    {
+     "bills": 92,
+     "rev": 891662.0,
+     "items": 164,
+     "disc": 4749.0,
+     "mrpv": 896411.0,
+     "conv_bills": 92,
+     "footfall": 805,
+     "week_ending": "2026-10-31"
+    }
+   ],
+   "repeat_sum": 32,
+   "repeat_count": 1976
+  },
+  "LKO-03": {
+   "cur": {
+    "bills": 89,
+    "rev": 782030.0,
+    "items": 150,
+    "disc": 970.0,
+    "mrpv": 783000.0,
+    "conv_bills": 89,
+    "footfall": 851
+   },
+   "prev": {
+    "bills": 31,
+    "rev": 217652.0,
+    "items": 49,
+    "disc": 1924.0,
+    "mrpv": 219576.0,
+    "conv_bills": 31,
+    "footfall": 403
+   },
+   "weeks": [
+    {
+     "bills": 9,
+     "rev": 48335.0,
+     "items": 15,
+     "disc": 0.0,
+     "mrpv": 48335.0,
+     "conv_bills": 9,
+     "footfall": 111,
+     "week_ending": "2026-08-15"
+    },
+    {
+     "bills": 9,
+     "rev": 71808.0,
+     "items": 17,
+     "disc": 0.0,
+     "mrpv": 71808.0,
+     "conv_bills": 9,
+     "footfall": 106,
+     "week_ending": "2026-08-22"
+    },
+    {
+     "bills": 7,
+     "rev": 37266.0,
+     "items": 9,
+     "disc": 0.0,
+     "mrpv": 37266.0,
+     "conv_bills": 7,
+     "footfall": 101,
+     "week_ending": "2026-08-29"
+    },
+    {
+     "bills": 6,
+     "rev": 55059.0,
+     "items": 16,
+     "disc": 0.0,
+     "mrpv": 55059.0,
+     "conv_bills": 6,
+     "footfall": 106,
+     "week_ending": "2026-09-05"
+    },
+    {
+     "bills": 9,
+     "rev": 67213.0,
+     "items": 16,
+     "disc": 546.0,
+     "mrpv": 67759.0,
+     "conv_bills": 9,
+     "footfall": 91,
+     "week_ending": "2026-09-12"
+    },
+    {
+     "bills": 9,
+     "rev": 39087.0,
+     "items": 13,
+     "disc": 1200.0,
+     "mrpv": 40287.0,
+     "conv_bills": 9,
+     "footfall": 94,
+     "week_ending": "2026-09-19"
+    },
+    {
+     "bills": 3,
+     "rev": 6697.0,
+     "items": 3,
+     "disc": 0.0,
+     "mrpv": 6697.0,
+     "conv_bills": 3,
+     "footfall": 97,
+     "week_ending": "2026-09-26"
+    },
+    {
+     "bills": 10,
+     "rev": 104655.0,
+     "items": 17,
+     "disc": 178.0,
+     "mrpv": 104833.0,
+     "conv_bills": 10,
+     "footfall": 121,
+     "week_ending": "2026-10-03"
+    },
+    {
+     "bills": 18,
+     "rev": 118051.0,
+     "items": 22,
+     "disc": 752.0,
+     "mrpv": 118803.0,
+     "conv_bills": 18,
+     "footfall": 163,
+     "week_ending": "2026-10-10"
+    },
+    {
+     "bills": 19,
+     "rev": 190364.0,
+     "items": 36,
+     "disc": 0.0,
+     "mrpv": 190364.0,
+     "conv_bills": 19,
+     "footfall": 172,
+     "week_ending": "2026-10-17"
+    },
+    {
+     "bills": 20,
+     "rev": 227259.0,
+     "items": 41,
+     "disc": 0.0,
+     "mrpv": 227259.0,
+     "conv_bills": 20,
+     "footfall": 166,
+     "week_ending": "2026-10-24"
+    },
+    {
+     "bills": 32,
+     "rev": 246356.0,
+     "items": 51,
+     "disc": 218.0,
+     "mrpv": 246574.0,
+     "conv_bills": 32,
+     "footfall": 350,
+     "week_ending": "2026-10-31"
+    }
+   ],
+   "repeat_sum": 25,
+   "repeat_count": 652
+  },
+  "LKO-04": {
+   "cur": {
+    "bills": 229,
+    "rev": 2285644.0,
+    "items": 408,
+    "disc": 14598.0,
+    "mrpv": 2300242.0,
+    "conv_bills": 229,
+    "footfall": 1679
+   },
+   "prev": {
+    "bills": 103,
+    "rev": 835355.0,
+    "items": 173,
+    "disc": 1122.0,
+    "mrpv": 836477.0,
+    "conv_bills": 103,
+    "footfall": 796
+   },
+   "weeks": [
+    {
+     "bills": 15,
+     "rev": 118826.0,
+     "items": 22,
+     "disc": 777.0,
+     "mrpv": 119603.0,
+     "conv_bills": 15,
+     "footfall": 180,
+     "week_ending": "2026-08-15"
+    },
+    {
+     "bills": 28,
+     "rev": 256181.0,
+     "items": 44,
+     "disc": 0.0,
+     "mrpv": 256181.0,
+     "conv_bills": 28,
+     "footfall": 218,
+     "week_ending": "2026-08-22"
+    },
+    {
+     "bills": 36,
+     "rev": 449927.0,
+     "items": 85,
+     "disc": 4413.0,
+     "mrpv": 454340.0,
+     "conv_bills": 36,
+     "footfall": 201,
+     "week_ending": "2026-08-29"
+    },
+    {
+     "bills": 31,
+     "rev": 204129.0,
+     "items": 52,
+     "disc": 1194.0,
+     "mrpv": 205323.0,
+     "conv_bills": 31,
+     "footfall": 190,
+     "week_ending": "2026-09-05"
+    },
+    {
+     "bills": 20,
+     "rev": 230760.0,
+     "items": 40,
+     "disc": 0.0,
+     "mrpv": 230760.0,
+     "conv_bills": 20,
+     "footfall": 184,
+     "week_ending": "2026-09-12"
+    },
+    {
+     "bills": 27,
+     "rev": 162139.0,
+     "items": 39,
+     "disc": 172.0,
+     "mrpv": 162311.0,
+     "conv_bills": 27,
+     "footfall": 184,
+     "week_ending": "2026-09-19"
+    },
+    {
+     "bills": 25,
+     "rev": 224925.0,
+     "items": 45,
+     "disc": 655.0,
+     "mrpv": 225580.0,
+     "conv_bills": 25,
+     "footfall": 179,
+     "week_ending": "2026-09-26"
+    },
+    {
+     "bills": 31,
+     "rev": 217531.0,
+     "items": 49,
+     "disc": 295.0,
+     "mrpv": 217826.0,
+     "conv_bills": 31,
+     "footfall": 249,
+     "week_ending": "2026-10-03"
+    },
+    {
+     "bills": 48,
+     "rev": 419725.0,
+     "items": 81,
+     "disc": 194.0,
+     "mrpv": 419919.0,
+     "conv_bills": 48,
+     "footfall": 336,
+     "week_ending": "2026-10-10"
+    },
+    {
+     "bills": 40,
+     "rev": 279372.0,
+     "items": 61,
+     "disc": 392.0,
+     "mrpv": 279764.0,
+     "conv_bills": 40,
+     "footfall": 327,
+     "week_ending": "2026-10-17"
+    },
+    {
+     "bills": 48,
+     "rev": 488683.0,
+     "items": 83,
+     "disc": 3259.0,
+     "mrpv": 491942.0,
+     "conv_bills": 48,
+     "footfall": 319,
+     "week_ending": "2026-10-24"
+    },
+    {
+     "bills": 93,
+     "rev": 1097864.0,
+     "items": 183,
+     "disc": 10753.0,
+     "mrpv": 1108617.0,
+     "conv_bills": 93,
+     "footfall": 697,
+     "week_ending": "2026-10-31"
+    }
+   ],
+   "repeat_sum": 44,
+   "repeat_count": 1753
+  },
+  "KNP-01": {
+   "cur": {
+    "bills": 196,
+    "rev": 1681361.0,
+    "items": 336,
+    "disc": 5978.0,
+    "mrpv": 1687339.0,
+    "conv_bills": 196,
+    "footfall": 1477
+   },
+   "prev": {
+    "bills": 110,
+    "rev": 1022413.0,
+    "items": 204,
+    "disc": 10983.0,
+    "mrpv": 1033396.0,
+    "conv_bills": 110,
+    "footfall": 778
+   },
+   "weeks": [
+    {
+     "bills": 27,
+     "rev": 315349.0,
+     "items": 58,
+     "disc": 1393.0,
+     "mrpv": 316742.0,
+     "conv_bills": 27,
+     "footfall": 212,
+     "week_ending": "2026-08-15"
+    },
+    {
+     "bills": 27,
+     "rev": 273589.0,
+     "items": 51,
+     "disc": 2060.0,
+     "mrpv": 275649.0,
+     "conv_bills": 27,
+     "footfall": 196,
+     "week_ending": "2026-08-22"
+    },
+    {
+     "bills": 26,
+     "rev": 139408.0,
+     "items": 37,
+     "disc": 2180.0,
+     "mrpv": 141588.0,
+     "conv_bills": 26,
+     "footfall": 225,
+     "week_ending": "2026-08-29"
+    },
+    {
+     "bills": 39,
+     "rev": 268594.0,
+     "items": 68,
+     "disc": 3288.0,
+     "mrpv": 271882.0,
+     "conv_bills": 39,
+     "footfall": 199,
+     "week_ending": "2026-09-05"
+    },
+    {
+     "bills": 26,
+     "rev": 248930.0,
+     "items": 53,
+     "disc": 2267.0,
+     "mrpv": 251197.0,
+     "conv_bills": 26,
+     "footfall": 195,
+     "week_ending": "2026-09-12"
+    },
+    {
+     "bills": 28,
+     "rev": 264107.0,
+     "items": 52,
+     "disc": 5566.0,
+     "mrpv": 269673.0,
+     "conv_bills": 28,
+     "footfall": 175,
+     "week_ending": "2026-09-19"
+    },
+    {
+     "bills": 21,
+     "rev": 225958.0,
+     "items": 36,
+     "disc": 1481.0,
+     "mrpv": 227439.0,
+     "conv_bills": 21,
+     "footfall": 160,
+     "week_ending": "2026-09-26"
+    },
+    {
+     "bills": 35,
+     "rev": 283418.0,
+     "items": 63,
+     "disc": 1669.0,
+     "mrpv": 285087.0,
+     "conv_bills": 35,
+     "footfall": 248,
+     "week_ending": "2026-10-03"
+    },
+    {
+     "bills": 44,
+     "rev": 290056.0,
+     "items": 69,
+     "disc": 0.0,
+     "mrpv": 290056.0,
+     "conv_bills": 44,
+     "footfall": 292,
+     "week_ending": "2026-10-10"
+    },
+    {
+     "bills": 36,
+     "rev": 310445.0,
+     "items": 60,
+     "disc": 895.0,
+     "mrpv": 311340.0,
+     "conv_bills": 36,
+     "footfall": 275,
+     "week_ending": "2026-10-17"
+    },
+    {
+     "bills": 32,
+     "rev": 364560.0,
+     "items": 65,
+     "disc": 0.0,
+     "mrpv": 364560.0,
+     "conv_bills": 32,
+     "footfall": 277,
+     "week_ending": "2026-10-24"
+    },
+    {
+     "bills": 84,
+     "rev": 716300.0,
+     "items": 142,
+     "disc": 5083.0,
+     "mrpv": 721383.0,
+     "conv_bills": 84,
+     "footfall": 633,
+     "week_ending": "2026-10-31"
+    }
+   ],
+   "repeat_sum": 41,
+   "repeat_count": 2074
+  },
+  "KNP-02": {
+   "cur": {
+    "bills": 68,
+    "rev": 603091.0,
+    "items": 112,
+    "disc": 1172.0,
+    "mrpv": 604263.0,
+    "conv_bills": 68,
+    "footfall": 590
+   },
+   "prev": {
+    "bills": 34,
+    "rev": 257046.0,
+    "items": 50,
+    "disc": 379.0,
+    "mrpv": 257425.0,
+    "conv_bills": 34,
+    "footfall": 308
+   },
+   "weeks": [
+    {
+     "bills": 9,
+     "rev": 57707.0,
+     "items": 18,
+     "disc": 0.0,
+     "mrpv": 57707.0,
+     "conv_bills": 9,
+     "footfall": 87,
+     "week_ending": "2026-08-15"
+    },
+    {
+     "bills": 3,
+     "rev": 64691.0,
+     "items": 9,
+     "disc": 0.0,
+     "mrpv": 64691.0,
+     "conv_bills": 3,
+     "footfall": 86,
+     "week_ending": "2026-08-22"
+    },
+    {
+     "bills": 10,
+     "rev": 74109.0,
+     "items": 16,
+     "disc": 0.0,
+     "mrpv": 74109.0,
+     "conv_bills": 10,
+     "footfall": 79,
+     "week_ending": "2026-08-29"
+    },
+    {
+     "bills": 9,
+     "rev": 96006.0,
+     "items": 19,
+     "disc": 0.0,
+     "mrpv": 96006.0,
+     "conv_bills": 9,
+     "footfall": 82,
+     "week_ending": "2026-09-05"
+    },
+    {
+     "bills": 9,
+     "rev": 77811.0,
+     "items": 14,
+     "disc": 0.0,
+     "mrpv": 77811.0,
+     "conv_bills": 9,
+     "footfall": 81,
+     "week_ending": "2026-09-12"
+    },
+    {
+     "bills": 5,
+     "rev": 23819.0,
+     "items": 6,
+     "disc": 0.0,
+     "mrpv": 23819.0,
+     "conv_bills": 5,
+     "footfall": 70,
+     "week_ending": "2026-09-19"
+    },
+    {
+     "bills": 9,
+     "rev": 38059.0,
+     "items": 12,
+     "disc": 379.0,
+     "mrpv": 38438.0,
+     "conv_bills": 9,
+     "footfall": 66,
+     "week_ending": "2026-09-26"
+    },
+    {
+     "bills": 11,
+     "rev": 117357.0,
+     "items": 18,
+     "disc": 0.0,
+     "mrpv": 117357.0,
+     "conv_bills": 11,
+     "footfall": 91,
+     "week_ending": "2026-10-03"
+    },
+    {
+     "bills": 14,
+     "rev": 115739.0,
+     "items": 27,
+     "disc": 534.0,
+     "mrpv": 116273.0,
+     "conv_bills": 14,
+     "footfall": 114,
+     "week_ending": "2026-10-10"
+    },
+    {
+     "bills": 19,
+     "rev": 154081.0,
+     "items": 31,
+     "disc": 638.0,
+     "mrpv": 154719.0,
+     "conv_bills": 19,
+     "footfall": 119,
+     "week_ending": "2026-10-17"
+    },
+    {
+     "bills": 10,
+     "rev": 84587.0,
+     "items": 13,
+     "disc": 0.0,
+     "mrpv": 84587.0,
+     "conv_bills": 10,
+     "footfall": 107,
+     "week_ending": "2026-10-24"
+    },
+    {
+     "bills": 25,
+     "rev": 248684.0,
+     "items": 41,
+     "disc": 0.0,
+     "mrpv": 248684.0,
+     "conv_bills": 25,
+     "footfall": 250,
+     "week_ending": "2026-10-31"
+    }
+   ],
+   "repeat_sum": 11,
+   "repeat_count": 574
+  },
+  "KNP-03": {
+   "cur": {
+    "bills": 45,
+    "rev": 455412.0,
+    "items": 83,
+    "disc": 3530.0,
+    "mrpv": 458942.0,
+    "conv_bills": 45,
+    "footfall": 519
+   },
+   "prev": {
+    "bills": 22,
+    "rev": 156498.0,
+    "items": 38,
+    "disc": 3564.0,
+    "mrpv": 160062.0,
+    "conv_bills": 22,
+    "footfall": 257
+   },
+   "weeks": [
+    {
+     "bills": 5,
+     "rev": 23694.0,
+     "items": 6,
+     "disc": 0.0,
+     "mrpv": 23694.0,
+     "conv_bills": 5,
+     "footfall": 75,
+     "week_ending": "2026-08-15"
+    },
+    {
+     "bills": 5,
+     "rev": 16592.0,
+     "items": 5,
+     "disc": 303.0,
+     "mrpv": 16895.0,
+     "conv_bills": 5,
+     "footfall": 75,
+     "week_ending": "2026-08-22"
+    },
+    {
+     "bills": 6,
+     "rev": 47270.0,
+     "items": 7,
+     "disc": 448.0,
+     "mrpv": 47718.0,
+     "conv_bills": 6,
+     "footfall": 71,
+     "week_ending": "2026-08-29"
+    },
+    {
+     "bills": 4,
+     "rev": 35154.0,
+     "items": 4,
+     "disc": 2242.0,
+     "mrpv": 37396.0,
+     "conv_bills": 4,
+     "footfall": 66,
+     "week_ending": "2026-09-05"
+    },
+    {
+     "bills": 5,
+     "rev": 29092.0,
+     "items": 8,
+     "disc": 0.0,
+     "mrpv": 29092.0,
+     "conv_bills": 5,
+     "footfall": 68,
+     "week_ending": "2026-09-12"
+    },
+    {
+     "bills": 9,
+     "rev": 87619.0,
+     "items": 17,
+     "disc": 3564.0,
+     "mrpv": 91183.0,
+     "conv_bills": 9,
+     "footfall": 58,
+     "week_ending": "2026-09-19"
+    },
+    {
+     "bills": 1,
+     "rev": 4398.0,
+     "items": 2,
+     "disc": 0.0,
+     "mrpv": 4398.0,
+     "conv_bills": 1,
+     "footfall": 56,
+     "week_ending": "2026-09-26"
+    },
+    {
+     "bills": 7,
+     "rev": 35389.0,
+     "items": 11,
+     "disc": 0.0,
+     "mrpv": 35389.0,
+     "conv_bills": 7,
+     "footfall": 75,
+     "week_ending": "2026-10-03"
+    },
+    {
+     "bills": 10,
+     "rev": 74210.0,
+     "items": 15,
+     "disc": 0.0,
+     "mrpv": 74210.0,
+     "conv_bills": 10,
+     "footfall": 104,
+     "week_ending": "2026-10-10"
+    },
+    {
+     "bills": 11,
+     "rev": 110299.0,
+     "items": 21,
+     "disc": 3530.0,
+     "mrpv": 113829.0,
+     "conv_bills": 11,
+     "footfall": 94,
+     "week_ending": "2026-10-17"
+    },
+    {
+     "bills": 8,
+     "rev": 96435.0,
+     "items": 15,
+     "disc": 0.0,
+     "mrpv": 96435.0,
+     "conv_bills": 8,
+     "footfall": 99,
+     "week_ending": "2026-10-24"
+    },
+    {
+     "bills": 16,
+     "rev": 174468.0,
+     "items": 32,
+     "disc": 0.0,
+     "mrpv": 174468.0,
+     "conv_bills": 16,
+     "footfall": 222,
+     "week_ending": "2026-10-31"
+    }
+   ],
+   "repeat_sum": 8,
+   "repeat_count": 449
+  },
+  "PAT-01": {
+   "cur": {
+    "bills": 402,
+    "rev": 4282462.0,
+    "items": 806,
+    "disc": 92907.0,
+    "mrpv": 4375369.0,
+    "conv_bills": 402,
+    "footfall": 2903
+   },
+   "prev": {
+    "bills": 186,
+    "rev": 1833052.0,
+    "items": 395,
+    "disc": 67678.0,
+    "mrpv": 1900730.0,
+    "conv_bills": 186,
+    "footfall": 1421
+   },
+   "weeks": [
+    {
+     "bills": 45,
+     "rev": 386133.0,
+     "items": 75,
+     "disc": 12692.0,
+     "mrpv": 398825.0,
+     "conv_bills": 45,
+     "footfall": 332,
+     "week_ending": "2026-08-15"
+    },
+    {
+     "bills": 64,
+     "rev": 586845.0,
+     "items": 136,
+     "disc": 10019.0,
+     "mrpv": 596864.0,
+     "conv_bills": 64,
+     "footfall": 363,
+     "week_ending": "2026-08-22"
+    },
+    {
+     "bills": 44,
+     "rev": 479144.0,
+     "items": 96,
+     "disc": 9285.0,
+     "mrpv": 488429.0,
+     "conv_bills": 44,
+     "footfall": 348,
+     "week_ending": "2026-08-29"
+    },
+    {
+     "bills": 54,
+     "rev": 632779.0,
+     "items": 120,
+     "disc": 11476.0,
+     "mrpv": 644255.0,
+     "conv_bills": 54,
+     "footfall": 341,
+     "week_ending": "2026-09-05"
+    },
+    {
+     "bills": 54,
+     "rev": 620581.0,
+     "items": 120,
+     "disc": 35574.0,
+     "mrpv": 656155.0,
+     "conv_bills": 54,
+     "footfall": 363,
+     "week_ending": "2026-09-12"
+    },
+    {
+     "bills": 42,
+     "rev": 407209.0,
+     "items": 94,
+     "disc": 7372.0,
+     "mrpv": 414581.0,
+     "conv_bills": 42,
+     "footfall": 303,
+     "week_ending": "2026-09-19"
+    },
+    {
+     "bills": 37,
+     "rev": 368430.0,
+     "items": 78,
+     "disc": 19992.0,
+     "mrpv": 388422.0,
+     "conv_bills": 37,
+     "footfall": 320,
+     "week_ending": "2026-09-26"
+    },
+    {
+     "bills": 53,
+     "rev": 436832.0,
+     "items": 103,
+     "disc": 4740.0,
+     "mrpv": 441572.0,
+     "conv_bills": 53,
+     "footfall": 435,
+     "week_ending": "2026-10-03"
+    },
+    {
+     "bills": 87,
+     "rev": 866794.0,
+     "items": 164,
+     "disc": 19417.0,
+     "mrpv": 886211.0,
+     "conv_bills": 87,
+     "footfall": 589,
+     "week_ending": "2026-10-10"
+    },
+    {
+     "bills": 74,
+     "rev": 868138.0,
+     "items": 158,
+     "disc": 23554.0,
+     "mrpv": 891692.0,
+     "conv_bills": 74,
+     "footfall": 543,
+     "week_ending": "2026-10-17"
+    },
+    {
+     "bills": 81,
+     "rev": 920491.0,
+     "items": 173,
+     "disc": 20136.0,
+     "mrpv": 940627.0,
+     "conv_bills": 81,
+     "footfall": 611,
+     "week_ending": "2026-10-24"
+    },
+    {
+     "bills": 160,
+     "rev": 1627039.0,
+     "items": 311,
+     "disc": 29800.0,
+     "mrpv": 1656839.0,
+     "conv_bills": 160,
+     "footfall": 1160,
+     "week_ending": "2026-10-31"
+    }
+   ],
+   "repeat_sum": 72,
+   "repeat_count": 3484
+  },
+  "PAT-02": {
+   "cur": {
+    "bills": 236,
+    "rev": 2071319.0,
+    "items": 418,
+    "disc": 16988.0,
+    "mrpv": 2088307.0,
+    "conv_bills": 236,
+    "footfall": 1889
+   },
+   "prev": {
+    "bills": 127,
+    "rev": 1058183.0,
+    "items": 228,
+    "disc": 12564.0,
+    "mrpv": 1070747.0,
+    "conv_bills": 127,
+    "footfall": 963
+   },
+   "weeks": [
+    {
+     "bills": 33,
+     "rev": 198575.0,
+     "items": 50,
+     "disc": 0.0,
+     "mrpv": 198575.0,
+     "conv_bills": 33,
+     "footfall": 249,
+     "week_ending": "2026-08-15"
+    },
+    {
+     "bills": 22,
+     "rev": 145487.0,
+     "items": 38,
+     "disc": 0.0,
+     "mrpv": 145487.0,
+     "conv_bills": 22,
+     "footfall": 239,
+     "week_ending": "2026-08-22"
+    },
+    {
+     "bills": 29,
+     "rev": 245982.0,
+     "items": 59,
+     "disc": 1684.0,
+     "mrpv": 247666.0,
+     "conv_bills": 29,
+     "footfall": 252,
+     "week_ending": "2026-08-29"
+    },
+    {
+     "bills": 25,
+     "rev": 219830.0,
+     "items": 45,
+     "disc": 0.0,
+     "mrpv": 219830.0,
+     "conv_bills": 25,
+     "footfall": 209,
+     "week_ending": "2026-09-05"
+    },
+    {
+     "bills": 29,
+     "rev": 177467.0,
+     "items": 47,
+     "disc": 686.0,
+     "mrpv": 178153.0,
+     "conv_bills": 29,
+     "footfall": 238,
+     "week_ending": "2026-09-12"
+    },
+    {
+     "bills": 41,
+     "rev": 334887.0,
+     "items": 74,
+     "disc": 1089.0,
+     "mrpv": 335976.0,
+     "conv_bills": 41,
+     "footfall": 223,
+     "week_ending": "2026-09-19"
+    },
+    {
+     "bills": 24,
+     "rev": 175278.0,
+     "items": 38,
+     "disc": 3334.0,
+     "mrpv": 178612.0,
+     "conv_bills": 24,
+     "footfall": 215,
+     "week_ending": "2026-09-26"
+    },
+    {
+     "bills": 33,
+     "rev": 370551.0,
+     "items": 69,
+     "disc": 7455.0,
+     "mrpv": 378006.0,
+     "conv_bills": 33,
+     "footfall": 287,
+     "week_ending": "2026-10-03"
+    },
+    {
+     "bills": 49,
+     "rev": 333475.0,
+     "items": 77,
+     "disc": 2448.0,
+     "mrpv": 335923.0,
+     "conv_bills": 49,
+     "footfall": 350,
+     "week_ending": "2026-10-10"
+    },
+    {
+     "bills": 55,
+     "rev": 546938.0,
+     "items": 109,
+     "disc": 8428.0,
+     "mrpv": 555366.0,
+     "conv_bills": 55,
+     "footfall": 373,
+     "week_ending": "2026-10-17"
+    },
+    {
+     "bills": 37,
+     "rev": 352282.0,
+     "items": 70,
+     "disc": 198.0,
+     "mrpv": 352480.0,
+     "conv_bills": 37,
+     "footfall": 374,
+     "week_ending": "2026-10-24"
+    },
+    {
+     "bills": 95,
+     "rev": 838624.0,
+     "items": 162,
+     "disc": 5914.0,
+     "mrpv": 844538.0,
+     "conv_bills": 95,
+     "footfall": 792,
+     "week_ending": "2026-10-31"
+    }
+   ],
+   "repeat_sum": 47,
+   "repeat_count": 1941
+  },
+  "PAT-03": {
+   "cur": {
+    "bills": 72,
+    "rev": 678726.0,
+    "items": 124,
+    "disc": 1700.0,
+    "mrpv": 680426.0,
+    "conv_bills": 48,
+    "footfall": 574
+   },
+   "prev": {
+    "bills": 30,
+    "rev": 172754.0,
+    "items": 46,
+    "disc": 0.0,
+    "mrpv": 172754.0,
+    "conv_bills": 30,
+    "footfall": 435
+   },
+   "weeks": [
+    {
+     "bills": 12,
+     "rev": 77374.0,
+     "items": 15,
+     "disc": 886.0,
+     "mrpv": 78260.0,
+     "conv_bills": 12,
+     "footfall": 121,
+     "week_ending": "2026-08-15"
+    },
+    {
+     "bills": 11,
+     "rev": 76977.0,
+     "items": 17,
+     "disc": 406.0,
+     "mrpv": 77383.0,
+     "conv_bills": 11,
+     "footfall": 120,
+     "week_ending": "2026-08-22"
+    },
+    {
+     "bills": 11,
+     "rev": 88431.0,
+     "items": 19,
+     "disc": 0.0,
+     "mrpv": 88431.0,
+     "conv_bills": 11,
+     "footfall": 113,
+     "week_ending": "2026-08-29"
+    },
+    {
+     "bills": 13,
+     "rev": 177620.0,
+     "items": 30,
+     "disc": 0.0,
+     "mrpv": 177620.0,
+     "conv_bills": 13,
+     "footfall": 94,
+     "week_ending": "2026-09-05"
+    },
+    {
+     "bills": 9,
+     "rev": 52687.0,
+     "items": 13,
+     "disc": 0.0,
+     "mrpv": 52687.0,
+     "conv_bills": 9,
+     "footfall": 100,
+     "week_ending": "2026-09-12"
+    },
+    {
+     "bills": 6,
+     "rev": 32091.0,
+     "items": 9,
+     "disc": 0.0,
+     "mrpv": 32091.0,
+     "conv_bills": 6,
+     "footfall": 97,
+     "week_ending": "2026-09-19"
+    },
+    {
+     "bills": 8,
+     "rev": 47786.0,
+     "items": 14,
+     "disc": 0.0,
+     "mrpv": 47786.0,
+     "conv_bills": 8,
+     "footfall": 106,
+     "week_ending": "2026-09-26"
+    },
+    {
+     "bills": 7,
+     "rev": 40190.0,
+     "items": 10,
+     "disc": 0.0,
+     "mrpv": 40190.0,
+     "conv_bills": 7,
+     "footfall": 132,
+     "week_ending": "2026-10-03"
+    },
+    {
+     "bills": 17,
+     "rev": 128098.0,
+     "items": 27,
+     "disc": 0.0,
+     "mrpv": 128098.0,
+     "conv_bills": 3,
+     "footfall": 28,
+     "week_ending": "2026-10-10"
+    },
+    {
+     "bills": 10,
+     "rev": 109655.0,
+     "items": 20,
+     "disc": 0.0,
+     "mrpv": 109655.0,
+     "conv_bills": 0,
+     "footfall": 30,
+     "week_ending": "2026-10-17"
+    },
+    {
+     "bills": 12,
+     "rev": 113551.0,
+     "items": 28,
+     "disc": 721.0,
+     "mrpv": 114272.0,
+     "conv_bills": 12,
+     "footfall": 169,
+     "week_ending": "2026-10-24"
+    },
+    {
+     "bills": 33,
+     "rev": 327422.0,
+     "items": 49,
+     "disc": 979.0,
+     "mrpv": 328401.0,
+     "conv_bills": 33,
+     "footfall": 347,
+     "week_ending": "2026-10-31"
+    }
+   ],
+   "repeat_sum": 7,
+   "repeat_count": 656
+  },
+  "PAT-04": {
+   "cur": {
+    "bills": 54,
+    "rev": 375333.0,
+    "items": 81,
+    "disc": 911.0,
+    "mrpv": 376244.0,
+    "conv_bills": 54,
+    "footfall": 592
+   },
+   "prev": {
+    "bills": 19,
+    "rev": 76751.0,
+    "items": 24,
+    "disc": 0.0,
+    "mrpv": 76751.0,
+    "conv_bills": 19,
+    "footfall": 282
+   },
+   "weeks": [
+    {
+     "bills": 6,
+     "rev": 36440.0,
+     "items": 10,
+     "disc": 0.0,
+     "mrpv": 36440.0,
+     "conv_bills": 6,
+     "footfall": 75,
+     "week_ending": "2026-08-15"
+    },
+    {
+     "bills": 8,
+     "rev": 49964.0,
+     "items": 11,
+     "disc": 0.0,
+     "mrpv": 49964.0,
+     "conv_bills": 8,
+     "footfall": 74,
+     "week_ending": "2026-08-22"
+    },
+    {
+     "bills": 7,
+     "rev": 59511.0,
+     "items": 14,
+     "disc": 0.0,
+     "mrpv": 59511.0,
+     "conv_bills": 7,
+     "footfall": 73,
+     "week_ending": "2026-08-29"
+    },
+    {
+     "bills": 5,
+     "rev": 50915.0,
+     "items": 8,
+     "disc": 727.0,
+     "mrpv": 51642.0,
+     "conv_bills": 5,
+     "footfall": 68,
+     "week_ending": "2026-09-05"
+    },
+    {
+     "bills": 5,
+     "rev": 16520.0,
+     "items": 5,
+     "disc": 0.0,
+     "mrpv": 16520.0,
+     "conv_bills": 5,
+     "footfall": 66,
+     "week_ending": "2026-09-12"
+    },
+    {
+     "bills": 4,
+     "rev": 17119.0,
+     "items": 6,
+     "disc": 0.0,
+     "mrpv": 17119.0,
+     "conv_bills": 4,
+     "footfall": 63,
+     "week_ending": "2026-09-19"
+    },
+    {
+     "bills": 4,
+     "rev": 18719.0,
+     "items": 6,
+     "disc": 0.0,
+     "mrpv": 18719.0,
+     "conv_bills": 4,
+     "footfall": 69,
+     "week_ending": "2026-09-26"
+    },
+    {
+     "bills": 6,
+     "rev": 24393.0,
+     "items": 7,
+     "disc": 0.0,
+     "mrpv": 24393.0,
+     "conv_bills": 6,
+     "footfall": 84,
+     "week_ending": "2026-10-03"
+    },
+    {
+     "bills": 12,
+     "rev": 113730.0,
+     "items": 20,
+     "disc": 0.0,
+     "mrpv": 113730.0,
+     "conv_bills": 12,
+     "footfall": 121,
+     "week_ending": "2026-10-10"
+    },
+    {
+     "bills": 9,
+     "rev": 44689.0,
+     "items": 11,
+     "disc": 0.0,
+     "mrpv": 44689.0,
+     "conv_bills": 9,
+     "footfall": 111,
+     "week_ending": "2026-10-17"
+    },
+    {
+     "bills": 17,
+     "rev": 114719.0,
+     "items": 26,
+     "disc": 130.0,
+     "mrpv": 114849.0,
+     "conv_bills": 17,
+     "footfall": 120,
+     "week_ending": "2026-10-24"
+    },
+    {
+     "bills": 16,
+     "rev": 102195.0,
+     "items": 24,
+     "disc": 781.0,
+     "mrpv": 102976.0,
+     "conv_bills": 16,
+     "footfall": 240,
+     "week_ending": "2026-10-31"
+    }
+   ],
+   "repeat_sum": 6,
+   "repeat_count": 412
+  },
+  "MZF-01": {
+   "cur": {
+    "bills": 104,
+    "rev": 690295.0,
+    "items": 158,
+    "disc": 1372.0,
+    "mrpv": 691667.0,
+    "conv_bills": 104,
+    "footfall": 1250
+   },
+   "prev": {
+    "bills": 60,
+    "rev": 488143.0,
+    "items": 105,
+    "disc": 1752.0,
+    "mrpv": 489895.0,
+    "conv_bills": 60,
+    "footfall": 619
+   },
+   "weeks": [
+    {
+     "bills": 18,
+     "rev": 95349.0,
+     "items": 26,
+     "disc": 0.0,
+     "mrpv": 95349.0,
+     "conv_bills": 18,
+     "footfall": 163,
+     "week_ending": "2026-08-15"
+    },
+    {
+     "bills": 19,
+     "rev": 189963.0,
+     "items": 37,
+     "disc": 0.0,
+     "mrpv": 189963.0,
+     "conv_bills": 19,
+     "footfall": 150,
+     "week_ending": "2026-08-22"
+    },
+    {
+     "bills": 13,
+     "rev": 99852.0,
+     "items": 23,
+     "disc": 0.0,
+     "mrpv": 99852.0,
+     "conv_bills": 13,
+     "footfall": 160,
+     "week_ending": "2026-08-29"
+    },
+    {
+     "bills": 17,
+     "rev": 149313.0,
+     "items": 27,
+     "disc": 260.0,
+     "mrpv": 149573.0,
+     "conv_bills": 17,
+     "footfall": 142,
+     "week_ending": "2026-09-05"
+    },
+    {
+     "bills": 14,
+     "rev": 170992.0,
+     "items": 27,
+     "disc": 1356.0,
+     "mrpv": 172348.0,
+     "conv_bills": 14,
+     "footfall": 147,
+     "week_ending": "2026-09-12"
+    },
+    {
+     "bills": 14,
+     "rev": 102301.0,
+     "items": 24,
+     "disc": 0.0,
+     "mrpv": 102301.0,
+     "conv_bills": 14,
+     "footfall": 143,
+     "week_ending": "2026-09-19"
+    },
+    {
+     "bills": 14,
+     "rev": 98353.0,
+     "items": 22,
+     "disc": 0.0,
+     "mrpv": 98353.0,
+     "conv_bills": 14,
+     "footfall": 139,
+     "week_ending": "2026-09-26"
+    },
+    {
+     "bills": 18,
+     "rev": 116497.0,
+     "items": 32,
+     "disc": 396.0,
+     "mrpv": 116893.0,
+     "conv_bills": 18,
+     "footfall": 190,
+     "week_ending": "2026-10-03"
+    },
+    {
+     "bills": 22,
+     "rev": 174170.0,
+     "items": 35,
+     "disc": 570.0,
+     "mrpv": 174740.0,
+     "conv_bills": 22,
+     "footfall": 249,
+     "week_ending": "2026-10-10"
+    },
+    {
+     "bills": 32,
+     "rev": 215357.0,
+     "items": 49,
+     "disc": 719.0,
+     "mrpv": 216076.0,
+     "conv_bills": 32,
+     "footfall": 248,
+     "week_ending": "2026-10-17"
+    },
+    {
+     "bills": 12,
+     "rev": 62883.0,
+     "items": 17,
+     "disc": 0.0,
+     "mrpv": 62883.0,
+     "conv_bills": 12,
+     "footfall": 240,
+     "week_ending": "2026-10-24"
+    },
+    {
+     "bills": 38,
+     "rev": 237885.0,
+     "items": 57,
+     "disc": 83.0,
+     "mrpv": 237968.0,
+     "conv_bills": 38,
+     "footfall": 513,
+     "week_ending": "2026-10-31"
+    }
+   ],
+   "repeat_sum": 21,
+   "repeat_count": 955
+  },
+  "MZF-02": {
+   "cur": {
+    "bills": 57,
+    "rev": 404259.0,
+    "items": 82,
+    "disc": 1059.0,
+    "mrpv": 405318.0,
+    "conv_bills": 57,
+    "footfall": 574
+   },
+   "prev": {
+    "bills": 24,
+    "rev": 128509.0,
+    "items": 35,
+    "disc": 2256.0,
+    "mrpv": 130765.0,
+    "conv_bills": 24,
+    "footfall": 290
+   },
+   "weeks": [
+    {
+     "bills": 6,
+     "rev": 27118.0,
+     "items": 7,
+     "disc": 0.0,
+     "mrpv": 27118.0,
+     "conv_bills": 6,
+     "footfall": 65,
+     "week_ending": "2026-08-15"
+    },
+    {
+     "bills": 12,
+     "rev": 102600.0,
+     "items": 25,
+     "disc": 0.0,
+     "mrpv": 102600.0,
+     "conv_bills": 12,
+     "footfall": 67,
+     "week_ending": "2026-08-22"
+    },
+    {
+     "bills": 7,
+     "rev": 54540.0,
+     "items": 10,
+     "disc": 0.0,
+     "mrpv": 54540.0,
+     "conv_bills": 7,
+     "footfall": 72,
+     "week_ending": "2026-08-29"
+    },
+    {
+     "bills": 6,
+     "rev": 43024.0,
+     "items": 13,
+     "disc": 888.0,
+     "mrpv": 43912.0,
+     "conv_bills": 6,
+     "footfall": 69,
+     "week_ending": "2026-09-05"
+    },
+    {
+     "bills": 6,
+     "rev": 21291.0,
+     "items": 9,
+     "disc": 0.0,
+     "mrpv": 21291.0,
+     "conv_bills": 6,
+     "footfall": 64,
+     "week_ending": "2026-09-12"
+    },
+    {
+     "bills": 6,
+     "rev": 41641.0,
+     "items": 9,
+     "disc": 0.0,
+     "mrpv": 41641.0,
+     "conv_bills": 6,
+     "footfall": 72,
+     "week_ending": "2026-09-19"
+    },
+    {
+     "bills": 6,
+     "rev": 39135.0,
+     "items": 9,
+     "disc": 2256.0,
+     "mrpv": 41391.0,
+     "conv_bills": 6,
+     "footfall": 68,
+     "week_ending": "2026-09-26"
+    },
+    {
+     "bills": 6,
+     "rev": 26442.0,
+     "items": 8,
+     "disc": 0.0,
+     "mrpv": 26442.0,
+     "conv_bills": 6,
+     "footfall": 86,
+     "week_ending": "2026-10-03"
+    },
+    {
+     "bills": 11,
+     "rev": 60057.0,
+     "items": 15,
+     "disc": 728.0,
+     "mrpv": 60785.0,
+     "conv_bills": 11,
+     "footfall": 120,
+     "week_ending": "2026-10-10"
+    },
+    {
+     "bills": 11,
+     "rev": 60429.0,
+     "items": 15,
+     "disc": 331.0,
+     "mrpv": 60760.0,
+     "conv_bills": 11,
+     "footfall": 106,
+     "week_ending": "2026-10-17"
+    },
+    {
+     "bills": 8,
+     "rev": 59089.0,
+     "items": 11,
+     "disc": 0.0,
+     "mrpv": 59089.0,
+     "conv_bills": 8,
+     "footfall": 114,
+     "week_ending": "2026-10-24"
+    },
+    {
+     "bills": 27,
+     "rev": 224684.0,
+     "items": 41,
+     "disc": 0.0,
+     "mrpv": 224684.0,
+     "conv_bills": 27,
+     "footfall": 234,
+     "week_ending": "2026-10-31"
+    }
+   ],
+   "repeat_sum": 17,
+   "repeat_count": 493
+  },
+  "BLR-01": {
+   "cur": {
+    "bills": 449,
+    "rev": 4362043.0,
+    "items": 843,
+    "disc": 64089.0,
+    "mrpv": 4426132.0,
+    "conv_bills": 449,
+    "footfall": 3602
+   },
+   "prev": {
+    "bills": 238,
+    "rev": 2252314.0,
+    "items": 471,
+    "disc": 32915.0,
+    "mrpv": 2285229.0,
+    "conv_bills": 238,
+    "footfall": 1838
+   },
+   "weeks": [
+    {
+     "bills": 50,
+     "rev": 436366.0,
+     "items": 93,
+     "disc": 7516.0,
+     "mrpv": 443882.0,
+     "conv_bills": 50,
+     "footfall": 426,
+     "week_ending": "2026-08-15"
+    },
+    {
+     "bills": 49,
+     "rev": 508219.0,
+     "items": 98,
+     "disc": 8058.0,
+     "mrpv": 516277.0,
+     "conv_bills": 49,
+     "footfall": 450,
+     "week_ending": "2026-08-22"
+    },
+    {
+     "bills": 69,
+     "rev": 483224.0,
+     "items": 122,
+     "disc": 3104.0,
+     "mrpv": 486328.0,
+     "conv_bills": 69,
+     "footfall": 465,
+     "week_ending": "2026-08-29"
+    },
+    {
+     "bills": 56,
+     "rev": 429841.0,
+     "items": 95,
+     "disc": 8914.0,
+     "mrpv": 438755.0,
+     "conv_bills": 56,
+     "footfall": 433,
+     "week_ending": "2026-09-05"
+    },
+    {
+     "bills": 66,
+     "rev": 579187.0,
+     "items": 126,
+     "disc": 10237.0,
+     "mrpv": 589424.0,
+     "conv_bills": 66,
+     "footfall": 427,
+     "week_ending": "2026-09-12"
+    },
+    {
+     "bills": 56,
+     "rev": 578790.0,
+     "items": 124,
+     "disc": 11411.0,
+     "mrpv": 590201.0,
+     "conv_bills": 56,
+     "footfall": 439,
+     "week_ending": "2026-09-19"
+    },
+    {
+     "bills": 62,
+     "rev": 597979.0,
+     "items": 116,
+     "disc": 8205.0,
+     "mrpv": 606184.0,
+     "conv_bills": 62,
+     "footfall": 439,
+     "week_ending": "2026-09-26"
+    },
+    {
+     "bills": 54,
+     "rev": 496358.0,
+     "items": 105,
+     "disc": 3062.0,
+     "mrpv": 499420.0,
+     "conv_bills": 54,
+     "footfall": 533,
+     "week_ending": "2026-10-03"
+    },
+    {
+     "bills": 102,
+     "rev": 968726.0,
+     "items": 192,
+     "disc": 18932.0,
+     "mrpv": 987658.0,
+     "conv_bills": 102,
+     "footfall": 695,
+     "week_ending": "2026-10-10"
+    },
+    {
+     "bills": 89,
+     "rev": 739275.0,
+     "items": 157,
+     "disc": 5368.0,
+     "mrpv": 744643.0,
+     "conv_bills": 89,
+     "footfall": 683,
+     "week_ending": "2026-10-17"
+    },
+    {
+     "bills": 98,
+     "rev": 1066078.0,
+     "items": 198,
+     "disc": 23724.0,
+     "mrpv": 1089802.0,
+     "conv_bills": 98,
+     "footfall": 748,
+     "week_ending": "2026-10-24"
+    },
+    {
+     "bills": 160,
+     "rev": 1587964.0,
+     "items": 296,
+     "disc": 16065.0,
+     "mrpv": 1604029.0,
+     "conv_bills": 160,
+     "footfall": 1476,
+     "week_ending": "2026-10-31"
+    }
+   ],
+   "repeat_sum": 98,
+   "repeat_count": 4073
+  },
+  "BLR-02": {
+   "cur": {
+    "bills": 475,
+    "rev": 4512072.0,
+    "items": 887,
+    "disc": 89691.0,
+    "mrpv": 4601763.0,
+    "conv_bills": 475,
+    "footfall": 3573
+   },
+   "prev": {
+    "bills": 202,
+    "rev": 1654904.0,
+    "items": 355,
+    "disc": 14416.0,
+    "mrpv": 1669320.0,
+    "conv_bills": 202,
+    "footfall": 1705
+   },
+   "weeks": [
+    {
+     "bills": 54,
+     "rev": 387405.0,
+     "items": 97,
+     "disc": 7198.0,
+     "mrpv": 394603.0,
+     "conv_bills": 54,
+     "footfall": 460,
+     "week_ending": "2026-08-15"
+    },
+    {
+     "bills": 60,
+     "rev": 524262.0,
+     "items": 108,
+     "disc": 2730.0,
+     "mrpv": 526992.0,
+     "conv_bills": 60,
+     "footfall": 455,
+     "week_ending": "2026-08-22"
+    },
+    {
+     "bills": 59,
+     "rev": 617354.0,
+     "items": 133,
+     "disc": 16863.0,
+     "mrpv": 634217.0,
+     "conv_bills": 59,
+     "footfall": 450,
+     "week_ending": "2026-08-29"
+    },
+    {
+     "bills": 50,
+     "rev": 520181.0,
+     "items": 113,
+     "disc": 8706.0,
+     "mrpv": 528887.0,
+     "conv_bills": 50,
+     "footfall": 403,
+     "week_ending": "2026-09-05"
+    },
+    {
+     "bills": 53,
+     "rev": 504392.0,
+     "items": 103,
+     "disc": 4980.0,
+     "mrpv": 509372.0,
+     "conv_bills": 53,
+     "footfall": 393,
+     "week_ending": "2026-09-12"
+    },
+    {
+     "bills": 48,
+     "rev": 403973.0,
+     "items": 87,
+     "disc": 7315.0,
+     "mrpv": 411288.0,
+     "conv_bills": 48,
+     "footfall": 413,
+     "week_ending": "2026-09-19"
+    },
+    {
+     "bills": 40,
+     "rev": 268020.0,
+     "items": 62,
+     "disc": 918.0,
+     "mrpv": 268938.0,
+     "conv_bills": 40,
+     "footfall": 405,
+     "week_ending": "2026-09-26"
+    },
+    {
+     "bills": 61,
+     "rev": 478519.0,
+     "items": 103,
+     "disc": 1203.0,
+     "mrpv": 479722.0,
+     "conv_bills": 61,
+     "footfall": 494,
+     "week_ending": "2026-10-03"
+    },
+    {
+     "bills": 81,
+     "rev": 672564.0,
+     "items": 153,
+     "disc": 20383.0,
+     "mrpv": 692947.0,
+     "conv_bills": 81,
+     "footfall": 673,
+     "week_ending": "2026-10-10"
+    },
+    {
+     "bills": 105,
+     "rev": 1090645.0,
+     "items": 203,
+     "disc": 16477.0,
+     "mrpv": 1107122.0,
+     "conv_bills": 105,
+     "footfall": 710,
+     "week_ending": "2026-10-17"
+    },
+    {
+     "bills": 95,
+     "rev": 981560.0,
+     "items": 188,
+     "disc": 16652.0,
+     "mrpv": 998212.0,
+     "conv_bills": 95,
+     "footfall": 702,
+     "week_ending": "2026-10-24"
+    },
+    {
+     "bills": 194,
+     "rev": 1767303.0,
+     "items": 343,
+     "disc": 36179.0,
+     "mrpv": 1803482.0,
+     "conv_bills": 194,
+     "footfall": 1488,
+     "week_ending": "2026-10-31"
+    }
+   ],
+   "repeat_sum": 81,
+   "repeat_count": 3596
+  },
+  "BLR-03": {
+   "cur": {
+    "bills": 208,
+    "rev": 2099144.0,
+    "items": 400,
+    "disc": 2931.0,
+    "mrpv": 2102075.0,
+    "conv_bills": 208,
+    "footfall": 1942
+   },
+   "prev": {
+    "bills": 99,
+    "rev": 915076.0,
+    "items": 199,
+    "disc": 5100.0,
+    "mrpv": 920176.0,
+    "conv_bills": 99,
+    "footfall": 997
+   },
+   "weeks": [
+    {
+     "bills": 33,
+     "rev": 173967.0,
+     "items": 46,
+     "disc": 837.0,
+     "mrpv": 174804.0,
+     "conv_bills": 33,
+     "footfall": 262,
+     "week_ending": "2026-08-15"
+    },
+    {
+     "bills": 28,
+     "rev": 216610.0,
+     "items": 49,
+     "disc": 2691.0,
+     "mrpv": 219301.0,
+     "conv_bills": 28,
+     "footfall": 257,
+     "week_ending": "2026-08-22"
+    },
+    {
+     "bills": 37,
+     "rev": 403932.0,
+     "items": 74,
+     "disc": 244.0,
+     "mrpv": 404176.0,
+     "conv_bills": 37,
+     "footfall": 251,
+     "week_ending": "2026-08-29"
+    },
+    {
+     "bills": 37,
+     "rev": 284778.0,
+     "items": 72,
+     "disc": 0.0,
+     "mrpv": 284778.0,
+     "conv_bills": 37,
+     "footfall": 247,
+     "week_ending": "2026-09-05"
+    },
+    {
+     "bills": 24,
+     "rev": 211366.0,
+     "items": 46,
+     "disc": 438.0,
+     "mrpv": 211804.0,
+     "conv_bills": 24,
+     "footfall": 246,
+     "week_ending": "2026-09-12"
+    },
+    {
+     "bills": 25,
+     "rev": 248795.0,
+     "items": 55,
+     "disc": 0.0,
+     "mrpv": 248795.0,
+     "conv_bills": 25,
+     "footfall": 224,
+     "week_ending": "2026-09-19"
+    },
+    {
+     "bills": 23,
+     "rev": 207618.0,
+     "items": 45,
+     "disc": 2112.0,
+     "mrpv": 209730.0,
+     "conv_bills": 23,
+     "footfall": 236,
+     "week_ending": "2026-09-26"
+    },
+    {
+     "bills": 27,
+     "rev": 247297.0,
+     "items": 53,
+     "disc": 2550.0,
+     "mrpv": 249847.0,
+     "conv_bills": 27,
+     "footfall": 291,
+     "week_ending": "2026-10-03"
+    },
+    {
+     "bills": 31,
+     "rev": 320088.0,
+     "items": 62,
+     "disc": 0.0,
+     "mrpv": 320088.0,
+     "conv_bills": 31,
+     "footfall": 360,
+     "week_ending": "2026-10-10"
+    },
+    {
+     "bills": 54,
+     "rev": 483274.0,
+     "items": 103,
+     "disc": 348.0,
+     "mrpv": 483622.0,
+     "conv_bills": 54,
+     "footfall": 388,
+     "week_ending": "2026-10-17"
+    },
+    {
+     "bills": 49,
+     "rev": 595657.0,
+     "items": 109,
+     "disc": 1284.0,
+     "mrpv": 596941.0,
+     "conv_bills": 49,
+     "footfall": 410,
+     "week_ending": "2026-10-24"
+    },
+    {
+     "bills": 74,
+     "rev": 700125.0,
+     "items": 126,
+     "disc": 1299.0,
+     "mrpv": 701424.0,
+     "conv_bills": 74,
+     "footfall": 784,
+     "week_ending": "2026-10-31"
+    }
+   ],
+   "repeat_sum": 54,
+   "repeat_count": 2006
+  },
+  "BLR-04": {
+   "cur": {
+    "bills": 244,
+    "rev": 2213709.0,
+    "items": 441,
+    "disc": 19725.0,
+    "mrpv": 2233434.0,
+    "conv_bills": 244,
+    "footfall": 1887
+   },
+   "prev": {
+    "bills": 150,
+    "rev": 1396547.0,
+    "items": 289,
+    "disc": 3789.0,
+    "mrpv": 1400336.0,
+    "conv_bills": 150,
+    "footfall": 1000
+   },
+   "weeks": [
+    {
+     "bills": 33,
+     "rev": 324643.0,
+     "items": 65,
+     "disc": 6717.0,
+     "mrpv": 331360.0,
+     "conv_bills": 33,
+     "footfall": 262,
+     "week_ending": "2026-08-15"
+    },
+    {
+     "bills": 29,
+     "rev": 313926.0,
+     "items": 60,
+     "disc": 1189.0,
+     "mrpv": 315115.0,
+     "conv_bills": 29,
+     "footfall": 257,
+     "week_ending": "2026-08-22"
+    },
+    {
+     "bills": 34,
+     "rev": 340501.0,
+     "items": 69,
+     "disc": 6330.0,
+     "mrpv": 346831.0,
+     "conv_bills": 34,
+     "footfall": 256,
+     "week_ending": "2026-08-29"
+    },
+    {
+     "bills": 32,
+     "rev": 252287.0,
+     "items": 62,
+     "disc": 576.0,
+     "mrpv": 252863.0,
+     "conv_bills": 32,
+     "footfall": 243,
+     "week_ending": "2026-09-05"
+    },
+    {
+     "bills": 30,
+     "rev": 278960.0,
+     "items": 59,
+     "disc": 431.0,
+     "mrpv": 279391.0,
+     "conv_bills": 30,
+     "footfall": 236,
+     "week_ending": "2026-09-12"
+    },
+    {
+     "bills": 43,
+     "rev": 465465.0,
+     "items": 89,
+     "disc": 1096.0,
+     "mrpv": 466561.0,
+     "conv_bills": 43,
+     "footfall": 236,
+     "week_ending": "2026-09-19"
+    },
+    {
+     "bills": 30,
+     "rev": 217770.0,
+     "items": 48,
+     "disc": 732.0,
+     "mrpv": 218502.0,
+     "conv_bills": 30,
+     "footfall": 241,
+     "week_ending": "2026-09-26"
+    },
+    {
+     "bills": 47,
+     "rev": 434352.0,
+     "items": 93,
+     "disc": 1530.0,
+     "mrpv": 435882.0,
+     "conv_bills": 47,
+     "footfall": 287,
+     "week_ending": "2026-10-03"
+    },
+    {
+     "bills": 52,
+     "rev": 365424.0,
+     "items": 80,
+     "disc": 3571.0,
+     "mrpv": 368995.0,
+     "conv_bills": 52,
+     "footfall": 356,
+     "week_ending": "2026-10-10"
+    },
+    {
+     "bills": 57,
+     "rev": 574805.0,
+     "items": 107,
+     "disc": 238.0,
+     "mrpv": 575043.0,
+     "conv_bills": 57,
+     "footfall": 371,
+     "week_ending": "2026-10-17"
+    },
+    {
+     "bills": 56,
+     "rev": 439342.0,
+     "items": 98,
+     "disc": 7560.0,
+     "mrpv": 446902.0,
+     "conv_bills": 56,
+     "footfall": 381,
+     "week_ending": "2026-10-24"
+    },
+    {
+     "bills": 79,
+     "rev": 834138.0,
+     "items": 156,
+     "disc": 8356.0,
+     "mrpv": 842494.0,
+     "conv_bills": 79,
+     "footfall": 779,
+     "week_ending": "2026-10-31"
+    }
+   ],
+   "repeat_sum": 39,
+   "repeat_count": 2063
+  },
+  "BLR-05": {
+   "cur": {
+    "bills": 40,
+    "rev": 270452.0,
+    "items": 63,
+    "disc": 585.0,
+    "mrpv": 271037.0,
+    "conv_bills": 40,
+    "footfall": 369
+   },
+   "prev": {
+    "bills": 0,
+    "rev": 0.0,
+    "items": 0,
+    "disc": 0.0,
+    "mrpv": 0.0,
+    "conv_bills": 0,
+    "footfall": 0
+   },
+   "weeks": [
+    {
+     "bills": 0,
+     "rev": 0.0,
+     "items": 0,
+     "disc": 0.0,
+     "mrpv": 0.0,
+     "conv_bills": 0,
+     "footfall": 0,
+     "week_ending": "2026-08-15"
+    },
+    {
+     "bills": 0,
+     "rev": 0.0,
+     "items": 0,
+     "disc": 0.0,
+     "mrpv": 0.0,
+     "conv_bills": 0,
+     "footfall": 0,
+     "week_ending": "2026-08-22"
+    },
+    {
+     "bills": 0,
+     "rev": 0.0,
+     "items": 0,
+     "disc": 0.0,
+     "mrpv": 0.0,
+     "conv_bills": 0,
+     "footfall": 0,
+     "week_ending": "2026-08-29"
+    },
+    {
+     "bills": 0,
+     "rev": 0.0,
+     "items": 0,
+     "disc": 0.0,
+     "mrpv": 0.0,
+     "conv_bills": 0,
+     "footfall": 0,
+     "week_ending": "2026-09-05"
+    },
+    {
+     "bills": 0,
+     "rev": 0.0,
+     "items": 0,
+     "disc": 0.0,
+     "mrpv": 0.0,
+     "conv_bills": 0,
+     "footfall": 0,
+     "week_ending": "2026-09-12"
+    },
+    {
+     "bills": 0,
+     "rev": 0.0,
+     "items": 0,
+     "disc": 0.0,
+     "mrpv": 0.0,
+     "conv_bills": 0,
+     "footfall": 0,
+     "week_ending": "2026-09-19"
+    },
+    {
+     "bills": 0,
+     "rev": 0.0,
+     "items": 0,
+     "disc": 0.0,
+     "mrpv": 0.0,
+     "conv_bills": 0,
+     "footfall": 0,
+     "week_ending": "2026-09-26"
+    },
+    {
+     "bills": 0,
+     "rev": 0.0,
+     "items": 0,
+     "disc": 0.0,
+     "mrpv": 0.0,
+     "conv_bills": 0,
+     "footfall": 0,
+     "week_ending": "2026-10-03"
+    },
+    {
+     "bills": 1,
+     "rev": 3398.0,
+     "items": 2,
+     "disc": 0.0,
+     "mrpv": 3398.0,
+     "conv_bills": 1,
+     "footfall": 10,
+     "week_ending": "2026-10-10"
+    },
+    {
+     "bills": 6,
+     "rev": 38691.0,
+     "items": 9,
+     "disc": 0.0,
+     "mrpv": 38691.0,
+     "conv_bills": 6,
+     "footfall": 69,
+     "week_ending": "2026-10-17"
+    },
+    {
+     "bills": 10,
+     "rev": 66784.0,
+     "items": 16,
+     "disc": 0.0,
+     "mrpv": 66784.0,
+     "conv_bills": 10,
+     "footfall": 89,
+     "week_ending": "2026-10-24"
+    },
+    {
+     "bills": 23,
+     "rev": 161579.0,
+     "items": 36,
+     "disc": 585.0,
+     "mrpv": 162164.0,
+     "conv_bills": 23,
+     "footfall": 201,
+     "week_ending": "2026-10-31"
+    }
+   ],
+   "repeat_sum": 0,
+   "repeat_count": 0
+  },
+  "MYS-01": {
+   "cur": {
+    "bills": 79,
+    "rev": 535644.0,
+    "items": 121,
+    "disc": 110.0,
+    "mrpv": 535754.0,
+    "conv_bills": 79,
+    "footfall": 937
+   },
+   "prev": {
+    "bills": 38,
+    "rev": 302311.0,
+    "items": 64,
+    "disc": 0.0,
+    "mrpv": 302311.0,
+    "conv_bills": 38,
+    "footfall": 480
+   },
+   "weeks": [
+    {
+     "bills": 13,
+     "rev": 121421.0,
+     "items": 29,
+     "disc": 700.0,
+     "mrpv": 122121.0,
+     "conv_bills": 13,
+     "footfall": 113,
+     "week_ending": "2026-08-15"
+    },
+    {
+     "bills": 8,
+     "rev": 56709.0,
+     "items": 16,
+     "disc": 0.0,
+     "mrpv": 56709.0,
+     "conv_bills": 8,
+     "footfall": 119,
+     "week_ending": "2026-08-22"
+    },
+    {
+     "bills": 7,
+     "rev": 38989.0,
+     "items": 11,
+     "disc": 0.0,
+     "mrpv": 38989.0,
+     "conv_bills": 7,
+     "footfall": 116,
+     "week_ending": "2026-08-29"
+    },
+    {
+     "bills": 7,
+     "rev": 64111.0,
+     "items": 14,
+     "disc": 0.0,
+     "mrpv": 64111.0,
+     "conv_bills": 7,
+     "footfall": 123,
+     "week_ending": "2026-09-05"
+    },
+    {
+     "bills": 4,
+     "rev": 21820.0,
+     "items": 5,
+     "disc": 0.0,
+     "mrpv": 21820.0,
+     "conv_bills": 4,
+     "footfall": 113,
+     "week_ending": "2026-09-12"
+    },
+    {
+     "bills": 12,
+     "rev": 79555.0,
+     "items": 20,
+     "disc": 0.0,
+     "mrpv": 79555.0,
+     "conv_bills": 12,
+     "footfall": 111,
+     "week_ending": "2026-09-19"
+    },
+    {
+     "bills": 9,
+     "rev": 81208.0,
+     "items": 17,
+     "disc": 0.0,
+     "mrpv": 81208.0,
+     "conv_bills": 9,
+     "footfall": 113,
+     "week_ending": "2026-09-26"
+    },
+    {
+     "bills": 13,
+     "rev": 119728.0,
+     "items": 22,
+     "disc": 0.0,
+     "mrpv": 119728.0,
+     "conv_bills": 13,
+     "footfall": 143,
+     "week_ending": "2026-10-03"
+    },
+    {
+     "bills": 13,
+     "rev": 83652.0,
+     "items": 23,
+     "disc": 0.0,
+     "mrpv": 83652.0,
+     "conv_bills": 13,
+     "footfall": 174,
+     "week_ending": "2026-10-10"
+    },
+    {
+     "bills": 11,
+     "rev": 67684.0,
+     "items": 16,
+     "disc": 0.0,
+     "mrpv": 67684.0,
+     "conv_bills": 11,
+     "footfall": 185,
+     "week_ending": "2026-10-17"
+    },
+    {
+     "bills": 18,
+     "rev": 110515.0,
+     "items": 25,
+     "disc": 110.0,
+     "mrpv": 110625.0,
+     "conv_bills": 18,
+     "footfall": 188,
+     "week_ending": "2026-10-24"
+    },
+    {
+     "bills": 37,
+     "rev": 273793.0,
+     "items": 57,
+     "disc": 0.0,
+     "mrpv": 273793.0,
+     "conv_bills": 37,
+     "footfall": 390,
+     "week_ending": "2026-10-31"
+    }
+   ],
+   "repeat_sum": 11,
+   "repeat_count": 691
+  },
+  "MYS-02": {
+   "cur": {
+    "bills": 48,
+    "rev": 337812.0,
+    "items": 65,
+    "disc": 1023.0,
+    "mrpv": 338835.0,
+    "conv_bills": 48,
+    "footfall": 725
+   },
+   "prev": {
+    "bills": 28,
+    "rev": 171545.0,
+    "items": 45,
+    "disc": 210.0,
+    "mrpv": 171755.0,
+    "conv_bills": 28,
+    "footfall": 383
+   },
+   "weeks": [
+    {
+     "bills": 4,
+     "rev": 31842.0,
+     "items": 8,
+     "disc": 0.0,
+     "mrpv": 31842.0,
+     "conv_bills": 4,
+     "footfall": 94,
+     "week_ending": "2026-08-15"
+    },
+    {
+     "bills": 7,
+     "rev": 27465.0,
+     "items": 10,
+     "disc": 0.0,
+     "mrpv": 27465.0,
+     "conv_bills": 7,
+     "footfall": 98,
+     "week_ending": "2026-08-22"
+    },
+    {
+     "bills": 6,
+     "rev": 38640.0,
+     "items": 10,
+     "disc": 0.0,
+     "mrpv": 38640.0,
+     "conv_bills": 6,
+     "footfall": 95,
+     "week_ending": "2026-08-29"
+    },
+    {
+     "bills": 6,
+     "rev": 49063.0,
+     "items": 12,
+     "disc": 0.0,
+     "mrpv": 49063.0,
+     "conv_bills": 6,
+     "footfall": 93,
+     "week_ending": "2026-09-05"
+    },
+    {
+     "bills": 6,
+     "rev": 45078.0,
+     "items": 12,
+     "disc": 210.0,
+     "mrpv": 45288.0,
+     "conv_bills": 6,
+     "footfall": 97,
+     "week_ending": "2026-09-12"
+    },
+    {
+     "bills": 5,
+     "rev": 19344.0,
+     "items": 6,
+     "disc": 0.0,
+     "mrpv": 19344.0,
+     "conv_bills": 5,
+     "footfall": 82,
+     "week_ending": "2026-09-19"
+    },
+    {
+     "bills": 4,
+     "rev": 36191.0,
+     "items": 9,
+     "disc": 0.0,
+     "mrpv": 36191.0,
+     "conv_bills": 4,
+     "footfall": 91,
+     "week_ending": "2026-09-26"
+    },
+    {
+     "bills": 13,
+     "rev": 70932.0,
+     "items": 18,
+     "disc": 0.0,
+     "mrpv": 70932.0,
+     "conv_bills": 13,
+     "footfall": 113,
+     "week_ending": "2026-10-03"
+    },
+    {
+     "bills": 10,
+     "rev": 72386.0,
+     "items": 14,
+     "disc": 0.0,
+     "mrpv": 72386.0,
+     "conv_bills": 10,
+     "footfall": 148,
+     "week_ending": "2026-10-10"
+    },
+    {
+     "bills": 11,
+     "rev": 64011.0,
+     "items": 14,
+     "disc": 0.0,
+     "mrpv": 64011.0,
+     "conv_bills": 11,
+     "footfall": 148,
+     "week_ending": "2026-10-17"
+    },
+    {
+     "bills": 8,
+     "rev": 63390.0,
+     "items": 10,
+     "disc": 0.0,
+     "mrpv": 63390.0,
+     "conv_bills": 8,
+     "footfall": 143,
+     "week_ending": "2026-10-24"
+    },
+    {
+     "bills": 19,
+     "rev": 138025.0,
+     "items": 27,
+     "disc": 1023.0,
+     "mrpv": 139048.0,
+     "conv_bills": 19,
+     "footfall": 286,
+     "week_ending": "2026-10-31"
+    }
+   ],
+   "repeat_sum": 17,
+   "repeat_count": 501
+  }
+ },
  "stores": {
   "LKO-01": {
    "city": "Lucknow",

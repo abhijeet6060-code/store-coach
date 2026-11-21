@@ -571,12 +571,27 @@ def build_cards(D, as_of, coh=None):
                 col = "strong"
             else:
                 _, col, text = best
+            # Me vs the median of my store's peers, for the coach screen bars
+            metrics = {}
+            for mcol, label, ncol, minn, sign in [("ipb", "Items per bill", "bills", 20, +1),
+                                                  ("ku_att", "Jacket with kurta", "ku_n", 12, +1),
+                                                  ("sh_att", "Add-on with sherwani", "sh_n", 6, +1),
+                                                  ("disc_rate", "Discount on MRP", "bills", 20, -1),
+                                                  ("rep", "Customers who return", "rep_n", 100, +1)]:
+                if pd.isna(me[mcol]) or me[ncol] < minn:
+                    continue
+                pv = grp[(grp.salesperson_id != me.salesperson_id) & (grp[ncol] >= minn)][mcol].dropna()
+                if len(pv) < 2:
+                    continue
+                metrics[mcol] = {"label": label, "me": float(me[mcol]), "peer_median": float(pv.median()),
+                                 "higher_is_better": sign > 0}
             body = " ".join(text)
             words = len(body.split())
             assert words <= 60, body
             cards.append({"salesperson_id": me.salesperson_id, "name": names.get(me.salesperson_id, me.salesperson_id),
                           "store_id": store, "lever": col, "behaviour": text[0], "peer": text[1], "action": text[2],
-                          "words": words, "value": None if col == "strong" else float(me[col])})
+                          "words": words, "value": None if col.startswith("cat_") or col == "strong" else float(me[col]),
+                          "bills_90d": int(me.bills), "metrics": metrics})
     return cards
 
 
@@ -623,6 +638,36 @@ def follow_up(prev_alerts, M):
     return out
 
 
+def store_kpis(D, e, bad_days, coh):
+    """Per store: last 28 days vs the 28 days before, plus 12 weekly points. Raw sums so any group can be added up."""
+    B, F = D["B"], D["F"]
+    out = {}
+    rep = coh.groupby("store_id").rep.agg(["sum", "count"]) if coh is not None else None
+
+    def sums(sid, s, t):
+        b = B[(B.store_id == sid) & (B.d >= s) & (B.d <= t)]
+        f = F[(F.store_id == sid) & (F.d >= s) & (F.d <= t)]
+        ok = np.array([(sid, d) not in bad_days for d in f.d], dtype=bool)
+        good = set(f.d[ok]) if len(f) else set()
+        return {"bills": int(len(b)), "rev": float(b.rev.sum()), "items": int(b["items"].sum()),
+                "disc": float(b.disc.sum()), "mrpv": float(b.mrpv.sum()),
+                "conv_bills": int(b.d.isin(good).sum()), "footfall": int(f.footfall[ok].sum()) if len(f) else 0}
+
+    for sid in D["S"].store_id:
+        cur = sums(sid, e - pd.Timedelta(days=27), e)
+        prev = sums(sid, e - pd.Timedelta(days=55), e - pd.Timedelta(days=28))
+        weeks = []
+        for k in range(11, -1, -1):
+            we = e - pd.Timedelta(days=7 * k)
+            w = sums(sid, we - pd.Timedelta(days=6), we)
+            w["week_ending"] = f"{we:%Y-%m-%d}"
+            weeks.append(w)
+        out[sid] = {"cur": cur, "prev": prev, "weeks": weeks,
+                    "repeat_sum": int(rep.loc[sid, "sum"]) if rep is not None and sid in rep.index else 0,
+                    "repeat_count": int(rep.loc[sid, "count"]) if rep is not None and sid in rep.index else 0}
+    return out
+
+
 def run(data_dir, as_of=None):
     D = load(Path(data_dir))
     end = D["B"].d.max() if as_of is None else pd.Timestamp(as_of)
@@ -644,6 +689,7 @@ def run(data_dir, as_of=None):
                           for i, r in ams.iterrows()],
         "cards": cards,
         "data_issues": [d for d in issues if d["store_id"] in stores.index],
+        "kpis": store_kpis(D, end, bad, M.attrs.get("coh")),
         "stores": {sid: {"city": r.city, "tier": r.tier, "am": r.area_manager_id,
                          "conv": None if pd.isna(M.loc[sid, "cur_conv"]) else float(M.loc[sid, "cur_conv"]),
                          "ipb": None if pd.isna(M.loc[sid, "cur_ipb"]) else float(M.loc[sid, "cur_ipb"]),
