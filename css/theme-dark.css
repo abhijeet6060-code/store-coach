@@ -194,3 +194,11 @@ table.clean td { padding: 12px 8px; }
 .deadline-form .row-gap input { font: inherit; color: var(--ink); background: var(--bg); border: 1px solid var(--line); border-radius: 8px; padding: 7px 10px; }
 .deadline-form h2 { display: flex; gap: 6px; align-items: center; }
 @media (max-width: 900px) { .ai-cta .btn.big { width: 100%; } .draft-ctl { flex-wrap: wrap; } }
+
+/* plain-language helpers */
+.simple { display: flex; gap: 6px; align-items: flex-start; color: var(--ink); font-size: .9rem; margin: 3px 0 2px; }
+.simple .ico { color: var(--accent2); margin-top: 3px; }
+.glossary dl { margin: 8px 0 0; display: grid; grid-template-columns: 170px 1fr; gap: 6px 14px; font-size: .86rem; }
+.glossary dt { font-weight: 600; color: var(--ink); }
+.glossary dd { margin: 0; color: var(--ink2); }
+@media (max-width: 900px) { .glossary dl { grid-template-columns: 1fr; } .glossary dd { margin-bottom: 6px; } }

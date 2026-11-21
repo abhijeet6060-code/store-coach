@@ -20,6 +20,31 @@ const ls = {
   set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch { /* private mode */ } },
 };
 const LEVER = { "More bills": "bills", "Bigger baskets": "baskets", "More repeat": "repeat" };
+// Plain-language labels, so anyone can explain an issue out loud.
+function kind(a) {
+  if (/stopped billing/.test(a.title)) return "staff";
+  if (a.metric === "sp_disc" || a.metric === "disc") return "discount";
+  if (a.metric === "ipb") return "basket";
+  if (a.metric === "repeat") return "repeat";
+  return "buyers";
+}
+const KIND = {
+  staff: { tag: "Best seller missing", cls: "bills", simple: "The store's best salesperson seems to have left, so fewer visitors are buying." },
+  buyers: { tag: "Fewer buyers", cls: "bills", simple: "Fewer of the people who walk into the store are buying something." },
+  basket: { tag: "Smaller baskets", cls: "baskets", simple: "Customers are buying fewer items per visit than usual for this time of year." },
+  discount: { tag: "Too much discount", cls: "baskets", simple: "One salesperson gives much bigger discounts than the rest of the store." },
+  repeat: { tag: "Customers not returning", cls: "repeat", simple: "Customers served by this salesperson rarely come back to buy again." },
+};
+const tag = (a) => `<span class="lever ${KIND[kind(a)].cls}">${KIND[kind(a)].tag}</span>`;
+const simple = (a) => `<span class="simple">${icon("info", 14)} ${KIND[kind(a)].simple}</span>`;
+const GLOSSARY = `<details class="more glossary"><summary>What do these words mean?</summary><dl>
+  <dt>Conversion</dt><dd>Out of 100 people who walk in, how many buy something. 12% = 12 of every 100 visitors bought.</dd>
+  <dt>Items per bill</dt><dd>How many products a customer buys in one visit. 1.8 = most customers buy about 2 things.</dd>
+  <dt>Customers who return</dt><dd>First-time customers who came back to buy again a month or more later.</dd>
+  <dt>₹ at stake</dt><dd>An estimate of the sales a week the store is missing because of the problem, if it went back to its normal level.</dd>
+  <dt>Follow-up</dt><dd>A task the area manager gives a store manager, with a deadline. The store manager updates it; the area manager approves it.</dd>
+  <dt>Store health</dt><dd>Green = no problems found. Amber = needs attention. Red = critical (big money at stake or tasks overdue).</dd>
+</dl></details>`;
 const actionText = (a) => { const t = String(a).replace(/^Today:\s*/, ""); return t.charAt(0).toUpperCase() + t.slice(1); };
 const dShort = (iso) => new Date(String(iso).slice(0, 10) + "T00:00:00").toLocaleDateString("en-IN", { day: "numeric", month: "short" });
 const dTime = (iso) => new Date(iso).toLocaleString("en-IN", { day: "numeric", month: "short", hour: "2-digit", minute: "2-digit" });
@@ -136,7 +161,7 @@ function alertRow(a, i, sid, withFU = true) {
     : `<button class="btn ghost" data-newfu="${esc(store)}" data-title="${esc(a.title)}">+ Create follow-up</button>`;
   return `<div class="alert">
     <span class="num">${i + 1}</span>
-    <div><h3><span class="lever ${LEVER[a.lever] || ""}">${esc(a.lever)}</span>${esc(a.title)}</h3>
+    <div><h3>${tag(a)}${esc(a.title)}</h3>${simple(a)}
       <p class="do">${esc(a.action)}</p>
       <details class="more"><summary>Why? Evidence &amp; details</summary>
         <p>${esc(a.cause)}</p>
@@ -273,6 +298,7 @@ function vInsights() {
     <p class="hint">${icon("info", 16)} Click <b>+ Create follow-up</b> on an alert to assign it to the store manager and track it.</p>
     <div class="card">${am.alerts.map((a, i) => alertRow(a, i)).join("") || `<p class="muted">No store needs attention this week.</p>`}</div>
     ${roleModels(am)}
+    ${GLOSSARY}
     <details class="more"><summary>How are these found?</summary><p class="small muted">Numbers are calculated from the data, never generated. Each store is compared with its own same weeks last year (so festival and wedding swings don't trigger alerts) and with stores in the same city. A whole city slowing down is reported as a market issue. Numbers that can't be right go to Data Issues.</p></details>
   </div>`;
 }
@@ -479,8 +505,9 @@ function issueRow(a, store) {
   const act = S.role !== "Area Manager" ? "" : ft ? `<a class="chip" href="#task/${ft.id}">${ft.id} · ${T.displayStatus(ft)}</a>` : `<button class="chip accent" data-newfu="${esc(store)}" data-title="${esc(a.title)}">Assign</button>`;
   return `<li class="ti ${done ? "is-done" : ""}">
       <label class="tick"><input type="checkbox" data-ack="${esc(a.title)}" ${done ? "checked" : ""} aria-label="Handled"><span class="box"></span></label>
-      <div class="tt"><span class="txt"><span class="lever ${LEVER[a.lever] || ""}">${esc(a.lever)}</span>${esc(a.title)}</span>
-        <span class="meta">${esc(a.action)}</span>
+      <div class="tt"><span class="txt">${tag(a)}${esc(a.title)}</span>
+        ${simple(a)}
+        <span class="meta"><b class="lbl3">What to do</b> ${esc(actionText(a.action))}</span>
         <details class="more"><summary>Why?</summary><p>${esc(a.cause)}</p><p class="small muted">Owner: Store Manager, ${esc(store)} · Confidence: ${confidence(a)} · ${inrShort(a.rupees_week)}/week at stake (estimate)</p></details></div>
       <div class="ti-right"><span class="amt">${inrShort(a.rupees_week)}<small>/wk</small></span>${act}</div></li>`;
 }
@@ -632,14 +659,15 @@ function runAnalysis() {
   setTimeout(() => {
     const issues = allIssues(ids), tasks = T.all().filter((t) => ids.includes(t.store_id));
     const drafts = issues.filter((a) => !T.all().some((t) => t.issue_key === issueKey(a.store, a))).map((a) => ({
-      key: issueKey(a.store, a), store: a.store, title: a.title, lever: a.lever, cause: a.cause, action: a.action, rupees: a.rupees_week,
+      key: issueKey(a.store, a), store: a.store, title: a.title, lever: a.lever, cause: a.cause, action: a.action, rupees: a.rupees_week, raw: a,
       priority: prio(a.rupees_week), deadline: addDays(T.todayISO(), a.rupees_week >= 20000 ? 2 : 4), on: a.rupees_week >= 5000,
       metric: ["conv", "ipb", "disc", "sp_disc", "repeat"].includes(a.metric) ? { name: a.metric === "ipb" ? "ipb" : "rate", label: { conv: "Conversion", ipb: "Items per bill", disc: "Discount", sp_disc: "Discount", repeat: "Return rate" }[a.metric], before: a.now } : null,
     }));
     const by = (l) => issues.filter((a) => a.lever === l).length;
+    const kinds = {}; issues.forEach((a) => { const k = KIND[kind(a)].tag; kinds[k] = (kinds[k] || 0) + 1; });
     S.ai = {
       running: false, at: S.ai.at, stores: ids.length, issues: issues.length, stake: issues.reduce((x, a) => x + a.rupees_week, 0),
-      bills: by("More bills"), baskets: by("Bigger baskets"), repeat: by("More repeat"),
+      bills: by("More bills"), baskets: by("Bigger baskets"), repeat: by("More repeat"), kinds,
       pending: tasks.filter(T.isOpen).length, overdue: tasks.filter((t) => T.displayStatus(t) === "Overdue").length,
       review: tasks.filter((t) => t.status === "Submitted" || t.status === "Under Review").length,
       data: R.data_issues.filter((d) => ids.includes(d.store_id)).length, drafts,
@@ -655,16 +683,16 @@ function aiPanel() {
   return `<div class="card panel ai-panel">
     <div class="chart-title"><h2>${icon("ai", 18)} Analysis results</h2><button class="iconbtn" data-ai-close aria-label="Close results">✕</button></div>
     <ul class="ai-sum">
-      <li><b>${a.stores}</b> stores analysed</li>
-      <li><b>${a.issues}</b> issues found · ${a.bills} more bills · ${a.baskets} bigger baskets · ${a.repeat} more repeat</li>
-      <li><b>${inrShort(a.stake)}</b> a week at stake (estimate)</li>
-      <li><b>${a.pending}</b> follow-ups open${a.overdue ? ` · <span class="neg">${a.overdue} overdue</span>` : ""}${a.review ? ` · ${a.review} waiting for your review` : ""}</li>
+      <li>Checked all <b>${a.stores}</b> stores.</li>
+      <li>Found <b>${a.issues}</b> problem${a.issues === 1 ? "" : "s"}: ${Object.entries(a.kinds).map(([k, n]) => `${n} × ${k.toLowerCase()}`).join(", ")}.</li>
+      <li>Fixing them could bring back about <b>${inrShort(a.stake)}</b> of sales a week (estimate).</li>
+      <li><b>${a.pending}</b> follow-up${a.pending === 1 ? "" : "s"} already open${a.overdue ? ` · <span class="neg">${a.overdue} overdue</span>` : ""}${a.review ? ` · ${a.review} waiting for your review` : ""}</li>
       ${a.data ? `<li><b>${a.data}</b> data issue${a.data > 1 ? "s" : ""} kept out of the numbers</li>` : ""}
     </ul>
     ${a.drafts.length ? `<h3 class="sub-h">Follow-up drafts: review and approve</h3>
     <ul class="tl">${a.drafts.map((d, i) => `<li class="ti">
         <label class="tick"><input type="checkbox" data-draft="${i}" ${d.on ? "checked" : ""} aria-label="Include"><span class="box"></span></label>
-        <div class="tt"><span class="txt">${prioPill(d.rupees)} ${esc(d.title)}</span><span class="meta">${esc(d.action)}</span>
+        <div class="tt"><span class="txt">${prioPill(d.rupees)} ${tag(d.raw)}${esc(d.title)}</span>${simple(d.raw)}<span class="meta"><b class="lbl3">What to do</b> ${esc(actionText(d.action))}</span>
           <details class="more"><summary>Evidence</summary><p>${esc(d.cause)}</p></details></div>
         <div class="ti-right draft-ctl"><span class="amt">${inrShort(d.rupees)}<small>/wk</small></span>
           <input type="date" data-draft-date="${i}" value="${d.deadline}" min="${T.todayISO()}" aria-label="Deadline"></div></li>`).join("")}</ul>
@@ -692,6 +720,7 @@ function vAmOverview() {
     ${aiPanel()}
     <div class="card panel"><div class="chart-title"><h2>Top 3 issues</h2><a class="small" href="#insights">All insights →</a></div>
       <ul class="tl">${top.map((a) => issueRow(a, a.store)).join("") || `<li class="ti"><span class="muted small">No issues found this week.</span></li>`}</ul></div>
+    ${GLOSSARY}
   </div>`;
 }
 
@@ -737,9 +766,10 @@ function vAmInsights() {
     <div class="card panel"><ul class="tl">${issues.map((a) => {
       const ft = openTaskFor(a.store, a);
       return `<li class="ti"><span class="tick static">${dot(prio(a.rupees_week) === "High" ? "red" : prio(a.rupees_week) === "Medium" ? "amber" : "grey")}</span>
-        <div class="tt"><span class="txt">${prioPill(a.rupees_week)} <span class="lever ${LEVER[a.lever] || ""}">${esc(a.lever)}</span>${esc(a.title)}</span>
+        <div class="tt"><span class="txt">${prioPill(a.rupees_week)} ${tag(a)}${esc(a.title)}</span>
+          ${simple(a)}
           <span class="meta"><b class="lbl3">Evidence</b> ${esc(a.cause)}</span>
-          <span class="meta"><b class="lbl3">Action</b> ${esc(a.action)}</span>
+          <span class="meta"><b class="lbl3">What to do</b> ${esc(actionText(a.action))}</span>
           <span class="meta">Owner: Store Manager, ${esc(a.store)} · Confidence: ${confidence(a)}</span></div>
         <div class="ti-right"><span class="amt">${inrShort(a.rupees_week)}<small>/wk</small></span>${ft ? `<a class="chip" href="#task/${ft.id}">${ft.id} · ${T.displayStatus(ft)}</a>` : `<button class="chip accent" data-newfu="${esc(a.store)}" data-title="${esc(a.title)}">Assign</button>`}</div></li>`;
     }).join("") || `<li class="ti muted">No issues found this week.</li>`}</ul></div>
