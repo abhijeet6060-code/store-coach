@@ -1,6 +1,6 @@
 {
  "as_of": "2026-10-31",
- "generated_at": "2026-11-21 11:18 IST",
+ "generated_at": "2026-11-21 11:50 IST",
  "window_days": 28,
  "area_managers": [
   {
@@ -16,27 +16,54 @@
    "alerts": [
     {
      "am": "AM-01",
+     "store_id": "LKO-02",
+     "lever": "More bills",
+     "title": "LKO-02: top seller Imran C. has stopped billing",
+     "cause": "Imran C. (SP1018) was the #1 seller with 19% of the store's bills (₹1,12,159 a week). No bill since 13 Sep and not on the roster since 14 Sep. Store conversion now 10.5% vs expected 12.3%.",
+     "action": "Today: Sumit A. calls Imran C.'s 88 customers from the last 90 days to introduce themselves; store manager confirms with HR whether Imran C. has left and moves one weekday off to cover Saturday.",
+     "rupees_week": 112158.6667,
+     "metric": "conv",
+     "now": 0.1054,
+     "expected": 0.1227,
+     "sp": null
+    },
+    {
+     "am": "AM-01",
      "store_id": "LKO-03",
      "lever": "Bigger baskets",
      "title": "LKO-03: smaller baskets (-6%)",
-     "cause": "Items per bill 1.69 vs expected 1.79.",
-     "action": "Show a safa and mojari with every sherwani trial today, and a jacket with every kurta trial; store manager checks at 6 pm.",
+     "cause": "Items per bill 1.69 vs expected 1.79. Biggest drop: Rizwan J. (1.59 items/bill, was 2.17); Sumit R. holds 1.76.",
+     "action": "Today: Sumit R. shadows Rizwan J. on the first three sherwani or kurta trials and shows the safa, mojari and jacket add-on; store manager checks Rizwan J.'s bills at 6 pm.",
      "rupees_week": 12659.6382,
      "metric": "ipb",
      "now": 1.6854,
-     "expected": 1.7945
+     "expected": 1.7945,
+     "sp": null
+    },
+    {
+     "am": "AM-01",
+     "store_id": "LKO-02",
+     "lever": "Bigger baskets",
+     "title": "LKO-02: Varun S. discounting 2.7% vs store 0.7%",
+     "cause": "In the last 28 days Varun S. (SP1021) gave 2.7% off MRP on 25 bills; the rest of the store gave 0.7%. Extra discount: ₹4,262 in 28 days.",
+     "action": "From today, any discount by Varun S. above 1% needs the store manager's OK at the till; manager reviews their bills at close on Saturday.",
+     "rupees_week": 1065.512,
+     "metric": "sp_disc",
+     "now": 0.0274,
+     "expected": 0.0066,
+     "sp": "SP1021"
     }
    ],
    "follow_up": [
     {
      "am": "AM-01",
      "store_id": "LKO-02",
-     "title": "LKO-02: conversion down 27%",
+     "title": "LKO-02: top seller Imran C. has stopped billing",
      "metric": "conv",
      "before": 0.0975,
      "now": 0.1054,
      "verdict": "improved",
-     "text": "Last week: LKO-02: conversion down 27%. 9.8% then, 10.5% now: improved."
+     "text": "Last week: LKO-02: top seller Imran C. has stopped billing. 9.8% then, 10.5% now: improved."
     },
     {
      "am": "AM-01",
@@ -65,12 +92,13 @@
      "store_id": "KNP-01",
      "lever": "Bigger baskets",
      "title": "KNP-01: smaller baskets (-7%)",
-     "cause": "Items per bill 1.71 vs expected 1.85.",
-     "action": "Show a safa and mojari with every sherwani trial today, and a jacket with every kurta trial; store manager checks at 6 pm.",
+     "cause": "Items per bill 1.71 vs expected 1.85. Biggest drop: Shahid A. (1.45 items/bill, was 1.93); Nikhil S. holds 2.16.",
+     "action": "Today: Nikhil S. shadows Shahid A. on the first three sherwani or kurta trials and shows the safa, mojari and jacket add-on; store manager checks Shahid A.'s bills at 6 pm.",
      "rupees_week": 32921.7815,
      "metric": "ipb",
      "now": 1.7143,
-     "expected": 1.8486
+     "expected": 1.8486,
+     "sp": null
     }
    ],
    "follow_up": [
@@ -102,12 +130,39 @@
      "store_id": "PAT-03",
      "lever": "More bills",
      "title": "PAT-03: conversion down 28%",
-     "cause": "Too few people on the floor on busy days: 8 walk-ins per salesperson at weekends vs 5 on weekdays. Conversion 8.4% vs expected 11.6%.",
-     "action": "Keep 7 people on the floor this Saturday and Sunday, 4–8 pm; move weekend offs to Tuesday.",
+     "cause": "Walk-ins steady but fewer buying: conversion 8.4% vs expected 11.6%, while Patna peers moved -2%.",
+     "action": "Today: Amit A. greets every walk-in between 5 and 8 pm and hands over only after the first trial.",
      "rupees_week": 43550.4277,
      "metric": "conv",
      "now": 0.0836,
-     "expected": 0.1158
+     "expected": 0.1158,
+     "sp": null
+    },
+    {
+     "am": "AM-03",
+     "store_id": "PAT-01",
+     "lever": "Bigger baskets",
+     "title": "PAT-01: Manoj N. discounting 4.7% vs store 1.8%",
+     "cause": "In the last 28 days Manoj N. (SP1064) gave 4.7% off MRP on 39 bills; the rest of the store gave 1.8%. Extra discount: ₹12,647 in 28 days.",
+     "action": "From today, any discount by Manoj N. above 2% needs the store manager's OK at the till; manager reviews their bills at close on Saturday.",
+     "rupees_week": 3161.7055,
+     "metric": "sp_disc",
+     "now": 0.047,
+     "expected": 0.0183,
+     "sp": "SP1064"
+    },
+    {
+     "am": "AM-03",
+     "store_id": "PAT-01",
+     "lever": "Bigger baskets",
+     "title": "PAT-01: Kamal G. discounting 4.1% vs store 1.9%",
+     "cause": "In the last 28 days Kamal G. (SP1069) gave 4.1% off MRP on 40 bills; the rest of the store gave 1.9%. Extra discount: ₹9,375 in 28 days.",
+     "action": "From today, any discount by Kamal G. above 2% needs the store manager's OK at the till; manager reviews their bills at close on Saturday.",
+     "rupees_week": 2343.7229,
+     "metric": "sp_disc",
+     "now": 0.0409,
+     "expected": 0.0191,
+     "sp": "SP1069"
     }
    ],
    "follow_up": [
@@ -157,12 +212,13 @@
      "store_id": "MZF-02",
      "lever": "Bigger baskets",
      "title": "MZF-02: smaller baskets (-16%)",
-     "cause": "Items per bill 1.44 vs expected 1.72.",
-     "action": "Show a safa and mojari with every sherwani trial today, and a jacket with every kurta trial; store manager checks at 6 pm.",
+     "cause": "Items per bill 1.44 vs expected 1.72. Biggest drop: Manish C. (1.40 items/bill, was 1.58); Ankit P. holds 1.62.",
+     "action": "Today: Ankit P. shadows Manish C. on the first three sherwani or kurta trials and shows the safa, mojari and jacket add-on; store manager checks Manish C.'s bills at 6 pm.",
      "rupees_week": 19724.4825,
      "metric": "ipb",
      "now": 1.4386,
-     "expected": 1.7194
+     "expected": 1.7194,
+     "sp": null
     },
     {
      "am": "AM-04",
@@ -174,7 +230,8 @@
      "rupees_week": 18755.8659,
      "metric": "conv",
      "now": 0.0832,
-     "expected": 0.0922
+     "expected": 0.0922,
+     "sp": null
     }
    ],
    "follow_up": [
@@ -212,7 +269,34 @@
      "rupees_week": 65376.7867,
      "metric": "conv",
      "now": 0.1071,
-     "expected": 0.1204
+     "expected": 0.1204,
+     "sp": null
+    },
+    {
+     "am": "AM-05",
+     "store_id": "BLR-01",
+     "lever": "Bigger baskets",
+     "title": "BLR-01: Sunil T. discounting 4.1% vs store 1.2%",
+     "cause": "In the last 28 days Sunil T. (SP1122) gave 4.1% off MRP on 32 bills; the rest of the store gave 1.2%. Extra discount: ₹9,997 in 28 days.",
+     "action": "From today, any discount by Sunil T. above 1% needs the store manager's OK at the till; manager reviews their bills at close on Saturday.",
+     "rupees_week": 2499.2818,
+     "metric": "sp_disc",
+     "now": 0.0407,
+     "expected": 0.0122,
+     "sp": "SP1122"
+    },
+    {
+     "am": "AM-05",
+     "store_id": "BLR-02",
+     "lever": "Bigger baskets",
+     "title": "BLR-02: Mahesh J. discounting 4.0% vs store 1.9%",
+     "cause": "In the last 28 days Mahesh J. (SP1139) gave 4.0% off MRP on 14 bills; the rest of the store gave 1.9%. Extra discount: ₹3,117 in 28 days.",
+     "action": "From today, any discount by Mahesh J. above 2% needs the store manager's OK at the till; manager reviews their bills at close on Saturday.",
+     "rupees_week": 779.2022,
+     "metric": "sp_disc",
+     "now": 0.0405,
+     "expected": 0.0188,
+     "sp": "SP1139"
     }
    ],
    "follow_up": [
@@ -247,7 +331,8 @@
      "rupees_week": 27321.0226,
      "metric": "conv",
      "now": 0.0662,
-     "expected": 0.0876
+     "expected": 0.0876,
+     "sp": null
     },
     {
      "am": "AM-06",
@@ -259,7 +344,8 @@
      "rupees_week": 25961.7857,
      "metric": "ipb",
      "now": 1.5316,
-     "expected": 1.8286
+     "expected": 1.8286,
+     "sp": null
     },
     {
      "am": "AM-06",
@@ -271,7 +357,8 @@
      "rupees_week": 16310.3155,
      "metric": "ipb",
      "now": 1.3542,
-     "expected": 1.6157
+     "expected": 1.6157,
+     "sp": null
     }
    ],
    "follow_up": [

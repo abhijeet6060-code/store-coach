@@ -118,7 +118,7 @@ def store_window(D, store, s, e, bad_days):
     }
 
 
-def staffing(D, store, s, e):
+def staffing(D, store, s, e, bad_days=frozenset()):
     """Floor strength on weekends vs weekdays, and who is missing shifts."""
     R, F = D["R"], D["F"]
     r = R[(R.store_id == store) & (R.d >= s) & (R.d <= e)]
@@ -127,6 +127,7 @@ def staffing(D, store, s, e):
     pres = r[r.status == "Present"].groupby("d").size()
     f = F[(F.store_id == store) & (F.d >= s) & (F.d <= e)].set_index("d").footfall
     j = pd.concat([pres.rename("staff"), f.rename("ff")], axis=1).fillna(0)
+    j = j[[(store, d) not in bad_days for d in j.index]]  # drop days the door camera was wrong
     j["wkend"] = j.index.dayofweek >= 5
     j["ff_per_staff"] = j.ff / j.staff.replace(0, np.nan)
     return j
@@ -160,11 +161,58 @@ def leavers(D, store, s, e):
     share = prior.groupby("salesperson_id").size() / max(len(prior), 1)
     rank = share.rank(ascending=False)
     sp = D["SP"].set_index("salesperson_id")
+    R = D["R"]
     out = []
     for i, d in last.items():
         if (e - d).days >= 21 and share.get(i, 0) >= 0.08 and d >= s - pd.Timedelta(days=60):
-            out.append({"id": i, "name": sp.name.get(i, i), "last_bill": d, "share": float(share[i]), "rank": int(rank[i])})
+            r = R[(R.salesperson_id == i) & (R.d <= e)]
+            pres = r[r.status == "Present"].d
+            last_present = pres.max() if len(pres) else None
+            if last_present is not None and (e - last_present).days < 14:
+                continue  # still turning up; not a leaver
+            mine = b[(b.salesperson_id == i) & (b.d > d - pd.Timedelta(days=84))]
+            out.append({"id": i, "name": sp.name.get(i, i), "last_bill": d, "share": float(share[i]), "rank": int(rank[i]),
+                        "last_present": last_present, "weekly_rev": float(mine.rev.sum() / 12),
+                        "customers": int(b[(b.salesperson_id == i) & (b.d > d - pd.Timedelta(days=90))].customer_id.nunique())})
     return sorted(out, key=lambda x: -x["share"])
+
+
+def basket_driver(D, sid, s, e, bs, be):
+    """Salesperson whose items-per-bill fell the most (weighted by bills), and the best peer in the same store."""
+    B = D["B"]
+    b = B[(B.store_id == sid) & (B.d >= bs) & (B.d <= e)].assign(cur=lambda x: x.d >= s)
+    g = b.groupby(["salesperson_id", "cur"])["items"].agg(["mean", "count"]).unstack()
+    g = g.dropna()
+    g = g[(g[("count", True)] >= 10) & (g[("count", False)] >= 20)]
+    if len(g) < 3:
+        return None
+    drop = (g[("mean", False)] - g[("mean", True)]) * g[("count", True)]
+    i = drop.idxmax()
+    if drop[i] <= 0:
+        return None
+    peer = g[("mean", True)].drop(i).idxmax()
+    names = D["SP"].set_index("salesperson_id").name
+    return {"id": i, "name": names.get(i, i), "now": float(g.loc[i, ("mean", True)]), "before": float(g.loc[i, ("mean", False)]),
+            "peer": names.get(peer, peer), "peer_ipb": float(g.loc[peer, ("mean", True)])}
+
+
+def discount_outliers(D, sid, s, e):
+    """Salespeople discounting at least double the rest of their own store, and 2+ points above it."""
+    B = D["B"]
+    b = B[(B.store_id == sid) & (B.d >= s) & (B.d <= e)]
+    if b.empty:
+        return []
+    g = b.groupby("salesperson_id").agg(disc=("disc", "sum"), mrpv=("mrpv", "sum"), bills=("bill_id", "count"))
+    tot_d, tot_m = g.disc.sum(), g.mrpv.sum()
+    names = D["SP"].set_index("salesperson_id").name
+    out = []
+    for i, x in g[g.bills >= 10].iterrows():
+        rate = x.disc / x.mrpv
+        others = (tot_d - x.disc) / (tot_m - x.mrpv)
+        if rate >= 2 * others and rate - others >= 0.02:
+            out.append({"id": i, "name": names.get(i, i), "rate": float(rate), "others": float(others), "bills": int(x.bills),
+                        "excess": float((rate - others) * x.mrpv)})
+    return sorted(out, key=lambda x: -x["excess"])
 
 
 def repeat_stats(D, e):
@@ -227,15 +275,39 @@ def build_alerts(D, as_of, bad_days):
             M.loc[g.index, "market"] = True
 
     for sid, r in M.iterrows():
-        if r.new or r.get("market") is True:
+        if r.new:
+            continue
+        # ---- More bills: a good salesperson has left (checked even inside a slow market)
+        lv = leavers(D, sid, s, e)
+        for p in lv[:1]:
+            peer = top_seller(D, sid, s, e)
+            alerts.append({"am": r.am, "store_id": sid, "lever": "More bills",
+                           "title": f"{sid}: top seller {p['name']} has stopped billing",
+                           "cause": (f"{p['name']} ({p['id']}) was the #{p['rank']} seller with {p['share']:.0%} of the store's bills "
+                                     f"({rs(p['weekly_rev'])} a week). No bill since {p['last_bill']:%d %b}"
+                                     + (f" and not on the roster since {p['last_present']:%d %b}." if p.get("last_present") is not None else ".")
+                                     + f" Store conversion now {r.cur_conv:.1%} vs expected {r.exp_conv:.1%}."),
+                           "action": (f"Today: {peer} calls {p['name']}'s {p['customers']} customers from the last 90 days to introduce themselves; "
+                                      f"store manager confirms with HR whether {p['name']} has left and moves one weekday off to cover Saturday."),
+                           "rupees_week": float(p["weekly_rev"]), "metric": "conv",
+                           "now": float(r.cur_conv), "expected": float(r.exp_conv)})
+        # ---- Bigger baskets: one salesperson discounting well above the store's norm
+        for dsp in discount_outliers(D, sid, s, e):
+            alerts.append({"am": r.am, "store_id": sid, "lever": "Bigger baskets",
+                           "title": f"{sid}: {dsp['name']} discounting {dsp['rate']:.1%} vs store {dsp['others']:.1%}",
+                           "cause": (f"In the last {WINDOW} days {dsp['name']} ({dsp['id']}) gave {dsp['rate']:.1%} off MRP on {dsp['bills']} bills; "
+                                     f"the rest of the store gave {dsp['others']:.1%}. Extra discount: {rs(dsp['excess'])} in {WINDOW} days."),
+                           "action": f"From today, any discount by {dsp['name']} above {max(dsp['others'] * 100, 1):.0f}% needs the store manager's OK at the till; manager reviews their bills at close on Saturday.",
+                           "rupees_week": float(dsp["excess"] / weeks), "metric": "sp_disc", "sp": dsp["id"],
+                           "now": float(dsp["rate"]), "expected": float(dsp["others"])})
+        if r.get("market") is True:
             continue
         # ---- More bills: conversion
-        if pd.notna(r.chg_conv) and r.chg_conv < -0.08 and (r.chg_conv - r.city_chg_conv) < -0.05:
+        if pd.notna(r.chg_conv) and r.chg_conv < -0.08 and (r.chg_conv - r.city_chg_conv) < -0.05 and not lv:
             lost = (r.exp_conv - r.cur_conv) * r.cur_footfall
             rupees = lost * r.cur_abv / weeks
-            lv = leavers(D, sid, s, e)
             ab = absences(D, sid, s, e, max(bs, ROSTER_START))
-            st = staffing(D, sid, s, e)
+            st = staffing(D, sid, s, e, bad_days)
             if lv:
                 p = lv[0]
                 peer = top_seller(D, sid, s, e)
@@ -271,13 +343,21 @@ def build_alerts(D, as_of, bad_days):
             cause = f"Items per bill {r.cur_ipb:.2f} vs expected {r.exp_ipb:.2f}."
             if pd.notna(sh) and r.cur_sh_bills >= 5:
                 cause += f" Only {sh:.0%} of sherwani bills had a safa, mojari or mala."
-            action = "Show a safa and mojari with every sherwani trial today, and a jacket with every kurta trial; store manager checks at 6 pm."
+            w = basket_driver(D, sid, s, e, bs, be)
+            if w:
+                cause += (f" Biggest drop: {w['name']} ({w['now']:.2f} items/bill, was {w['before']:.2f}); "
+                          f"{w['peer']} holds {w['peer_ipb']:.2f}.")
+                action = (f"Today: {w['peer']} shadows {w['name']} on the first three sherwani or kurta trials and shows the safa, "
+                          f"mojari and jacket add-on; store manager checks {w['name']}'s bills at 6 pm.")
+            else:
+                action = "Show a safa and mojari with every sherwani trial today, and a jacket with every kurta trial; store manager checks at 6 pm."
             alerts.append({"am": r.am, "store_id": sid, "lever": "Bigger baskets", "title": f"{sid}: smaller baskets ({r.chg_ipb:+.0%})",
                            "cause": cause, "action": action, "rupees_week": float(rupees), "metric": "ipb",
                            "now": float(r.cur_ipb), "expected": float(r.exp_ipb)})
 
         # ---- Bigger baskets: discount above the store's norm
-        if pd.notna(r.cur_disc) and pd.notna(r.base_disc) and r.cur_disc > max(2 * r.exp_disc, r.exp_disc + 0.008):
+        if (pd.notna(r.cur_disc) and pd.notna(r.base_disc) and r.cur_disc > max(2 * r.exp_disc, r.exp_disc + 0.008)
+                and not any(a["store_id"] == sid and a["metric"] == "sp_disc" for a in alerts)):
             rupees = (r.cur_disc - r.exp_disc) * r.cur_rev / (1 - r.cur_disc) / weeks
             who = discounters(D, sid, s, e)
             cause = f"Discount is {r.cur_disc:.1%} of MRP vs a norm of {r.exp_disc:.1%}."
