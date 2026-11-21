@@ -162,3 +162,8 @@ details.card.more .bars { margin-top: 10px; }
   .ti.click .ti-right { display: none; }
   .onething .why, .onething .small { margin-left: 0; }
 }
+
+/* season label next to growth figures */
+.season { font-size: .82rem; color: var(--ink2); background: var(--card); border: 1px solid var(--line); border-radius: 10px; padding: 10px 12px; line-height: 1.5; }
+.stag { display: inline-block; font-size: .68rem; font-weight: 700; text-transform: uppercase; letter-spacing: .05em; color: var(--amber); background: var(--amber-bg); border-radius: 5px; padding: 1px 7px; margin-right: 8px; vertical-align: 1px; }
+.stag.sm { margin: 0 0 0 4px; font-size: .62rem; }

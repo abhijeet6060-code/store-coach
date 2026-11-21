@@ -45,6 +45,21 @@ function delta(cur, prev, mode = "pct") {
   const cls = Math.abs(d) < 0.05 ? "flat" : d > 0 ? "up" : "down";
   return `<div class="delta ${cls}">${cls === "up" ? "↑" : cls === "down" ? "↓" : "→"} ${d > 0 ? "+" : ""}${d.toFixed(1)}${mode === "pts" ? " pts" : "%"} vs previous 28 days</div>`;
 }
+// Why a 28-day comparison may jump: festivals / wedding days in each window (from calendar.csv).
+function seasonText(ids) {
+  const states = [...new Set(ids.map((s) => R.stores[s]?.state).filter(Boolean))];
+  const parts = new Set();
+  states.forEach((st) => {
+    const x = R.season?.[st];
+    if (!x) return;
+    const now = x.cur_festivals.filter((f) => !x.prev_festivals.includes(f));
+    if (now.length) parts.add(`${now.join(", ")} falls in the latest 28 days, not the 28 before`);
+    if (x.cur_wedding_days !== x.prev_wedding_days) parts.add(`${x.cur_wedding_days} vs ${x.prev_wedding_days} wedding days`);
+    if (x.next_festival) parts.add(`${x.next_festival.name} on ${dShort(x.next_festival.date)} (pre-festival buying)`);
+  });
+  return parts.size ? [...parts].join(" · ") : "";
+}
+const seasonTag = (ids) => { const t = seasonText(ids); return t ? `<div class="season"><span class="stag">Festival season</span>${esc(t)}. Growth here is not a like-for-like comparison; alerts use season-adjusted baselines.</div>` : ""; };
 const growth = (sid) => { const c = R.kpis[sid].cur.rev, p = R.kpis[sid].prev.rev; return p ? c / p - 1 : NaN; };
 const tasksFor = (sid) => T.all().filter((t) => t.store_id === sid);
 const issuesFor = (sid) => R.data_issues.filter((d) => d.store_id === sid);
@@ -211,7 +226,8 @@ function vStores() {
   <div class="card tablewrap"><table><thead><tr><th>Store</th><th>City</th><th>Manager</th><th class="n">Sales (28d)</th><th class="n">Growth</th><th class="n">Conversion</th><th class="n">Items/bill</th><th class="n">Repeat</th><th class="n">Issues</th><th class="n">Open FUs</th><th>Status</th></tr></thead><tbody>
   ${rows.map((r) => `<tr class="click" data-href="#store/${r.s}"><td><b>${r.s}</b><div class="small muted">Tier ${esc(r.info.tier)}${r.info.new ? " · new" : ""}</div></td><td>${esc(r.info.city)}</td><td class="small">Store Manager, ${r.s}</td><td class="n">${inrShort(r.rev)}</td><td class="n">${sg(r.g)}</td><td class="n">${pct(r.conv)}</td><td class="n">${isFinite(r.ipb) ? r.ipb.toFixed(2) : "–"}</td><td class="n">${pct(r.rep)}</td><td class="n">${r.issues}</td><td class="n">${r.pend}</td><td><span class="hs ${r.h.k}">${r.h.label}</span></td></tr>`).join("")}
   </tbody></table></div>
-  <p class="small muted">Click a store to open it. Growth = last 28 days vs the 28 before (includes festival season).</p>`;
+  ${seasonTag(ids)}
+  <p class="small muted">Click a store to open it. Growth = last 28 days vs the 28 before.</p>`;
 }
 
 function vStoreProfile(sid) {
@@ -229,6 +245,7 @@ function vStoreProfile(sid) {
         ${kpi("", isFinite(cur.ipb) ? cur.ipb.toFixed(2) : "–", "Items per bill", delta(cur.ipb, prev.ipb))}
         ${kpi("", pct(k.repeat_count ? k.repeat_sum / k.repeat_count : NaN), "Repeat customers", `<div class="delta flat">first-time buyers, last 12 months</div>`)}
       </div>
+      ${seasonTag([sid])}
       <div class="grid g2">
         <div class="card"><h2>Bills per week</h2>${barChart(wk, (p) => p.bills, (v) => Math.round(v) + " bills", (v) => Math.round(v))}</div>
         <div class="card"><h2>Conversion per week</h2>${lineChart(wk, (p) => p.conv, (v) => pct(v), (v) => pct(v, 0))}</div>
@@ -346,7 +363,7 @@ function vCoach(storeLocked) {
   if (!cards.find((c) => c.salesperson_id === S.coachSp)) S.coachSp = (cards.find((c) => c.lever !== "strong") || cards[0])?.salesperson_id;
   const c = cards.find((x) => x.salesperson_id === S.coachSp);
   const done = cards.filter((x) => ls.get(`got|${R.as_of}|${x.salesperson_id}`, false)).length;
-  const people = cards.map((x) => `<button class="person ${x.salesperson_id === S.coachSp ? "on" : ""}" data-sp="${x.salesperson_id}"><span class="flag ${ls.get(`got|${R.as_of}|${x.salesperson_id}`, false) ? "ok" : ""}"></span>${esc(x.name)}</button>`).join("");
+  const people = cards.map((x) => `<button class="person ${x.salesperson_id === S.coachSp ? "on" : ""}" data-sp="${x.salesperson_id}" title="${esc(x.name)} · ${x.salesperson_id}"><span class="flag ${ls.get(`got|${R.as_of}|${x.salesperson_id}`, false) ? "ok" : ""}"></span>${esc(x.name)}</button>`).join("");
   return head(storeLocked ? "Team Coaching" : "Salesperson Coach", `One behaviour, a peer from the same store, one action for today · ${done} of ${cards.length} acknowledged today`,
     storeLocked ? "" : `<select class="pill" id="coach-store">${ids.map((s) => `<option ${s === S.coachStore ? "selected" : ""}>${s}</option>`).join("")}</select>`) +
     `<div class="stack"><div class="people">${people}</div>${c ? coachDetail(c, false) : `<div class="card"><p class="muted">No active salespeople with enough bills in this store yet.</p></div>`}
@@ -400,6 +417,7 @@ function reportsImpact(seg) {
   return head("Reports", `${esc(am.city)} · last 28 days vs the 28 days before`, `<button class="btn ghost" data-print>${icon("print", 16)} Print / PDF</button>`) + `
   <div class="stack">${seg}
     <h2 class="sec">Measured (from the data)</h2>
+    ${seasonTag(ids)}
     <div class="grid g4">
       ${kpi("", signed((cur.rev / prev.rev - 1) * 100), "Revenue", `<div class="delta flat">${inrShort(cur.rev)} vs ${inrShort(prev.rev)}</div>`)}
       ${kpi("", signed((cur.bills / prev.bills - 1) * 100), "More bills")}
@@ -512,11 +530,12 @@ function vToday() {
         <div class="tt"><span class="txt">${s} <span class="muted">· ${esc(R.stores[s].city)} · tier ${esc(R.stores[s].tier)}</span></span><span class="meta">${h.label} · ${esc(h.why)}</span></div>
         <div class="ti-right"><span class="go-arrow">›</span></div></li>`).join("") || `<li class="ti"><span class="muted small">All stores are healthy.</span></li>`}</ul></div>
     <div class="statline">
-      <div><span>Sales, 28 days</span><b>${inrShort(cur.rev)}</b><em class="${g >= 0 ? "pos" : "neg"}">${isFinite(g) ? (g > 0 ? "+" : "") + g.toFixed(1) + "%" : ""}</em></div>
+      <div><span>Sales, 28 days</span><b>${inrShort(cur.rev)}</b><em class="${g >= 0 ? "pos" : "neg"}">${isFinite(g) ? (g > 0 ? "+" : "") + g.toFixed(1) + "% vs prior 28 days" : ""}${seasonText(ids) ? ' <span class="stag sm">festival season</span>' : ""}</em></div>
       <div><span>Conversion</span><b>${pct(cur.conv)}</b></div>
       <div><span>Open follow-ups</span><b>${tasks.filter(T.isOpen).length}</b></div>
       <div><span>Overdue</span><b class="${overdue.length ? "neg" : ""}">${overdue.length}</b></div>
     </div>
+    ${seasonTag(ids)}
   </div>`;
 }
 function vSpToday(greet) {
@@ -586,7 +605,7 @@ function vWelcome() {
         <select id="w-sm" aria-label="Store">${stores.map((s) => `<option ${s === S.sm ? "selected" : ""}>${s} · ${esc(R.stores[s].city)}</option>`).join("")}</select>
         <button class="btn" data-enter="Store Manager">Enter</button></div>
       <div class="role-card"><div class="ri">${icon("user", 28)}</div><b>Salesperson</b><span>Your coaching card for today</span>
-        <select id="w-sp" aria-label="Salesperson">${Object.keys(byStore).sort().map((s) => `<optgroup label="${s}">${byStore[s].map((c) => `<option value="${c.salesperson_id}" ${c.salesperson_id === S.sp ? "selected" : ""}>${esc(c.name)}</option>`).join("")}</optgroup>`).join("")}</select>
+        <select id="w-sp" aria-label="Salesperson">${Object.keys(byStore).sort().map((s) => `<optgroup label="${s} · ${esc(R.stores[s].city)}">${byStore[s].slice().sort((x, y) => x.name.localeCompare(y.name)).map((c) => `<option value="${c.salesperson_id}" ${c.salesperson_id === S.sp ? "selected" : ""}>${esc(c.name)} · ${c.salesperson_id} · ${s}</option>`).join("")}</optgroup>`).join("")}</select>
         <button class="btn" data-enter="Salesperson">Enter</button></div>
     </div>
     <p class="small muted">Demo access, no password. Built on the synthetic Manyavar data pack (to ${dShort(R.as_of)}). Not an official Manyavar product.</p>
