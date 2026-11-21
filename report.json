@@ -1,0 +1,1899 @@
+{
+ "as_of": "2026-10-31",
+ "generated_at": "2026-11-21 11:18 IST",
+ "window_days": 28,
+ "area_managers": [
+  {
+   "id": "AM-01",
+   "name": "Rakesh Srivastava",
+   "city": "Lucknow",
+   "stores": [
+    "LKO-01",
+    "LKO-02",
+    "LKO-03",
+    "LKO-04"
+   ],
+   "alerts": [
+    {
+     "am": "AM-01",
+     "store_id": "LKO-03",
+     "lever": "Bigger baskets",
+     "title": "LKO-03: smaller baskets (-6%)",
+     "cause": "Items per bill 1.69 vs expected 1.79.",
+     "action": "Show a safa and mojari with every sherwani trial today, and a jacket with every kurta trial; store manager checks at 6 pm.",
+     "rupees_week": 12659.6382,
+     "metric": "ipb",
+     "now": 1.6854,
+     "expected": 1.7945
+    }
+   ],
+   "follow_up": [
+    {
+     "am": "AM-01",
+     "store_id": "LKO-02",
+     "title": "LKO-02: conversion down 27%",
+     "metric": "conv",
+     "before": 0.0975,
+     "now": 0.1054,
+     "verdict": "improved",
+     "text": "Last week: LKO-02: conversion down 27%. 9.8% then, 10.5% now: improved."
+    },
+    {
+     "am": "AM-01",
+     "store_id": "LKO-04",
+     "title": "LKO-04: smaller baskets (-12%)",
+     "metric": "ipb",
+     "before": 1.6407,
+     "now": 1.7817,
+     "verdict": "improved",
+     "text": "Last week: LKO-04: smaller baskets (-12%). 1.64 then, 1.78 now: improved."
+    }
+   ]
+  },
+  {
+   "id": "AM-02",
+   "name": "Alok Tiwari",
+   "city": "Kanpur",
+   "stores": [
+    "KNP-01",
+    "KNP-02",
+    "KNP-03"
+   ],
+   "alerts": [
+    {
+     "am": "AM-02",
+     "store_id": "KNP-01",
+     "lever": "Bigger baskets",
+     "title": "KNP-01: smaller baskets (-7%)",
+     "cause": "Items per bill 1.71 vs expected 1.85.",
+     "action": "Show a safa and mojari with every sherwani trial today, and a jacket with every kurta trial; store manager checks at 6 pm.",
+     "rupees_week": 32921.7815,
+     "metric": "ipb",
+     "now": 1.7143,
+     "expected": 1.8486
+    }
+   ],
+   "follow_up": [
+    {
+     "am": "AM-02",
+     "store_id": "KNP-01",
+     "title": "KNP-01: conversion down 8%",
+     "metric": "conv",
+     "before": 0.1346,
+     "now": 0.1327,
+     "verdict": "has not moved",
+     "text": "Last week: KNP-01: conversion down 8%. 13.5% then, 13.3% now: has not moved."
+    }
+   ]
+  },
+  {
+   "id": "AM-03",
+   "name": "Nitin Sinha",
+   "city": "Patna",
+   "stores": [
+    "PAT-01",
+    "PAT-02",
+    "PAT-03",
+    "PAT-04"
+   ],
+   "alerts": [
+    {
+     "am": "AM-03",
+     "store_id": "PAT-03",
+     "lever": "More bills",
+     "title": "PAT-03: conversion down 28%",
+     "cause": "Too few people on the floor on busy days: 8 walk-ins per salesperson at weekends vs 5 on weekdays. Conversion 8.4% vs expected 11.6%.",
+     "action": "Keep 7 people on the floor this Saturday and Sunday, 4–8 pm; move weekend offs to Tuesday.",
+     "rupees_week": 43550.4277,
+     "metric": "conv",
+     "now": 0.0836,
+     "expected": 0.1158
+    }
+   ],
+   "follow_up": [
+    {
+     "am": "AM-03",
+     "store_id": "PAT-01",
+     "title": "PAT-01: smaller baskets (-7%)",
+     "metric": "ipb",
+     "before": 2.0271,
+     "now": 2.005,
+     "verdict": "has not moved",
+     "text": "Last week: PAT-01: smaller baskets (-7%). 2.03 then, 2.00 now: has not moved."
+    },
+    {
+     "am": "AM-03",
+     "store_id": "PAT-03",
+     "title": "PAT-03: conversion down 52%",
+     "metric": "conv",
+     "before": 0.0613,
+     "now": 0.0836,
+     "verdict": "improved",
+     "text": "Last week: PAT-03: conversion down 52%. 6.1% then, 8.4% now: improved."
+    },
+    {
+     "am": "AM-03",
+     "store_id": "PAT-04",
+     "title": "PAT-04: smaller baskets (-13%)",
+     "metric": "ipb",
+     "before": 1.4545,
+     "now": 1.5,
+     "verdict": "improved",
+     "text": "Last week: PAT-04: smaller baskets (-13%). 1.45 then, 1.50 now: improved."
+    }
+   ]
+  },
+  {
+   "id": "AM-04",
+   "name": "Pankaj Jha",
+   "city": "Muzaffarpur",
+   "stores": [
+    "MZF-01",
+    "MZF-02"
+   ],
+   "alerts": [
+    {
+     "am": "AM-04",
+     "store_id": "MZF-02",
+     "lever": "Bigger baskets",
+     "title": "MZF-02: smaller baskets (-16%)",
+     "cause": "Items per bill 1.44 vs expected 1.72.",
+     "action": "Show a safa and mojari with every sherwani trial today, and a jacket with every kurta trial; store manager checks at 6 pm.",
+     "rupees_week": 19724.4825,
+     "metric": "ipb",
+     "now": 1.4386,
+     "expected": 1.7194
+    },
+    {
+     "am": "AM-04",
+     "store_id": "MZF-01",
+     "lever": "More bills",
+     "title": "MZF-01: conversion down 10%",
+     "cause": "Walk-ins steady but fewer buying: conversion 8.3% vs expected 9.2%, while Muzaffarpur peers moved +12%.",
+     "action": "Today: Saurabh Y. greets every walk-in between 5 and 8 pm and hands over only after the first trial.",
+     "rupees_week": 18755.8659,
+     "metric": "conv",
+     "now": 0.0832,
+     "expected": 0.0922
+    }
+   ],
+   "follow_up": [
+    {
+     "am": "AM-04",
+     "store_id": "MZF-02",
+     "title": "MZF-02: smaller baskets (-28%)",
+     "metric": "ipb",
+     "before": 1.3611,
+     "now": 1.4386,
+     "verdict": "improved",
+     "text": "Last week: MZF-02: smaller baskets (-28%). 1.36 then, 1.44 now: improved."
+    }
+   ]
+  },
+  {
+   "id": "AM-05",
+   "name": "Harish Gowda",
+   "city": "Bengaluru",
+   "stores": [
+    "BLR-01",
+    "BLR-02",
+    "BLR-03",
+    "BLR-04",
+    "BLR-05"
+   ],
+   "alerts": [
+    {
+     "am": "AM-05",
+     "store_id": "BLR-03",
+     "lever": "More bills",
+     "title": "BLR-03: conversion down 11%",
+     "cause": "Shifts are being missed: Vijay N. (off 46% of days, was 30%), Manjunath K. (off 43% of days, was 29%). Conversion fell to 10.7% from an expected 12.0%.",
+     "action": "Store manager: lock Vijay N.'s rota for this Saturday and Sunday, and move weekly offs to Tuesday–Wednesday so at least 7 people are on the floor at weekends.",
+     "rupees_week": 65376.7867,
+     "metric": "conv",
+     "now": 0.1071,
+     "expected": 0.1204
+    }
+   ],
+   "follow_up": [
+    {
+     "am": "AM-05",
+     "store_id": "BLR-01",
+     "title": "BLR-01: conversion down 12%",
+     "metric": "conv",
+     "before": 0.129,
+     "now": 0.1247,
+     "verdict": "got worse",
+     "text": "Last week: BLR-01: conversion down 12%. 12.9% then, 12.5% now: got worse."
+    }
+   ]
+  },
+  {
+   "id": "AM-06",
+   "name": "Mahesh Shetty",
+   "city": "Mysuru",
+   "stores": [
+    "MYS-01",
+    "MYS-02"
+   ],
+   "alerts": [
+    {
+     "am": "AM-06",
+     "store_id": "MYS-02",
+     "lever": "More bills",
+     "title": "MYS-02: conversion down 24%",
+     "cause": "Too few people on the floor on busy days: 13 walk-ins per salesperson at weekends vs 10 on weekdays. Conversion 6.6% vs expected 8.8%.",
+     "action": "Keep 4 people on the floor this Saturday and Sunday, 4–8 pm; move weekend offs to Tuesday.",
+     "rupees_week": 27321.0226,
+     "metric": "conv",
+     "now": 0.0662,
+     "expected": 0.0876
+    },
+    {
+     "am": "AM-06",
+     "store_id": "MYS-01",
+     "lever": "Bigger baskets",
+     "title": "MYS-01: smaller baskets (-16%)",
+     "cause": "Items per bill 1.53 vs expected 1.83.",
+     "action": "Show a safa and mojari with every sherwani trial today, and a jacket with every kurta trial; store manager checks at 6 pm.",
+     "rupees_week": 25961.7857,
+     "metric": "ipb",
+     "now": 1.5316,
+     "expected": 1.8286
+    },
+    {
+     "am": "AM-06",
+     "store_id": "MYS-02",
+     "lever": "Bigger baskets",
+     "title": "MYS-02: smaller baskets (-16%)",
+     "cause": "Items per bill 1.35 vs expected 1.62.",
+     "action": "Show a safa and mojari with every sherwani trial today, and a jacket with every kurta trial; store manager checks at 6 pm.",
+     "rupees_week": 16310.3155,
+     "metric": "ipb",
+     "now": 1.3542,
+     "expected": 1.6157
+    }
+   ],
+   "follow_up": [
+    {
+     "am": "AM-06",
+     "store_id": "MYS-02",
+     "title": "MYS-02: smaller baskets (-20%)",
+     "metric": "ipb",
+     "before": 1.3333,
+     "now": 1.3542,
+     "verdict": "has not moved",
+     "text": "Last week: MYS-02: smaller baskets (-20%). 1.33 then, 1.35 now: has not moved."
+    },
+    {
+     "am": "AM-06",
+     "store_id": "MYS-01",
+     "title": "MYS-01: smaller baskets (-13%)",
+     "metric": "ipb",
+     "before": 1.5636,
+     "now": 1.5316,
+     "verdict": "got worse",
+     "text": "Last week: MYS-01: smaller baskets (-13%). 1.56 then, 1.53 now: got worse."
+    }
+   ]
+  }
+ ],
+ "cards": [
+  {
+   "salesperson_id": "SP1110",
+   "name": "Karthik J.",
+   "store_id": "BLR-01",
+   "lever": "disc_rate",
+   "behaviour": "You give 1.3% discount on MRP.",
+   "peer": "Nithin J. gives 0.4% and still closes.",
+   "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
+   "words": 31,
+   "value": 0.0132
+  },
+  {
+   "salesperson_id": "SP1111",
+   "name": "Deepak S.",
+   "store_id": "BLR-01",
+   "lever": "ku_att",
+   "behaviour": "Only 21% of your kurta bills had a jacket.",
+   "peer": "Yogesh G. sells a jacket with 36% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.2051
+  },
+  {
+   "salesperson_id": "SP1112",
+   "name": "Nithin J.",
+   "store_id": "BLR-01",
+   "lever": "strong",
+   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
+   "peer": "Keep it up.",
+   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
+   "words": 36,
+   "value": null
+  },
+  {
+   "salesperson_id": "SP1113",
+   "name": "Sachin R.",
+   "store_id": "BLR-01",
+   "lever": "ku_att",
+   "behaviour": "Only 16% of your kurta bills had a jacket.",
+   "peer": "Yogesh G. sells a jacket with 36% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.16
+  },
+  {
+   "salesperson_id": "SP1114",
+   "name": "Manjunath C.",
+   "store_id": "BLR-01",
+   "lever": "disc_rate",
+   "behaviour": "You give 1.7% discount on MRP.",
+   "peer": "Nithin J. gives 0.4% and still closes.",
+   "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
+   "words": 31,
+   "value": 0.0173
+  },
+  {
+   "salesperson_id": "SP1116",
+   "name": "Chetan S.",
+   "store_id": "BLR-01",
+   "lever": "disc_rate",
+   "behaviour": "You give 1.7% discount on MRP.",
+   "peer": "Nithin J. gives 0.4% and still closes.",
+   "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
+   "words": 31,
+   "value": 0.017
+  },
+  {
+   "salesperson_id": "SP1118",
+   "name": "Prasad M.",
+   "store_id": "BLR-01",
+   "lever": "strong",
+   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
+   "peer": "Keep it up.",
+   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
+   "words": 36,
+   "value": null
+  },
+  {
+   "salesperson_id": "SP1119",
+   "name": "Yogesh G.",
+   "store_id": "BLR-01",
+   "lever": "disc_rate",
+   "behaviour": "You give 1.6% discount on MRP.",
+   "peer": "Nithin J. gives 0.4% and still closes.",
+   "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
+   "words": 31,
+   "value": 0.0165
+  },
+  {
+   "salesperson_id": "SP1120",
+   "name": "Suresh V.",
+   "store_id": "BLR-01",
+   "lever": "ku_att",
+   "behaviour": "Only 15% of your kurta bills had a jacket.",
+   "peer": "Yogesh G. sells a jacket with 36% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.1475
+  },
+  {
+   "salesperson_id": "SP1122",
+   "name": "Sunil T.",
+   "store_id": "BLR-01",
+   "lever": "disc_rate",
+   "behaviour": "You give 3.6% discount on MRP.",
+   "peer": "Nithin J. gives 0.4% and still closes.",
+   "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
+   "words": 31,
+   "value": 0.0361
+  },
+  {
+   "salesperson_id": "SP1123",
+   "name": "Srinivas B.",
+   "store_id": "BLR-01",
+   "lever": "ku_att",
+   "behaviour": "Only 23% of your kurta bills had a jacket.",
+   "peer": "Yogesh G. sells a jacket with 36% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.2308
+  },
+  {
+   "salesperson_id": "SP1124",
+   "name": "Umesh N.",
+   "store_id": "BLR-01",
+   "lever": "disc_rate",
+   "behaviour": "You give 2.2% discount on MRP.",
+   "peer": "Nithin J. gives 0.4% and still closes.",
+   "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
+   "words": 31,
+   "value": 0.0223
+  },
+  {
+   "salesperson_id": "SP1125",
+   "name": "Suresh K.",
+   "store_id": "BLR-02",
+   "lever": "ipb",
+   "behaviour": "Your bills average 1.79 items.",
+   "peer": "Girish V. averages 2.04.",
+   "action": "Today: before billing, suggest one add-on that completes the look: stole, mala or mojari.",
+   "words": 23,
+   "value": 1.7879
+  },
+  {
+   "salesperson_id": "SP1126",
+   "name": "Prasad B.",
+   "store_id": "BLR-02",
+   "lever": "ku_att",
+   "behaviour": "Only 14% of your kurta bills had a jacket.",
+   "peer": "Nagaraj G. sells a jacket with 36% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.1364
+  },
+  {
+   "salesperson_id": "SP1128",
+   "name": "Venkatesh Y.",
+   "store_id": "BLR-02",
+   "lever": "disc_rate",
+   "behaviour": "You give 1.8% discount on MRP.",
+   "peer": "Deepak C. gives 0.3% and still closes.",
+   "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
+   "words": 31,
+   "value": 0.0176
+  },
+  {
+   "salesperson_id": "SP1129",
+   "name": "Pavan N.",
+   "store_id": "BLR-02",
+   "lever": "ku_att",
+   "behaviour": "Only 5% of your kurta bills had a jacket.",
+   "peer": "Nagaraj G. sells a jacket with 36% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.0545
+  },
+  {
+   "salesperson_id": "SP1130",
+   "name": "Vinay K.",
+   "store_id": "BLR-02",
+   "lever": "disc_rate",
+   "behaviour": "You give 2.2% discount on MRP.",
+   "peer": "Deepak C. gives 0.3% and still closes.",
+   "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
+   "words": 31,
+   "value": 0.0218
+  },
+  {
+   "salesperson_id": "SP1133",
+   "name": "Nagaraj G.",
+   "store_id": "BLR-02",
+   "lever": "disc_rate",
+   "behaviour": "You give 3.1% discount on MRP.",
+   "peer": "Deepak C. gives 0.3% and still closes.",
+   "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
+   "words": 31,
+   "value": 0.031
+  },
+  {
+   "salesperson_id": "SP1134",
+   "name": "Girish V.",
+   "store_id": "BLR-02",
+   "lever": "strong",
+   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
+   "peer": "Keep it up.",
+   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
+   "words": 36,
+   "value": null
+  },
+  {
+   "salesperson_id": "SP1135",
+   "name": "Prasad D.",
+   "store_id": "BLR-02",
+   "lever": "disc_rate",
+   "behaviour": "You give 1.8% discount on MRP.",
+   "peer": "Deepak C. gives 0.3% and still closes.",
+   "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
+   "words": 31,
+   "value": 0.0178
+  },
+  {
+   "salesperson_id": "SP1136",
+   "name": "Deepak V.",
+   "store_id": "BLR-02",
+   "lever": "ipb",
+   "behaviour": "Your bills average 1.76 items.",
+   "peer": "Girish V. averages 2.04.",
+   "action": "Today: before billing, suggest one add-on that completes the look: stole, mala or mojari.",
+   "words": 23,
+   "value": 1.7607
+  },
+  {
+   "salesperson_id": "SP1137",
+   "name": "Deepak C.",
+   "store_id": "BLR-02",
+   "lever": "ku_att",
+   "behaviour": "Only 11% of your kurta bills had a jacket.",
+   "peer": "Nagaraj G. sells a jacket with 36% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.1111
+  },
+  {
+   "salesperson_id": "SP1139",
+   "name": "Mahesh J.",
+   "store_id": "BLR-02",
+   "lever": "disc_rate",
+   "behaviour": "You give 2.3% discount on MRP.",
+   "peer": "Deepak C. gives 0.3% and still closes.",
+   "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
+   "words": 31,
+   "value": 0.0229
+  },
+  {
+   "salesperson_id": "SP1140",
+   "name": "Venkatesh S.",
+   "store_id": "BLR-02",
+   "lever": "strong",
+   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
+   "peer": "Keep it up.",
+   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
+   "words": 36,
+   "value": null
+  },
+  {
+   "salesperson_id": "SP1141",
+   "name": "Manjunath K.",
+   "store_id": "BLR-03",
+   "lever": "ku_att",
+   "behaviour": "Only 16% of your kurta bills had a jacket.",
+   "peer": "Pradeep A. sells a jacket with 31% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.1579
+  },
+  {
+   "salesperson_id": "SP1142",
+   "name": "Vijay N.",
+   "store_id": "BLR-03",
+   "lever": "disc_rate",
+   "behaviour": "You give 1.2% discount on MRP.",
+   "peer": "Suresh B. gives 0.0% and still closes.",
+   "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
+   "words": 31,
+   "value": 0.0118
+  },
+  {
+   "salesperson_id": "SP1143",
+   "name": "Santosh V.",
+   "store_id": "BLR-03",
+   "lever": "strong",
+   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
+   "peer": "Keep it up.",
+   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
+   "words": 36,
+   "value": null
+  },
+  {
+   "salesperson_id": "SP1144",
+   "name": "Pradeep A.",
+   "store_id": "BLR-03",
+   "lever": "strong",
+   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
+   "peer": "Keep it up.",
+   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
+   "words": 36,
+   "value": null
+  },
+  {
+   "salesperson_id": "SP1145",
+   "name": "Yogesh N.",
+   "store_id": "BLR-03",
+   "lever": "strong",
+   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
+   "peer": "Keep it up.",
+   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
+   "words": 36,
+   "value": null
+  },
+  {
+   "salesperson_id": "SP1149",
+   "name": "Suresh B.",
+   "store_id": "BLR-03",
+   "lever": "strong",
+   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
+   "peer": "Keep it up.",
+   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
+   "words": 36,
+   "value": null
+  },
+  {
+   "salesperson_id": "SP1150",
+   "name": "Mohan M.",
+   "store_id": "BLR-03",
+   "lever": "disc_rate",
+   "behaviour": "You give 0.6% discount on MRP.",
+   "peer": "Suresh B. gives 0.0% and still closes.",
+   "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
+   "words": 31,
+   "value": 0.0063
+  },
+  {
+   "salesperson_id": "SP1151",
+   "name": "Arun D.",
+   "store_id": "BLR-03",
+   "lever": "disc_rate",
+   "behaviour": "You give 0.8% discount on MRP.",
+   "peer": "Suresh B. gives 0.0% and still closes.",
+   "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
+   "words": 31,
+   "value": 0.0083
+  },
+  {
+   "salesperson_id": "SP1153",
+   "name": "Karthik V.",
+   "store_id": "BLR-04",
+   "lever": "disc_rate",
+   "behaviour": "You give 1.7% discount on MRP.",
+   "peer": "Venkatesh T. gives 0.2% and still closes.",
+   "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
+   "words": 31,
+   "value": 0.0167
+  },
+  {
+   "salesperson_id": "SP1154",
+   "name": "Arun R.",
+   "store_id": "BLR-04",
+   "lever": "disc_rate",
+   "behaviour": "You give 0.9% discount on MRP.",
+   "peer": "Venkatesh T. gives 0.2% and still closes.",
+   "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
+   "words": 31,
+   "value": 0.0093
+  },
+  {
+   "salesperson_id": "SP1156",
+   "name": "Deepak C.",
+   "store_id": "BLR-04",
+   "lever": "strong",
+   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
+   "peer": "Keep it up.",
+   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
+   "words": 36,
+   "value": null
+  },
+  {
+   "salesperson_id": "SP1157",
+   "name": "Kumar B.",
+   "store_id": "BLR-04",
+   "lever": "ku_att",
+   "behaviour": "Only 20% of your kurta bills had a jacket.",
+   "peer": "Ganesh P. sells a jacket with 36% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.1951
+  },
+  {
+   "salesperson_id": "SP1159",
+   "name": "Venkatesh T.",
+   "store_id": "BLR-04",
+   "lever": "ku_att",
+   "behaviour": "Only 18% of your kurta bills had a jacket.",
+   "peer": "Ganesh P. sells a jacket with 36% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.1818
+  },
+  {
+   "salesperson_id": "SP1160",
+   "name": "Ganesh P.",
+   "store_id": "BLR-04",
+   "lever": "ipb",
+   "behaviour": "Your bills average 1.64 items.",
+   "peer": "Sunil G. averages 2.22.",
+   "action": "Today: before billing, suggest one add-on that completes the look: stole, mala or mojari.",
+   "words": 23,
+   "value": 1.6393
+  },
+  {
+   "salesperson_id": "SP1161",
+   "name": "Sunil G.",
+   "store_id": "BLR-04",
+   "lever": "strong",
+   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
+   "peer": "Keep it up.",
+   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
+   "words": 36,
+   "value": null
+  },
+  {
+   "salesperson_id": "SP1162",
+   "name": "Sachin M.",
+   "store_id": "BLR-04",
+   "lever": "ku_att",
+   "behaviour": "Only 15% of your kurta bills had a jacket.",
+   "peer": "Ganesh P. sells a jacket with 36% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.1522
+  },
+  {
+   "salesperson_id": "SP1044",
+   "name": "Rohit V.",
+   "store_id": "KNP-01",
+   "lever": "ku_att",
+   "behaviour": "Only 9% of your kurta bills had a jacket.",
+   "peer": "Dheeraj R. sells a jacket with 28% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.0923
+  },
+  {
+   "salesperson_id": "SP1045",
+   "name": "Ravi C.",
+   "store_id": "KNP-01",
+   "lever": "strong",
+   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
+   "peer": "Keep it up.",
+   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
+   "words": 36,
+   "value": null
+  },
+  {
+   "salesperson_id": "SP1047",
+   "name": "Nikhil S.",
+   "store_id": "KNP-01",
+   "lever": "ku_att",
+   "behaviour": "Only 9% of your kurta bills had a jacket.",
+   "peer": "Dheeraj R. sells a jacket with 28% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.0889
+  },
+  {
+   "salesperson_id": "SP1048",
+   "name": "Vivek D.",
+   "store_id": "KNP-01",
+   "lever": "ku_att",
+   "behaviour": "Only 0% of your kurta bills had a jacket.",
+   "peer": "Dheeraj R. sells a jacket with 28% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.0
+  },
+  {
+   "salesperson_id": "SP1050",
+   "name": "Sachin T.",
+   "store_id": "KNP-01",
+   "lever": "disc_rate",
+   "behaviour": "You give 1.0% discount on MRP.",
+   "peer": "Vivek D. gives 0.0% and still closes.",
+   "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
+   "words": 31,
+   "value": 0.0105
+  },
+  {
+   "salesperson_id": "SP1052",
+   "name": "Jitendra J.",
+   "store_id": "KNP-01",
+   "lever": "disc_rate",
+   "behaviour": "You give 1.8% discount on MRP.",
+   "peer": "Vivek D. gives 0.0% and still closes.",
+   "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
+   "words": 31,
+   "value": 0.018
+  },
+  {
+   "salesperson_id": "SP1053",
+   "name": "Dheeraj R.",
+   "store_id": "KNP-01",
+   "lever": "disc_rate",
+   "behaviour": "You give 0.6% discount on MRP.",
+   "peer": "Vivek D. gives 0.0% and still closes.",
+   "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
+   "words": 31,
+   "value": 0.006
+  },
+  {
+   "salesperson_id": "SP1054",
+   "name": "Shahid A.",
+   "store_id": "KNP-01",
+   "lever": "disc_rate",
+   "behaviour": "You give 1.1% discount on MRP.",
+   "peer": "Vivek D. gives 0.0% and still closes.",
+   "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
+   "words": 31,
+   "value": 0.0114
+  },
+  {
+   "salesperson_id": "SP1055",
+   "name": "Manoj T.",
+   "store_id": "KNP-02",
+   "lever": "ku_att",
+   "behaviour": "Only 0% of your kurta bills had a jacket.",
+   "peer": "Kamal R. sells a jacket with 29% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.0
+  },
+  {
+   "salesperson_id": "SP1056",
+   "name": "Kamal R.",
+   "store_id": "KNP-02",
+   "lever": "disc_rate",
+   "behaviour": "You give 0.3% discount on MRP.",
+   "peer": "Manoj T. gives 0.0% and still closes.",
+   "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
+   "words": 31,
+   "value": 0.0031
+  },
+  {
+   "salesperson_id": "SP1058",
+   "name": "Arjun Y.",
+   "store_id": "KNP-02",
+   "lever": "ku_att",
+   "behaviour": "Only 7% of your kurta bills had a jacket.",
+   "peer": "Kamal R. sells a jacket with 29% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.0741
+  },
+  {
+   "salesperson_id": "SP1059",
+   "name": "Dinesh D.",
+   "store_id": "KNP-02",
+   "lever": "strong",
+   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
+   "peer": "Keep it up.",
+   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
+   "words": 36,
+   "value": null
+  },
+  {
+   "salesperson_id": "SP1060",
+   "name": "Sumit S.",
+   "store_id": "KNP-03",
+   "lever": "disc_rate",
+   "behaviour": "You give 1.7% discount on MRP.",
+   "peer": "Om K. gives 0.0% and still closes.",
+   "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
+   "words": 31,
+   "value": 0.0173
+  },
+  {
+   "salesperson_id": "SP1061",
+   "name": "Kunal N.",
+   "store_id": "KNP-03",
+   "lever": "disc_rate",
+   "behaviour": "You give 1.5% discount on MRP.",
+   "peer": "Om K. gives 0.0% and still closes.",
+   "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
+   "words": 31,
+   "value": 0.0148
+  },
+  {
+   "salesperson_id": "SP1063",
+   "name": "Om K.",
+   "store_id": "KNP-03",
+   "lever": "ku_att",
+   "behaviour": "Only 18% of your kurta bills had a jacket.",
+   "peer": "Sumit S. sells a jacket with 25% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.1765
+  },
+  {
+   "salesperson_id": "SP1002",
+   "name": "Shahid K.",
+   "store_id": "LKO-01",
+   "lever": "strong",
+   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
+   "peer": "Keep it up.",
+   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
+   "words": 36,
+   "value": null
+  },
+  {
+   "salesperson_id": "SP1003",
+   "name": "Ankit N.",
+   "store_id": "LKO-01",
+   "lever": "ku_att",
+   "behaviour": "Only 6% of your kurta bills had a jacket.",
+   "peer": "Vikas J. sells a jacket with 31% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.0588
+  },
+  {
+   "salesperson_id": "SP1004",
+   "name": "Gaurav V.",
+   "store_id": "LKO-01",
+   "lever": "disc_rate",
+   "behaviour": "You give 1.3% discount on MRP.",
+   "peer": "Shahid K. gives 0.5% and still closes.",
+   "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
+   "words": 31,
+   "value": 0.0132
+  },
+  {
+   "salesperson_id": "SP1005",
+   "name": "Vikas J.",
+   "store_id": "LKO-01",
+   "lever": "strong",
+   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
+   "peer": "Keep it up.",
+   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
+   "words": 36,
+   "value": null
+  },
+  {
+   "salesperson_id": "SP1007",
+   "name": "Kamal G.",
+   "store_id": "LKO-01",
+   "lever": "ku_att",
+   "behaviour": "Only 13% of your kurta bills had a jacket.",
+   "peer": "Vikas J. sells a jacket with 31% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.1324
+  },
+  {
+   "salesperson_id": "SP1009",
+   "name": "Ashish K.",
+   "store_id": "LKO-01",
+   "lever": "ku_att",
+   "behaviour": "Only 14% of your kurta bills had a jacket.",
+   "peer": "Vikas J. sells a jacket with 31% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.14
+  },
+  {
+   "salesperson_id": "SP1010",
+   "name": "Om S.",
+   "store_id": "LKO-01",
+   "lever": "disc_rate",
+   "behaviour": "You give 2.7% discount on MRP.",
+   "peer": "Shahid K. gives 0.5% and still closes.",
+   "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
+   "words": 31,
+   "value": 0.0273
+  },
+  {
+   "salesperson_id": "SP1012",
+   "name": "Manoj T.",
+   "store_id": "LKO-01",
+   "lever": "disc_rate",
+   "behaviour": "You give 1.9% discount on MRP.",
+   "peer": "Shahid K. gives 0.5% and still closes.",
+   "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
+   "words": 31,
+   "value": 0.0189
+  },
+  {
+   "salesperson_id": "SP1013",
+   "name": "Arif M.",
+   "store_id": "LKO-01",
+   "lever": "sh_att",
+   "behaviour": "Only 71% of your sherwani bills had a safa, mojari or mala.",
+   "peer": "Gaurav V. adds one 90% of the time.",
+   "action": "Today: bring a safa and mojari to the trial room with every sherwani, before the customer asks.",
+   "words": 37,
+   "value": 0.7143
+  },
+  {
+   "salesperson_id": "SP1014",
+   "name": "Arjun A.",
+   "store_id": "LKO-01",
+   "lever": "ku_att",
+   "behaviour": "Only 6% of your kurta bills had a jacket.",
+   "peer": "Vikas J. sells a jacket with 31% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.0556
+  },
+  {
+   "salesperson_id": "SP1015",
+   "name": "Tushar N.",
+   "store_id": "LKO-01",
+   "lever": "ku_att",
+   "behaviour": "Only 14% of your kurta bills had a jacket.",
+   "peer": "Vikas J. sells a jacket with 31% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.1447
+  },
+  {
+   "salesperson_id": "SP1016",
+   "name": "Imran M.",
+   "store_id": "LKO-01",
+   "lever": "ku_att",
+   "behaviour": "Only 9% of your kurta bills had a jacket.",
+   "peer": "Vikas J. sells a jacket with 31% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.0909
+  },
+  {
+   "salesperson_id": "SP1019",
+   "name": "Faizan M.",
+   "store_id": "LKO-02",
+   "lever": "ku_att",
+   "behaviour": "Only 17% of your kurta bills had a jacket.",
+   "peer": "Jitendra V. sells a jacket with 28% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.1724
+  },
+  {
+   "salesperson_id": "SP1021",
+   "name": "Varun S.",
+   "store_id": "LKO-02",
+   "lever": "disc_rate",
+   "behaviour": "You give 1.2% discount on MRP.",
+   "peer": "Faizan M. gives 0.1% and still closes.",
+   "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
+   "words": 31,
+   "value": 0.0123
+  },
+  {
+   "salesperson_id": "SP1023",
+   "name": "Jitendra V.",
+   "store_id": "LKO-02",
+   "lever": "ipb",
+   "behaviour": "Your bills average 1.66 items.",
+   "peer": "Ajay S. averages 1.97.",
+   "action": "Today: before billing, suggest one add-on that completes the look: stole, mala or mojari.",
+   "words": 23,
+   "value": 1.6585
+  },
+  {
+   "salesperson_id": "SP1024",
+   "name": "Jitendra G.",
+   "store_id": "LKO-02",
+   "lever": "disc_rate",
+   "behaviour": "You give 1.1% discount on MRP.",
+   "peer": "Faizan M. gives 0.1% and still closes.",
+   "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
+   "words": 31,
+   "value": 0.011
+  },
+  {
+   "salesperson_id": "SP1025",
+   "name": "Faizan J.",
+   "store_id": "LKO-02",
+   "lever": "ku_att",
+   "behaviour": "Only 17% of your kurta bills had a jacket.",
+   "peer": "Jitendra V. sells a jacket with 28% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.1724
+  },
+  {
+   "salesperson_id": "SP1026",
+   "name": "Ajay S.",
+   "store_id": "LKO-02",
+   "lever": "strong",
+   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
+   "peer": "Keep it up.",
+   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
+   "words": 36,
+   "value": null
+  },
+  {
+   "salesperson_id": "SP1027",
+   "name": "Sumit A.",
+   "store_id": "LKO-02",
+   "lever": "ku_att",
+   "behaviour": "Only 10% of your kurta bills had a jacket.",
+   "peer": "Jitendra V. sells a jacket with 28% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.0976
+  },
+  {
+   "salesperson_id": "SP1175",
+   "name": "Arif A.",
+   "store_id": "LKO-02",
+   "lever": "ipb",
+   "behaviour": "Your bills average 1.73 items.",
+   "peer": "Ajay S. averages 1.97.",
+   "action": "Today: before billing, suggest one add-on that completes the look: stole, mala or mojari.",
+   "words": 23,
+   "value": 1.7308
+  },
+  {
+   "salesperson_id": "SP1028",
+   "name": "Rizwan J.",
+   "store_id": "LKO-03",
+   "lever": "strong",
+   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
+   "peer": "Keep it up.",
+   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
+   "words": 36,
+   "value": null
+  },
+  {
+   "salesperson_id": "SP1029",
+   "name": "Sumit R.",
+   "store_id": "LKO-03",
+   "lever": "disc_rate",
+   "behaviour": "You give 0.5% discount on MRP.",
+   "peer": "Rizwan J. gives 0.0% and still closes.",
+   "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
+   "words": 31,
+   "value": 0.0045
+  },
+  {
+   "salesperson_id": "SP1030",
+   "name": "Shivam M.",
+   "store_id": "LKO-03",
+   "lever": "strong",
+   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
+   "peer": "Keep it up.",
+   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
+   "words": 36,
+   "value": null
+  },
+  {
+   "salesperson_id": "SP1032",
+   "name": "Yash C.",
+   "store_id": "LKO-03",
+   "lever": "ku_att",
+   "behaviour": "Only 17% of your kurta bills had a jacket.",
+   "peer": "Shivam M. sells a jacket with 30% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.1667
+  },
+  {
+   "salesperson_id": "SP1033",
+   "name": "Kunal C.",
+   "store_id": "LKO-04",
+   "lever": "ku_att",
+   "behaviour": "Only 11% of your kurta bills had a jacket.",
+   "peer": "Naveen R. sells a jacket with 35% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.1081
+  },
+  {
+   "salesperson_id": "SP1034",
+   "name": "Ravi K.",
+   "store_id": "LKO-04",
+   "lever": "ipb",
+   "behaviour": "Your bills average 1.55 items.",
+   "peer": "Kunal C. averages 1.94.",
+   "action": "Today: before billing, suggest one add-on that completes the look: stole, mala or mojari.",
+   "words": 23,
+   "value": 1.5455
+  },
+  {
+   "salesperson_id": "SP1036",
+   "name": "Vivek V.",
+   "store_id": "LKO-04",
+   "lever": "ku_att",
+   "behaviour": "Only 19% of your kurta bills had a jacket.",
+   "peer": "Naveen R. sells a jacket with 35% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.1875
+  },
+  {
+   "salesperson_id": "SP1037",
+   "name": "Gopal Y.",
+   "store_id": "LKO-04",
+   "lever": "strong",
+   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
+   "peer": "Keep it up.",
+   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
+   "words": 36,
+   "value": null
+  },
+  {
+   "salesperson_id": "SP1038",
+   "name": "Naveen R.",
+   "store_id": "LKO-04",
+   "lever": "disc_rate",
+   "behaviour": "You give 0.7% discount on MRP.",
+   "peer": "Gopal Y. gives 0.1% and still closes.",
+   "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
+   "words": 31,
+   "value": 0.0075
+  },
+  {
+   "salesperson_id": "SP1041",
+   "name": "Kamal A.",
+   "store_id": "LKO-04",
+   "lever": "ku_att",
+   "behaviour": "Only 15% of your kurta bills had a jacket.",
+   "peer": "Naveen R. sells a jacket with 35% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.1515
+  },
+  {
+   "salesperson_id": "SP1042",
+   "name": "Arif C.",
+   "store_id": "LKO-04",
+   "lever": "strong",
+   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
+   "peer": "Keep it up.",
+   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
+   "words": 36,
+   "value": null
+  },
+  {
+   "salesperson_id": "SP1043",
+   "name": "Zaid N.",
+   "store_id": "LKO-04",
+   "lever": "ipb",
+   "behaviour": "Your bills average 1.66 items.",
+   "peer": "Kunal C. averages 1.94.",
+   "action": "Today: before billing, suggest one add-on that completes the look: stole, mala or mojari.",
+   "words": 23,
+   "value": 1.661
+  },
+  {
+   "salesperson_id": "SP1166",
+   "name": "Anand B.",
+   "store_id": "MYS-01",
+   "lever": "ku_att",
+   "behaviour": "Only 14% of your kurta bills had a jacket.",
+   "peer": "Darshan G. sells a jacket with 21% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.1364
+  },
+  {
+   "salesperson_id": "SP1167",
+   "name": "Nithin C.",
+   "store_id": "MYS-01",
+   "lever": "ku_att",
+   "behaviour": "Only 12% of your kurta bills had a jacket.",
+   "peer": "Darshan G. sells a jacket with 21% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.125
+  },
+  {
+   "salesperson_id": "SP1169",
+   "name": "Darshan G.",
+   "store_id": "MYS-01",
+   "lever": "ipb",
+   "behaviour": "Your bills average 1.52 items.",
+   "peer": "Anand B. averages 1.83.",
+   "action": "Today: before billing, suggest one add-on that completes the look: stole, mala or mojari.",
+   "words": 23,
+   "value": 1.525
+  },
+  {
+   "salesperson_id": "SP1172",
+   "name": "Santosh B.",
+   "store_id": "MYS-02",
+   "lever": "ku_att",
+   "behaviour": "Only 7% of your kurta bills had a jacket.",
+   "peer": "Mohan Y. sells a jacket with 16% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.0741
+  },
+  {
+   "salesperson_id": "SP1173",
+   "name": "Mohan Y.",
+   "store_id": "MYS-02",
+   "lever": "ipb",
+   "behaviour": "Your bills average 1.35 items.",
+   "peer": "Madhu G. averages 1.89.",
+   "action": "Today: before billing, suggest one add-on that completes the look: stole, mala or mojari.",
+   "words": 23,
+   "value": 1.3462
+  },
+  {
+   "salesperson_id": "SP1174",
+   "name": "Madhu G.",
+   "store_id": "MYS-02",
+   "lever": "strong",
+   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
+   "peer": "Keep it up.",
+   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
+   "words": 36,
+   "value": null
+  },
+  {
+   "salesperson_id": "SP1101",
+   "name": "Saurabh Y.",
+   "store_id": "MZF-01",
+   "lever": "ku_att",
+   "behaviour": "Only 13% of your kurta bills had a jacket.",
+   "peer": "Raju S. sells a jacket with 21% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.1346
+  },
+  {
+   "salesperson_id": "SP1102",
+   "name": "Amit C.",
+   "store_id": "MZF-01",
+   "lever": "ku_att",
+   "behaviour": "Only 10% of your kurta bills had a jacket.",
+   "peer": "Raju S. sells a jacket with 21% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.1
+  },
+  {
+   "salesperson_id": "SP1103",
+   "name": "Raju S.",
+   "store_id": "MZF-01",
+   "lever": "ipb",
+   "behaviour": "Your bills average 1.47 items.",
+   "peer": "Saurabh Y. averages 1.72.",
+   "action": "Today: before billing, suggest one add-on that completes the look: stole, mala or mojari.",
+   "words": 23,
+   "value": 1.4667
+  },
+  {
+   "salesperson_id": "SP1104",
+   "name": "Chandan S.",
+   "store_id": "MZF-01",
+   "lever": "strong",
+   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
+   "peer": "Keep it up.",
+   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
+   "words": 36,
+   "value": null
+  },
+  {
+   "salesperson_id": "SP1105",
+   "name": "Rahul Y.",
+   "store_id": "MZF-02",
+   "lever": "disc_rate",
+   "behaviour": "You give 0.7% discount on MRP.",
+   "peer": "Ankit P. gives 0.0% and still closes.",
+   "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
+   "words": 31,
+   "value": 0.0073
+  },
+  {
+   "salesperson_id": "SP1106",
+   "name": "Ankit P.",
+   "store_id": "MZF-02",
+   "lever": "ku_att",
+   "behaviour": "Only 10% of your kurta bills had a jacket.",
+   "peer": "Rahul Y. sells a jacket with 23% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.1
+  },
+  {
+   "salesperson_id": "SP1108",
+   "name": "Manish C.",
+   "store_id": "MZF-02",
+   "lever": "disc_rate",
+   "behaviour": "You give 0.8% discount on MRP.",
+   "peer": "Ankit P. gives 0.0% and still closes.",
+   "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
+   "words": 31,
+   "value": 0.0082
+  },
+  {
+   "salesperson_id": "SP1064",
+   "name": "Manoj N.",
+   "store_id": "PAT-01",
+   "lever": "disc_rate",
+   "behaviour": "You give 7.1% discount on MRP.",
+   "peer": "Mukesh D. gives 0.1% and still closes.",
+   "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
+   "words": 31,
+   "value": 0.0711
+  },
+  {
+   "salesperson_id": "SP1065",
+   "name": "Sanjay K.",
+   "store_id": "PAT-01",
+   "lever": "disc_rate",
+   "behaviour": "You give 6.0% discount on MRP.",
+   "peer": "Mukesh D. gives 0.1% and still closes.",
+   "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
+   "words": 31,
+   "value": 0.0604
+  },
+  {
+   "salesperson_id": "SP1067",
+   "name": "Gopal R.",
+   "store_id": "PAT-01",
+   "lever": "ku_att",
+   "behaviour": "Only 19% of your kurta bills had a jacket.",
+   "peer": "Rizwan N. sells a jacket with 39% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.1875
+  },
+  {
+   "salesperson_id": "SP1069",
+   "name": "Kamal G.",
+   "store_id": "PAT-01",
+   "lever": "disc_rate",
+   "behaviour": "You give 2.4% discount on MRP.",
+   "peer": "Mukesh D. gives 0.1% and still closes.",
+   "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
+   "words": 31,
+   "value": 0.0239
+  },
+  {
+   "salesperson_id": "SP1070",
+   "name": "Mukesh D.",
+   "store_id": "PAT-01",
+   "lever": "ku_att",
+   "behaviour": "Only 15% of your kurta bills had a jacket.",
+   "peer": "Rizwan N. sells a jacket with 39% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.15
+  },
+  {
+   "salesperson_id": "SP1072",
+   "name": "Faizan K.",
+   "store_id": "PAT-01",
+   "lever": "sh_att",
+   "behaviour": "Only 56% of your sherwani bills had a safa, mojari or mala.",
+   "peer": "Sanjay K. adds one 100% of the time.",
+   "action": "Today: bring a safa and mojari to the trial room with every sherwani, before the customer asks.",
+   "words": 37,
+   "value": 0.5556
+  },
+  {
+   "salesperson_id": "SP1073",
+   "name": "Rizwan N.",
+   "store_id": "PAT-01",
+   "lever": "strong",
+   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
+   "peer": "Keep it up.",
+   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
+   "words": 36,
+   "value": null
+  },
+  {
+   "salesperson_id": "SP1075",
+   "name": "Vivek S.",
+   "store_id": "PAT-01",
+   "lever": "disc_rate",
+   "behaviour": "You give 3.4% discount on MRP.",
+   "peer": "Mukesh D. gives 0.1% and still closes.",
+   "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
+   "words": 31,
+   "value": 0.0336
+  },
+  {
+   "salesperson_id": "SP1076",
+   "name": "Raju P.",
+   "store_id": "PAT-01",
+   "lever": "strong",
+   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
+   "peer": "Keep it up.",
+   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
+   "words": 36,
+   "value": null
+  },
+  {
+   "salesperson_id": "SP1077",
+   "name": "Tarun B.",
+   "store_id": "PAT-01",
+   "lever": "ku_att",
+   "behaviour": "Only 21% of your kurta bills had a jacket.",
+   "peer": "Rizwan N. sells a jacket with 39% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.2115
+  },
+  {
+   "salesperson_id": "SP1078",
+   "name": "Tarun T.",
+   "store_id": "PAT-01",
+   "lever": "strong",
+   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
+   "peer": "Keep it up.",
+   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
+   "words": 36,
+   "value": null
+  },
+  {
+   "salesperson_id": "SP1079",
+   "name": "Tarun C.",
+   "store_id": "PAT-01",
+   "lever": "ku_att",
+   "behaviour": "Only 20% of your kurta bills had a jacket.",
+   "peer": "Rizwan N. sells a jacket with 39% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.2
+  },
+  {
+   "salesperson_id": "SP1081",
+   "name": "Manoj R.",
+   "store_id": "PAT-02",
+   "lever": "ku_att",
+   "behaviour": "Only 8% of your kurta bills had a jacket.",
+   "peer": "Jitendra K. sells a jacket with 28% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.0769
+  },
+  {
+   "salesperson_id": "SP1083",
+   "name": "Aman B.",
+   "store_id": "PAT-02",
+   "lever": "ku_att",
+   "behaviour": "Only 4% of your kurta bills had a jacket.",
+   "peer": "Jitendra K. sells a jacket with 28% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.0351
+  },
+  {
+   "salesperson_id": "SP1084",
+   "name": "Vinod S.",
+   "store_id": "PAT-02",
+   "lever": "ku_att",
+   "behaviour": "Only 12% of your kurta bills had a jacket.",
+   "peer": "Jitendra K. sells a jacket with 28% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.12
+  },
+  {
+   "salesperson_id": "SP1085",
+   "name": "Prakash J.",
+   "store_id": "PAT-02",
+   "lever": "disc_rate",
+   "behaviour": "You give 1.9% discount on MRP.",
+   "peer": "Vinod S. gives 0.1% and still closes.",
+   "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
+   "words": 31,
+   "value": 0.019
+  },
+  {
+   "salesperson_id": "SP1087",
+   "name": "Arjun D.",
+   "store_id": "PAT-02",
+   "lever": "strong",
+   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
+   "peer": "Keep it up.",
+   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
+   "words": 36,
+   "value": null
+  },
+  {
+   "salesperson_id": "SP1088",
+   "name": "Saurabh P.",
+   "store_id": "PAT-02",
+   "lever": "strong",
+   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
+   "peer": "Keep it up.",
+   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
+   "words": 36,
+   "value": null
+  },
+  {
+   "salesperson_id": "SP1089",
+   "name": "Hemant M.",
+   "store_id": "PAT-02",
+   "lever": "disc_rate",
+   "behaviour": "You give 1.3% discount on MRP.",
+   "peer": "Vinod S. gives 0.1% and still closes.",
+   "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
+   "words": 31,
+   "value": 0.0128
+  },
+  {
+   "salesperson_id": "SP1090",
+   "name": "Jitendra K.",
+   "store_id": "PAT-02",
+   "lever": "strong",
+   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
+   "peer": "Keep it up.",
+   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
+   "words": 36,
+   "value": null
+  },
+  {
+   "salesperson_id": "SP1092",
+   "name": "Amit A.",
+   "store_id": "PAT-03",
+   "lever": "disc_rate",
+   "behaviour": "You give 0.5% discount on MRP.",
+   "peer": "Aman Y. gives 0.0% and still closes.",
+   "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
+   "words": 31,
+   "value": 0.005
+  },
+  {
+   "salesperson_id": "SP1093",
+   "name": "Jitendra N.",
+   "store_id": "PAT-03",
+   "lever": "disc_rate",
+   "behaviour": "You give 0.8% discount on MRP.",
+   "peer": "Aman Y. gives 0.0% and still closes.",
+   "action": "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.",
+   "words": 31,
+   "value": 0.0077
+  },
+  {
+   "salesperson_id": "SP1094",
+   "name": "Aman Y.",
+   "store_id": "PAT-03",
+   "lever": "ku_att",
+   "behaviour": "Only 5% of your kurta bills had a jacket.",
+   "peer": "Jitendra N. sells a jacket with 22% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.0455
+  },
+  {
+   "salesperson_id": "SP1095",
+   "name": "Arjun A.",
+   "store_id": "PAT-03",
+   "lever": "ku_att",
+   "behaviour": "Only 5% of your kurta bills had a jacket.",
+   "peer": "Jitendra N. sells a jacket with 22% of kurtas.",
+   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
+   "words": 35,
+   "value": 0.0476
+  },
+  {
+   "salesperson_id": "SP1098",
+   "name": "Zaid A.",
+   "store_id": "PAT-04",
+   "lever": "strong",
+   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
+   "peer": "Keep it up.",
+   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
+   "words": 36,
+   "value": null
+  },
+  {
+   "salesperson_id": "SP1099",
+   "name": "Imran C.",
+   "store_id": "PAT-04",
+   "lever": "strong",
+   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
+   "peer": "Keep it up.",
+   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
+   "words": 36,
+   "value": null
+  }
+ ],
+ "data_issues": [
+  {
+   "store_id": "PAT-03",
+   "issue": "Door camera shows 0 walk-ins on days with sales",
+   "detail": "11 days (05 Oct–16 Oct), 24 bills on those days. Conversion for these days is left out. Ask the store to check the door camera.",
+   "days": 11
+  }
+ ],
+ "stores": {
+  "LKO-01": {
+   "city": "Lucknow",
+   "tier": "S++",
+   "am": "AM-01",
+   "conv": 0.1237,
+   "ipb": 1.8532,
+   "rev": 4208036.0,
+   "bills": 436,
+   "new": false
+  },
+  "LKO-02": {
+   "city": "Lucknow",
+   "tier": "S+",
+   "am": "AM-01",
+   "conv": 0.1054,
+   "ipb": 1.8284,
+   "rev": 1999369.0,
+   "bills": 204,
+   "new": false
+  },
+  "LKO-03": {
+   "city": "Lucknow",
+   "tier": "A",
+   "am": "AM-01",
+   "conv": 0.1046,
+   "ipb": 1.6854,
+   "rev": 782030.0,
+   "bills": 89,
+   "new": false
+  },
+  "LKO-04": {
+   "city": "Lucknow",
+   "tier": "S+",
+   "am": "AM-01",
+   "conv": 0.1364,
+   "ipb": 1.7817,
+   "rev": 2285644.0,
+   "bills": 229,
+   "new": false
+  },
+  "KNP-01": {
+   "city": "Kanpur",
+   "tier": "S+",
+   "am": "AM-02",
+   "conv": 0.1327,
+   "ipb": 1.7143,
+   "rev": 1681361.0,
+   "bills": 196,
+   "new": false
+  },
+  "KNP-02": {
+   "city": "Kanpur",
+   "tier": "A",
+   "am": "AM-02",
+   "conv": 0.1153,
+   "ipb": 1.6471,
+   "rev": 603091.0,
+   "bills": 68,
+   "new": false
+  },
+  "KNP-03": {
+   "city": "Kanpur",
+   "tier": "B",
+   "am": "AM-02",
+   "conv": 0.0867,
+   "ipb": 1.8444,
+   "rev": 455412.0,
+   "bills": 45,
+   "new": false
+  },
+  "PAT-01": {
+   "city": "Patna",
+   "tier": "S++",
+   "am": "AM-03",
+   "conv": 0.1385,
+   "ipb": 2.005,
+   "rev": 4282462.0,
+   "bills": 402,
+   "new": false
+  },
+  "PAT-02": {
+   "city": "Patna",
+   "tier": "S+",
+   "am": "AM-03",
+   "conv": 0.1249,
+   "ipb": 1.7712,
+   "rev": 2071319.0,
+   "bills": 236,
+   "new": false
+  },
+  "PAT-03": {
+   "city": "Patna",
+   "tier": "A",
+   "am": "AM-03",
+   "conv": 0.0836,
+   "ipb": 1.7222,
+   "rev": 678726.0,
+   "bills": 72,
+   "new": false
+  },
+  "PAT-04": {
+   "city": "Patna",
+   "tier": "B",
+   "am": "AM-03",
+   "conv": 0.0912,
+   "ipb": 1.5,
+   "rev": 375333.0,
+   "bills": 54,
+   "new": false
+  },
+  "MZF-01": {
+   "city": "Muzaffarpur",
+   "tier": "A",
+   "am": "AM-04",
+   "conv": 0.0832,
+   "ipb": 1.5192,
+   "rev": 690295.0,
+   "bills": 104,
+   "new": false
+  },
+  "MZF-02": {
+   "city": "Muzaffarpur",
+   "tier": "B",
+   "am": "AM-04",
+   "conv": 0.0993,
+   "ipb": 1.4386,
+   "rev": 404259.0,
+   "bills": 57,
+   "new": false
+  },
+  "BLR-01": {
+   "city": "Bengaluru",
+   "tier": "S++",
+   "am": "AM-05",
+   "conv": 0.1247,
+   "ipb": 1.8775,
+   "rev": 4362043.0,
+   "bills": 449,
+   "new": false
+  },
+  "BLR-02": {
+   "city": "Bengaluru",
+   "tier": "S++",
+   "am": "AM-05",
+   "conv": 0.1329,
+   "ipb": 1.8674,
+   "rev": 4512072.0,
+   "bills": 475,
+   "new": false
+  },
+  "BLR-03": {
+   "city": "Bengaluru",
+   "tier": "S+",
+   "am": "AM-05",
+   "conv": 0.1071,
+   "ipb": 1.9231,
+   "rev": 2099144.0,
+   "bills": 208,
+   "new": false
+  },
+  "BLR-04": {
+   "city": "Bengaluru",
+   "tier": "S+",
+   "am": "AM-05",
+   "conv": 0.1293,
+   "ipb": 1.8074,
+   "rev": 2213709.0,
+   "bills": 244,
+   "new": false
+  },
+  "BLR-05": {
+   "city": "Bengaluru",
+   "tier": "B",
+   "am": "AM-05",
+   "conv": 0.1084,
+   "ipb": 1.575,
+   "rev": 270452.0,
+   "bills": 40,
+   "new": true
+  },
+  "MYS-01": {
+   "city": "Mysuru",
+   "tier": "A",
+   "am": "AM-06",
+   "conv": 0.0843,
+   "ipb": 1.5316,
+   "rev": 535644.0,
+   "bills": 79,
+   "new": false
+  },
+  "MYS-02": {
+   "city": "Mysuru",
+   "tier": "B",
+   "am": "AM-06",
+   "conv": 0.0662,
+   "ipb": 1.3542,
+   "rev": 337812.0,
+   "bills": 48,
+   "new": false
+  }
+ }
+}
