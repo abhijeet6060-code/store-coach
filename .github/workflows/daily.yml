@@ -1,29 +1,24 @@
 name: Store Coach daily run
 
-# Runs every morning at 06:00 IST without anyone asking, rebuilds the report
-# from the data and redeploys the page. It never commits to the repo.
+# Runs every morning at 06:00 IST without anyone asking: rebuilds report.json
+# from the data and deploys it to the live Vercel site. It never commits to the repo.
+# Needs three repository secrets (added in GitHub settings, never in code):
+#   VERCEL_TOKEN, VERCEL_ORG_ID, VERCEL_PROJECT_ID
 on:
   schedule:
     - cron: "30 0 * * *"   # 00:30 UTC = 06:00 IST
-  push:
-    branches: [main]
   workflow_dispatch:
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: pages
-  cancel-in-progress: true
 
 jobs:
   run-and-deploy:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
+    env:
+      VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+      VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
+      VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -32,13 +27,13 @@ jobs:
           cache: pip
       - run: pip install -r requirements.txt
       - name: Run Store Coach
+        run: python pipeline/coach.py --data data --out report.json
+      - name: Summary
         run: |
-          mkdir -p _site
-          python pipeline/coach.py --data data --out _site/report.json
-          cp -r index.html style.css js _site/
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: _site
-      - id: deploy
-        uses: actions/deploy-pages@v4
+          python -c "import json;r=json.load(open('report.json',encoding='utf-8'));print('as of',r['as_of'],'run',r['generated_at']);[print(am['name'],'-',len(am['alerts']),'alerts') for am in r['area_managers']]" >> "$GITHUB_STEP_SUMMARY"
+      - name: Deploy to Vercel
+        if: env.VERCEL_TOKEN != ''
+        run: |
+          npx --yes vercel@39.1.1 pull --yes --environment=production --token="$VERCEL_TOKEN"
+          npx --yes vercel@39.1.1 build --prod --token="$VERCEL_TOKEN"
+          npx --yes vercel@39.1.1 deploy --prebuilt --prod --token="$VERCEL_TOKEN"
