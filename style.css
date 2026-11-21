@@ -55,3 +55,6 @@ select { font: inherit; padding: 6px 10px; border: 1px solid var(--line); border
 .sp .peer { color: var(--muted); }
 .sp.strong { border-color: var(--ok); }
 .wc { font-size: 0.75rem; color: var(--muted); text-align: right; }
+.rm { margin-top: 8px; border-top: 1px solid var(--line); padding-top: 8px; font-size: 0.92rem; }
+.rm ul { margin: 6px 0 0; padding-left: 18px; }
+.rm li { color: var(--repeat); }

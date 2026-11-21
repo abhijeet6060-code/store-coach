@@ -20,6 +20,8 @@ function amView(r) {
           <p><span class="lbl">Why</span> ${esc(a.cause)}</p>
           <p class="action"><span class="lbl">Do</span> ${esc(a.action)}</p>
         </li>`).join("")}</ol>` : `<p class="quiet">No store needs attention this week.</p>`}
+      ${am.role_models && am.role_models.length ? `<div class="rm"><span class="lbl">Role models</span> Customers come back to them. Ask them to show others how.
+        <ul>${am.role_models.map((m) => `<li>${esc(m.text)}</li>`).join("")}</ul></div>` : ""}
       ${am.follow_up.length ? `<details class="fu"><summary>Follow-up on last week's alerts (${am.follow_up.length})</summary>
         <ul>${am.follow_up.map((f) => `<li><span class="v ${verdictClass[f.verdict]}">${esc(f.verdict)}</span> ${esc(f.text)}</li>`).join("")}</ul></details>` : ""}
     </article>`).join("");

@@ -1,6 +1,6 @@
 {
  "as_of": "2026-10-31",
- "generated_at": "2026-11-21 11:50 IST",
+ "generated_at": "2026-11-21 11:52 IST",
  "window_days": 28,
  "area_managers": [
   {
@@ -42,6 +42,19 @@
     },
     {
      "am": "AM-01",
+     "store_id": "LKO-04",
+     "lever": "More repeat",
+     "title": "LKO-04: Kunal C.'s customers don't come back",
+     "cause": "Of 235 first-time customers Kunal C. (SP1033) served in the last year, 0 came back (0.0%); the rest of the store gets 2.9%. Role model: Zaid N..",
+     "action": "Today: Zaid N. shows Kunal C. how they take the customer's number and wedding date at billing; from tomorrow Kunal C. sends a thank-you WhatsApp to every customer the day after they buy.",
+     "rupees_week": 1307.4303,
+     "metric": "repeat",
+     "now": 0.0,
+     "expected": 0.029,
+     "sp": null
+    },
+    {
+     "am": "AM-01",
      "store_id": "LKO-02",
      "lever": "Bigger baskets",
      "title": "LKO-02: Varun S. discounting 2.7% vs store 0.7%",
@@ -75,6 +88,26 @@
      "verdict": "improved",
      "text": "Last week: LKO-04: smaller baskets (-12%). 1.64 then, 1.78 now: improved."
     }
+   ],
+   "role_models": [
+    {
+     "store_id": "LKO-01",
+     "salesperson_id": "SP1012",
+     "name": "Manoj T.",
+     "rate": 0.05,
+     "store_rate": 0.0191,
+     "customers": 120,
+     "text": "Manoj T. (LKO-01): 5.0% of first-time customers came back vs 1.9% for the store."
+    },
+    {
+     "store_id": "LKO-02",
+     "salesperson_id": "SP1027",
+     "name": "Sumit A.",
+     "rate": 0.0285,
+     "store_rate": 0.0162,
+     "customers": 281,
+     "text": "Sumit A. (LKO-02): 2.8% of first-time customers came back vs 1.6% for the store."
+    }
    ]
   },
   {
@@ -99,6 +132,19 @@
      "now": 1.7143,
      "expected": 1.8486,
      "sp": null
+    },
+    {
+     "am": "AM-02",
+     "store_id": "KNP-01",
+     "lever": "More repeat",
+     "title": "KNP-01: Ravi C.'s customers don't come back",
+     "cause": "Of 313 first-time customers Ravi C. (SP1045) served in the last year, 1 came back (0.3%); the rest of the store gets 2.3%. Role model: Jitendra J..",
+     "action": "Today: Jitendra J. shows Ravi C. how they take the customer's number and wedding date at billing; from tomorrow Ravi C. sends a thank-you WhatsApp to every customer the day after they buy.",
+     "rupees_week": 1007.8923,
+     "metric": "repeat",
+     "now": 0.0032,
+     "expected": 0.0227,
+     "sp": null
     }
    ],
    "follow_up": [
@@ -111,6 +157,26 @@
      "now": 0.1327,
      "verdict": "has not moved",
      "text": "Last week: KNP-01: conversion down 8%. 13.5% then, 13.3% now: has not moved."
+    }
+   ],
+   "role_models": [
+    {
+     "store_id": "KNP-01",
+     "salesperson_id": "SP1052",
+     "name": "Jitendra J.",
+     "rate": 0.0355,
+     "store_rate": 0.0198,
+     "customers": 169,
+     "text": "Jitendra J. (KNP-01): 3.6% of first-time customers came back vs 2.0% for the store."
+    },
+    {
+     "store_id": "KNP-02",
+     "salesperson_id": "SP1058",
+     "name": "Arjun Y.",
+     "rate": 0.0296,
+     "store_rate": 0.0192,
+     "customers": 169,
+     "text": "Arjun Y. (KNP-02): 3.0% of first-time customers came back vs 1.9% for the store."
     }
    ]
   },
@@ -163,6 +229,32 @@
      "now": 0.0409,
      "expected": 0.0191,
      "sp": "SP1069"
+    },
+    {
+     "am": "AM-03",
+     "store_id": "PAT-01",
+     "lever": "More repeat",
+     "title": "PAT-01: Faizan K.'s customers don't come back",
+     "cause": "Of 370 first-time customers Faizan K. (SP1072) served in the last year, 2 came back (0.5%); the rest of the store gets 2.2%. Role model: Sanjay K..",
+     "action": "Today: Sanjay K. shows Faizan K. how they take the customer's number and wedding date at billing; from tomorrow Faizan K. sends a thank-you WhatsApp to every customer the day after they buy.",
+     "rupees_week": 1294.178,
+     "metric": "repeat",
+     "now": 0.0054,
+     "expected": 0.0225,
+     "sp": null
+    },
+    {
+     "am": "AM-03",
+     "store_id": "PAT-03",
+     "lever": "More repeat",
+     "title": "PAT-03: customers not coming back",
+     "cause": "1.1% of first-time customers came back vs 2.1% for stores in Bihar. Role model: Jitendra N. keeps the best repeat rate in the store.",
+     "action": "Today, Jitendra N. and one colleague call the 59 customers who bought for a wedding 9–15 months ago and have not been back.",
+     "rupees_week": 1267.3506,
+     "metric": "repeat",
+     "now": 0.0107,
+     "expected": 0.0213,
+     "sp": null
     }
    ],
    "follow_up": [
@@ -195,6 +287,26 @@
      "now": 1.5,
      "verdict": "improved",
      "text": "Last week: PAT-04: smaller baskets (-13%). 1.45 then, 1.50 now: improved."
+    }
+   ],
+   "role_models": [
+    {
+     "store_id": "PAT-01",
+     "salesperson_id": "SP1065",
+     "name": "Sanjay K.",
+     "rate": 0.0558,
+     "store_rate": 0.0207,
+     "customers": 269,
+     "text": "Sanjay K. (PAT-01): 5.6% of first-time customers came back vs 2.1% for the store."
+    },
+    {
+     "store_id": "PAT-02",
+     "salesperson_id": "SP1089",
+     "name": "Hemant M.",
+     "rate": 0.0405,
+     "store_rate": 0.0242,
+     "customers": 173,
+     "text": "Hemant M. (PAT-02): 4.0% of first-time customers came back vs 2.4% for the store."
     }
    ]
   },
@@ -232,6 +344,19 @@
      "now": 0.0832,
      "expected": 0.0922,
      "sp": null
+    },
+    {
+     "am": "AM-04",
+     "store_id": "MZF-01",
+     "lever": "More repeat",
+     "title": "MZF-01: Chandan S.'s customers don't come back",
+     "cause": "Of 100 first-time customers Chandan S. (SP1104) served in the last year, 0 came back (0.0%); the rest of the store gets 2.5%. Role model: Amit C..",
+     "action": "Today: Amit C. shows Chandan S. how they take the customer's number and wedding date at billing; from tomorrow Chandan S. sends a thank-you WhatsApp to every customer the day after they buy.",
+     "rupees_week": 313.5099,
+     "metric": "repeat",
+     "now": 0.0,
+     "expected": 0.0246,
+     "sp": null
     }
    ],
    "follow_up": [
@@ -244,6 +369,17 @@
      "now": 1.4386,
      "verdict": "improved",
      "text": "Last week: MZF-02: smaller baskets (-28%). 1.36 then, 1.44 now: improved."
+    }
+   ],
+   "role_models": [
+    {
+     "store_id": "MZF-02",
+     "salesperson_id": "SP1106",
+     "name": "Ankit P.",
+     "rate": 0.0656,
+     "store_rate": 0.0345,
+     "customers": 122,
+     "text": "Ankit P. (MZF-02): 6.6% of first-time customers came back vs 3.4% for the store."
     }
    ]
   },
@@ -287,6 +423,32 @@
     },
     {
      "am": "AM-05",
+     "store_id": "BLR-01",
+     "lever": "More repeat",
+     "title": "BLR-01: Manjunath C.'s customers don't come back",
+     "cause": "Of 382 first-time customers Manjunath C. (SP1114) served in the last year, 2 came back (0.5%); the rest of the store gets 2.6%. Role model: Karthik J..",
+     "action": "Today: Karthik J. shows Manjunath C. how they take the customer's number and wedding date at billing; from tomorrow Manjunath C. sends a thank-you WhatsApp to every customer the day after they buy.",
+     "rupees_week": 1482.5713,
+     "metric": "repeat",
+     "now": 0.0052,
+     "expected": 0.026,
+     "sp": null
+    },
+    {
+     "am": "AM-05",
+     "store_id": "BLR-01",
+     "lever": "More repeat",
+     "title": "BLR-01: Sachin R.'s customers don't come back",
+     "cause": "Of 214 first-time customers Sachin R. (SP1113) served in the last year, 1 came back (0.5%); the rest of the store gets 2.5%. Role model: Karthik J..",
+     "action": "Today: Karthik J. shows Sachin R. how they take the customer's number and wedding date at billing; from tomorrow Sachin R. sends a thank-you WhatsApp to every customer the day after they buy.",
+     "rupees_week": 818.1379,
+     "metric": "repeat",
+     "now": 0.0047,
+     "expected": 0.0251,
+     "sp": null
+    },
+    {
+     "am": "AM-05",
      "store_id": "BLR-02",
      "lever": "Bigger baskets",
      "title": "BLR-02: Mahesh J. discounting 4.0% vs store 1.9%",
@@ -309,6 +471,26 @@
      "now": 0.1247,
      "verdict": "got worse",
      "text": "Last week: BLR-01: conversion down 12%. 12.9% then, 12.5% now: got worse."
+    }
+   ],
+   "role_models": [
+    {
+     "store_id": "BLR-01",
+     "salesperson_id": "SP1110",
+     "name": "Karthik J.",
+     "rate": 0.0647,
+     "store_rate": 0.0241,
+     "customers": 340,
+     "text": "Karthik J. (BLR-01): 6.5% of first-time customers came back vs 2.4% for the store."
+    },
+    {
+     "store_id": "BLR-04",
+     "salesperson_id": "SP1159",
+     "name": "Venkatesh T.",
+     "rate": 0.0287,
+     "store_rate": 0.0189,
+     "customers": 314,
+     "text": "Venkatesh T. (BLR-04): 2.9% of first-time customers came back vs 1.9% for the store."
     }
    ]
   },
@@ -382,6 +564,17 @@
      "verdict": "got worse",
      "text": "Last week: MYS-01: smaller baskets (-13%). 1.56 then, 1.53 now: got worse."
     }
+   ],
+   "role_models": [
+    {
+     "store_id": "MYS-01",
+     "salesperson_id": "SP1167",
+     "name": "Nithin C.",
+     "rate": 0.0336,
+     "store_rate": 0.0159,
+     "customers": 149,
+     "text": "Nithin C. (MYS-01): 3.4% of first-time customers came back vs 1.6% for the store."
+    }
    ]
   }
  ],
@@ -413,10 +606,10 @@
    "name": "Nithin J.",
    "store_id": "BLR-01",
    "lever": "strong",
-   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
-   "peer": "Keep it up.",
-   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
-   "words": 36,
+   "behaviour": "You are at or above your store's peers on add-ons, basket size, discount and repeat customers.",
+   "peer": "Srinivas B. joined most recently and can learn from you.",
+   "action": "Today: take Srinivas B. on your first sherwani trial and show how you add the safa and mojari.",
+   "words": 44,
    "value": null
   },
   {
@@ -457,10 +650,10 @@
    "name": "Prasad M.",
    "store_id": "BLR-01",
    "lever": "strong",
-   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
-   "peer": "Keep it up.",
-   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
-   "words": 36,
+   "behaviour": "You are at or above your store's peers on add-ons, basket size, discount and repeat customers.",
+   "peer": "Srinivas B. joined most recently and can learn from you.",
+   "action": "Today: take Srinivas B. on your first sherwani trial and show how you add the safa and mojari.",
+   "words": 44,
    "value": null
   },
   {
@@ -500,12 +693,12 @@
    "salesperson_id": "SP1123",
    "name": "Srinivas B.",
    "store_id": "BLR-01",
-   "lever": "ku_att",
-   "behaviour": "Only 23% of your kurta bills had a jacket.",
-   "peer": "Yogesh G. sells a jacket with 36% of kurtas.",
-   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
-   "words": 35,
-   "value": 0.2308
+   "lever": "rep",
+   "behaviour": "Only 0.0% of your first-time customers came back.",
+   "peer": "Karthik J. brings back 6.5%.",
+   "action": "Today: at billing, save every customer's number and family wedding date, and send a thank-you WhatsApp tomorrow.",
+   "words": 30,
+   "value": 0.0
   },
   {
    "salesperson_id": "SP1124",
@@ -588,12 +781,12 @@
    "salesperson_id": "SP1134",
    "name": "Girish V.",
    "store_id": "BLR-02",
-   "lever": "strong",
-   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
-   "peer": "Keep it up.",
-   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
-   "words": 36,
-   "value": null
+   "lever": "rep",
+   "behaviour": "Only 1.7% of your first-time customers came back.",
+   "peer": "Deepak V. brings back 3.3%.",
+   "action": "Today: at billing, save every customer's number and family wedding date, and send a thank-you WhatsApp tomorrow.",
+   "words": 30,
+   "value": 0.0165
   },
   {
    "salesperson_id": "SP1135",
@@ -644,10 +837,10 @@
    "name": "Venkatesh S.",
    "store_id": "BLR-02",
    "lever": "strong",
-   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
-   "peer": "Keep it up.",
-   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
-   "words": 36,
+   "behaviour": "You are at or above your store's peers on add-ons, basket size, discount and repeat customers.",
+   "peer": "Deepak C. joined most recently and can learn from you.",
+   "action": "Today: take Deepak C. on your first sherwani trial and show how you add the safa and mojari.",
+   "words": 44,
    "value": null
   },
   {
@@ -676,22 +869,22 @@
    "salesperson_id": "SP1143",
    "name": "Santosh V.",
    "store_id": "BLR-03",
-   "lever": "strong",
-   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
-   "peer": "Keep it up.",
-   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
-   "words": 36,
-   "value": null
+   "lever": "rep",
+   "behaviour": "Only 1.7% of your first-time customers came back.",
+   "peer": "Yogesh N. brings back 4.0%.",
+   "action": "Today: at billing, save every customer's number and family wedding date, and send a thank-you WhatsApp tomorrow.",
+   "words": 30,
+   "value": 0.0174
   },
   {
    "salesperson_id": "SP1144",
    "name": "Pradeep A.",
    "store_id": "BLR-03",
    "lever": "strong",
-   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
-   "peer": "Keep it up.",
-   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
-   "words": 36,
+   "behaviour": "You are at or above your store's peers on add-ons, basket size, discount and repeat customers.",
+   "peer": "Suresh B. joined most recently and can learn from you.",
+   "action": "Today: take Suresh B. on your first sherwani trial and show how you add the safa and mojari.",
+   "words": 44,
    "value": null
   },
   {
@@ -699,10 +892,10 @@
    "name": "Yogesh N.",
    "store_id": "BLR-03",
    "lever": "strong",
-   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
-   "peer": "Keep it up.",
-   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
-   "words": 36,
+   "behaviour": "You are at or above your store's peers on add-ons, basket size, discount and repeat customers.",
+   "peer": "Suresh B. joined most recently and can learn from you.",
+   "action": "Today: take Suresh B. on your first sherwani trial and show how you add the safa and mojari.",
+   "words": 44,
    "value": null
   },
   {
@@ -710,10 +903,10 @@
    "name": "Suresh B.",
    "store_id": "BLR-03",
    "lever": "strong",
-   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
-   "peer": "Keep it up.",
-   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
-   "words": 36,
+   "behaviour": "You are at or above your store's peers on add-ons, basket size, discount and repeat customers.",
+   "peer": "Mohan M. joined most recently and can learn from you.",
+   "action": "Today: take Mohan M. on your first sherwani trial and show how you add the safa and mojari.",
+   "words": 44,
    "value": null
   },
   {
@@ -764,12 +957,12 @@
    "salesperson_id": "SP1156",
    "name": "Deepak C.",
    "store_id": "BLR-04",
-   "lever": "strong",
-   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
-   "peer": "Keep it up.",
-   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
-   "words": 36,
-   "value": null
+   "lever": "rep",
+   "behaviour": "Only 1.2% of your first-time customers came back.",
+   "peer": "Venkatesh T. brings back 2.9%.",
+   "action": "Today: at billing, save every customer's number and family wedding date, and send a thank-you WhatsApp tomorrow.",
+   "words": 30,
+   "value": 0.0118
   },
   {
    "salesperson_id": "SP1157",
@@ -809,10 +1002,10 @@
    "name": "Sunil G.",
    "store_id": "BLR-04",
    "lever": "strong",
-   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
-   "peer": "Keep it up.",
-   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
-   "words": 36,
+   "behaviour": "You are at or above your store's peers on add-ons, basket size, discount and repeat customers.",
+   "peer": "Ganesh P. joined most recently and can learn from you.",
+   "action": "Today: take Ganesh P. on your first sherwani trial and show how you add the safa and mojari.",
+   "words": 44,
    "value": null
   },
   {
@@ -841,12 +1034,12 @@
    "salesperson_id": "SP1045",
    "name": "Ravi C.",
    "store_id": "KNP-01",
-   "lever": "strong",
-   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
-   "peer": "Keep it up.",
-   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
-   "words": 36,
-   "value": null
+   "lever": "rep",
+   "behaviour": "Only 0.3% of your first-time customers came back.",
+   "peer": "Jitendra J. brings back 3.6%.",
+   "action": "Today: at billing, save every customer's number and family wedding date, and send a thank-you WhatsApp tomorrow.",
+   "words": 30,
+   "value": 0.0032
   },
   {
    "salesperson_id": "SP1047",
@@ -952,10 +1145,10 @@
    "name": "Dinesh D.",
    "store_id": "KNP-02",
    "lever": "strong",
-   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
-   "peer": "Keep it up.",
-   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
-   "words": 36,
+   "behaviour": "You are at or above your store's peers on add-ons, basket size, discount and repeat customers.",
+   "peer": "Arjun Y. joined most recently and can learn from you.",
+   "action": "Today: take Arjun Y. on your first sherwani trial and show how you add the safa and mojari.",
+   "words": 44,
    "value": null
   },
   {
@@ -996,10 +1189,10 @@
    "name": "Shahid K.",
    "store_id": "LKO-01",
    "lever": "strong",
-   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
-   "peer": "Keep it up.",
-   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
-   "words": 36,
+   "behaviour": "You are at or above your store's peers on add-ons, basket size, discount and repeat customers.",
+   "peer": "Imran M. joined most recently and can learn from you.",
+   "action": "Today: take Imran M. on your first sherwani trial and show how you add the safa and mojari.",
+   "words": 44,
    "value": null
   },
   {
@@ -1029,10 +1222,10 @@
    "name": "Vikas J.",
    "store_id": "LKO-01",
    "lever": "strong",
-   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
-   "peer": "Keep it up.",
-   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
-   "words": 36,
+   "behaviour": "You are at or above your store's peers on add-ons, basket size, discount and repeat customers.",
+   "peer": "Imran M. joined most recently and can learn from you.",
+   "action": "Today: take Imran M. on your first sherwani trial and show how you add the safa and mojari.",
+   "words": 44,
    "value": null
   },
   {
@@ -1083,12 +1276,12 @@
    "salesperson_id": "SP1013",
    "name": "Arif M.",
    "store_id": "LKO-01",
-   "lever": "sh_att",
-   "behaviour": "Only 71% of your sherwani bills had a safa, mojari or mala.",
-   "peer": "Gaurav V. adds one 90% of the time.",
-   "action": "Today: bring a safa and mojari to the trial room with every sherwani, before the customer asks.",
-   "words": 37,
-   "value": 0.7143
+   "lever": "rep",
+   "behaviour": "Only 1.3% of your first-time customers came back.",
+   "peer": "Manoj T. brings back 5.0%.",
+   "action": "Today: at billing, save every customer's number and family wedding date, and send a thank-you WhatsApp tomorrow.",
+   "words": 30,
+   "value": 0.013
   },
   {
    "salesperson_id": "SP1014",
@@ -1105,12 +1298,12 @@
    "salesperson_id": "SP1015",
    "name": "Tushar N.",
    "store_id": "LKO-01",
-   "lever": "ku_att",
-   "behaviour": "Only 14% of your kurta bills had a jacket.",
-   "peer": "Vikas J. sells a jacket with 31% of kurtas.",
-   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
-   "words": 35,
-   "value": 0.1447
+   "lever": "rep",
+   "behaviour": "Only 0.9% of your first-time customers came back.",
+   "peer": "Manoj T. brings back 5.0%.",
+   "action": "Today: at billing, save every customer's number and family wedding date, and send a thank-you WhatsApp tomorrow.",
+   "words": 30,
+   "value": 0.0086
   },
   {
    "salesperson_id": "SP1016",
@@ -1182,12 +1375,12 @@
    "salesperson_id": "SP1026",
    "name": "Ajay S.",
    "store_id": "LKO-02",
-   "lever": "strong",
-   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
-   "peer": "Keep it up.",
-   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
-   "words": 36,
-   "value": null
+   "lever": "rep",
+   "behaviour": "Only 1.3% of your first-time customers came back.",
+   "peer": "Sumit A. brings back 2.8%.",
+   "action": "Today: at billing, save every customer's number and family wedding date, and send a thank-you WhatsApp tomorrow.",
+   "words": 30,
+   "value": 0.0126
   },
   {
    "salesperson_id": "SP1027",
@@ -1215,12 +1408,12 @@
    "salesperson_id": "SP1028",
    "name": "Rizwan J.",
    "store_id": "LKO-03",
-   "lever": "strong",
-   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
-   "peer": "Keep it up.",
-   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
-   "words": 36,
-   "value": null
+   "lever": "rep",
+   "behaviour": "Only 2.3% of your first-time customers came back.",
+   "peer": "Shivam M. brings back 5.0%.",
+   "action": "Today: at billing, save every customer's number and family wedding date, and send a thank-you WhatsApp tomorrow.",
+   "words": 30,
+   "value": 0.0226
   },
   {
    "salesperson_id": "SP1029",
@@ -1238,10 +1431,10 @@
    "name": "Shivam M.",
    "store_id": "LKO-03",
    "lever": "strong",
-   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
-   "peer": "Keep it up.",
-   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
-   "words": 36,
+   "behaviour": "You are at or above your store's peers on add-ons, basket size, discount and repeat customers.",
+   "peer": "Yash C. joined most recently and can learn from you.",
+   "action": "Today: take Yash C. on your first sherwani trial and show how you add the safa and mojari.",
+   "words": 44,
    "value": null
   },
   {
@@ -1293,10 +1486,10 @@
    "name": "Gopal Y.",
    "store_id": "LKO-04",
    "lever": "strong",
-   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
-   "peer": "Keep it up.",
-   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
-   "words": 36,
+   "behaviour": "You are at or above your store's peers on add-ons, basket size, discount and repeat customers.",
+   "peer": "Kamal A. joined most recently and can learn from you.",
+   "action": "Today: take Kamal A. on your first sherwani trial and show how you add the safa and mojari.",
+   "words": 44,
    "value": null
   },
   {
@@ -1326,10 +1519,10 @@
    "name": "Arif C.",
    "store_id": "LKO-04",
    "lever": "strong",
-   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
-   "peer": "Keep it up.",
-   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
-   "words": 36,
+   "behaviour": "You are at or above your store's peers on add-ons, basket size, discount and repeat customers.",
+   "peer": "Kamal A. joined most recently and can learn from you.",
+   "action": "Today: take Kamal A. on your first sherwani trial and show how you add the safa and mojari.",
+   "words": 44,
    "value": null
   },
   {
@@ -1347,12 +1540,12 @@
    "salesperson_id": "SP1166",
    "name": "Anand B.",
    "store_id": "MYS-01",
-   "lever": "ku_att",
-   "behaviour": "Only 14% of your kurta bills had a jacket.",
-   "peer": "Darshan G. sells a jacket with 21% of kurtas.",
-   "action": "Today: offer a matching Nehru jacket with every kurta trial, on the customer, not on the hanger.",
-   "words": 35,
-   "value": 0.1364
+   "lever": "rep",
+   "behaviour": "Only 0.8% of your first-time customers came back.",
+   "peer": "Nithin C. brings back 3.4%.",
+   "action": "Today: at billing, save every customer's number and family wedding date, and send a thank-you WhatsApp tomorrow.",
+   "words": 30,
+   "value": 0.0083
   },
   {
    "salesperson_id": "SP1167",
@@ -1369,12 +1562,12 @@
    "salesperson_id": "SP1169",
    "name": "Darshan G.",
    "store_id": "MYS-01",
-   "lever": "ipb",
-   "behaviour": "Your bills average 1.52 items.",
-   "peer": "Anand B. averages 1.83.",
-   "action": "Today: before billing, suggest one add-on that completes the look: stole, mala or mojari.",
-   "words": 23,
-   "value": 1.525
+   "lever": "rep",
+   "behaviour": "Only 0.9% of your first-time customers came back.",
+   "peer": "Nithin C. brings back 3.4%.",
+   "action": "Today: at billing, save every customer's number and family wedding date, and send a thank-you WhatsApp tomorrow.",
+   "words": 30,
+   "value": 0.0092
   },
   {
    "salesperson_id": "SP1172",
@@ -1403,10 +1596,10 @@
    "name": "Madhu G.",
    "store_id": "MYS-02",
    "lever": "strong",
-   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
-   "peer": "Keep it up.",
-   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
-   "words": 36,
+   "behaviour": "You are at or above your store's peers on add-ons, basket size, discount and repeat customers.",
+   "peer": "Mohan Y. joined most recently and can learn from you.",
+   "action": "Today: take Mohan Y. on your first sherwani trial and show how you add the safa and mojari.",
+   "words": 44,
    "value": null
   },
   {
@@ -1446,12 +1639,12 @@
    "salesperson_id": "SP1104",
    "name": "Chandan S.",
    "store_id": "MZF-01",
-   "lever": "strong",
-   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
-   "peer": "Keep it up.",
-   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
-   "words": 36,
-   "value": null
+   "lever": "rep",
+   "behaviour": "Only 0.0% of your first-time customers came back.",
+   "peer": "Amit C. brings back 2.5%.",
+   "action": "Today: at billing, save every customer's number and family wedding date, and send a thank-you WhatsApp tomorrow.",
+   "words": 30,
+   "value": 0.0
   },
   {
    "salesperson_id": "SP1105",
@@ -1557,10 +1750,10 @@
    "name": "Rizwan N.",
    "store_id": "PAT-01",
    "lever": "strong",
-   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
-   "peer": "Keep it up.",
-   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
-   "words": 36,
+   "behaviour": "You are at or above your store's peers on add-ons, basket size, discount and repeat customers.",
+   "peer": "Tarun B. joined most recently and can learn from you.",
+   "action": "Today: take Tarun B. on your first sherwani trial and show how you add the safa and mojari.",
+   "words": 44,
    "value": null
   },
   {
@@ -1579,10 +1772,10 @@
    "name": "Raju P.",
    "store_id": "PAT-01",
    "lever": "strong",
-   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
-   "peer": "Keep it up.",
-   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
-   "words": 36,
+   "behaviour": "You are at or above your store's peers on add-ons, basket size, discount and repeat customers.",
+   "peer": "Tarun B. joined most recently and can learn from you.",
+   "action": "Today: take Tarun B. on your first sherwani trial and show how you add the safa and mojari.",
+   "words": 44,
    "value": null
   },
   {
@@ -1601,10 +1794,10 @@
    "name": "Tarun T.",
    "store_id": "PAT-01",
    "lever": "strong",
-   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
-   "peer": "Keep it up.",
-   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
-   "words": 36,
+   "behaviour": "You are at or above your store's peers on add-ons, basket size, discount and repeat customers.",
+   "peer": "Tarun B. joined most recently and can learn from you.",
+   "action": "Today: take Tarun B. on your first sherwani trial and show how you add the safa and mojari.",
+   "words": 44,
    "value": null
   },
   {
@@ -1667,22 +1860,22 @@
    "name": "Arjun D.",
    "store_id": "PAT-02",
    "lever": "strong",
-   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
-   "peer": "Keep it up.",
-   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
-   "words": 36,
+   "behaviour": "You are at or above your store's peers on add-ons, basket size, discount and repeat customers.",
+   "peer": "Saurabh P. joined most recently and can learn from you.",
+   "action": "Today: take Saurabh P. on your first sherwani trial and show how you add the safa and mojari.",
+   "words": 44,
    "value": null
   },
   {
    "salesperson_id": "SP1088",
    "name": "Saurabh P.",
    "store_id": "PAT-02",
-   "lever": "strong",
-   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
-   "peer": "Keep it up.",
-   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
-   "words": 36,
-   "value": null
+   "lever": "rep",
+   "behaviour": "Only 1.6% of your first-time customers came back.",
+   "peer": "Hemant M. brings back 4.0%.",
+   "action": "Today: at billing, save every customer's number and family wedding date, and send a thank-you WhatsApp tomorrow.",
+   "words": 30,
+   "value": 0.0161
   },
   {
    "salesperson_id": "SP1089",
@@ -1699,12 +1892,12 @@
    "salesperson_id": "SP1090",
    "name": "Jitendra K.",
    "store_id": "PAT-02",
-   "lever": "strong",
-   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
-   "peer": "Keep it up.",
-   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
-   "words": 36,
-   "value": null
+   "lever": "rep",
+   "behaviour": "Only 1.6% of your first-time customers came back.",
+   "peer": "Hemant M. brings back 4.0%.",
+   "action": "Today: at billing, save every customer's number and family wedding date, and send a thank-you WhatsApp tomorrow.",
+   "words": 30,
+   "value": 0.0164
   },
   {
    "salesperson_id": "SP1092",
@@ -1755,10 +1948,10 @@
    "name": "Zaid A.",
    "store_id": "PAT-04",
    "lever": "strong",
-   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
-   "peer": "Keep it up.",
-   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
-   "words": 36,
+   "behaviour": "You are at or above your store's peers on add-ons, basket size, discount and repeat customers.",
+   "peer": "Imran C. joined most recently and can learn from you.",
+   "action": "Today: take Imran C. on your first sherwani trial and show how you add the safa and mojari.",
+   "words": 44,
    "value": null
   },
   {
@@ -1766,10 +1959,10 @@
    "name": "Imran C.",
    "store_id": "PAT-04",
    "lever": "strong",
-   "behaviour": "You are at or above your store's peers on add-ons, basket size and discount.",
-   "peer": "Keep it up.",
-   "action": "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.",
-   "words": 36,
+   "behaviour": "You are at or above your store's peers on add-ons, basket size, discount and repeat customers.",
+   "peer": "Zaid A. joined most recently and can learn from you.",
+   "action": "Today: take Zaid A. on your first sherwani trial and show how you add the safa and mojari.",
+   "words": 44,
    "value": null
   }
  ],

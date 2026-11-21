@@ -373,17 +373,44 @@ def build_alerts(D, as_of, bad_days):
     coh = repeat_stats(D, e)
     rep = coh.groupby("store_id").rep.agg(["mean", "count"])
     rep["state_mean"] = rep.join(M.state).groupby("state")["mean"].transform("median")
-    for sid, r in rep.iterrows():
-        if sid not in M.index or M.loc[sid, "new"] or r["count"] < 200:
+    M.attrs["coh"] = coh
+    names = D["SP"].set_index("salesperson_id").name
+    active = set(B[(B.d > e - pd.Timedelta(days=21)) & (B.d <= e)].salesperson_id)
+    # Salespeople whose customers don't come back, against the rest of their own store
+    sp = coh.groupby(["store_id", "salesperson_id"]).rep.agg(["sum", "count"]).reset_index()
+    for sid, g in sp.groupby("store_id"):
+        if sid not in M.index or M.loc[sid, "new"]:
             continue
-        if r["mean"] < r.state_mean - 0.04:
+        for _, x in g[(g["count"] >= 100) & g.salesperson_id.isin(active)].iterrows():
+            rest = g[g.salesperson_id != x.salesperson_id]
+            rest_rate = rest["sum"].sum() / max(rest["count"].sum(), 1)
+            rate = x["sum"] / x["count"]
+            if rest_rate >= 0.015 and rate <= 0.35 * rest_rate:
+                model = repeat_role_model(coh, sid, exclude=x.salesperson_id, active=active)
+                missing = (rest_rate - rate) * x["count"]
+                nm = names.get(x.salesperson_id, x.salesperson_id)
+                mn = names.get(model, model) if model else "the store manager"
+                alerts.append({"am": M.loc[sid, "am"], "store_id": sid, "lever": "More repeat",
+                               "title": f"{sid}: {nm}'s customers don't come back",
+                               "cause": (f"Of {int(x['count'])} first-time customers {nm} ({x.salesperson_id}) served in the last year, "
+                                         f"{int(x['sum'])} came back ({rate:.1%}); the rest of the store gets {rest_rate:.1%}. "
+                                         f"Role model: {mn}."),
+                               "action": (f"Today: {mn} shows {nm} how they take the customer's number and wedding date at billing; "
+                                          f"from tomorrow {nm} sends a thank-you WhatsApp to every customer the day after they buy."),
+                               "rupees_week": float(missing * M.loc[sid, "cur_abv"] / 52), "metric": "repeat",
+                               "now": float(rate), "expected": float(rest_rate)})
+    for sid, r in rep.iterrows():
+        if sid not in M.index or M.loc[sid, "new"] or r["count"] < 300:
+            continue
+        if r["mean"] < 0.6 * r.state_mean:
             missing = (r.state_mean - r["mean"]) * r["count"]
             rupees = missing * M.loc[sid, "cur_abv"] / 52
             lapsed = lapsed_wedding(D, sid, e)
-            model = repeat_role_model(coh, sid)
+            model = repeat_role_model(coh, sid, active=active)
+            model = names.get(model, model) if model else None
             alerts.append({"am": M.loc[sid, "am"], "store_id": sid, "lever": "More repeat",
                            "title": f"{sid}: customers not coming back",
-                           "cause": f"{r['mean']:.0%} of first-time customers came back vs {r.state_mean:.0%} in the state."
+                           "cause": f"{r['mean']:.1%} of first-time customers came back vs {r.state_mean:.1%} for stores in {M.loc[sid, 'state']}."
                                     + (f" Role model: {model} keeps the best repeat rate in the store." if model else ""),
                            "action": f"Today, {model or 'the store manager'} and one colleague call the {lapsed} customers who bought for a wedding 9–15 months ago and have not been back.",
                            "rupees_week": float(rupees), "metric": "repeat", "now": float(r["mean"]), "expected": float(r.state_mean)})
@@ -425,17 +452,19 @@ def lapsed_wedding(D, sid, e):
     return len(m)
 
 
-def repeat_role_model(coh, sid):
+def repeat_role_model(coh, sid, exclude=None, active=None):
     c = coh[coh.store_id == sid].groupby("salesperson_id").rep.agg(["mean", "count"])
-    c = c[c["count"] >= 40]
+    c = c[(c["count"] >= 40) & (c.index != exclude)]
+    if active is not None:
+        c = c[c.index.isin(active)]
     if c.empty:
         return None
     return c["mean"].idxmax()
 
 
 # ---------------------------------------------------------------- salesperson cards
-def build_cards(D, as_of):
-    B, SP = D["B"], D["SP"]
+def build_cards(D, as_of, coh=None):
+    B, SP, L = D["B"], D["SP"], D["L"]
     e = as_of
     s = e - pd.Timedelta(days=89)
     b = B[(B.d >= s) & (B.d <= e)]
@@ -451,6 +480,22 @@ def build_cards(D, as_of):
     g["ku_att"] = ku
     g["ku_n"] = kun
     g["disc_rate"] = g.disc / g.mrpv
+    if coh is not None:
+        rp = coh.groupby(["store_id", "salesperson_id"]).rep.agg(["mean", "count"])
+        g["rep"] = rp["mean"]
+        g["rep_n"] = rp["count"]
+    else:
+        g["rep"], g["rep_n"] = np.nan, 0
+    g["rep_n"] = g["rep_n"].fillna(0)
+    # Category mix: units by category for each salesperson vs their city
+    stores = D["S"].set_index("store_id")
+    lb = L[L.bill_id.isin(b.bill_id)].merge(b[["bill_id", "store_id", "salesperson_id"]], on="bill_id")
+    lb["city"] = lb.store_id.map(stores.city)
+    main_cats = ["Sherwani", "Indo-Western", "Kurta Set", "Jacket"]
+    city_mix = lb.groupby(["city", "category"]).qty.sum()
+    city_mix = (city_mix / city_mix.groupby(level=0).transform("sum")).unstack().reindex(columns=main_cats)
+    sp_mix = lb.groupby(["salesperson_id", "category"]).qty.sum()
+    sp_mix = (sp_mix / sp_mix.groupby(level=0).transform("sum")).unstack().reindex(columns=main_cats).fillna(0)
     g = g.reset_index()
     g = g[g.salesperson_id.isin(active) & (g.bills >= 20)]
     names = SP.set_index("salesperson_id").name
@@ -473,10 +518,31 @@ def build_cards(D, as_of):
             f"{peer} gives {pv:.1%} and still closes.",
             "Today: offer a free alteration or add-on suggestion before any discount; ask the manager before going above 5%.")),
     ]
+    levers.append(("rep", "rep_n", 100, +1, lambda me, peer, pv: (
+        f"Only {me:.1%} of your first-time customers came back.",
+        f"{peer} brings back {pv:.1%}.",
+        "Today: at billing, save every customer's number and family wedding date, and send a thank-you WhatsApp tomorrow.")))
+    sp_join = SP.set_index("salesperson_id").join_date
     cards = []
     for store, grp in g.groupby("store_id"):
+        city = stores.city[store]
         for _, me in grp.iterrows():
             best = None
+            # Avoiding a category the city buys
+            if me.salesperson_id in sp_mix.index and me.bills >= 40:
+                for cat in main_cats:
+                    cs, ms = city_mix.loc[city, cat], sp_mix.loc[me.salesperson_id, cat]
+                    if pd.notna(cs) and cs >= 0.08 and ms < 0.5 * cs:
+                        rel = 1 - ms / cs
+                        pool = [x for x in grp.salesperson_id if x != me.salesperson_id and x in sp_mix.index]
+                        if not pool:
+                            continue
+                        pr = max(pool, key=lambda x: sp_mix.loc[x, cat])
+                        txt = (f"{cat} is {cs:.0%} of what {city} buys, but only {ms:.0%} of what you sell.",
+                               f"{names.get(pr, pr)} sells {sp_mix.loc[pr, cat]:.0%} {cat}.",
+                               f"Today: show at least one {cat} to every customer who asks for wedding or festive wear.")
+                        if best is None or rel > best[0]:
+                            best = (rel, "cat_" + cat, txt)
             for col, ncol, minn, sign, text in levers:
                 if pd.isna(me[col]) or me[ncol] < minn:
                     continue
@@ -488,14 +554,20 @@ def build_cards(D, as_of):
                 rel = gap / (abs(med) + 1e-9)
                 if col == "disc_rate":
                     rel = gap / 0.02  # discount: compare in absolute points
+                if col == "rep":
+                    rel *= 0.4  # repeat rates are small and noisy; only lead with it when the gap is large
                 if gap <= 0:
                     continue
                 pr = peers.loc[(peers[col] * sign).idxmax()]
                 if best is None or rel > best[0]:
                     best = (rel, col, text(me[col], names.get(pr.salesperson_id, pr.salesperson_id), pr[col]))
             if best is None or best[0] < 0.08:
-                text = ("You are at or above your store's peers on add-ons, basket size and discount.",
-                        "Keep it up.", "Today: pair with the newest colleague on one sherwani trial and show how you add the safa and mojari.")
+                others = [x for x in grp.salesperson_id if x != me.salesperson_id]
+                newest = max(others, key=lambda x: sp_join.get(x, "")) if others else None
+                nn = names.get(newest, newest) if newest else "the newest colleague"
+                text = ("You are at or above your store's peers on add-ons, basket size, discount and repeat customers.",
+                        f"{nn} joined most recently and can learn from you.",
+                        f"Today: take {nn} on your first sherwani trial and show how you add the safa and mojari.")
                 col = "strong"
             else:
                 _, col, text = best
@@ -506,6 +578,26 @@ def build_cards(D, as_of):
                           "store_id": store, "lever": col, "behaviour": text[0], "peer": text[1], "action": text[2],
                           "words": words, "value": None if col == "strong" else float(me[col])})
     return cards
+
+
+def build_role_models(D, coh, e):
+    """Salespeople whose customers come back the most, per store. Name them so others can learn."""
+    if coh is None:
+        return []
+    B = D["B"]
+    active = set(B[(B.d > e - pd.Timedelta(days=21)) & (B.d <= e)].salesperson_id)
+    names = D["SP"].set_index("salesperson_id").name
+    c = coh.groupby(["store_id", "salesperson_id"]).rep.agg(["mean", "sum", "count"]).reset_index()
+    c = c[(c["count"] >= 60) & c.salesperson_id.isin(active)]
+    out = []
+    for sid, g in c.groupby("store_id"):
+        top = g.sort_values("mean", ascending=False).iloc[0]
+        store_rate = coh[coh.store_id == sid].rep.mean()
+        if top["mean"] >= 1.5 * store_rate and top["sum"] >= 3:
+            out.append({"store_id": sid, "salesperson_id": top.salesperson_id, "name": names.get(top.salesperson_id),
+                        "rate": float(top["mean"]), "store_rate": float(store_rate), "customers": int(top["count"]),
+                        "text": f"{names.get(top.salesperson_id)} ({sid}): {top['mean']:.1%} of first-time customers came back vs {store_rate:.1%} for the store."})
+    return out
 
 
 # ---------------------------------------------------------------- follow-up
@@ -538,7 +630,8 @@ def run(data_dir, as_of=None):
     alerts, M = build_alerts(D, end, bad)
     prev_alerts, _ = build_alerts(D, end - pd.Timedelta(days=7), bad)
     fu = follow_up(prev_alerts, M)
-    cards = build_cards(D, end)
+    cards = build_cards(D, end, M.attrs.get("coh"))
+    role_models = build_role_models(D, M.attrs.get("coh"), end)
     ams = D["AM"].set_index("area_manager_id")
     stores = D["S"].set_index("store_id")
     return {
@@ -546,7 +639,8 @@ def run(data_dir, as_of=None):
         "generated_at": pd.Timestamp.now(tz="Asia/Kolkata").strftime("%Y-%m-%d %H:%M IST"),
         "window_days": WINDOW,
         "area_managers": [{"id": i, "name": r["name"], "city": r.city, "stores": [x.strip() for x in r.stores.split(",")],
-                           "alerts": alerts.get(i, []), "follow_up": [f for f in fu if f["am"] == i]}
+                           "alerts": alerts.get(i, []), "follow_up": [f for f in fu if f["am"] == i],
+                           "role_models": [m for m in role_models if m["store_id"] in [x.strip() for x in r.stores.split(",")]]}
                           for i, r in ams.iterrows()],
         "cards": cards,
         "data_issues": [d for d in issues if d["store_id"] in stores.index],
