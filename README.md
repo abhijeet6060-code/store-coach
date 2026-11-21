@@ -14,7 +14,7 @@ Built by **Vibe Syndicate** at Vibe Coders Hackathon Edition 3, Kolkata, for pro
 | **Store manager** | Own store only: performance, alerts, team coaching progress, and assigned tasks to update with remarks and photo evidence. |
 | **Salesperson** | A coaching card of 60 words or fewer: one behaviour, a better peer from the same store, one action for today. |
 
-The link opens on a **welcome screen**: pick a role (no password). Use **⇄ Switch role** in the sidebar to change. Area managers can delete a follow-up created by mistake.
+The link opens on a **welcome screen**: pick a role (no password). Each role starts on **Today**, one tick-box list of what needs doing (issues, follow-ups to review or chase, personal to-dos). Use **⇄ Switch role** in the sidebar to change. Area managers can delete a follow-up created by mistake.
 
 ## What it finds in the data (as of 31 Oct 2026)
 
