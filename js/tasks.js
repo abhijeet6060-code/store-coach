@@ -72,6 +72,16 @@ export function update(id, { status, note, photo }, by, role) {
 
 export function resetAll() { save([]); }
 
+// Delete a follow-up created by mistake (Area Manager only; the UI asks for confirmation first).
+export function remove(id, role) {
+  if (role !== "Area Manager") return { error: "Only the area manager can delete a follow-up." };
+  const list = load(), i = list.findIndex((t) => t.id === id);
+  if (i < 0) return { error: "Follow-up not found." };
+  const [t] = list.splice(i, 1);
+  save(list);
+  return { task: t };
+}
+
 // Downscale a photo so evidence fits in browser storage.
 export function readPhoto(file, maxSide = 900) {
   return new Promise((resolve, reject) => {
